@@ -16,7 +16,7 @@
             <span class="icon-bar"></span>
           </button>
           <!-- <a class="navbar-brand" href="index.html"></a> -->
-          <img width="150" src="/img/logo.png" style="height: auto">
+          <img class="logo-menu-home" src="/img/logo.png" style="height: auto">
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,4 +39,23 @@
     </nav>
   </header>
 </template>
+<style>
+.logo-menu-home {
+    width: 150px;
+  }
+@media (max-width: 767px) {
+  .logo-menu-home {
+    width: 90px;
+    margin-top: 8px;
+  }
+}
+.navbar-default .navbar-collapse {
+  border-color: black;
+}
+.navbar-collapse {
+  border-top: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+</style>
 

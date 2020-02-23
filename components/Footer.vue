@@ -1,143 +1,97 @@
 <template>
   <footer>
-    <div class="footer clearfix">
+    <div class="footer clearfix" style="font-size: 10px !important">
       <div class="container">
         <div class="row">
           <div class="col-sm-3 col-xs-12">
             <div class="footerContent">
-              <a href="index.html" class="footer-logo">
-                <img src="img/logo-color-sm.png" alt="footer-logo" />
+              <a href="index.html" class="footer-logo" style="text-align: center">
+                <img src="img/logo.png" alt="footer-logo" width="150" />
               </a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>
+              <p>
+                Alquiler y venta de furgonetas Camper.
+                Interiores personalizados con
+                el mayor lujo y funcionalidad
+                para que disfrutes de la mejor
+                experiencia sobre ruedas.
+                Todas nuestras vans cuentan
+                con la homologación europea
+                y con los materiales más vanguardistas
+                del mercado. ¿A qué esperas para probarlas?
+              </p>
             </div>
           </div>
           <div class="col-sm-3 col-xs-12">
             <div class="footerContent">
-              <h5>contact us</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</p>
+              <h5>Contáctanos</h5>
+              <p>
+                Si tienes alguna duda contacta con nosotros.
+                Te ayudaremos a hacer tu sueño realidad.
+              </p>
               <ul class="list-unstyled">
                 <li>
-                  <i class="fa fa-home" aria-hidden="true"></i>61 Park Street, Fifth Avenue, NY
+                  <i class="fa fa-home" aria-hidden="true"></i>Calle Mar del Norte 8, 28830, Madrid
                 </li>
                 <li>
-                  <i class="fa fa-phone" aria-hidden="true"></i>[88] 657 524 332
+                  <i class="fa fa-phone" aria-hidden="true"></i>661 713 861 - 616 974 883
                 </li>
                 <li>
                   <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                  <a href="mailTo:info@star-travel.com">info@star-travel.com</a>
+                  <a href="mailTo:info@yevana.com">info@yevana.com</a>
                 </li>
               </ul>
             </div>
           </div>
           <div class="col-sm-3 col-xs-12">
-            <div class="footerContent imgGallery">
-              <h5>Gallery</h5>
-              <div class="row">
-                <div class="col-xs-4">
-                  <a class="fancybox-pop" href="img/home/gallery/gallery-1.jpg">
-                    <img src="img/home/gallery/thumb-gallery-1.jpg" alt="image" />
-                  </a>
-                </div>
-                <div class="col-xs-4">
-                  <a class="fancybox-pop" href="img/home/gallery/gallery-2.jpg">
-                    <img src="img/home/gallery/thumb-gallery-2.jpg" alt="image" />
-                  </a>
-                </div>
-                <div class="col-xs-4">
-                  <a class="fancybox-pop" href="img/home/gallery/gallery-3.jpg">
-                    <img src="img/home/gallery/thumb-gallery-3.jpg" alt="image" />
-                  </a>
-                </div>
-                <div class="col-xs-4">
-                  <a class="fancybox-pop" href="img/home/gallery/gallery-4.jpg">
-                    <img src="img/home/gallery/thumb-gallery-4.jpg" alt="image" />
-                  </a>
-                </div>
-                <div class="col-xs-4">
-                  <a class="fancybox-pop" href="img/home/gallery/gallery-5.jpg">
-                    <img src="img/home/gallery/thumb-gallery-5.jpg" alt="image" />
-                  </a>
-                </div>
-                <div class="col-xs-4">
-                  <a class="fancybox-pop" href="img/home/gallery/gallery-6.jpg">
-                    <img src="img/home/gallery/thumb-gallery-6.jpg" alt="image" />
-                  </a>
-                </div>
-              </div>
+            <div class="footerContent">
+              <h5>Sobre el sitio</h5>
+              <ul class="list-unstyled" style="line-height: 26px;">
+                <li style="margin-bottom: 0px !important">
+                  <a href="/terminos-condiciones.html">Términos y condiciones</a>
+                </li>
+                <li style="margin-bottom: 0px !important">
+                  <a href="/politica-privacidad.html">Política de privacidad</a>
+                </li>
+                <li style="margin-bottom: 0px !important">
+                  <a href="/faqs.html">FAQs alquileres</a>
+                </li>
+                <li style="margin-bottom: 0px !important">
+                  <a href="/politica-cookies.html">Política de cookies</a>
+                </li>
+                <li style="margin-bottom: 0px !important">
+                  <a href="/aviso-legal.html">Aviso legal</a>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="col-sm-3 col-xs-12">
             <div class="footerContent">
-              <h5>newsletter</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Enter your email"
-                  aria-describedby="basic-addon21"
-                />
-                <span class="input-group-addon" id="basic-addon21">
-                  <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                </span>
-              </div>
-              <ul class="list-inline">
+              <h5>Redes Sociales</h5>
+              <p>
+                ¿Quieres saber más sobre nosotros?
+                Siguenos y comparte tu experiencia.
+              </p>
+
+              <ul class="list-inline" style="margin-top: 30px">
                 <li>
-                  <a href="#">
+                  <a href="https://www.facebook.com/YevanaCAMPER/" target="_blank">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  <a
+                    href="https://www.instagram.com/yevanacamper/?utm_source=ig_profile_share&igshid=1bduig0tl3rn2"
+                    target="_blank"
+                  >
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fa fa-google-plus" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-vimeo" aria-hidden="true"></i>
+                  <a href="mailto:info@yevana.com">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="copyRight clearfix">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-sm-push-6 col-xs-12">
-            <ul class="list-inline">
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Support</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-6 col-sm-pull-6 col-xs-12">
-            <div class="copyRightText">
-              <p>
-                Copyright © 2016. All Rights Reserved by
-                <a target="_blank" href="http://www.iamabdus.com/">Abdus</a>.
-              </p>
             </div>
           </div>
         </div>
@@ -145,4 +99,9 @@
     </div>
   </footer>
 </template>
+<style scoped>
+.footer {
+  line-height: 21px;
+}
+</style>
 

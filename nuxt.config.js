@@ -11,20 +11,6 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
-//     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-// <script src="plugins/jquery-ui/jquery-ui.js"></script>
-// <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-// <script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-// <script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-// <script src="plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-// <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-// <script src="plugins/counter-up/jquery.counterup.min.js"></script>
-// <script src="plugins/isotope/isotope.min.js"></script>
-// <script src="plugins/c"></script>
-// <script src="plugins/isotope/isotope-triger.js"></script>
-// <script src="plugins/countdown/jquery.syotimer.js"></script>
-// <script src="js/custom.js"></script>
     script: [
       { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' },
       { src: 'plugins/jquery-ui/jquery-ui.js' },
@@ -80,6 +66,7 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    '@nuxtjs/device',
   ],
   /*
   ** Axios module configuration

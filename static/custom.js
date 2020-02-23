@@ -27,7 +27,7 @@ jQuery(document).ready(function(){
    startwidth: 1170,
    startheight: 745,
    fullWidth: 'on',
-   fullScreen: 'off',
+   fullScreen: 'on',
    hideCaptionAtLimit: '',
    dottedOverlay: 'twoxtwo',
    navigationStyle: 'preview4',
