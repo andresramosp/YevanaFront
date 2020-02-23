@@ -1,0 +1,77 @@
+<template>
+  <section class="whiteSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="sectionTitle" style="margin-bottom: 25px">
+            <h2>
+              <span>NUESTRA FLOTA</span>
+            </h2>
+            <div>Todas nuestras Camper cuentan con nuevas experiencias de serie</div>
+          </div>
+        </div>
+      </div>
+      <div class="row isotopeContainer">
+        <div
+          v-for="vehicle in vehicles"
+          :key="vehicles.indexOf(vehicle)"
+          class="col-sm-4 isotopeSelector alquila"
+        >
+          <article>
+            <figure>
+              <img
+                :src="require('~/assets/Vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg')"
+                alt="Furgoneta Emerald para alquilar"
+                style="max-height: 240px"
+              />
+              <div class="overlay">
+                <a class="fancybox-pop" :href="vehicle.Disponible ? ('/alquileres/' + vehicle.id) : 'javascript:void(0)'">
+                  <div class="overlayInfo" style="margin-top:20px">
+                    <h5 v-if="vehicle.Disponible">
+                      Desde
+                      <span>{{vehicle.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>
+                      <br />
+                      <br />
+                      <span>Ver detalles</span>
+                    </h5>
+                    <h5 v-else>
+                      <span>Próximamente!</span>
+                    </h5>
+                  </div>
+                </a>
+              </div>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+<script>
+import VehicleService from "~/services/VehicleService"
+export default {
+  data() {
+    return {
+      vehicles: [
+        // { id: "BL", lowestPrice: 60, Disponible: true }, 
+        // { id: "RD", lowestPrice: 70, Disponible: true }, 
+        // { id: "EM", lowestPrice: 80, Disponible: true },
+        // { id: "NE", Disponible: false }, 
+        // { id: "NG", Disponible: false }, 
+        // { id: "BW", Disponible: false},
+        ]
+    };
+  },
+  mounted() {
+    this.getVehicles();
+  },
+  methods: {
+    async getVehicles() {
+      this.vehicles = await VehicleService.getAll();
+    }
+  }
+};
+</script>
+<style>
+</style>
+

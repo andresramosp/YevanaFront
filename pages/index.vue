@@ -1,8 +1,7 @@
 <template>
   <div>
     <MainCarousel />
-    <!--BANDA INTERMEDIA-->
-    <!-- <section class="blackSection">
+    <section v-if="!$device.isMobile" class="blackSection">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -19,19 +18,27 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
+    <VehiclesGrid />
   </div>
 </template>
 
 <script>
 import MainCarousel from "~/components/MainCarousel.vue";
-
+import VehiclesGrid from "~/components/VehiclesGrid.vue";
 export default {
   components: {
-    MainCarousel
+    MainCarousel,
+    VehiclesGrid
   }
 };
 </script>
 
 <style>
+.mainContentSection, .blackSection {
+    width: 100%;
+    padding: 30px 0 30px 0;
+    background-color: black;
+    display: block;
+}
 </style>

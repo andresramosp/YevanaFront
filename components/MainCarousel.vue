@@ -34,7 +34,7 @@
               <div
                 class="tp-caption rs-caption-3 sft text-center"
                 data-hoffset="0"
-                :data-y="$device.isMobile ? 550 : 485"
+                :data-y="getDataY(485, 550)"
                 data-x="center"
                 data-speed="800"
                 data-start="2000"
@@ -68,7 +68,7 @@
             />
             <div class="slider-caption container">
               <div
-                :class="`tp-caption rs-caption-1 sft start ${$device.isMobile ? 'text-center' : 'text-left'}`"
+                :class="getCaptionClass('tp-caption rs-caption-1 sft start text-right' , 'tp-caption rs-caption-1 sft start text-center')"
                 data-hoffset="0"
                 data-x="center"
                 data-y="270"
@@ -84,10 +84,10 @@
               </div>
 
               <div
-                :class="`tp-caption rs-caption-3 sft ${$device.isMobile ? 'text-center' : 'text-left'}`"
+                :class="getCaptionClass('tp-caption rs-caption-1 sft start text-right' , 'tp-caption rs-caption-1 sft start text-center')"
                 data-hoffset="0"
                 data-x="center"
-                :data-y="$device.isMobile ? 600 : 485"
+                :data-y="getDataY(485, 600)"
                 data-speed="800"
                 data-start="2000"
                 data-easing="Power4.easeOut"
@@ -137,7 +137,7 @@
                 :class="`tp-caption rs-caption-3 sft ${$device.isMobile ? 'text-center' : 'text-right'}`"
                 data-hoffset="0"
                 data-x="center"
-                :data-y="$device.isMobile ? 550 : 485"
+                :data-y="getDataY(485, 550)"
                 data-speed="800"
                 data-start="2000"
                 data-easing="Power4.easeOut"
@@ -161,6 +161,23 @@
   </section>
 </template>
 <script>
+export default {
+  components: {
+  },
+  methods: {
+    getCaptionClass(desktop, mobile) {
+      return !this.$device.isMobile ? 
+      desktop
+      : mobile;
+    },
+    getDataY(desktop, mobile) {
+      return !this.$device.isMobile ? 
+      desktop
+      : mobile;
+    }
+  }
+};
+</script>
 
 
 
