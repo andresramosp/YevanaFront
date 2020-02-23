@@ -3,7 +3,7 @@
     <nav class="navbar navbar-default navbar-main navbar-fixed-top" role="navigation">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header" style="padding: 9px">
+        <div class="navbar-header">
           <button
             type="button"
             class="navbar-toggle"
@@ -16,7 +16,7 @@
             <span class="icon-bar"></span>
           </button>
           <!-- <a class="navbar-brand" href="index.html"></a> -->
-          <img class="logo-menu-home" src="/img/logo.png" style="height: auto">
+          <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,13 +40,19 @@
   </header>
 </template>
 <style>
+.navbar-header {
+  padding: 14px;
+}
 .logo-menu-home {
-    width: 150px;
-  }
+  width: 120px;
+}
 @media (max-width: 767px) {
   .logo-menu-home {
     width: 90px;
     margin-top: 8px;
+  }
+  .navbar-header {
+    padding: 5px;
   }
 }
 .navbar-default .navbar-collapse {
