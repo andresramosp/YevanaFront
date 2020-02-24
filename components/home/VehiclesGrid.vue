@@ -24,11 +24,23 @@
                 alt="Furgoneta Emerald para alquilar"
                 style="max-height: 240px"
               />
-              <div class="overlay">
-                <a class="fancybox-pop" :href="vehicle.Disponible ? ('/alquileres/' + vehicle.id) : 'javascript:void(0)'">
+              <div v-if="$device.isMobile && vehicle.Disponible" style="text-align: center">
+                <a
+                  class="mobile-caption"
+                >{{vehicle.Nombre}}</a>
+              </div>
+              <div v-else class="overlay">
+                <a
+                  class="fancybox-pop"
+                  :href="vehicle.Disponible ? ('/furgoneta/' + vehicle.VehiculoID) : 'javascript:void(0)'"
+                >
                   <div class="overlayInfo" style="margin-top:20px">
                     <h5 v-if="vehicle.Disponible">
-                      Desde
+                      <span
+                        style="font-size: 25px; color: white; font-weight: bold"
+                      >{{vehicle.Nombre}}</span>
+                      <br />
+                      <br />Desde
                       <span>{{vehicle.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>
                       <br />
                       <br />
@@ -48,18 +60,11 @@
   </section>
 </template>
 <script>
-import VehicleService from "~/services/VehicleService"
+import VehicleService from "~/services/VehicleService";
 export default {
   data() {
     return {
-      vehicles: [
-        // { id: "BL", lowestPrice: 60, Disponible: true }, 
-        // { id: "RD", lowestPrice: 70, Disponible: true }, 
-        // { id: "EM", lowestPrice: 80, Disponible: true },
-        // { id: "NE", Disponible: false }, 
-        // { id: "NG", Disponible: false }, 
-        // { id: "BW", Disponible: false},
-        ]
+      vehicles: []
     };
   },
   mounted() {
@@ -73,5 +78,15 @@ export default {
 };
 </script>
 <style>
+.mobile-caption {
+  position: absolute;
+  top: 12%;
+  font-size: 25px; 
+  color: white; 
+  font-weight: bold;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 </style>
 

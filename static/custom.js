@@ -22,18 +22,18 @@ jQuery(document).ready(function(){
   });
 
 //============================== Rs-Slider =========================
-  jQuery('.fullscreenbanner').revolution({
-   delay: 5000,
-   startwidth: 1170,
-   startheight: 745,
-   fullWidth: 'on',
-   fullScreen: 'on',
-   hideCaptionAtLimit: '',
-   dottedOverlay: 'twoxtwo',
-   navigationStyle: 'preview4',
-   fullScreenOffsetContainer: '',
-   hideTimerBar:'on'
-  });
+  // jQuery('.fullscreenbanner').revolution({
+  //  delay: 5000,
+  //  startwidth: 1170,
+  //  startheight: 745,
+  //  fullWidth: 'on',
+  //  fullScreen: 'on',
+  //  hideCaptionAtLimit: '',
+  //  dottedOverlay: 'twoxtwo',
+  //  navigationStyle: 'preview4',
+  //  fullScreenOffsetContainer: '',
+  //  hideTimerBar:'on'
+  // });
 
 //============================== CHANGE HEADER ON MOUSE SCROLL =========================
   var header = $('.changeHeader .navbar-fixed-top');

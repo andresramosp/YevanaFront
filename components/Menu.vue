@@ -16,7 +16,9 @@
             <span class="icon-bar"></span>
           </button>
           <!-- <a class="navbar-brand" href="index.html"></a> -->
-          <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
+          <a href="/">
+            <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
+          </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,13 +26,13 @@
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown singleDrop active">
-                <a href="index.html">Inicio</a>
+                <a href="/">Inicio</a>
               </li>
               <li class="dropdown singleDrop">
-                <a href="/alquileres.html" class="dropdown-toggle">Alquila</a>
+                <a href="/alquileres" class="dropdown-toggle">Alquila</a>
               </li>
               <li class="dropdown singleDrop">
-                <a href="/contacto.html" class="dropdown-toggle">Contacto</a>
+                <a href="/contacto" class="dropdown-toggle">Contacto</a>
               </li>
             </ul>
           </div>

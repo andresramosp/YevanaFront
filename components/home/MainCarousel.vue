@@ -45,7 +45,7 @@
               >
                 <span class="page-scroll" style="margin-right: 20px">
                   <a
-                    href="/alquileres.html"
+                    href="/alquileres"
                     class="btn buttonTransparent"
                     style="color: white"
                   >Escapa YA!</a>
@@ -97,7 +97,7 @@
               >
                 <span class="page-scroll">
                   <a
-                    href="/alquileres.html"
+                    href="/alquileres"
                     class="btn buttonTransparent"
                     style="color: white"
                   >Alquílala</a>
@@ -147,7 +147,7 @@
               >
                 <span class="page-scroll">
                   <a
-                    href="/alquileres.html"
+                    href="/alquileres"
                     class="btn buttonTransparent"
                     style="color: white"
                   >Escapa YA!</a>
@@ -162,18 +162,27 @@
 </template>
 <script>
 export default {
-  components: {
+  components: {},
+  mounted() {
+    jQuery(".fullscreenbanner").revolution({
+      delay: 5000,
+      startwidth: 1170,
+      startheight: 745,
+      fullWidth: "on",
+      fullScreen: "on",
+      hideCaptionAtLimit: "",
+      dottedOverlay: "twoxtwo",
+      navigationStyle: "preview4",
+      fullScreenOffsetContainer: "",
+      hideTimerBar: "on"
+    });
   },
   methods: {
     getCaptionClass(desktop, mobile) {
-      return !this.$device.isMobile ? 
-      desktop
-      : mobile;
+      return !this.$device.isMobile ? desktop : mobile;
     },
     getDataY(desktop, mobile) {
-      return !this.$device.isMobile ? 
-      desktop
-      : mobile;
+      return !this.$device.isMobile ? desktop : mobile;
     }
   }
 };

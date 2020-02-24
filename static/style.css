@@ -2820,7 +2820,7 @@ header {
 
 .mainContentSection, .whiteSection, .lightSection {
   width: 100%;
-  padding: 100px 0 70px 0;
+  padding: 50px 0 50px 0;
   background-color: #ffffff;
   display: block;
 }
@@ -2890,7 +2890,7 @@ header {
 
 /*=== 5.3 WHITE SECTION ===*/
 .destinations {
-  background-color: #262a2e;
+  background-color: white;
   border-radius: 5px;
 }
 
@@ -4460,7 +4460,7 @@ header {
 
 /*=== 6.2 PROMOTION ===*/
 .promotionWrapper {
-  background-image: url("../img/home/promotion/promotion-1.jpg");
+  background-image: url("/img/home/homeParalax.jpg");
   background-attachment: fixed;
   width: 100%;
   background-size: cover;
