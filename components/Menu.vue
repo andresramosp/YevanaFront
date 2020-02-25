@@ -41,6 +41,24 @@
     </nav>
   </header>
 </template>
+<script>
+export default {
+  components: {},
+  mounted() {
+    var header = $(".changeHeader .navbar-fixed-top");
+    $(window).scroll(function() {
+      var scroll = $(window).scrollTop();
+      if (scroll >= 1 && $(".navbar-default").hasClass("navbar-main")) {
+        header.addClass("lightHeader");
+      } else if ($(".navbar-default").hasClass("static-light")) {
+        header.addClass("lightHeader");
+      } else {
+        header.removeClass("lightHeader");
+      }
+    });
+  }
+};
+</script>
 <style>
 .navbar-header {
   padding: 14px;

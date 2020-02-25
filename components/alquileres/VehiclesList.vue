@@ -8,7 +8,7 @@
             <!--IMAGEN-->
             <div class="relatedItem media-left">
               <img
-                style="width: 400px; height: 300px"
+                style="display: block; width: 100%; max-width: 400px"
                 :src="require('~/assets/Vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg')"
                 alt="Furgoneta Yevana para alquilar"
               />
@@ -22,14 +22,25 @@
                 >Ver Más</a>
               </div>
             </div>
+            <!-- <a class="media-left fancybox-pop" href="img/packages/package-list-01.jpg">
+                <img class="media-object"  :src="require('~/assets/Vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg')" alt="Image">
+            </a>-->
             <div class="media-body">
               <div class="bodyLeft">
                 <h4 class="media-heading">
                   <a :href="'furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</a>
+                  <span
+                    v-if="$device.isMobile && vehiculo.Disponible"
+                    style="font-size: 12px; color: orange; font-weight: bold; float: right"
+                  >DESDE {{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>
                 </h4>
+
                 <!--DESCRIPCIÓN-->
-                <p>{{vehiculo.DescripcionCorta}}</p>
-                <hr style="margin-top: 6px; margin-bottom: 6px" />
+                <div v-if="!$device.isMobile">
+                  <p>{{vehiculo.DescripcionCorta}}</p>
+                  <hr style="margin-top: 6px; margin-bottom: 6px" />
+                </div>
+
                 <!--CARACTERÍSTICAS TÉCNICAS-->
                 <div class="row">
                   <div class="col-md-6">
@@ -39,8 +50,9 @@
                         width="21"
                         height="21"
                         style="margin-right: 7px"
-                      /> -->
-                      Marca: {{vehiculo.Familia}}
+                      />-->
+                      <span class="vehicle-prop">Marca:</span>
+                      {{vehiculo.Familia}}
                     </span>
                   </div>
                   <div class="col-md-6">
@@ -50,8 +62,9 @@
                         width="21"
                         height="21"
                         style="margin-right: 7px; margin-left: -2px"
-                      /> -->
-                      Modelo: {{ vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' }}
+                      />-->
+                      <span class="vehicle-prop">Modelo:</span>
+                      : {{ vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' }}
                     </span>
                   </div>
                 </div>
@@ -63,8 +76,9 @@
                         width="21"
                         height="21"
                         style="margin-right: 7px"
-                      /> -->
-                      Motor: {{vehiculo.FichaTecnica.Motor}}
+                      />-->
+                      <span class="vehicle-prop">Motor:</span>
+                      : {{vehiculo.FichaTecnica.Motor}}
                     </span>
                   </div>
                   <div class="col-md-6">
@@ -74,12 +88,13 @@
                         width="19"
                         height="19"
                         style="margin-right: 7px"
-                      /> -->
-                      Combustible: {{vehiculo.FichaTecnica.Combustible}}
+                      />-->
+                      <span class="vehicle-prop">Combustible:</span>
+                      : {{vehiculo.FichaTecnica.Combustible}}
                     </span>
                   </div>
                 </div>
-                <div class="row top-row2">
+                <div v-if="!$device.isMobile" class="row top-row2">
                   <div class="col-md-6">
                     <span class>
                       <!-- <img
@@ -87,8 +102,9 @@
                         width="19"
                         height="19"
                         style="margin-right: 7px"
-                      /> -->
-                      Plazas de viaje: {{vehiculo.FichaTecnica.NumeroAsientos}}
+                      />-->
+                      <span class="vehicle-prop">Plazas:</span>
+                      : {{vehiculo.FichaTecnica.NumeroAsientos}}
                     </span>
                   </div>
                   <div class="col-md-6">
@@ -98,12 +114,13 @@
                         width="21"
                         height="21"
                         style="margin-right: 7px"
-                      /> -->
-                      Plazas para dormir: {{vehiculo.FichaTecnica.PlazasDormir}}+1
+                      />-->
+                      <span class="vehicle-prop">Camas:</span>
+                      : {{vehiculo.FichaTecnica.PlazasDormir}}+1
                     </span>
                   </div>
                 </div>
-                <hr style="margin-top: 6px; margin-bottom: 6px" />
+                <hr v-if="!$device.isMobile" style="margin-top: 6px; margin-bottom: 6px" />
 
                 <!--SECCION ITEMS EQUIPAMIENTO-->
                 <!-- <div class="row">
@@ -122,14 +139,14 @@
                       {{extra.Nombre}}
                     </div>
                   </div>
-                </div> -->
+                </div>-->
               </div>
-              <div class="bodyRight">
-                <div class="bookingDetails" style="padding: ">
+              <div v-if="!$device.isMobile" class="bodyRight">
+                <div class="bookingDetails">
                   <p style="margin-bottom: 20px">Desde</p>
                   <h2
                     style="margin-bottom: 40px; font-size: 40px"
-                  >{{vehiculo.precioTemporadaBaja}}&#8364</h2>
+                  >{{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</h2>
                   <a
                     v-if="vehiculo.Disponible"
                     :href="'furgoneta/' + vehiculo.VehiculoID"
@@ -138,6 +155,10 @@
                   <!--<span ng-if="!vehiculo.Disponible" class="top-row8">Próximamente</span>-->
                 </div>
               </div>
+              <!-- <span
+                v-else
+                style="font-size: 15px; color: orange; font-weight: bold; margin-top: 10px"
+              >DESDE {{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>-->
             </div>
           </div>
         </div>
@@ -163,16 +184,15 @@ export default {
   }
 };
 </script>
-<style>
-/* .mobile-caption {
-  position: absolute;
-  top: 12%;
-  font-size: 25px; 
-  color: white; 
+<style scoped>
+.relatedItem {
+  margin-bottom: 0px;
+}
+/* .media-body > span {
   font-weight: bold;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
 } */
+.vehicle-prop {
+  font-weight: bold;
+}
 </style>
 
