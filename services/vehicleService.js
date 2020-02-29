@@ -4,7 +4,7 @@ import axios from 'axios'
 const VehicleService = {
     getAll() {
         return axios({
-            url: 'https://yevana.com/odata/oVehiculo?$expand=PreciosVehiculoTemporada,FichaTecnica($expand=EquipamientoItems)',
+            url: process.env.baseUrl + '/odata/oVehiculo?$expand=PreciosVehiculoTemporada,FichaTecnica($expand=EquipamientoItems)',
             method: 'GET',
         })
         .then((data) => {

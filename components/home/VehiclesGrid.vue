@@ -23,6 +23,7 @@
                 :src="require('~/assets/Vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg')"
                 alt="Furgoneta Emerald para alquilar"
                 style="max-height: 240px"
+                @click="goToVehicle(vehicle.VehiculoID)"
               />
               <div v-if="$device.isMobile && vehicle.Disponible" style="text-align: center">
                 <a
@@ -73,6 +74,11 @@ export default {
   methods: {
     async getVehicles() {
       this.vehicles = await VehicleService.getAll();
+    },
+    goToVehicle(id) {
+      this.$router.push({
+        path: `/furgoneta/${id}`
+      })
     }
   }
 };

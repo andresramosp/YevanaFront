@@ -1,5 +1,9 @@
 
 export default {
+  env: {
+    baseUrl:
+      process.env.BASE_URL || 'http://api.yevana.com'
+  },
   mode: 'spa',
   /*
   ** Headers of the page
@@ -13,16 +17,16 @@ export default {
     ],
     script: [
       { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' },
-      { src: 'plugins/jquery-ui/jquery-ui.js' },
-      { src: 'plugins/bootstrap/js/bootstrap.min.js' },
-      { src: 'plugins/rs-plugin/js/jquery.themepunch.tools.min.js' },
-      { src: 'plugins/rs-plugin/js/jquery.themepunch.revolution.min.js' },
-      { src: 'plugins/selectbox/jquery.selectbox-0.1.3.min.js' },
-      { src: 'plugins/datepicker/bootstrap-datepicker.js' },
+      { src: '/plugins/jquery-ui/jquery-ui.js' },
+      { src: '/plugins/bootstrap/js/bootstrap.min.js' },
+      { src: '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js' },
+      { src: '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js' },
+      { src: '/plugins/selectbox/jquery.selectbox-0.1.3.min.js' },
+      { src: '/plugins/datepicker/bootstrap-datepicker.js' },
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js' },
-      { src: 'plugins/counter-up/jquery.counterup.min.js' },
-      { src: 'plugins/isotope/isotope.min.js' },
-      { src: 'plugins/countdown/jquery.syotimer.js' },
+      { src: '/plugins/counter-up/jquery.counterup.min.js' },
+      { src: '/plugins/isotope/isotope.min.js' },
+      { src: '/plugins/countdown/jquery.syotimer.js' },
       { src: '/custom.js' },
     ],
     link: [

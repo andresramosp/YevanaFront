@@ -1,13 +1,15 @@
 <template>
-  <div style="margin-top: 109px !important">
-    Ficha {{$route.params.id}}
+  <div style="margin-top: 85px !important">
+    <VehicleDetail :id="$route.params.id" />
   </div>
 </template>
 
 <script>
-// import MainCarousel from "~/components/MainCarousel.vue";
+import VehicleDetail from "~/components/alquileres/VehicleDetail.vue";
 export default {
-  components: {}
+  components: {
+    VehicleDetail
+  }
 };
 </script>
 

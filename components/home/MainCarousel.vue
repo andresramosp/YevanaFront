@@ -164,7 +164,7 @@
 export default {
   components: {},
   mounted() {
-    jQuery(".fullscreenbanner").revolution({
+    $(".fullscreenbanner").revolution({
       delay: 5000,
       startwidth: 1170,
       startheight: 745,

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-default navbar-main navbar-fixed-top" role="navigation">
+    <nav :class="`navbar navbar-default ${opaque ? 'opaque' : ''} navbar-main navbar-fixed-top`" role="navigation">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -44,6 +44,7 @@
 <script>
 export default {
   components: {},
+  props: ['opaque'],
   mounted() {
     var header = $(".changeHeader .navbar-fixed-top");
     $(window).scroll(function() {
@@ -74,6 +75,9 @@ export default {
   .navbar-header {
     padding: 5px;
   }
+}
+.opaque {
+  background-color: black;
 }
 .navbar-default .navbar-collapse {
   border-color: black;
