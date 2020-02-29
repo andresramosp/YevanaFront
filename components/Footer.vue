@@ -6,7 +6,7 @@
           <div class="col-sm-3 col-xs-12">
             <div class="footerContent">
               <a href="index.html" class="footer-logo" style="text-align: center">
-                <img src="img/logo.png" alt="footer-logo" width="150" />
+                <img src="/img/logo.png" alt="footer-logo" width="150" />
               </a>
               <p>
                 Alquiler y venta de furgonetas Camper.
