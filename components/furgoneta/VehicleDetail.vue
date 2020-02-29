@@ -77,6 +77,7 @@ export default {
   watch: {
     showBookingPanel() {
       State.footerVisible = !this.showBookingPanel;
+      State.menuVisible = !this.showBookingPanel;
     }
   },
   props: ["id"],

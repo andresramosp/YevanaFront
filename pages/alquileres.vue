@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 85px !important">
+  <div>
     <VehiclesList />
   </div>
 </template>

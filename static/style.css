@@ -704,7 +704,7 @@ a:focus {
 /*=== 2.7 DATEPICKER ===*/
 .ed-datepicker {
   height: 45px;
-  margin-top: 4px;
+  /* margin-top: 4px; */
   border: none;
   border-bottom: 1px solid rgba(222, 222, 222, 0.3);
   padding: 0;
@@ -5700,6 +5700,7 @@ header {
   border-radius: 3px;
   padding: 0 10px;
   margin-bottom: 0;
+  background-color: white;
 }
 
 .singleHotelSidebar .datepickerWrap .searchFilter .sbHolder {

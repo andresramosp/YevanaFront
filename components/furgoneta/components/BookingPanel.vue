@@ -1,9 +1,13 @@
 <template>
   <div :class="`${$device.isMobile ? 'mobile-fixed-panel' : ''}`">
     <div class="singleHotelSidebar">
-      <div class="panel panel-default">
+      <div :class="`${!$device.isMobile ? 'panel panel-default' : ''}`">
         <div v-if="!$device.isMobile" class="panel-heading">DESDE {{50}} €/DÍA</div>
-        <div style="float: right; font-size: 20px; margin: 7px" v-else @click="$emit('onClose')">X</div>
+        <div
+          style="float: left; font-size: 20px; font-weight: bold; margin-top: -10px; margin-left: 10px;"
+          v-else
+          @click="$emit('onClose')"
+        >X</div>
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12">
@@ -32,14 +36,8 @@
                 </div>-->
                 <!--Calendarios-->
                 <div class="form-group">
-                  <label
-                    class="control-label col-md-3 col-sm-12 col-xs-3"
-                    for="inputSuccess3"
-                  >Desde:</label>
-                  <div
-                    class="col-md-5 col-sm-12 col-xs-5 datepickerWrap"
-                    style="padding-right: 0px"
-                  >
+                  <label class="control-label col-xs-2" for="inputSuccess3">Desde:</label>
+                  <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
                     <div class="input-group date ed-datepicker filterDate">
                       <input
                         :disabled="false"
@@ -54,8 +52,8 @@
                     </div>
                   </div>
                   <!--<label class="control-label col-md-1 col-sm-12 col-xs-4" for="inputSuccess3">Hora:</label>-->
-                  <div class="col-sm-12 col-md-4 col-xs-4">
-                    <select class="md-no-underline selectBordered" style="height: 45px">
+                  <div class="col-xs-4">
+                    <select class="form-control">
                       <option
                         v-for="opt in [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
                         :key="opt"
@@ -65,14 +63,8 @@
                 </div>
 
                 <div class="form-group">
-                  <label
-                    class="control-label col-md-3 col-sm-12 col-xs-3"
-                    for="inputSuccess3"
-                  >Hasta:</label>
-                  <div
-                    class="col-md-5 col-sm-12 col-xs-5 datepickerWrap"
-                    style="padding-right: 0px"
-                  >
+                  <label class="control-label col-xs-2" for="inputSuccess3">Hasta:</label>
+                  <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
                     <div class="input-group date ed-datepicker filterDate">
                       <input
                         id="hasta"
@@ -86,8 +78,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-xs-4">
-                    <select class="md-no-underline selectBordered" style="height: 45px">
+                  <div class="col-xs-4">
+                    <select class="form-control">
                       <option
                         v-for="opt in [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
                         :key="opt"
@@ -97,48 +89,34 @@
                 </div>
 
                 <!--Forma recogida-->
-                <!-- <div class="form-group" style="margin-bottom: 5px">
+                <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <label
-                      class="control-label col-md-3 col-sm-12 col-xs-3"
-                      for="inputSuccess3"
-                    >Recogida:</label>
-                    <div class="col-sm-12 col-md-9 col-xs-9">
-                      <md-select
-                        ng-model="recogida"
-                        ng-change="calcularPrecioPreview()"
-                        class="md-no-underline selectBordered"
-                      >
-                        <md-option
-                          ng-value="opt"
-                          ng-repeat="opt in recogidas"
-                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</md-option>
-                      </md-select>
+                    <label class="control-label col-xs-4" for="inputSuccess3">Recogida:</label>
+                    <div class="col-xs-8">
+                      <select style @change="null" class="form-control">
+                        <option
+                          v-for="opt in [{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
+                          :key="opt"
+                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</option>
+                      </select>
                     </div>
                   </div>
-                </div>-->
+                </div>
 
                 <!--Forma devolución-->
-                <!-- <div class="form-group" style="margin-bottom: 5px">
+                <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <label
-                      class="control-label col-md-3 col-sm-12 col-xs-3"
-                      for="inputSuccess3"
-                    >Devolución:</label>
-                    <div class="col-sm-12 col-md-9 col-xs-9">
-                      <md-select
-                        ng-model="devolucion"
-                        ng-change="calcularPrecioPreview()"
-                        class="md-no-underline selectBordered"
-                      >
-                        <md-option
-                          ng-value="opt"
-                          ng-repeat="opt in devoluciones"
-                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</md-option>
-                      </md-select>
+                    <label class="control-label col-xs-4" for="inputSuccess3">Devolución:</label>
+                    <div class="col-xs-8">
+                      <select style @change="null" class="form-control">
+                        <option
+                          v-for="opt in [{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
+                          :key="opt"
+                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</option>
+                      </select>
                     </div>
                   </div>
-                </div>-->
+                </div>
 
                 <!--Lista de Extras-->
                 <!-- <div class="form-group">
@@ -201,7 +179,7 @@
                 </div>
 
                 <!--Precio-->
-                <div v-if="!$device.isMobile" class="col-sm-12">
+                <div class="col-sm-12">
                   <div class="totalCost">
                     <div class="col-xs-7 totalCostLeft">
                       <p>TOTAL</p>
@@ -228,9 +206,7 @@
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                   </a>
                 </div>-->
-                <div v-else class="mobile-booking-button">
-                   Reserva
-                </div>
+                <div v-else class="mobile-booking-button">Reservar</div>
 
                 <div v-if="!$device.isMobile" class="col-sm-12">
                   <a
@@ -247,17 +223,26 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
+.mobile-fixed-panel .panel-body {
+  margin: 16px;
+  background-color: #f5f5f5;
+  height: 580px;
+}
+.form-control {
+  height: 47px;
+  width: 100%;
+}
 .mobile-fixed-panel {
   /* position: fixed; */
   /* top: 72px; */
-  margin-top:72px;
+  margin-top: 0px;
   z-index: 10;
   animation-name: panelFromUp;
   animation-duration: 0.5s;
 }
 .mobile-fixed-panel .panel-default {
-  min-height: 600px;
+  /* min-height: 610px; */
 }
 @keyframes panelFromUp {
   0% {
@@ -265,7 +250,7 @@
     /* top: 72px; */
   }
   100% {
-    margin-top: 72px;
+    margin-top: 0px;
 
     /* top: 72px; */
   }
@@ -281,9 +266,11 @@
     /* top: 72px; */
   }
 }
-.mobile-booking-button {
+.mobile-fixed-panel .totalCost {
   /* margin-top: 100%;
-  transform: translateY(-80%); */
+  transform: translateY(-100px); */
+}
+.mobile-booking-button {
   display: flex;
   z-index: 20;
   position: fixed;

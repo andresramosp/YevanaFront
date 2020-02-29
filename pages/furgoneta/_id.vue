@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 72px !important">
+  <div>
     <VehicleDetail :id="$route.params.id" />
   </div>
 </template>
