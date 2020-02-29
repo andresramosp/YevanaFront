@@ -1,7 +1,7 @@
 <template>
   <div class="cqb-filter-left">
     <div class="cqb-filter-left__filter-map">
-      <span class="cqb-filter-left__filter-btn">
+      <span @click="$emit('onClick')" class="cqb-filter-left__filter-btn">
         <svg
           width="16"
           height="15"
@@ -63,6 +63,14 @@
             </div>
   </div>-->
 </template>
+<script>
+export default {
+    data() {
+        return {
+        }
+    },
+}
+</script>
 <style>
 .cqb-filter-left {
   position: static;
@@ -81,7 +89,7 @@
   padding: 0 0.6875rem 0 1.125rem;
   align-items: center;
   justify-content: center;
-  background: #0797ff;
+  background: #ff891e;
   border-radius: 2.125rem;
   transform: translateX(-50%);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);

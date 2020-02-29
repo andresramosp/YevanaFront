@@ -1,8 +1,8 @@
 <template>
   <div class="main-wrapper">
-    <Menu :opaque="State.menuOpaque" />
+    <Menu :opaque="State.menuOpaque" :activePage="State.activePage" />
     <nuxt />
-    <Footer />
+    <Footer v-show="State.footerVisible" />
   </div>
 </template>
 

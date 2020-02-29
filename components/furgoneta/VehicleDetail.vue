@@ -14,7 +14,6 @@
               <div class="row">
                 <div class="col-xs-12">
                   <VehicleCarousel :id="id" />
-                  <!--Descripción-->
                   <div class="hotelDescription">
                     <div class="hotelTitle">
                       <h2>Descripción</h2>
@@ -27,46 +26,58 @@
                 </div>
               </div>
             </div>
+            <aside class="col-sm-4 col-xs-12">
+              <BookingPanel />
+            </aside>
           </div>
         </section>
       </div>
     </div>
     <!-- MOBILE -->
     <div class="mobile" v-else>
-      <section class="mainContentSection singlePackage">
+      <section v-show="!showBookingPanel" class="mainContentSection singlePackage">
         <VehicleCarousel :id="id" />
         <div class="mobile-section">
           <h4>Descripción</h4>
           <p
             style="text-align: justify"
           >Una guerrera con mucha clase, equipada con la más alta tecnología para que disfrutes de tus festivales favoritos durante todo el año. Les dejarás flipando cuando te vean llegar con la auténtica Red Devil.</p>
-           <VehicleFeatures />
+          <VehicleFeatures />
         </div>
-       
       </section>
-      <BookingFloatingButton />
+      <BookingPanel v-if="showBookingPanel" @onClose="showBookingPanel = false" />
+      <BookingFloatingButton v-show="!showBookingPanel" @onClick="showBookingPanel = true" />
     </div>
   </div>
 </template>
 <script>
 import VehicleService from "~/services/VehicleService";
-import BookingWizard from "./StaticBlocks/BookingWizard.vue";
-import BookingImageBar from "./StaticBlocks/BookingImageBar.vue";
-import VehicleCarousel from "./StaticBlocks/VehicleCarousel.vue";
-import VehicleFeatures from "./StaticBlocks/VehicleFeatures.vue";
-import BookingFloatingButton from "./StaticBlocks/BookingFloatingButton.vue";
+import BookingWizard from "./components/BookingWizard.vue";
+import BookingImageBar from "./components/BookingImageBar.vue";
+import VehicleCarousel from "./components/VehicleCarousel.vue";
+import VehicleFeatures from "./components/VehicleFeatures.vue";
+import BookingFloatingButton from "./components/BookingFloatingButton.vue";
+import BookingPanel from "./components/BookingPanel.vue";
+import State from "~/services/state"
 export default {
   components: {
     BookingWizard,
     BookingImageBar,
     VehicleCarousel,
     VehicleFeatures,
-    BookingFloatingButton
+    BookingFloatingButton,
+    BookingPanel
   },
   data() {
     return {
-      vehicle: { VehiculoID: "EM" }
+      vehicle: { VehiculoID: "EM" },
+      showBookingPanel: false,
     };
+  },
+  watch: {
+    showBookingPanel() {
+      State.footerVisible = !this.showBookingPanel;
+    }
   },
   props: ["id"],
   mounted() {},
@@ -93,6 +104,5 @@ export default {
 .mobile-section h4 {
   margin-bottom: 5px;
 }
-
 </style>
 

@@ -1,0 +1,306 @@
+<template>
+  <div :class="`${$device.isMobile ? 'mobile-fixed-panel' : ''}`">
+    <div class="singleHotelSidebar">
+      <div class="panel panel-default">
+        <div v-if="!$device.isMobile" class="panel-heading">DESDE {{50}} €/DÍA</div>
+        <div style="float: right; font-size: 20px; margin: 7px" v-else @click="$emit('onClose')">X</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <form class="form-horizontal">
+                <!--Leyendas Temporadas-->
+                <!-- <div class="form-group">
+                  <div class="col-sm-12" style="text-align: center; margin-top: 10px">
+                    <img
+                      title="{{precioTemporadaBaja}}"
+                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: cornflowerblue"
+                    />
+                    <span style="font-size: 11px; margin-left: 3px">Baja - {{precioTemporadaBaja}}€</span>
+                    <img
+                      title="{{precioTemporadaMedia}}"
+                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightgreen; margin-left: 10px"
+                    />
+                    <span
+                      style="font-size: 11px; margin-left: 3px"
+                    >Media - {{precioTemporadaMedia}}€</span>
+                    <img
+                      title="{{precioTemporadaAlta}}"
+                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightpink; margin-left: 10px"
+                    />
+                    <span style="font-size: 11px; margin-left: 3px">Alta - {{precioTemporadaAlta}}€</span>
+                  </div>
+                </div>-->
+                <!--Calendarios-->
+                <div class="form-group">
+                  <label
+                    class="control-label col-md-3 col-sm-12 col-xs-3"
+                    for="inputSuccess3"
+                  >Desde:</label>
+                  <div
+                    class="col-md-5 col-sm-12 col-xs-5 datepickerWrap"
+                    style="padding-right: 0px"
+                  >
+                    <div class="input-group date ed-datepicker filterDate">
+                      <input
+                        :disabled="false"
+                        id="desde"
+                        type="text"
+                        class="form-control"
+                        placeholder="DD/MM/YYYY"
+                      />
+                      <div class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!--<label class="control-label col-md-1 col-sm-12 col-xs-4" for="inputSuccess3">Hora:</label>-->
+                  <div class="col-sm-12 col-md-4 col-xs-4">
+                    <select class="md-no-underline selectBordered" style="height: 45px">
+                      <option
+                        v-for="opt in [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
+                        :key="opt"
+                      >{{ opt + ':00' }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label
+                    class="control-label col-md-3 col-sm-12 col-xs-3"
+                    for="inputSuccess3"
+                  >Hasta:</label>
+                  <div
+                    class="col-md-5 col-sm-12 col-xs-5 datepickerWrap"
+                    style="padding-right: 0px"
+                  >
+                    <div class="input-group date ed-datepicker filterDate">
+                      <input
+                        id="hasta"
+                        type="text"
+                        :disabled="false"
+                        class="form-control"
+                        placeholder="DD/MM/YYYY"
+                      />
+                      <div class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-xs-4">
+                    <select class="md-no-underline selectBordered" style="height: 45px">
+                      <option
+                        v-for="opt in [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
+                        :key="opt"
+                      >{{ opt + ':00' }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!--Forma recogida-->
+                <!-- <div class="form-group" style="margin-bottom: 5px">
+                  <div layout="row" layout-align="space-between center">
+                    <label
+                      class="control-label col-md-3 col-sm-12 col-xs-3"
+                      for="inputSuccess3"
+                    >Recogida:</label>
+                    <div class="col-sm-12 col-md-9 col-xs-9">
+                      <md-select
+                        ng-model="recogida"
+                        ng-change="calcularPrecioPreview()"
+                        class="md-no-underline selectBordered"
+                      >
+                        <md-option
+                          ng-value="opt"
+                          ng-repeat="opt in recogidas"
+                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</md-option>
+                      </md-select>
+                    </div>
+                  </div>
+                </div>-->
+
+                <!--Forma devolución-->
+                <!-- <div class="form-group" style="margin-bottom: 5px">
+                  <div layout="row" layout-align="space-between center">
+                    <label
+                      class="control-label col-md-3 col-sm-12 col-xs-3"
+                      for="inputSuccess3"
+                    >Devolución:</label>
+                    <div class="col-sm-12 col-md-9 col-xs-9">
+                      <md-select
+                        ng-model="devolucion"
+                        ng-change="calcularPrecioPreview()"
+                        class="md-no-underline selectBordered"
+                      >
+                        <md-option
+                          ng-value="opt"
+                          ng-repeat="opt in devoluciones"
+                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</md-option>
+                      </md-select>
+                    </div>
+                  </div>
+                </div>-->
+
+                <!--Lista de Extras-->
+                <!-- <div class="form-group">
+                  <label
+                    class="control-label col-md-3 col-sm-12 col-xs-3"
+                    for="inputSuccess3"
+                  >Extras:</label>
+
+                  <div class="col-sm-12 col-md-9 col-xs-9">
+                    <div
+                      class="selectBordered"
+                      style="height: 100px; overflow-y: auto; overflow-x: hidden; background-color: white"
+                    >
+                      <md-list>
+                        <md-list-item class ng-repeat="item in extras">
+                          <md-checkbox
+                            ng-change="calcularPrecioPreview()"
+                            ng-model="item.Seleccionado"
+                            style="margin-right: 2px"
+                          ></md-checkbox>
+                          <div class="md-list-item-text">
+                            <p
+                              style="font-size:10px !important"
+                            >{{item.Nombre}} {{item.Precio}} Eur. {{item.Calculo == 'Diario' ? '/ día' : ''}}</p>
+                          </div>
+                        </md-list-item>
+                      </md-list>
+                    </div>
+                  </div>
+                </div>-->
+                <!--Seguro-->
+                <!-- <div class="form-group" style="margin-bottom: 5px">
+                  <div layout="row" layout-align="space-between center">
+                    <label
+                      class="control-label col-md-3 col-sm-12 col-xs-3"
+                      for="inputSuccess3"
+                    >Seguro:</label>
+                    <div class="col-sm-12 col-md-9 col-xs-9">
+                      <md-select
+                        ng-model="seguro"
+                        ng-change="seguroChange()"
+                        class="md-no-underline selectBordered"
+                      >
+                        <md-option
+                          ng-value="opt"
+                          ng-repeat="opt in seguros"
+                        >{{ opt.Nombre + (opt.Nombre != 'Plus' ? ' (' + opt.Precio + ' Eur)' : '' )}}</md-option>
+                      </md-select>
+                    </div>
+                  </div>
+                </div>-->
+
+                <div class="form-group">
+                  <div layout="row" layout-align="space-between center">
+                    <div class="col-sm-12 col-md-12 col-xs-12" style="text-align: right">
+                      <label class="control-label" for="kilometrajeCheckbox">Kilometraje ilimitado</label>
+                      <input class type="checkbox" />
+                    </div>
+                  </div>
+                </div>
+
+                <!--Precio-->
+                <div v-if="!$device.isMobile" class="col-sm-12">
+                  <div class="totalCost">
+                    <div class="col-xs-7 totalCostLeft">
+                      <p>TOTAL</p>
+                    </div>
+                    <div class="col-xs-5 totalCostRight">{{1000}} &#8364;</div>
+                    <div
+                      class="col-xs-12"
+                      style="text-align:right; font-size: 12px; font-style: italic; color: #ff891e"
+                    >
+                      <span>{{''}}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div v-if="!$device.isMobile" class="col-sm-12">
+                  <a @click="null" :disabled="false" class="btn btn-block buttonTransparent">
+                    Solicitar Reserva
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <!-- <div v-else class="col-sm-12 mobile-booking-button">
+                  <a @click="null" :disabled="false" class="btn btn-block buttonTransparent">
+                    Solicitar Reserva
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </a>
+                </div>-->
+                <div v-else class="mobile-booking-button">
+                   Reserva
+                </div>
+
+                <div v-if="!$device.isMobile" class="col-sm-12">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="/terminos-condiciones.html"
+                  >Términos y condiciones del alquiler</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+.mobile-fixed-panel {
+  /* position: fixed; */
+  /* top: 72px; */
+  margin-top:72px;
+  z-index: 10;
+  animation-name: panelFromUp;
+  animation-duration: 0.5s;
+}
+.mobile-fixed-panel .panel-default {
+  min-height: 600px;
+}
+@keyframes panelFromUp {
+  0% {
+    margin-top: -400px;
+    /* top: 72px; */
+  }
+  100% {
+    margin-top: 72px;
+
+    /* top: 72px; */
+  }
+}
+@keyframes buttomFromBottom {
+  0% {
+    margin-bottom: -200px;
+    /* top: 72px; */
+  }
+  100% {
+    margin-bottom: 0px;
+
+    /* top: 72px; */
+  }
+}
+.mobile-booking-button {
+  /* margin-top: 100%;
+  transform: translateY(-80%); */
+  display: flex;
+  z-index: 20;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5.75rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  background: #ff891e;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 2.25rem;
+  font-weight: bold;
+  animation-name: buttomFromBottom;
+  animation-duration: 0.5s;
+}
+</style>

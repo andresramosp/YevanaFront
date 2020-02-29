@@ -25,13 +25,13 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown singleDrop active">
+              <li :class="`dropdown singleDrop ${activePage == 'Inicio' ? 'active' : ''}`">
                 <a href="/">Inicio</a>
               </li>
-              <li class="dropdown singleDrop">
+              <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
                 <a href="/alquileres" class="dropdown-toggle">Alquila</a>
               </li>
-              <li class="dropdown singleDrop">
+              <li :class="`dropdown singleDrop ${activePage == 'Contacto' ? 'active' : ''}`">
                 <a href="/contacto" class="dropdown-toggle">Contacto</a>
               </li>
             </ul>
@@ -44,7 +44,7 @@
 <script>
 export default {
   components: {},
-  props: ['opaque'],
+  props: ['opaque', 'activePage'],
   mounted() {
     var header = $(".changeHeader .navbar-fixed-top");
     $(window).scroll(function() {

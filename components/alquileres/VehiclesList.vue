@@ -36,7 +36,7 @@
                   <p>{{vehiculo.Familia + ' ' + ( vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' )}}</p>
                   <a
                     v-if="vehiculo.Disponible"
-                    :href="'furgoneta/' + vehiculo.VehiculoID"
+                    :href="'/furgoneta/' + vehiculo.VehiculoID"
                     class="btn buttonTransparent"
                   >Ver Más</a>
                 </div>
@@ -47,7 +47,7 @@
               <div class="media-body">
                 <div class="bodyLeft">
                   <h4 class="media-heading">
-                    <a :href="'furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</a>
+                    <a :href="'/furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</a>
                     <span
                       v-if="$device.isMobile && vehiculo.Disponible"
                       style="font-size: 12px; color: orange; font-weight: bold; float: right"
@@ -168,7 +168,7 @@
                     >{{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</h2>
                     <a
                       v-if="vehiculo.Disponible"
-                      :href="'furgoneta/' + vehiculo.VehiculoID"
+                      :href="'/furgoneta/' + vehiculo.VehiculoID"
                       class="btn btn-block buttonTransparent top-row8"
                     >Ver</a>
                     <!--<span ng-if="!vehiculo.Disponible" class="top-row8">Próximamente</span>-->

@@ -1,5 +1,15 @@
 
 export default {
+  // router: {
+  //   mode: 'hash'
+  // },
+  generate: {
+    routes: [
+      '/furgoneta/EM',
+      '/furgoneta/RD',
+      '/furgoneta/BL'
+    ]
+  },
   env: {
     baseUrl:
       process.env.BASE_URL || 'http://api.yevana.com'
