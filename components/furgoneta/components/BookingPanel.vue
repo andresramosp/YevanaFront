@@ -89,64 +89,42 @@
                 </div>
 
                 <!--Forma recogida-->
-                <div class="form-group">
+               <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <label class="control-label col-xs-4" for="inputSuccess3">Recogida:</label>
-                    <div class="col-xs-8">
-                      <select style @change="null" class="form-control">
-                        <option
-                          v-for="opt in [{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
-                          :key="opt"
-                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</option>
-                      </select>
+                    <div class="col-xs-6">
+                      <vSelect
+                        placeholder="Recogida"
+                        label="Nombre"
+                        :options="[{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
+                      >
+                      </vSelect>
                     </div>
-                  </div>
-                </div>
-
-                <!--Forma devolución-->
-                <div class="form-group">
-                  <div layout="row" layout-align="space-between center">
-                    <label class="control-label col-xs-4" for="inputSuccess3">Devolución:</label>
-                    <div class="col-xs-8">
-                      <select style @change="null" class="form-control">
-                        <option
-                          v-for="opt in [{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
-                          :key="opt"
-                        >{{ opt.Nombre + ' (' + opt.Precio + ' Eur)' }}</option>
-                      </select>
+                     <div class="col-xs-6">
+                      <vSelect
+                        placeholder="Devolución"
+                        label="Nombre"
+                        :options="[{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
+                      >
+                      </vSelect>
                     </div>
                   </div>
                 </div>
 
                 <!--Lista de Extras-->
-                <!-- <div class="form-group">
-                  <label
-                    class="control-label col-md-3 col-sm-12 col-xs-3"
-                    for="inputSuccess3"
-                  >Extras:</label>
+                <vSelect
+                  multiple
+                  placeholder="Selecciona tus extras"
+                  label="Nombre"
+                  :reduce="extra => extra.ExtraID"
+                  :options="extras"
+                >
+                  <template v-slot:option="option" style="font-size: 10px; color: red">
+                    <span :class="option.icon"></span>
+                    {{ option.Nombre + ' (' + option.Precio + '€ ' + (option.Calculo == 'Diario' ? '/ día)' : ')')}}
+                  </template>
+                </vSelect>
 
-                  <div class="col-sm-12 col-md-9 col-xs-9">
-                    <div
-                      class="selectBordered"
-                      style="height: 100px; overflow-y: auto; overflow-x: hidden; background-color: white"
-                    >
-                      <md-list>
-                        <md-list-item class ng-repeat="item in extras">
-                          <md-checkbox
-                            ng-change="calcularPrecioPreview()"
-                            ng-model="item.Seleccionado"
-                            style="margin-right: 2px"
-                          ></md-checkbox>
-                          <div class="md-list-item-text">
-                            <p
-                              style="font-size:10px !important"
-                            >{{item.Nombre}} {{item.Precio}} Eur. {{item.Calculo == 'Diario' ? '/ día' : ''}}</p>
-                          </div>
-                        </md-list-item>
-                      </md-list>
-                    </div>
-                  </div>
-                </div>-->
+              
                 <!--Seguro-->
                 <!-- <div class="form-group" style="margin-bottom: 5px">
                   <div layout="row" layout-align="space-between center">
@@ -177,7 +155,6 @@
                     </div>
                   </div>
                 </div>
-
                 <!--Precio-->
                 <div class="col-sm-12">
                   <div class="totalCost">
@@ -223,11 +200,37 @@
     </div>
   </div>
 </template>
+<script>
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+import ExtrasService from "~/services/extrasService"
+export default {
+  data() {
+    return {
+      extras: []
+    }
+  },
+  components: {
+    vSelect
+  },
+  mounted() {
+   this.getExtras();
+  },
+  methods: {
+    async getExtras() {
+      this.extras = await ExtrasService.getAll();
+    }
+  }
+};
+</script>
 <style scoped>
 .mobile-fixed-panel .panel-body {
   margin: 16px;
   background-color: #f5f5f5;
   height: 580px;
+}
+.mobile-fixed-panel .v-select {
+  background-color: white;
 }
 .form-control {
   height: 47px;
@@ -239,7 +242,8 @@
   margin-top: 0px;
   z-index: 10;
   animation-name: panelFromUp;
-  animation-duration: 0.5s;
+  animation-duration: 0.35s;
+  /* transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 1.94); */
 }
 .mobile-fixed-panel .panel-default {
   /* min-height: 610px; */
@@ -288,6 +292,6 @@
   font-size: 2.25rem;
   font-weight: bold;
   animation-name: buttomFromBottom;
-  animation-duration: 0.5s;
+  animation-duration: 0.35s;
 }
 </style>

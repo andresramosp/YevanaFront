@@ -4,5 +4,4 @@ const State = {
     footerVisible: true,
     menuVisible: true,
 }
-
 export default State;

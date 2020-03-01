@@ -287,7 +287,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .mainContentSection,
 .blackSection {
   width: 100%;

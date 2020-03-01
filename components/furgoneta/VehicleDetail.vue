@@ -45,7 +45,7 @@
           <VehicleFeatures />
         </div>
       </section>
-      <BookingPanel v-if="showBookingPanel" @onClose="showBookingPanel = false" />
+      <BookingPanel v-show="showBookingPanel" @onClose="showBookingPanel = false" />
       <BookingFloatingButton v-show="!showBookingPanel" @onClick="showBookingPanel = true" />
     </div>
   </div>

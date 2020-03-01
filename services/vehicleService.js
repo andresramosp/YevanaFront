@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 const VehicleService = {
     getAll() {
         return axios({

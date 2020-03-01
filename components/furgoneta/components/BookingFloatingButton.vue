@@ -82,8 +82,8 @@ export default {
   display: flex;
   cursor: pointer;
   position: fixed;
-  min-width: 12.25rem;
-  height: 4.0625rem;
+  min-width: 13.25rem;
+  height: 4.6625rem;
   left: 50%;
   bottom: 3.125rem;
   padding: 0 0.6875rem 0 1.125rem;
@@ -92,8 +92,10 @@ export default {
   background: #ff891e;
   border-radius: 2.125rem;
   transform: translateX(-50%);
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 7px 10px 12px -5px rgba(0,0,0,0.57);
   z-index: 5;
+  animation-name: buttonFromBottom;
+  animation-duration: 0.3s;
 }
 .cqb-filter-left__filter-btn {
   position: relative;
@@ -109,6 +111,17 @@ export default {
 .cqb-filter-left__filter-text {
   font-size: 19px;
   margin-left: 5px;
+}
+@keyframes buttonFromBottom {
+  0% {
+    margin-bottom: -200px;
+    /* top: 72px; */
+  }
+  100% {
+    margin-bottom: 0px;
+
+    /* top: 72px; */
+  }
 }
 </style>
 
