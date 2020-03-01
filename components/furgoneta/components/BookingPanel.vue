@@ -38,115 +38,122 @@
                 <div class="form-group">
                   <label class="control-label col-xs-2" for="inputSuccess3">Desde:</label>
                   <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
-                    <div class="input-group date ed-datepicker filterDate">
-                      <input
-                        :disabled="false"
-                        id="desde"
-                        type="text"
-                        class="form-control"
-                        placeholder="DD/MM/YYYY"
-                      />
-                      <div class="input-group-addon">
-                        <span class="fa fa-calendar"></span>
-                      </div>
-                    </div>
+                    <v-date-picker
+                      v-model="reserva.fechaDesde"
+                      :input-props="{ placeholder: 'dd/mm/yyyy', readonly: true }"
+                      @input="null"
+                      style="display: inline-block;"
+                      :popover="{ placement: 'bottom-start', positionFixed: true }"
+                      :first-day-of-week="2"
+                      class="date-picker"
+                    />
                   </div>
-                  <!--<label class="control-label col-md-1 col-sm-12 col-xs-4" for="inputSuccess3">Hora:</label>-->
                   <div class="col-xs-4">
-                    <select class="form-control">
-                      <option
-                        v-for="opt in [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
-                        :key="opt"
-                      >{{ opt + ':00' }}</option>
-                    </select>
+                    <vSelect
+                      :clearable="false"
+                      :searchable="false"
+                      placeholder
+                      :options="[8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
+                    >
+                      <template v-slot:option="option">{{ option.label + ':00' }}</template>
+                    </vSelect>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label class="control-label col-xs-2" for="inputSuccess3">Hasta:</label>
                   <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
-                    <div class="input-group date ed-datepicker filterDate">
-                      <input
-                        id="hasta"
-                        type="text"
-                        :disabled="false"
-                        class="form-control"
-                        placeholder="DD/MM/YYYY"
-                      />
-                      <div class="input-group-addon">
-                        <span class="fa fa-calendar"></span>
-                      </div>
-                    </div>
+                    <v-date-picker
+                      height="40"
+                      v-model="reserva.fechaHasta"
+                      :input-props="{ placeholder: 'dd/mm/yyyy', readonly: true }"
+                      @input="null"
+                      style="display: inline-block;"
+                      :popover="{ placement: 'bottom-start', positionFixed: true }"
+                      :first-day-of-week="2"
+                      class="date-picker"
+                    />
                   </div>
                   <div class="col-xs-4">
-                    <select class="form-control">
-                      <option
-                        v-for="opt in [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
-                        :key="opt"
-                      >{{ opt + ':00' }}</option>
-                    </select>
+                    <vSelect
+                      :clearable="false"
+                      :searchable="false"
+                      placeholder
+                      :options="[8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
+                    >
+                      <template v-slot:option="option">{{ option.label + ':00' }}</template>
+                    </vSelect>
                   </div>
                 </div>
 
                 <!--Forma recogida-->
-               <div class="form-group">
+                <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <div class="col-xs-6">
+                    <label class="control-label col-xs-3" for="inputSuccess3">Recogida:</label>
+                    <div class="col-xs-9">
                       <vSelect
-                        placeholder="Recogida"
+                        v-model="reserva.recogida"
+                        :clearable="false"
+                        :searchable="false"
+                        placeholder
                         label="Nombre"
-                        :options="[{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
-                      >
-                      </vSelect>
+                        :options="recogidaOptions"
+                      ></vSelect>
                     </div>
-                     <div class="col-xs-6">
+                  </div>
+                </div>
+
+                <!--Forma devolución-->
+                <div class="form-group">
+                  <div layout="row" layout-align="space-between center">
+                    <label class="control-label col-xs-3" for="inputSuccess3">Devolución:</label>
+                    <div class="col-xs-9">
                       <vSelect
-                        placeholder="Devolución"
+                        v-model="reserva.devolucion"
+                        :clearable="false"
+                        :searchable="false"
+                        placeholder
                         label="Nombre"
-                        :options="[{ Nombre: 'Atocha', Precio: 20}, { Nombre: 'Instalaciones', Precio: 30}]"
-                      >
-                      </vSelect>
+                        :options="devolucionOptions"
+                      ></vSelect>
+                    </div>
+                  </div>
+                </div>
+
+                 <!--Seguro-->
+                <div class="form-group">
+                  <div layout="row" layout-align="space-between center">
+                    <label class="control-label col-xs-3" for="inputSuccess3">Seguro:</label>
+                    <div class="col-xs-9">
+                      <vSelect
+                      v-model="reserva.seguro"
+                        :clearable="false"
+                        :searchable="false"
+                        placeholder
+                        label="Nombre"
+                        :options="seguroOptions"
+                      ></vSelect>
                     </div>
                   </div>
                 </div>
 
                 <!--Lista de Extras-->
-                <vSelect
-                  multiple
-                  placeholder="Selecciona tus extras"
-                  label="Nombre"
-                  :reduce="extra => extra.ExtraID"
-                  :options="extras"
-                >
-                  <template v-slot:option="option" style="font-size: 10px; color: red">
-                    <span :class="option.icon"></span>
-                    {{ option.Nombre + ' (' + option.Precio + '€ ' + (option.Calculo == 'Diario' ? '/ día)' : ')')}}
-                  </template>
-                </vSelect>
+                <div class="extras-box">
+                  <vSelect
+                    :searchable="false"
+                    multiple
+                    placeholder="Selecciona tus extras"
+                    label="Nombre"
+                    :reduce="extra => extra.ExtraID"
+                    :options="extras"
+                  >
+                    <template
+                      v-slot:option="option"
+                    >{{ option.Nombre + ' (' + option.Precio + '€ ' + (option.Calculo == 'Diario' ? '/ día)' : ')')}}</template>
+                  </vSelect>
+                </div>
 
-              
-                <!--Seguro-->
-                <!-- <div class="form-group" style="margin-bottom: 5px">
-                  <div layout="row" layout-align="space-between center">
-                    <label
-                      class="control-label col-md-3 col-sm-12 col-xs-3"
-                      for="inputSuccess3"
-                    >Seguro:</label>
-                    <div class="col-sm-12 col-md-9 col-xs-9">
-                      <md-select
-                        ng-model="seguro"
-                        ng-change="seguroChange()"
-                        class="md-no-underline selectBordered"
-                      >
-                        <md-option
-                          ng-value="opt"
-                          ng-repeat="opt in seguros"
-                        >{{ opt.Nombre + (opt.Nombre != 'Plus' ? ' (' + opt.Precio + ' Eur)' : '' )}}</md-option>
-                      </md-select>
-                    </div>
-                  </div>
-                </div>-->
-
+                <!-- Kilometraje -->
                 <div class="form-group">
                   <div layout="row" layout-align="space-between center">
                     <div class="col-sm-12 col-md-12 col-xs-12" style="text-align: right">
@@ -155,6 +162,7 @@
                     </div>
                   </div>
                 </div>
+                
                 <!--Precio-->
                 <div class="col-sm-12">
                   <div class="totalCost">
@@ -172,17 +180,11 @@
                 </div>
 
                 <div v-if="!$device.isMobile" class="col-sm-12">
-                  <a @click="null" :disabled="false" class="btn btn-block buttonTransparent">
+                  <a :disabled="false" class="btn btn-block buttonTransparent">
                     Solicitar Reserva
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                   </a>
                 </div>
-                <!-- <div v-else class="col-sm-12 mobile-booking-button">
-                  <a @click="null" :disabled="false" class="btn btn-block buttonTransparent">
-                    Solicitar Reserva
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </a>
-                </div>-->
                 <div v-else class="mobile-booking-button">Reservar</div>
 
                 <div v-if="!$device.isMobile" class="col-sm-12">
@@ -203,27 +205,53 @@
 <script>
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
-import ExtrasService from "~/services/extrasService"
+import ExtrasService from "~/services/extrasService";
 export default {
   data() {
     return {
-      extras: []
-    }
+      extras: [],
+      recogidaOptions: [],
+      devolucionOptions: [],
+      seguroOptions: [],
+      reserva: {
+        recogida: null,
+        devolucion: null,
+        seguro: null,
+        fechaDesde: null,
+        fechaHasta: null
+      }
+    };
   },
   components: {
     vSelect
   },
   mounted() {
-   this.getExtras();
+    this.getExtras();
   },
   methods: {
     async getExtras() {
-      this.extras = await ExtrasService.getAll();
+      let allExtras = await ExtrasService.getAll();
+      this.extras = allExtras.filter(ex => !ex.GroupID);
+      this.recogidaOptions = allExtras.filter(ex => ex.GroupID == "Recogida");
+      this.devolucionOptions = allExtras.filter(
+        ex => ex.GroupID == "Devolucion"
+      );
+      this.seguroOptions = allExtras.filter(
+        ex => ex.GroupID == "Seguro"
+      );
+      this.reserva.seguro = this.seguroOptions[0];
+      this.reserva.recogida = this.recogidaOptions.find(opt => opt.Nombre == "Instalaciones");
+      this.reserva.devolucion = this.devolucionOptions.find(opt => opt.Nombre == "Instalaciones");
     }
   }
 };
 </script>
 <style scoped>
+.singleHotelSidebar .control-label {
+  font-size: 13px;
+  color: gray;
+  font-weight: bold;
+}
 .mobile-fixed-panel .panel-body {
   margin: 16px;
   background-color: #f5f5f5;
@@ -232,10 +260,10 @@ export default {
 .mobile-fixed-panel .v-select {
   background-color: white;
 }
-.form-control {
+/* .form-control {
   height: 47px;
   width: 100%;
-}
+} */
 .mobile-fixed-panel {
   /* position: fixed; */
   /* top: 72px; */
@@ -271,8 +299,7 @@ export default {
   }
 }
 .mobile-fixed-panel .totalCost {
-  /* margin-top: 100%;
-  transform: translateY(-100px); */
+  margin-top: 50%;
 }
 .mobile-booking-button {
   display: flex;
@@ -293,5 +320,19 @@ export default {
   font-weight: bold;
   animation-name: buttomFromBottom;
   animation-duration: 0.35s;
+}
+</style>
+<style>
+.vs__selected {
+  font-size: 13px;
+}
+.extras-box .vs__selected {
+  font-size: 11px;
+}
+.singleHotelSidebar input {
+  height: 25px;
+}
+.singleHotelSidebar .date-picker input {
+  height: 35px;
 }
 </style>

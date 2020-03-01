@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 const ExtrasService = {
-    getAll(version, group) {
+    getAll(version) {
         
         if (!version)
-            version = 0;
+            version = 1;
 
         return axios({
             url: process.env.baseUrl 
@@ -16,7 +16,7 @@ const ExtrasService = {
             for (var e in extras) {
                 var extra = extras[e];
                 try {
-                    if (!version || version == 0) {
+                    if (!version || version == 1) {
                         version = extra.PreciosExtra.reduce(function (l, e) {
                             return e.SetPreciosExtrasID > l.SetPreciosExtrasID ? e : l;
                         }).SetPreciosExtrasID;
@@ -27,11 +27,12 @@ const ExtrasService = {
                 }
                 catch (ex)
                 {
+                    debugger
                     console.log("Error asignando precios a extra " + extra.Nombre)
                 }
                 
             }
-            return extras.filter(ex => ((!group && !ex.GroupID) || (ex.GroupID == group)));
+            return extras;
         })
         .catch(function (error) {
         })

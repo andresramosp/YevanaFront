@@ -283,6 +283,7 @@ export default {
   },
   mounted() {
     State.menuOpaque = false;
+    State.activePage = 'Inicio';
   }
 };
 </script>

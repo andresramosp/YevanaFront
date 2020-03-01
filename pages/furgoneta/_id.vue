@@ -13,6 +13,7 @@ export default {
   },
    mounted() {
     State.activePage = 'Alquila';
+    State.menuOpaque = true;
   }
 };
 </script>

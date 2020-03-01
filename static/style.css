@@ -5689,7 +5689,7 @@ header {
 }
 
 .singleHotelSidebar .control-label {
-  padding-top: 15px;
+  /* padding-top: 15px; */
   font-weight: 400;
   color: #222222;
 }
