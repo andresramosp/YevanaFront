@@ -30,8 +30,9 @@
                   style="display: block; width: 100%; max-width: 400px"
                   :src="require('~/assets/Vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg')"
                   alt="Furgoneta Yevana para alquilar"
+                  @click="goToVehicle(vehiculo.VehiculoID)"
                 />
-                <div class="maskingInfo">
+                <div v-if="!$device.isMobile" class="maskingInfo">
                   <h4>{{vehiculo.Nombre}}</h4>
                   <p>{{vehiculo.Familia + ' ' + ( vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' )}}</p>
                   <a
@@ -200,6 +201,11 @@ export default {
   methods: {
     async getVehicles() {
       this.vehicles = await VehicleService.getAll();
+    },
+    goToVehicle(id) {
+      this.$router.push({
+        path: `/furgoneta/${id}`
+      })
     }
   }
 };

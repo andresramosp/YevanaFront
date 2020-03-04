@@ -4,7 +4,7 @@
       <div :class="`${!$device.isMobile ? 'panel panel-default' : ''}`">
         <div v-if="!$device.isMobile" class="panel-heading">DESDE {{50}} €/DÍA</div>
         <div
-          style="float: left; font-size: 20px; font-weight: bold; margin-top: -10px; margin-left: 10px;"
+          style="float: left; font-size: 20px; font-weight: bold; margin-top: 7px; margin-left: 10px;"
           v-else
           @click="$emit('onClose')"
         >X</div>
@@ -120,13 +120,14 @@
                   </div>
                 </div>
 
-                 <!--Seguro-->
+                <!--Seguro-->
                 <div class="form-group">
                   <div layout="row" layout-align="space-between center">
                     <label class="control-label col-xs-3" for="inputSuccess3">Seguro:</label>
                     <div class="col-xs-9">
                       <vSelect
-                      v-model="reserva.seguro"
+                        v-model="reserva.seguro"
+                        @input="selectSeguro"
                         :clearable="false"
                         :searchable="false"
                         placeholder
@@ -162,7 +163,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <!--Precio-->
                 <div class="col-sm-12">
                   <div class="totalCost">
@@ -185,7 +186,7 @@
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                   </a>
                 </div>
-                <div v-else class="mobile-booking-button">Reservar</div>
+                <div v-else-if="reserva.precio" class="mobile-booking-button">Reservar</div>
 
                 <div v-if="!$device.isMobile" class="col-sm-12">
                   <a
@@ -218,7 +219,8 @@ export default {
         devolucion: null,
         seguro: null,
         fechaDesde: null,
-        fechaHasta: null
+        fechaHasta: null,
+        precio: 0,
       }
     };
   },
@@ -236,12 +238,17 @@ export default {
       this.devolucionOptions = allExtras.filter(
         ex => ex.GroupID == "Devolucion"
       );
-      this.seguroOptions = allExtras.filter(
-        ex => ex.GroupID == "Seguro"
-      );
+      this.seguroOptions = allExtras.filter(ex => ex.GroupID == "Seguro");
       this.reserva.seguro = this.seguroOptions[0];
-      this.reserva.recogida = this.recogidaOptions.find(opt => opt.Nombre == "Instalaciones");
-      this.reserva.devolucion = this.devolucionOptions.find(opt => opt.Nombre == "Instalaciones");
+      this.reserva.recogida = this.recogidaOptions.find(
+        opt => opt.Nombre == "Instalaciones"
+      );
+      this.reserva.devolucion = this.devolucionOptions.find(
+        opt => opt.Nombre == "Instalaciones"
+      );
+    },
+    selectSeguro() {
+      this.reserva.precio = 10;
     }
   }
 };
@@ -253,9 +260,12 @@ export default {
   font-weight: bold;
 }
 .mobile-fixed-panel .panel-body {
-  margin: 16px;
+  /* margin: 16px; */
   background-color: #f5f5f5;
-  height: 580px;
+  height: 100vh;
+  padding: 25px;
+  padding-top: 40px;
+  
 }
 .mobile-fixed-panel .v-select {
   background-color: white;
@@ -273,8 +283,11 @@ export default {
   animation-duration: 0.35s;
   /* transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 1.94); */
 }
-.mobile-fixed-panel .panel-default {
-  /* min-height: 610px; */
+/* .mobile-fixed-panel .singleHotelSidebar .totalCost {
+  border-bottom: none;
+} */
+.mobile-fixed-panel .form-group {
+  margin-bottom: 20px;
 }
 @keyframes panelFromUp {
   0% {
@@ -299,7 +312,7 @@ export default {
   }
 }
 .mobile-fixed-panel .totalCost {
-  margin-top: 50%;
+  margin-top: 30px;
 }
 .mobile-booking-button {
   display: flex;
@@ -334,5 +347,8 @@ export default {
 }
 .singleHotelSidebar .date-picker input {
   height: 35px;
+}
+.v-select .vs__dropdown-menu {
+  min-width: initial;
 }
 </style>
