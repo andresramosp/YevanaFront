@@ -27,7 +27,7 @@
               </div>
             </div>
             <aside class="col-sm-4 col-xs-12">
-              <BookingPanel />
+              <BookingPanel :vehicleId="id" />
             </aside>
           </div>
         </section>
@@ -45,7 +45,10 @@
           <VehicleFeatures />
         </div>
       </section>
-      <BookingPanel v-show="showBookingPanel" @onClose="showBookingPanel = false" />
+      <BookingPanel 
+        :vehicleId="id"
+        v-show="showBookingPanel" 
+        @onClose="showBookingPanel = false" />
       <BookingFloatingButton v-show="!showBookingPanel" @onClick="showBookingPanel = true" />
     </div>
   </div>

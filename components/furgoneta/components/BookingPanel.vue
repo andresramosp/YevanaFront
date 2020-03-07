@@ -170,7 +170,7 @@
                     <div class="col-xs-7 totalCostLeft">
                       <p>TOTAL</p>
                     </div>
-                    <div class="col-xs-5 totalCostRight">{{1000}} &#8364;</div>
+                    <div class="col-xs-5 totalCostRight">{{desglosePreview.Precio}} &#8364;</div>
                     <div
                       class="col-xs-12"
                       style="text-align:right; font-size: 12px; font-style: italic; color: #ff891e"
@@ -186,7 +186,7 @@
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                   </a>
                 </div>
-                <div v-else-if="reserva.precio" class="mobile-booking-button">Reservar</div>
+                <div v-else-if="desglosePreview.Precio" class="mobile-booking-button">Reservar</div>
 
                 <div v-if="!$device.isMobile" class="col-sm-12">
                   <a
@@ -207,6 +207,7 @@
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import ExtrasService from "~/services/extrasService";
+import ReservaService from "~/services/reservaService";
 export default {
   data() {
     return {
@@ -215,15 +216,16 @@ export default {
       devolucionOptions: [],
       seguroOptions: [],
       reserva: {
-        recogida: null,
-        devolucion: null,
-        seguro: null,
-        fechaDesde: null,
-        fechaHasta: null,
-        precio: 0,
-      }
+        Vehiculo: { VehiculoID: this.id },
+        Desde: null,
+        Hasta: null,
+        Extras: [],
+        precio: 0
+      },
+      desglosePreview: {}
     };
   },
+  props: ['vehicleId'],
   components: {
     vSelect
   },
@@ -247,8 +249,19 @@ export default {
         opt => opt.Nombre == "Instalaciones"
       );
     },
-    selectSeguro() {
-      this.reserva.precio = 10;
+    async selectSeguro() {
+      this.reserva = {
+        Vehiculo: { VehiculoID: this.vehicleId },
+        Desde: "2020-03-08T00:00:00.000Z",
+        Hasta: "2020-03-10T00:00:00.000Z",
+        Extras: [
+          { ExtraID: "KIB" },
+          { ExtraID: "SBA" },
+          { ExtraID: "DVI" },
+          { ExtraID: "RCI" }
+        ],
+      };
+       this.desglosePreview  = await ReservaService.getDesglosePreview(this.reserva);
     }
   }
 };
@@ -265,7 +278,6 @@ export default {
   height: 100vh;
   padding: 25px;
   padding-top: 40px;
-  
 }
 .mobile-fixed-panel .v-select {
   background-color: white;
