@@ -4,10 +4,10 @@
       <div :class="`${!$device.isMobile ? 'panel panel-default' : ''}`">
         <div v-if="!$device.isMobile" class="panel-heading">DESDE {{50}} €/DÍA</div>
         <div
-          style="float: left; font-size: 20px; font-weight: bold; margin-top: 7px; margin-left: 10px;"
+          class="close-panel"
           v-else
           @click="$emit('onClose')"
-        >X</div>
+        ><i class="fa fa-arrow-left icon-volver"></i>Volver a la ficha</div>
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12">
@@ -39,9 +39,9 @@
                   <label class="control-label col-xs-2" for="inputSuccess3">Desde:</label>
                   <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
                     <v-date-picker
-                      v-model="reserva.fechaDesde"
-                      :input-props="{ placeholder: 'dd/mm/yyyy', readonly: true }"
-                      @input="null"
+                      v-model="reservaRequestModel.desde"
+                      :input-props="{ placeholder: 'DD/MM/YYYY', readonly: true }"
+                      @input="getPreview"
                       style="display: inline-block;"
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
                       :first-day-of-week="2"
@@ -50,12 +50,13 @@
                   </div>
                   <div class="col-xs-4">
                     <vSelect
+                      v-model="reservaRequestModel.horaDesde"
                       :clearable="false"
                       :searchable="false"
                       placeholder
-                      :options="[8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
+                      :reduce="opt => parseInt(opt.replace(':00', ''))"
+                      :options="['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']"
                     >
-                      <template v-slot:option="option">{{ option.label + ':00' }}</template>
                     </vSelect>
                   </div>
                 </div>
@@ -65,9 +66,9 @@
                   <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
                     <v-date-picker
                       height="40"
-                      v-model="reserva.fechaHasta"
-                      :input-props="{ placeholder: 'dd/mm/yyyy', readonly: true }"
-                      @input="null"
+                      v-model="reservaRequestModel.hasta"
+                      :input-props="{ placeholder: 'DD/MM/YYYY', readonly: true }"
+                      @input="getPreview"
                       style="display: inline-block;"
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
                       :first-day-of-week="2"
@@ -76,12 +77,13 @@
                   </div>
                   <div class="col-xs-4">
                     <vSelect
+                      v-model="reservaRequestModel.horaHasta"
                       :clearable="false"
                       :searchable="false"
                       placeholder
-                      :options="[8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]"
+                      :reduce="opt => parseInt(opt.replace(':00', ''))"
+                      :options="['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']"
                     >
-                      <template v-slot:option="option">{{ option.label + ':00' }}</template>
                     </vSelect>
                   </div>
                 </div>
@@ -92,12 +94,14 @@
                     <label class="control-label col-xs-3" for="inputSuccess3">Recogida:</label>
                     <div class="col-xs-9">
                       <vSelect
-                        v-model="reserva.recogida"
+                        v-model="reservaRequestModel.recogida"
+                        @input="getPreview"
                         :clearable="false"
                         :searchable="false"
                         placeholder
                         label="Nombre"
                         :options="recogidaOptions"
+                        :reduce="extra => { return { ExtraID: extra.ExtraID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -109,12 +113,14 @@
                     <label class="control-label col-xs-3" for="inputSuccess3">Devolución:</label>
                     <div class="col-xs-9">
                       <vSelect
-                        v-model="reserva.devolucion"
+                        v-model="reservaRequestModel.devolucion"
+                        @input="getPreview"
                         :clearable="false"
                         :searchable="false"
                         placeholder
                         label="Nombre"
                         :options="devolucionOptions"
+                        :reduce="extra => { return { ExtraID: extra.ExtraID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -126,13 +132,14 @@
                     <label class="control-label col-xs-3" for="inputSuccess3">Seguro:</label>
                     <div class="col-xs-9">
                       <vSelect
-                        v-model="reserva.seguro"
-                        @input="selectSeguro"
+                        v-model="reservaRequestModel.seguro"
+                        @input="getPreview"
                         :clearable="false"
                         :searchable="false"
                         placeholder
                         label="Nombre"
                         :options="seguroOptions"
+                        :reduce="extra => { return { ExtraID: extra.ExtraID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -145,8 +152,10 @@
                     multiple
                     placeholder="Selecciona tus extras"
                     label="Nombre"
-                    :reduce="extra => extra.ExtraID"
+                    :reduce="extra => { return { ExtraID: extra.ExtraID } }"
                     :options="extras"
+                    v-model="reservaRequestModel.extras"
+                    @input="getPreview"
                   >
                     <template
                       v-slot:option="option"
@@ -157,9 +166,13 @@
                 <!-- Kilometraje -->
                 <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <div class="col-sm-12 col-md-12 col-xs-12" style="text-align: right">
+                    <div class="col-sm-12 col-md-12 col-xs-12" style="text-align: right; margin-top: 20px">
                       <label class="control-label" for="kilometrajeCheckbox">Kilometraje ilimitado</label>
-                      <input class type="checkbox" />
+                      <input 
+                        @change="getPreview"
+                        v-model="reservaRequestModel.kmIli" 
+                        id="kilometrajeCheckbox" 
+                        type="checkbox" />
                     </div>
                   </div>
                 </div>
@@ -167,10 +180,10 @@
                 <!--Precio-->
                 <div class="col-sm-12">
                   <div class="totalCost">
-                    <div class="col-xs-7 totalCostLeft">
+                    <div class="col-xs-6 totalCostLeft">
                       <p>TOTAL</p>
                     </div>
-                    <div class="col-xs-5 totalCostRight">{{desglosePreview.Precio}} &#8364;</div>
+                    <div class="col-xs-6 totalCostRight">{{desglosePreview.Precio}} &#8364;</div>
                     <div
                       class="col-xs-12"
                       style="text-align:right; font-size: 12px; font-style: italic; color: #ff891e"
@@ -208,6 +221,7 @@ import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import ExtrasService from "~/services/extrasService";
 import ReservaService from "~/services/reservaService";
+import StringService from "~/services/stringService";
 export default {
   data() {
     return {
@@ -215,17 +229,22 @@ export default {
       recogidaOptions: [],
       devolucionOptions: [],
       seguroOptions: [],
-      reserva: {
-        Vehiculo: { VehiculoID: this.id },
-        Desde: null,
-        Hasta: null,
-        Extras: [],
-        precio: 0
+      kilometrajeOptions: [],
+      reservaRequestModel: {
+        desde: null,
+        hasta: null,
+        horaDesde: 10,
+        horaHasta: 10,
+        extras: [],
+        devolucion: null,
+        recogida: null,
+        seguro: null,
+        kmIli: false
       },
-      desglosePreview: {}
+      desglosePreview: { Precio: 0 }
     };
   },
-  props: ['vehicleId'],
+  props: ["vehicleId"],
   components: {
     vSelect
   },
@@ -241,27 +260,47 @@ export default {
         ex => ex.GroupID == "Devolucion"
       );
       this.seguroOptions = allExtras.filter(ex => ex.GroupID == "Seguro");
-      this.reserva.seguro = this.seguroOptions[0];
-      this.reserva.recogida = this.recogidaOptions.find(
-        opt => opt.Nombre == "Instalaciones"
-      );
-      this.reserva.devolucion = this.devolucionOptions.find(
-        opt => opt.Nombre == "Instalaciones"
-      );
-    },
-    async selectSeguro() {
-      this.reserva = {
-        Vehiculo: { VehiculoID: this.vehicleId },
-        Desde: "2020-03-08T00:00:00.000Z",
-        Hasta: "2020-03-10T00:00:00.000Z",
-        Extras: [
-          { ExtraID: "KIB" },
-          { ExtraID: "SBA" },
-          { ExtraID: "DVI" },
-          { ExtraID: "RCI" }
-        ],
+      this.kilometrajeOptions = allExtras.filter(ex => ex.GroupID == "Kilometraje");
+      this.reservaRequestModel.seguro = {
+        ExtraID: this.seguroOptions.find(opt => opt.DefaultEnGrupo).ExtraID
       };
-       this.desglosePreview  = await ReservaService.getDesglosePreview(this.reserva);
+      this.reservaRequestModel.recogida = {
+        ExtraID: this.recogidaOptions.find(opt => opt.DefaultEnGrupo).ExtraID
+      };
+      this.reservaRequestModel.devolucion = {
+        ExtraID: this.devolucionOptions.find(opt => opt.DefaultEnGrupo).ExtraID
+      };
+    },
+    // onDateDesdeChange(event) {
+    //   this.filter.range.start = event.start
+    //   this.filter.range.end = event.end
+    //   this.getActivity()
+    // },
+    async getPreview() {
+      if (this.reservaRequestModel.desde && this.reservaRequestModel.hasta) {
+        const reservaRequest = {
+          Vehiculo: { VehiculoID: this.vehicleId },
+          Desde: StringService.getLocalDate(this.reservaRequestModel.desde),
+          Hasta: StringService.getLocalDate(this.reservaRequestModel.hasta), // "2020-03-10T00:00:00.000Z",
+          Extras: this.getSelectedExtras()
+        };
+        this.desglosePreview = await ReservaService.getDesglosePreview(
+          reservaRequest
+        );
+      } else {
+        // Alerta: mensaje abajo gris estático para movil y modal para web
+      }
+    },
+    getSelectedExtras() {
+      let kmBasico = this.kilometrajeOptions.find(opt => opt.Nombre == 'Básico');
+      let kmIlimitado = this.kilometrajeOptions.find(opt => opt.Nombre == 'Ilimitado');
+      return [
+        ...this.reservaRequestModel.extras,
+        this.reservaRequestModel.recogida,
+        this.reservaRequestModel.devolucion,
+        this.reservaRequestModel.seguro,
+        this.reservaRequestModel.kmIli ? { ExtraID: kmIlimitado.ExtraID } :  { ExtraID: kmBasico.ExtraID }
+      ];
     }
   }
 };
@@ -277,7 +316,7 @@ export default {
   background-color: #f5f5f5;
   height: 100vh;
   padding: 25px;
-  padding-top: 40px;
+  padding-top: 50px;
 }
 .mobile-fixed-panel .v-select {
   background-color: white;
@@ -346,10 +385,23 @@ export default {
   animation-name: buttomFromBottom;
   animation-duration: 0.35s;
 }
+.close-panel {
+  float: right;
+  font-size: 17px;
+  color: #ff891e;
+  /* font-weight: bold; */
+  margin-top: 10px;
+  margin-right: 25px;
+}
+.icon-volver {
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
 </style>
 <style>
 .vs__selected {
-  font-size: 13px;
+  font-size: 12px;
 }
 .extras-box .vs__selected {
   font-size: 11px;
@@ -362,5 +414,13 @@ export default {
 }
 .v-select .vs__dropdown-menu {
   min-width: initial;
+}
+.vs--single .vs__dropdown-toggle {
+  max-height: 35px;
+}
+.form-group [type="checkbox"] {
+  vertical-align: middle; 
+  margin: 0px; 
+  width: 18px
 }
 </style>
