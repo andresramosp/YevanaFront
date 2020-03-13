@@ -3,11 +3,9 @@
     <div class="singleHotelSidebar">
       <div :class="`${!$device.isMobile ? 'panel panel-default' : ''}`">
         <div v-if="!$device.isMobile" class="panel-heading">DESDE {{50}} €/DÍA</div>
-        <div
-          class="close-panel"
-          v-else
-          @click="$emit('onClose')"
-        ><i class="fa fa-arrow-left icon-volver"></i>Volver a la ficha</div>
+        <div class="close-panel" v-else @click="$emit('onClose')">
+          <i class="fa fa-arrow-left icon-volver"></i>Volver a la ficha
+        </div>
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12">
@@ -42,6 +40,7 @@
                       v-model="reservaRequestModel.desde"
                       :input-props="{ placeholder: 'DD/MM/YYYY', readonly: true }"
                       @input="getPreview"
+                      :min-date="new Date()"
                       style="display: inline-block;"
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
                       :first-day-of-week="2"
@@ -53,11 +52,11 @@
                       v-model="reservaRequestModel.horaDesde"
                       :clearable="false"
                       :searchable="false"
+                      :disabled="true"
                       placeholder
                       :reduce="opt => parseInt(opt.replace(':00', ''))"
                       :options="['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']"
-                    >
-                    </vSelect>
+                    ></vSelect>
                   </div>
                 </div>
 
@@ -69,6 +68,7 @@
                       v-model="reservaRequestModel.hasta"
                       :input-props="{ placeholder: 'DD/MM/YYYY', readonly: true }"
                       @input="getPreview"
+                      :min-date="hastaMinDate"
                       style="display: inline-block;"
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
                       :first-day-of-week="2"
@@ -83,8 +83,7 @@
                       placeholder
                       :reduce="opt => parseInt(opt.replace(':00', ''))"
                       :options="['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']"
-                    >
-                    </vSelect>
+                    ></vSelect>
                   </div>
                 </div>
 
@@ -166,13 +165,17 @@
                 <!-- Kilometraje -->
                 <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <div class="col-sm-12 col-md-12 col-xs-12" style="text-align: right; margin-top: 20px">
+                    <div
+                      class="col-sm-12 col-md-12 col-xs-12"
+                      style="text-align: right; margin-top: 20px"
+                    >
                       <label class="control-label" for="kilometrajeCheckbox">Kilometraje ilimitado</label>
-                      <input 
+                      <input
                         @change="getPreview"
-                        v-model="reservaRequestModel.kmIli" 
-                        id="kilometrajeCheckbox" 
-                        type="checkbox" />
+                        v-model="reservaRequestModel.kmIli"
+                        id="kilometrajeCheckbox"
+                        type="checkbox"
+                      />
                     </div>
                   </div>
                 </div>
@@ -199,7 +202,11 @@
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                   </a>
                 </div>
-                <div v-else-if="desglosePreview.Precio" class="mobile-booking-button">Reservar</div>
+                <div
+                  v-else-if="desglosePreview.Precio"
+                  @click="startBooking()"
+                  class="mobile-booking-button"
+                >Reservar</div>
 
                 <div v-if="!$device.isMobile" class="col-sm-12">
                   <a
@@ -219,17 +226,12 @@
 <script>
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
-import ExtrasService from "~/services/extrasService";
 import ReservaService from "~/services/reservaService";
 import StringService from "~/services/stringService";
+import State from "~/services/state";
 export default {
   data() {
     return {
-      extras: [],
-      recogidaOptions: [],
-      devolucionOptions: [],
-      seguroOptions: [],
-      kilometrajeOptions: [],
       reservaRequestModel: {
         desde: null,
         hasta: null,
@@ -244,62 +246,87 @@ export default {
       desglosePreview: { Precio: 0 }
     };
   },
-  props: ["vehicleId"],
+  props: ["vehicleId", "allExtras"],
   components: {
     vSelect
   },
+  computed: {
+    hastaMinDate() {
+      let minDate = this.reservaRequestModel.desde
+        ? new Date(this.reservaRequestModel.desde)
+        : new Date();
+      minDate.setDate(minDate.getDate() + 2);
+      return minDate;
+    },
+    extras() {
+      return this.allExtras.filter(ex => !ex.GroupID);
+    },
+    recogidaOptions() {
+      return this.allExtras.filter(ex => ex.GroupID == "Recogida");
+    },
+    devolucionOptions() {
+      return this.allExtras.filter(ex => ex.GroupID == "Devolucion");
+    },
+    seguroOptions() {
+      return this.allExtras.filter(ex => ex.GroupID == "Seguro");
+    },
+    kilometrajeOptions() {
+      return this.allExtras.filter(ex => ex.GroupID == "Kilometraje");
+    }
+  },
   mounted() {
-    this.getExtras();
+    this.reservaRequestModel.seguro = {
+      ExtraID: this.seguroOptions.find(opt => opt.DefaultEnGrupo).ExtraID
+    };
+    this.reservaRequestModel.recogida = {
+      ExtraID: this.recogidaOptions.find(opt => opt.DefaultEnGrupo).ExtraID
+    };
+    this.reservaRequestModel.devolucion = {
+      ExtraID: this.devolucionOptions.find(opt => opt.DefaultEnGrupo).ExtraID
+    };
   },
   methods: {
-    async getExtras() {
-      let allExtras = await ExtrasService.getAll();
-      this.extras = allExtras.filter(ex => !ex.GroupID);
-      this.recogidaOptions = allExtras.filter(ex => ex.GroupID == "Recogida");
-      this.devolucionOptions = allExtras.filter(
-        ex => ex.GroupID == "Devolucion"
-      );
-      this.seguroOptions = allExtras.filter(ex => ex.GroupID == "Seguro");
-      this.kilometrajeOptions = allExtras.filter(ex => ex.GroupID == "Kilometraje");
-      this.reservaRequestModel.seguro = {
-        ExtraID: this.seguroOptions.find(opt => opt.DefaultEnGrupo).ExtraID
-      };
-      this.reservaRequestModel.recogida = {
-        ExtraID: this.recogidaOptions.find(opt => opt.DefaultEnGrupo).ExtraID
-      };
-      this.reservaRequestModel.devolucion = {
-        ExtraID: this.devolucionOptions.find(opt => opt.DefaultEnGrupo).ExtraID
-      };
+    startBooking() {
+      State.set('reserva', this.getReservaRequest(), true);
+      this.$router.push({
+        path: `/formulario/`
+      })
     },
-    // onDateDesdeChange(event) {
-    //   this.filter.range.start = event.start
-    //   this.filter.range.end = event.end
-    //   this.getActivity()
-    // },
     async getPreview() {
-      if (this.reservaRequestModel.desde && this.reservaRequestModel.hasta) {
-        const reservaRequest = {
-          Vehiculo: { VehiculoID: this.vehicleId },
-          Desde: StringService.getLocalDate(this.reservaRequestModel.desde),
-          Hasta: StringService.getLocalDate(this.reservaRequestModel.hasta), // "2020-03-10T00:00:00.000Z",
-          Extras: this.getSelectedExtras()
-        };
-        this.desglosePreview = await ReservaService.getDesglosePreview(
-          reservaRequest
-        );
+      const reservaRequest = this.getReservaRequest();
+      if (reservaRequest) {
+        this.desglosePreview = await ReservaService.getDesglosePreview(reservaRequest);
       } else {
         // Alerta: mensaje abajo gris estático para movil y modal para web
       }
     },
+    getReservaRequest() {
+      if (this.reservaRequestModel.desde && this.reservaRequestModel.hasta) {
+        return {
+          Vehiculo: { VehiculoID: this.vehicleId },
+          Desde: StringService.getLocalDate(this.reservaRequestModel.desde),
+          Hasta: StringService.getLocalDate(this.reservaRequestModel.hasta),
+          Extras: this.getSelectedExtras()
+        };
+      } else {
+        return null;
+      }
+    },
     getSelectedExtras() {
-      let kmBasico = this.kilometrajeOptions.find(opt => opt.Nombre == 'Básico');
-      let kmIlimitado = this.kilometrajeOptions.find(opt => opt.Nombre == 'Ilimitado');
+      let kmBasico = this.kilometrajeOptions.find(
+        opt => opt.Nombre == "Básico"
+      );
+      let kmIlimitado = this.kilometrajeOptions.find(
+        opt => opt.Nombre == "Ilimitado"
+      );
       return [
         ...this.reservaRequestModel.extras,
         this.reservaRequestModel.recogida,
         this.reservaRequestModel.devolucion,
         this.reservaRequestModel.seguro,
-        this.reservaRequestModel.kmIli ? { ExtraID: kmIlimitado.ExtraID } :  { ExtraID: kmBasico.ExtraID }
+        this.reservaRequestModel.kmIli
+          ? { ExtraID: kmIlimitado.ExtraID }
+          : { ExtraID: kmBasico.ExtraID }
       ];
     }
   }
@@ -321,22 +348,12 @@ export default {
 .mobile-fixed-panel .v-select {
   background-color: white;
 }
-/* .form-control {
-  height: 47px;
-  width: 100%;
-} */
 .mobile-fixed-panel {
-  /* position: fixed; */
-  /* top: 72px; */
   margin-top: 0px;
   z-index: 10;
   animation-name: panelFromUp;
   animation-duration: 0.35s;
-  /* transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 1.94); */
 }
-/* .mobile-fixed-panel .singleHotelSidebar .totalCost {
-  border-bottom: none;
-} */
 .mobile-fixed-panel .form-group {
   margin-bottom: 20px;
 }
@@ -419,8 +436,8 @@ export default {
   max-height: 35px;
 }
 .form-group [type="checkbox"] {
-  vertical-align: middle; 
-  margin: 0px; 
-  width: 18px
+  vertical-align: middle;
+  margin: 0px;
+  width: 18px;
 }
 </style>

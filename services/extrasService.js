@@ -27,7 +27,6 @@ const ExtrasService = {
                 }
                 catch (ex)
                 {
-                    debugger
                     console.log("Error asignando precios a extra " + extra.Nombre)
                 }
                 

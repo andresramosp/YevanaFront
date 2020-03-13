@@ -6,20 +6,36 @@ const VehicleService = {
             url: process.env.baseUrl + '/odata/oVehiculo?$expand=PreciosVehiculoTemporada,FichaTecnica($expand=EquipamientoItems)',
             method: 'GET',
         })
-        .then((data) => {
-            var vehiculos = data.data.value;
-            for (var v in vehiculos) {
-                var vehiculo = vehiculos[v];
-                var latest = vehiculo.PreciosVehiculoTemporada.reduce(function (l, e) {
-                     return e.SetPreciosVehiculosID > l.SetPreciosVehiculosID ? e : l;
-                }).SetPreciosVehiculosID;
-                vehiculo.PreciosActuales = vehiculo.PreciosVehiculoTemporada.filter(function (p) { return p.SetPreciosVehiculosID == latest });
-            }
-            vehiculos.sort(compareVehiculos)
-            return vehiculos;
+            .then((data) => {
+                var vehiculos = data.data.value;
+                for (var v in vehiculos) {
+                    var vehiculo = vehiculos[v];
+                    var latest = vehiculo.PreciosVehiculoTemporada.reduce(function (l, e) {
+                        return e.SetPreciosVehiculosID > l.SetPreciosVehiculosID ? e : l;
+                    }).SetPreciosVehiculosID;
+                    vehiculo.PreciosActuales = vehiculo.PreciosVehiculoTemporada.filter(function (p) { return p.SetPreciosVehiculosID == latest });
+                }
+                vehiculos.sort(compareVehiculos)
+                return vehiculos;
+            })
+            .catch(function (error) {
+            })
+    },
+
+    getById(id) {
+        return axios({
+            url: process.env.baseUrl + "/odata/oVehiculo('" + id + "')?$expand=Reservas($select=Desde,Hasta),FichaTecnica($expand=EquipamientoItems)",
+            method: 'GET',
         })
-        .catch(function (error) {
-        })
+            .then((data) => {
+                var vehiculo = data.data;
+                // GetSetPreciosVehiculos(0).then(function (set) {
+                //     vehiculo.PreciosActuales = set.Precios.filter(function (p) { return p.VehiculoID == vehiculo.VehiculoID });
+                // })
+                return vehiculo;
+            })
+            .catch(function (error) {
+            })
     }
 }
 
