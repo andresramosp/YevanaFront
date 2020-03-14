@@ -16,7 +16,7 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Modelo: {{vehicle.FichaTecnica.MarcaModelo}}
+                      <b>Modelo: </b> {{vehicle.FichaTecnica.MarcaModelo}}
                     </li>
                     <li>
                       <img
@@ -25,7 +25,7 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Motor: {{vehicle.FichaTecnica.Motor}}
+                      <b>Motor: </b> {{vehicle.FichaTecnica.Motor}}
                     </li>
                     <li>
                       <img
@@ -34,7 +34,7 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Capacidad Combustible: {{vehicle.FichaTecnica.CapacidadCombustible}}
+                      <b>Capacidad Combustible: </b> {{vehicle.FichaTecnica.CapacidadCombustible}} L
                     </li>
                     <li>
                       <img
@@ -43,7 +43,7 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Tipo Combustible: {{vehicle.FichaTecnica.Combustible}}
+                      <b>Tipo Combustible: </b> {{vehicle.FichaTecnica.Combustible}}
                     </li>
                     <li>
                       <img
@@ -52,29 +52,20 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Consumo: {{vehicle.FichaTecnica.Consumo}}
-                    </li>
-                    <li>
-                      <img
-                        :src="require('~/assets/icons/consumo.png')"
-                        width="19"
-                        height="19"
-                        style="margin-right: 7px"
-                      />
-                      Dimensiones: {{vehicle.FichaTecnica.Tamanio}}
+                      <b>Consumo: </b> {{vehicle.FichaTecnica.Consumo}}
                     </li>
                   </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                   <ul class="descriptionList">
-                    <li>
+                      <li>
                       <img
                         :src="require('~/assets/icons/consumo.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Asientos: {{vehicle.FichaTecnica.NumeroAsientos}}
+                      <b>Dimensiones: </b> {{vehicle.FichaTecnica.Tamanio}}
                     </li>
                     <li>
                       <img
@@ -83,7 +74,7 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Climatización: {{vehicle.FichaTecnica.Climatizacion}}
+                      <b>Asientos: </b> {{vehicle.FichaTecnica.NumeroAsientos}}
                     </li>
                     <li>
                       <img
@@ -92,7 +83,16 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Radio: {{vehicle.FichaTecnica.Radio}}
+                      <b>Climatización: </b>{{vehicle.FichaTecnica.Climatizacion}}
+                    </li>
+                    <li>
+                      <img
+                        :src="require('~/assets/icons/consumo.png')"
+                        width="19"
+                        height="19"
+                        style="margin-right: 7px"
+                      />
+                      <b>Radio: </b> {{vehicle.FichaTecnica.Radio}}
                     </li>
                     <li v-if="vehicle.FichaTecnica.Adicional">
                       <img
@@ -101,7 +101,7 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      Otros: {{vehicle.FichaTecnica.Adicional}}
+                      <b>Otros: </b> {{vehicle.FichaTecnica.Adicional}}
                     </li>
                   </ul>
                 </div>
@@ -116,7 +116,7 @@
               <ul>
                 <li v-for="categoria in categoriasEquipamiento" :key="categoria">
                   <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-4">{{categoria}}</div>
+                    <div class="col-md-3 col-sm-3 col-xs-4"><b>{{categoria}}</b></div>
                     <div class="col-md-9 col-sm-9 col-xs-8">
                       <div class="row">
                         <div
@@ -159,8 +159,8 @@
                       >
                         <span>{{item.Nombre}}</span>
                         <i class="indicator fa fa-plus-square pull-right"></i>
-                        <span class="pull-right" style="margin-right: 20px">
-                          {{item.Precio}} € {{item.Calculo == 'Diario' ? '/ día' : 'por alquiler'}}
+                        <span class="pull-right" style="margin-right: 10px">
+                          {{item.Precio}} €{{item.Calculo == 'Diario' ? '/día' : ''}}
                           {{item.PrecioMaximo && !$device.isMobile ? ('- Máximo: ' + item.PrecioMaximo) : ''}}
                         </span>
                       </a>
