@@ -71,8 +71,8 @@
                         height="21"
                         style="margin-right: 7px"
                         />-->
-                        <span class="vehicle-prop">Marca:</span>
-                        {{vehiculo.Familia}}
+                        <span class="vehicle-prop">Modelo:</span>
+                        {{ vehiculo.FichaTecnica.MarcaModelo }}
                       </span>
                     </div>
                     <div class="col-md-6">
@@ -83,8 +83,8 @@
                         height="21"
                         style="margin-right: 7px; margin-left: -2px"
                         />-->
-                        <span class="vehicle-prop">Modelo:</span>
-                        : {{ vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' }}
+                        <span class="vehicle-prop">Familia:</span>
+                        : {{ vehiculo.Familia }}
                       </span>
                     </div>
                   </div>

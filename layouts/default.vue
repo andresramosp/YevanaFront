@@ -10,9 +10,12 @@
       v-show="State.footerVisible" />
   </div>
 </template>
-<style scoped>
+<style>
 .menu-opaque {
   margin-bottom: 72px !important
+}
+.notices .toast .toast-text {
+  color: white;
 }
 </style>
 <script>

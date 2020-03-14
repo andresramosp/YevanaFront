@@ -25,7 +25,7 @@
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Marca y modelo: {{'Mercedes'}}
+                  Modelo: {{vehicle.FichaTecnica.MarcaModelo}}
                 </li>
                 <li>
                   <img
@@ -34,7 +34,7 @@
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Motor: {{'12cc'}}
+                  Motor: {{vehicle.FichaTecnica.Motor}}
                 </li>
                 <li>
                   <img
@@ -43,7 +43,7 @@
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Combustible: {{'12L'}}
+                  Capacidad Combustible: {{vehicle.FichaTecnica.CapacidadCombustible}}
                 </li>
                 <li>
                   <img
@@ -52,7 +52,7 @@
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Consumo: {{'50L/H'}}
+                  Tipo Combustible: {{vehicle.FichaTecnica.Combustible}}
                 </li>
                 <li>
                   <img
@@ -61,7 +61,16 @@
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Dimensiones: {{'6 X 8 M'}}
+                  Consumo: {{vehicle.FichaTecnica.Consumo}}
+                </li>
+                <li>
+                  <img
+                    :src="require('~/assets/icons/consumo.png')"
+                    width="19"
+                    height="19"
+                    style="margin-right: 7px"
+                  />
+                  Dimensiones: {{vehicle.FichaTecnica.Tamanio}}
                 </li>
               </ul>
             </div>
@@ -74,7 +83,7 @@
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Asientos: {{2}}
+                  Asientos: {{vehicle.FichaTecnica.NumeroAsientos}}
                 </li>
                 <li>
                   <img
@@ -83,35 +92,26 @@
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Climatización: {{'SI'}}
-                </li>
-                <!-- <li>
-                  <img
-                    ng-src="{{'img/icons/combustible.png'}}"
-                    width="19"
-                    height="19"
-                    style="margin-right: 7px"
-                  />
-                  Capacidad Depósito: {{vehicle.FichaTecnica.CapacidadCombustible + ' L'}}
+                  Climatización: {{vehicle.FichaTecnica.Climatizacion}}
                 </li>
                 <li>
                   <img
-                    ng-src="{{'img/icons/combustible.png'}}"
+                    :src="require('~/assets/icons/consumo.png')"
                     width="19"
                     height="19"
                     style="margin-right: 7px"
                   />
                   Radio: {{vehicle.FichaTecnica.Radio}}
                 </li>
-                <li ng-if="vehicle.FichaTecnica.EquipamientoAdicional">
+                <li v-if="vehicle.FichaTecnica.Adicional">
                   <img
-                    ng-src="{{'img/icons/combustible.png'}}"
+                    :src="require('~/assets/icons/consumo.png')"
                     width="19"
                     height="19"
                     style="margin-right: 7px"
                   />
-                  Otros: {{vehicle.FichaTecnica.EquipamientoAdicional}}
-                </li>-->
+                  Otros: {{vehicle.FichaTecnica.Adicional}}
+                </li>
               </ul>
             </div>
           </div>
@@ -135,8 +135,8 @@
           <ul>
             <li v-for="categoria in categoriasEquipamiento" :key="categoria">
               <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-3">{{categoria}}</div>
-                <div class="col-md-9 col-sm-9 col-xs-9">
+                <div class="col-md-3 col-sm-3 col-xs-4">{{categoria}}</div>
+                <div class="col-md-9 col-sm-9 col-xs-8">
                   <div class="row">
                     <div
                       v-for="equip in vehicle.FichaTecnica.EquipamientoItems"
@@ -145,7 +145,7 @@
                       <div
                         v-if="equip.Categoria == categoria"
                         class="col-md-6"
-                        style="margin-bottom:10px"
+                        style="margin-bottom: 10px; font-size: 12px"
                       >
                         <!--<img ng-if="imageExists(extra.Nombre)" ng-src="{{'img/icons/' + utilidadesService.cleanString(extra.Nombre) + '.png'}}" width="19" height="19" style="margin-right: 7px" />
                         <img ng-if="!imageExists(extra.Nombre)" ng-src="{{'img/icons/generic_item.png'}}" width="19" height="19" style="margin-right: 7px" />-->
@@ -192,7 +192,7 @@
                     <i class="indicator fa fa-plus-square pull-right"></i>
                     <span class="pull-right" style="margin-right: 20px">
                       {{item.Precio}} € {{item.Calculo == 'Diario' ? '/ día' : 'por alquiler'}}
-                      {{item.PrecioMaximo ? ('- Máximo: ' + item.PrecioMaximo) : ''}}
+                      {{item.PrecioMaximo && !$device.isMobile ? ('- Máximo: ' + item.PrecioMaximo) : ''}}
                     </span>
                   </a>
                   <div :id="'collapseExtra' + item.ExtraID" class="panel-collapse collapse">
@@ -211,6 +211,127 @@
         </div>
       </div>
     </div>
+
+    <!--CALENDARIO TEMPORADAS-->
+
+    <div v-if="!$device.isMobile" class="panel panel-default">
+      <a
+        class="panel-heading accordion-toggle"
+        data-toggle="collapse"
+        data-parent="#accordionIcons"
+        href="#collapseTemps"
+        target="_self"
+      >
+        <span>CALENDARIO DE TEMPORADAS</span>
+        <i class="indicator fa fa-plus pull-right"></i>
+      </a>
+      <div id="collapseTemps" class="panel-collapse collapse">
+        <div class="panel-body">
+          <img src="/img/alquileres/calendarioTemporadas.png" width="720" />
+          <!-- <div class="form-group">
+                  <div class="col-sm-12" style="text-align: center; margin-top: 10px">
+                    <img
+                      title="{{precioTemporadaBaja}}"
+                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: cornflowerblue"
+                    />
+                    <span style="font-size: 11px; margin-left: 3px">Baja - {{precioTemporadaBaja}}€</span>
+                    <img
+                      title="{{precioTemporadaMedia}}"
+                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightgreen; margin-left: 10px"
+                    />
+                    <span
+                      style="font-size: 11px; margin-left: 3px"
+                    >Media - {{precioTemporadaMedia}}€</span>
+                    <img
+                      title="{{precioTemporadaAlta}}"
+                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightpink; margin-left: 10px"
+                    />
+                    <span style="font-size: 11px; margin-left: 3px">Alta - {{precioTemporadaAlta}}€</span>
+                  </div>
+          </div>-->
+        </div>
+      </div>
+    </div>
+
+    <!--SEGURO-->
+
+    <div class="panel panel-default">
+      <a
+        class="panel-heading accordion-toggle"
+        data-toggle="collapse"
+        data-parent="#accordionIcons"
+        href="#collapseSeg"
+        target="_self"
+      >
+        <span>SEGURO</span>
+        <i class="indicator fa fa-plus pull-right"></i>
+      </a>
+      <div id="collapseSeg" class="panel-collapse collapse">
+        <div class="panel-body" style="text-align: justify">
+          Todas nuestras reservas cuentan con un seguro a todo riesgo con franquicia, asistencia 24 horas y atención telefónica directa con el personal de Yevana para cualquier duda o circunstancia durante tu viaje por España, Europa o países Ribereños del Mediterráneo.
+          <br />
+          <br />La franquicia del seguro básico es de 850€ y tendrás que dejarla como depósito al inicio de la reserva.
+          Con el seguro Plus la franquicia y el depósito se reducen a 250€. Además obtendrás cobertura de ruedas y lunas a todo riesgo sin penalización de la franquicia en caso de daños y también podrás añadir un segundo conductor.
+          <br />
+          <br />A continuación puedes ver un cuadro comparativo de las coberturas de ambos seguros:
+          <br />
+          <br />
+
+          <table class="table" style="font-size: 13px">
+            <thead>
+              <tr>
+                <th scope="col">Seguros</th>
+                <th scope="col">Todo riesgo 850€</th>
+                <th scope="col">Todo riesgo Plus 250€</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Asistencia en carretera</th>
+                <td>Sí</td>
+                <td>Sí</td>
+              </tr>
+              <tr>
+                <th scope="row">Daños ext/int</th>
+                <td>850 Eur</td>
+                <td>250 Eur</td>
+              </tr>
+              <tr>
+                <th scope="row">Ventanas/lunas</th>
+                <td>No</td>
+                <td>Sí</td>
+              </tr>
+              <tr>
+                <th scope="row">Ruedas</th>
+                <td>No</td>
+                <td>Sí</td>
+              </tr>
+              <tr>
+                <th scope="row">Nº Conductor</th>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div v-if="!$device.isMobile">
+            El coste del seguro plus va reduciéndose a medida que aumentan los días de tu reserva, a continuación puedes ver un cuadro con el coste diario de añadir Seguro Plus a tu reserva:
+            <br />
+            <br />
+
+            <img src="/img/alquileres/tablaSeguro.png" width="720" />
+
+            <br />
+            <br />
+          </div>
+
+          <span style="text-align: center; font-weight: bold">KILOMETRAJE ILIMITADO</span>
+          <br />
+          <br />Todas nuestras reservas cuentan con 200Km/día. El kilómetro extra tiene un coste de 0.20cts €
+          Puedes contratar kilometraje ilimitado por 25€ al día.
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -218,17 +339,17 @@
 export default {
   data() {
     return {
-      categoriasEquipamiento: [],
+      categoriasEquipamiento: []
     };
   },
   props: ["vehicle", "extras"],
   mounted() {
-
-    const categorias = this.vehicle.FichaTecnica.EquipamientoItems.map(eq => eq.Categoria );
+    const categorias = this.vehicle.FichaTecnica.EquipamientoItems.map(
+      eq => eq.Categoria
+    );
     this.categoriasEquipamiento = Array.from(new Set(categorias));
   },
-  methods: {
-  }
+  methods: {}
 };
 </script>
 

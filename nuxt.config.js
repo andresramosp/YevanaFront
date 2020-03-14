@@ -68,6 +68,7 @@ export default {
   */
  plugins: [
   { src: '~/plugins/vue-calendar.js', ssr: false },
+  { src: '~/plugins/vue-toast.js', ssr: false },
 ],
   /*
   ** Nuxt.js dev-modules

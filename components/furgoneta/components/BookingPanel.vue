@@ -52,7 +52,6 @@
                       v-model="reservaRequestModel.horaDesde"
                       :clearable="false"
                       :searchable="false"
-                      :disabled="true"
                       placeholder
                       :reduce="opt => parseInt(opt.replace(':00', ''))"
                       :options="['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']"
@@ -196,7 +195,7 @@
                   </div>
                 </div>
 
-                <div v-if="!$device.isMobile" class="col-sm-12">
+                <div v-if="!$device.isMobile" @click="startBooking()" class="col-sm-12">
                   <a :disabled="false" class="btn btn-block buttonTransparent">
                     Solicitar Reserva
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -224,6 +223,7 @@
   </div>
 </template>
 <script>
+import Vue from 'vue';
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import ReservaService from "~/services/reservaService";
@@ -291,6 +291,13 @@ export default {
       this.$router.push({
         path: `/formulario/`
       })
+      // Vue.$toast.open({
+      //   message: "Las fechas de la reserva no son correctas",
+      //   position: "top",
+      //   type: "error",
+      //   dismissible: true,
+      //   duration: 5000
+      // });
     },
     async getPreview() {
       const reservaRequest = this.getReservaRequest();
@@ -404,7 +411,7 @@ export default {
 }
 .close-panel {
   float: right;
-  font-size: 17px;
+  font-size: 15px;
   color: #ff891e;
   /* font-weight: bold; */
   margin-top: 10px;
@@ -439,5 +446,8 @@ export default {
   vertical-align: middle;
   margin: 0px;
   width: 18px;
+}
+.vc-text-base {
+  font-size: 12px;
 }
 </style>
