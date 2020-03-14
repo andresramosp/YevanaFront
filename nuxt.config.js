@@ -86,8 +86,13 @@ export default {
     [
       '@nuxtjs/device',
       {defaultUserAgent: 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Mobile Safari/537.36'}
-    ]
+    ],
+    'bootstrap-vue/nuxt',
   ],
+  bootstrapVue: {
+      bootstrapCSS: false, // Or `css: false`
+      bootstrapVueCSS: true // Or `bvCSS: false`
+    },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
