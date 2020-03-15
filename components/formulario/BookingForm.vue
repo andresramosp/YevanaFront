@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section class="mainContentSection singlePackage">
-      <BookingWizard v-if="!$device.isMobile" />
+      <BookingWizard v-if="!$device.isMobile" step="2" />
       <div class="row">
         <div class="col-sm-4 col-sm-push-8 col-xs-12">
           <!--Panel Detalle-->

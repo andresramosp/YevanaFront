@@ -10,6 +10,7 @@ export default {
       '/furgoneta/BL'
     ]
   },
+  loading: false,
   env: {
     baseUrl:
       process.env.BASE_URL || 'http://api.yevana.com'
@@ -57,7 +58,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  // loading: { color: '#fff' },
   /*
   ** Global CSS
   */

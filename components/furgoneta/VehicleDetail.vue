@@ -5,7 +5,7 @@
       <BookingImageBar />
       <div class="container">
         <section class="mainContentSection singlePackage">
-          <BookingWizard />
+          <BookingWizard step="1" />
           <div class="hotelTitle">
             <h2>{{'Emerald'}}</h2>
           </div>

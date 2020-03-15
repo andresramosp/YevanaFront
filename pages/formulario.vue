@@ -17,6 +17,8 @@ export default {
   mounted() {
     State.activePage = "Alquila";
     State.menuOpaque = true;
+    State.footerVisible = true;
+    State.menuVisible = true;
   }
 };
 </script>

@@ -6637,9 +6637,9 @@ header {
 /*================= 12 BOOKING ==================*/
 /*=== 12.1 BOOKING PROGRESS BAR ===*/
 .progress-wizard {
-  margin-top: 40px;
+  margin-top: 25px;
   border-bottom: 1px solid #e0e0e0;
-  padding: 0 0 30px 0;
+  padding: 0 0 0px 0;
 }
 
 .progress-wizard > .progress-wizard-step {

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row progress-wizard" style="border-bottom:0;">
-      <div class="col-sm-4 col-xs-12 progress-wizard-step active">
+      <div :class="`col-sm-4 col-xs-12 progress-wizard-step ${step == 1 ? 'active' : 'disabled'}`">
         <div class="progress">
           <div class="progress-bar"></div>
         </div>
@@ -11,7 +11,7 @@
         </a>
       </div>
 
-      <div class="col-sm-4 col-xs-12 progress-wizard-step disabled">
+      <div :class="`col-sm-4 col-xs-12 progress-wizard-step ${step == 2 ? 'active' : 'disabled'}`">
         <div class="progress">
           <div class="progress-bar"></div>
         </div>
@@ -21,7 +21,7 @@
         </a>
       </div>
 
-      <div class="col-sm-4 col-xs-12 progress-wizard-step disabled">
+      <div :class="`col-sm-4 col-xs-12 progress-wizard-step ${step == 3 ? 'active' : 'disabled'}`">
         <div class="progress">
           <div class="progress-bar"></div>
         </div>
@@ -33,3 +33,9 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    props: ['step']
+  }
+</script>
