@@ -31,7 +31,10 @@
               </div>
             </div>
             <aside class="col-sm-4 col-xs-12">
-              <BookingPanel v-if="allExtras.length > 0" :vehicleId="id" :allExtras="allExtras" />
+              <BookingPanel 
+                v-if="allExtras.length > 0 && vehicle"
+                :vehicle="vehicle" 
+                :allExtras="allExtras" />
             </aside>
           </div>
         </section>
@@ -55,8 +58,8 @@
         </div>
       </section>
       <BookingPanel
-        v-if="allExtras.length > 0"
-        :vehicleId="id"
+        v-if="allExtras.length > 0 && vehicle"
+        :vehicle="vehicle"
         :allExtras="allExtras"
         v-show="showBookingPanel"
         @onClose="showBookingPanel = false"

@@ -63,6 +63,13 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
+.vc-rounded-full {
+    border-radius: none !important; 
+}
+.vc-highlight {
+    /* width: 100% !important;
+    height: 100% !important; */
+}
 </style>
 <script>
 import Menu from "~/components/Menu.vue";

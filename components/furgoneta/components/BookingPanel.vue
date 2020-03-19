@@ -2,7 +2,7 @@
   <div :class="`${$device.isMobile ? 'mobile-fixed-panel' : ''}`">
     <div class="singleHotelSidebar">
       <div :class="`${!$device.isMobile ? 'panel panel-default' : ''}`">
-        <div v-if="!$device.isMobile" class="panel-heading">DESDE {{50}} €/DÍA</div>
+        <div v-if="!$device.isMobile" class="panel-heading">DESDE {{precioTemporadaBaja}} €/DÍA</div>
         <div class="close-panel" v-else @click="$emit('onClose')">
           <i class="fa fa-arrow-left icon-volver"></i>Volver a la ficha
         </div>
@@ -11,27 +11,28 @@
             <div class="col-xs-12">
               <form class="form-horizontal">
                 <!--Leyendas Temporadas-->
-                <!-- <div class="form-group">
-                  <div class="col-sm-12" style="text-align: center; margin-top: 10px">
+                <div class="form-group">
+                  <!-- <div class="col-sm-12" style="text-align: center; margin-top: 10px">
                     <img
-                      title="{{precioTemporadaBaja}}"
+                      src=""
+                      :title="precioTemporadaBaja"
                       style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: cornflowerblue"
                     />
                     <span style="font-size: 11px; margin-left: 3px">Baja - {{precioTemporadaBaja}}€</span>
                     <img
-                      title="{{precioTemporadaMedia}}"
+                      :title="precioTemporadaMedia"
                       style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightgreen; margin-left: 10px"
                     />
                     <span
                       style="font-size: 11px; margin-left: 3px"
                     >Media - {{precioTemporadaMedia}}€</span>
                     <img
-                      title="{{precioTemporadaAlta}}"
+                      :title="precioTemporadaAlta"
                       style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightpink; margin-left: 10px"
                     />
                     <span style="font-size: 11px; margin-left: 3px">Alta - {{precioTemporadaAlta}}€</span>
-                  </div>
-                </div>-->
+                  </div> -->
+                </div>
                 <!--Calendarios-->
                 <div class="form-group">
                   <label class="control-label col-xs-2" for="inputSuccess3">Desde:</label>
@@ -45,6 +46,7 @@
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
                       :first-day-of-week="2"
                       class="date-picker"
+                      :attributes="calendarAttrs"
                     />
                   </div>
                   <div class="col-xs-4">
@@ -72,6 +74,7 @@
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
                       :first-day-of-week="2"
                       class="date-picker"
+                      :attributes="calendarAttrs"
                     />
                   </div>
                   <div class="col-xs-4">
@@ -223,10 +226,11 @@
   </div>
 </template>
 <script>
-import Vue from 'vue';
+import Vue from "vue";
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import ReservaService from "~/services/reservaService";
+import TemporadasService from "~/services/temporadasService";
 import StringService from "~/services/stringService";
 import State from "~/services/state";
 export default {
@@ -243,10 +247,12 @@ export default {
         seguro: null,
         kmIli: false
       },
+      temporadas: [],
+      calendarAttrs: [],
       desglosePreview: { Precio: 0 }
     };
   },
-  props: ["vehicleId", "allExtras"],
+  props: ["vehicle", "allExtras"],
   components: {
     vSelect
   },
@@ -272,9 +278,19 @@ export default {
     },
     kilometrajeOptions() {
       return this.allExtras.filter(ex => ex.GroupID == "Kilometraje");
+    },
+    precioTemporadaBaja() {
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == 'Baja').Precio
+    },
+    precioTemporadaAlta() {
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == 'Alta').Precio
+    },
+    precioTemporadaMedia() {
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == 'Media').Precio
     }
   },
   mounted() {
+    this.getAndfillTemporadas();
     this.reservaRequestModel.seguro = {
       ExtraID: this.seguroOptions.find(opt => opt.DefaultEnGrupo).ExtraID
     };
@@ -286,11 +302,46 @@ export default {
     };
   },
   methods: {
+    async getAndfillTemporadas() {
+      this.temporadas = await TemporadasService.getAll();
+      this.calendarAttrs = [
+        {
+          highlight: {
+            color: "green",
+            fillMode: "light",
+          },
+          popover: {},
+          dates: await TemporadasService.getDatesTemporada("Media"),
+          excludeDates: null,
+          order: 0
+        },
+        {
+          highlight: {
+            color: "blue",
+            fillMode: "light",
+          },
+          popover: {},
+          dates: await TemporadasService.getDatesTemporada("Baja"),
+          excludeDates: null,
+          order: 0
+        },
+        {
+          highlight: {
+            color: "pink",
+            fillMode: "light",
+          },
+          popover: {},
+          dates: await TemporadasService.getDatesTemporada("Alta"),
+          excludeDates: null,
+          order: 0
+        }
+      ];
+    },
     startBooking() {
-      State.set('reserva', this.getReservaRequest(), true);
+      State.set("reserva", this.getReservaRequest(), true);
       this.$router.push({
         path: `/formulario/`
-      })
+      });
       // Vue.$toast.open({
       //   message: "Las fechas de la reserva no son correctas",
       //   position: "top",
@@ -302,7 +353,9 @@ export default {
     async getPreview() {
       const reservaRequest = this.getReservaRequest();
       if (reservaRequest) {
-        this.desglosePreview = await ReservaService.getDesglosePreview(reservaRequest);
+        this.desglosePreview = await ReservaService.getDesglosePreview(
+          reservaRequest
+        );
       } else {
         // Alerta: mensaje abajo gris estático para movil y modal para web
       }
@@ -310,7 +363,7 @@ export default {
     getReservaRequest() {
       if (this.reservaRequestModel.desde && this.reservaRequestModel.hasta) {
         return {
-          Vehiculo: { VehiculoID: this.vehicleId },
+          Vehiculo: { VehiculoID: this.vehicle.VehiculoID },
           Desde: StringService.getLocalDate(this.reservaRequestModel.desde),
           Hasta: StringService.getLocalDate(this.reservaRequestModel.hasta),
           Extras: this.getSelectedExtras()

@@ -24,7 +24,7 @@ const VehicleService = {
 
     getById(id) {
         return axios({
-            url: process.env.baseUrl + "/odata/oVehiculo('" + id + "')?$expand=Reservas($select=Desde,Hasta),FichaTecnica($expand=EquipamientoItems)",
+            url: process.env.baseUrl + "/odata/oVehiculo('" + id + "')?$expand=Reservas($select=Desde,Hasta),PreciosVehiculoTemporada,FichaTecnica($expand=EquipamientoItems)",
             method: 'GET',
         })
             .then((data) => {
@@ -32,6 +32,10 @@ const VehicleService = {
                 // GetSetPreciosVehiculos(0).then(function (set) {
                 //     vehiculo.PreciosActuales = set.Precios.filter(function (p) { return p.VehiculoID == vehiculo.VehiculoID });
                 // })
+                var latest = vehiculo.PreciosVehiculoTemporada.reduce(function (l, e) {
+                    return e.SetPreciosVehiculosID > l.SetPreciosVehiculosID ? e : l;
+                }).SetPreciosVehiculosID;
+                vehiculo.PreciosActuales = vehiculo.PreciosVehiculoTemporada.filter(function (p) { return p.SetPreciosVehiculosID == latest });
                 return vehiculo;
             })
             .catch(function (error) {
