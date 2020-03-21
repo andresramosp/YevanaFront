@@ -41,6 +41,16 @@ const TemporadasService = {
         var temporada = temporadas.find(function (t) { return t.TemporadaID == nombreTemporada });
         var dates = temporada.Fechas.map(function (d) { d = new Date(d); return d; });
         return dates.filter(d => d > new Date());
+    },
+
+    getDatesInRange(startDate, stopDate) {
+        var dateArray = new Array();
+        var currentDate = startDate;
+        while (currentDate <= stopDate) {
+            dateArray.push(currentDate)
+            currentDate = currentDate.addDays(1);
+        }
+        return dateArray;
     }
 }
 

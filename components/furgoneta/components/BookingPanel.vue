@@ -31,7 +31,7 @@
                       style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightpink; margin-left: 10px"
                     />
                     <span style="font-size: 11px; margin-left: 3px">Alta - {{precioTemporadaAlta}}€</span>
-                  </div> -->
+                  </div>-->
                 </div>
                 <!--Calendarios-->
                 <div class="form-group">
@@ -40,7 +40,7 @@
                     <v-date-picker
                       v-model="reservaRequestModel.desde"
                       :input-props="{ placeholder: 'DD/MM/YYYY', readonly: true }"
-                      @input="getPreview"
+                      @input="onInputDate"
                       :min-date="new Date()"
                       style="display: inline-block;"
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
@@ -68,7 +68,7 @@
                       height="40"
                       v-model="reservaRequestModel.hasta"
                       :input-props="{ placeholder: 'DD/MM/YYYY', readonly: true }"
-                      @input="getPreview"
+                      @input="onInputDate"
                       :min-date="hastaMinDate"
                       style="display: inline-block;"
                       :popover="{ placement: 'bottom-start', positionFixed: true }"
@@ -173,8 +173,9 @@
                     >
                       <label class="control-label" for="kilometrajeCheckbox">Kilometraje ilimitado</label>
                       <input
-                        @change="getPreview"
+                        @change="onInputKm"
                         v-model="reservaRequestModel.kmIli"
+                        :checked="reservaRequestModel.kmIli"
                         id="kilometrajeCheckbox"
                         type="checkbox"
                       />
@@ -197,6 +198,8 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="col-sm-12 infoKm">{{this.infoKilometraje}}</div>
 
                 <div v-if="!$device.isMobile" @click="startBooking()" class="col-sm-12">
                   <a :disabled="false" class="btn btn-block buttonTransparent">
@@ -249,7 +252,8 @@ export default {
       },
       temporadas: [],
       calendarAttrs: [],
-      desglosePreview: { Precio: 0 }
+      desglosePreview: { Precio: 0 },
+      infoKilometraje: ""
     };
   },
   props: ["vehicle", "allExtras"],
@@ -280,13 +284,16 @@ export default {
       return this.allExtras.filter(ex => ex.GroupID == "Kilometraje");
     },
     precioTemporadaBaja() {
-      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == 'Baja').Precio
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == "Baja")
+        .Precio;
     },
     precioTemporadaAlta() {
-      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == 'Alta').Precio
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == "Alta")
+        .Precio;
     },
     precioTemporadaMedia() {
-      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == 'Media').Precio
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == "Media")
+        .Precio;
     }
   },
   mounted() {
@@ -308,7 +315,7 @@ export default {
         {
           highlight: {
             color: "green",
-            fillMode: "light",
+            fillMode: "light"
           },
           popover: {},
           dates: await TemporadasService.getDatesTemporada("Media"),
@@ -318,7 +325,7 @@ export default {
         {
           highlight: {
             color: "blue",
-            fillMode: "light",
+            fillMode: "light"
           },
           popover: {},
           dates: await TemporadasService.getDatesTemporada("Baja"),
@@ -328,7 +335,7 @@ export default {
         {
           highlight: {
             color: "pink",
-            fillMode: "light",
+            fillMode: "light"
           },
           popover: {},
           dates: await TemporadasService.getDatesTemporada("Alta"),
@@ -337,18 +344,19 @@ export default {
         }
       ];
     },
+    onInputDate() {
+      this.showInfoKmPorDias();
+      this.getPreview();
+    },
+    onInputKm() {
+      this.showInfoKm();
+      this.getPreview();
+    },
     startBooking() {
       State.set("reserva", this.getReservaRequest(), true);
       this.$router.push({
         path: `/formulario/`
       });
-      // Vue.$toast.open({
-      //   message: "Las fechas de la reserva no son correctas",
-      //   position: "top",
-      //   type: "error",
-      //   dismissible: true,
-      //   duration: 5000
-      // });
     },
     async getPreview() {
       const reservaRequest = this.getReservaRequest();
@@ -356,8 +364,6 @@ export default {
         this.desglosePreview = await ReservaService.getDesglosePreview(
           reservaRequest
         );
-      } else {
-        // Alerta: mensaje abajo gris estático para movil y modal para web
       }
     },
     getReservaRequest() {
@@ -369,6 +375,13 @@ export default {
           Extras: this.getSelectedExtras()
         };
       } else {
+        // Vue.$toast.open({
+        //   message: "Debe seleccionar fecha de inicio y de fin",
+        //   position: "bottom",
+        //   type: "warning",
+        //   dismissible: true,
+        //   duration: 5000
+        // });
         return null;
       }
     },
@@ -388,6 +401,26 @@ export default {
           ? { ExtraID: kmIlimitado.ExtraID }
           : { ExtraID: kmBasico.ExtraID }
       ];
+    },
+    showInfoKmPorDias() {
+      if (this.reservaRequestModel.desde && this.reservaRequestModel.hasta) {
+        const numDias = TemporadasService.getDatesInRange(
+          this.reservaRequestModel.desde,
+          this.reservaRequestModel.hasta
+        ).length;
+        if (!this.reservaRequestModel.kmIli) {
+          this.infoKilometraje =
+            "Dispones de " + 200 * numDias + " Kilómetros para tu viaje";
+        }
+      }
+    },
+    showInfoKm() {
+      if (this.reservaRequestModel.kmIli) {
+        this.infoKilometraje = "Disfruta de infinitos kilómetros!";
+      } else {
+        this.infoKilometraje = '';
+        this.showInfoKmPorDias();
+      }
     }
   }
 };
@@ -502,5 +535,9 @@ export default {
 }
 .vc-text-base {
   font-size: 12px;
+}
+.infoKm {
+  color: #ff891e;
+  font-style: italic;
 }
 </style>

@@ -164,4 +164,10 @@ jQuery(document).ready(function(){
       $button.parent().find('.quantity').val(newVal);
       e.preventDefault();
   });
+  
+  Date.prototype.addDays = function (days) {
+    var dat = new Date(this.valueOf())
+    dat.setDate(dat.getDate() + days);
+    return dat;
+}
 });
