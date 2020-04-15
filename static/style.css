@@ -4626,12 +4626,17 @@ header {
 @media (max-width: 767px) {
   .packagesList .media-body {
     padding: 30px;
+    line-height: 25px;
   }
 }
 
 @media (min-width: 768px) {
   .packagesList .media-body {
-    padding: 30px 30px 0 20px;
+    padding: 30px 30px 0 10px;
+    line-height: 30px;
+  }
+  .packagesList .media-body .row {
+    font-size: 13px;
   }
 }
 

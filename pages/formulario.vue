@@ -9,11 +9,6 @@ export default {
   components: {
     BookingForm
   },
-  data() {
-    return {
-      reserva: State.get("reserva")
-    };
-  },
   mounted() {
     State.activePage = "Alquila";
     State.menuOpaque = true;

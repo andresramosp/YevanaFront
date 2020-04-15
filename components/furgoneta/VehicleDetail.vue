@@ -73,7 +73,7 @@ import Vue from "vue";
 import VehicleService from "~/services/VehicleService";
 import ExtrasService from "~/services/ExtrasService";
 import BookingWizard from "~/components/BookingWizard.vue";
-import BookingImageBar from "./components/BookingImageBar.vue";
+import BookingImageBar from "~/components/BookingImageBar.vue";
 import VehicleCarousel from "./components/VehicleCarousel.vue";
 import VehicleFeatures from "./components/VehicleFeatures.vue";
 import BookingFloatingButton from "./components/BookingFloatingButton.vue";

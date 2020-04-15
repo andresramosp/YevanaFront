@@ -353,7 +353,7 @@ export default {
       this.getPreview();
     },
     startBooking() {
-      State.set("reserva", this.getReservaRequest(), true);
+      State.set("reserva", {...this.getReservaRequest(), Desglose: this.desglosePreview}, true);
       this.$router.push({
         path: `/formulario/`
       });
@@ -372,7 +372,7 @@ export default {
           Vehiculo: { VehiculoID: this.vehicle.VehiculoID },
           Desde: StringService.getLocalDate(this.reservaRequestModel.desde),
           Hasta: StringService.getLocalDate(this.reservaRequestModel.hasta),
-          Extras: this.getSelectedExtras()
+          Extras: this.getSelectedExtras(),
         };
       } else {
         // Vue.$toast.open({
