@@ -53,7 +53,8 @@
                           height="19"
                           style="margin-right: 5px"
                         />
-                        <span class="vehicle-prop">Furgo:</span>
+                        <!-- <span class="vehicle-prop">Furgo:</span> -->
+                        Modelo 
                         {{ vehiculo.FichaTecnica.MarcaModelo }}
                       </span>
                     </div>
@@ -65,7 +66,8 @@
                           height="19"
                           style="margin-right: 5px"
                         />
-                        <span class="vehicle-prop">Motor:</span>
+                        Motor de 
+                        <!-- <span class="vehicle-prop">Motor:</span> -->
                          {{vehiculo.FichaTecnica.Motor}}
                       </span>
                     </div>
@@ -81,8 +83,8 @@
                           height="19"
                           style="margin-right: 5px"
                         />
-                        <span class="vehicle-prop">Plazas Viaje:</span>
-                         {{vehiculo.FichaTecnica.NumeroAsientos}}
+                        <!-- <span class="vehicle-prop">Plazas Viaje:</span> -->
+                         {{vehiculo.FichaTecnica.NumeroAsientos}} plazas de viaje
                       </span>
                     </div>
                      <div class="col-md-6">
@@ -93,8 +95,8 @@
                           height="19"
                           style="margin-right: 5px"
                         />
-                        <span class="vehicle-prop">Plazas dormir:</span>
-                         2 + 1
+                        <!-- <span class="vehicle-prop">Plazas dormir:</span> -->
+                         2 + 1 plazas para dormir
                       </span>
                     </div>
                   </div>
@@ -107,7 +109,7 @@
                           height="19"
                           style="margin-right: 5px"
                         />
-                        <span class="vehicle-prop">Dimensiones:</span>
+                        <!-- <span class="vehicle-prop">Dimensiones:</span> -->
                          {{ vehiculo.FichaTecnica.Tamanio }}
                       </span>
                     </div>
@@ -119,7 +121,8 @@
                           height="19"
                           style="margin-right: 5px"
                         />
-                        <span class="vehicle-prop">Consumo:</span>
+                        <!-- <span class="vehicle-prop">Consumo:</span> -->
+                        Consume 
                          {{vehiculo.FichaTecnica.Consumo}}
                       </span>
                     </div>
