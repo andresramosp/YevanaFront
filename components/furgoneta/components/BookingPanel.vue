@@ -160,7 +160,15 @@
                   >
                     <template
                       v-slot:option="option"
-                    >{{ option.Nombre + ' (' + option.Precio + '€ ' + (option.Calculo == 'Diario' ? '/ día)' : ')')}}</template>
+                    >
+                      <img
+                          :src="require('~/assets/icons/' + StringService.snakeize(option.Nombre.toLowerCase()) +'.png')"
+                          :width="19"
+                          :height="19"
+                          style="margin-right: 5px"
+                        />
+                      {{ option.Nombre + ' (' + option.Precio + '€ ' + (option.Calculo == 'Diario' ? '/ día)' : ')')}}
+                    </template>
                   </vSelect>
                 </div>
 
@@ -239,6 +247,7 @@ import State from "~/services/state";
 export default {
   data() {
     return {
+      StringService,
       reservaRequestModel: {
         desde: null,
         hasta: null,

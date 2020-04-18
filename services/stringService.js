@@ -1,14 +1,14 @@
-// const camelCase = require('lodash/camelCase')
-// const snakeCase = require('lodash/snakeCase')
-// const startCase = require('lodash/startCase')
+const camelCase = require('lodash/camelCase')
+const snakeCase = require('lodash/snakeCase')
+const startCase = require('lodash/startCase')
 
 const StringService = {
 //   capitalize(string) {
 //     return startCase(string)
 //   },
-//   snakeize(field) {
-//     return snakeCase(field)
-//   },
+  snakeize(field) {
+    return snakeCase(field)
+  },
 //   camelize(data) {
 //     if (!Array.isArray(data)) {
 //       const dataCc = {}

@@ -1,5 +1,5 @@
 <template>
-  <div class="main-wrapper">
+  <div class="main-wrapper animate-bottom">
     <Menu 
       v-show="State.menuVisible"
       :class="State.menuOpaque ? 'menu-opaque' : ''"

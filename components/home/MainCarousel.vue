@@ -4,7 +4,7 @@
       <div class="fullscreenbanner">
         <ul>
           <li
-            data-transition="parallaxvertical"
+            data-transition="fade"
             data-slotamount="5"
             data-masterspeed="1000"
             data-title="Slide 1"
@@ -54,7 +54,7 @@
             </div>
           </li>
           <li
-            data-transition="parallaxhorizontal"
+            data-transition="fade"
             data-slotamount="5"
             data-masterspeed="700"
             data-title="Slide 1"
@@ -106,7 +106,7 @@
             </div>
           </li>
           <li
-            data-transition="parallaxvertical"
+            data-transition="fade"
             data-slotamount="5"
             data-masterspeed="1000"
             data-title="Slide 2"

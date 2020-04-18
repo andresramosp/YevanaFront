@@ -5,94 +5,108 @@
         <b-tab title="Vehículo" active>
           <b-card-text>
             <!-- CARACTERÍSTICAS TÉCNICAS -->
-            <div class="">
+            <div class>
               <div class="row">
                 <div class="col-xs-12 col-sm-6">
                   <ul class="descriptionList">
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/furgo.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Modelo: </b> {{vehicle.FichaTecnica.MarcaModelo}}
+                      <!-- <b>Modelo:</b> -->
+                      Modelo
+                      {{vehicle.FichaTecnica.MarcaModelo}}
                     </li>
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/motor.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Motor: </b> {{vehicle.FichaTecnica.Motor}}
+                      <!-- <b>Motor:</b> -->
+                      Motor de
+                      {{vehicle.FichaTecnica.Motor}}
                     </li>
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/combustible.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Capacidad Combustible: </b> {{vehicle.FichaTecnica.CapacidadCombustible}} L
+                      <!-- <b>Capacidad Combustible:</b> -->
+                      Depósito de
+                      {{vehicle.FichaTecnica.CapacidadCombustible}} L
                     </li>
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/combustible.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Tipo Combustible: </b> {{vehicle.FichaTecnica.Combustible}}
+                      Combustible
+                      <!-- <b>Tipo Combustible:</b> -->
+                      {{vehicle.FichaTecnica.Combustible}}
                     </li>
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/combustible.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Consumo: </b> {{vehicle.FichaTecnica.Consumo}}
+                      <!-- <b>Consumo:</b> -->
+                      Consume
+                      {{vehicle.FichaTecnica.Consumo}}
                     </li>
                   </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                   <ul class="descriptionList">
-                      <li>
+                    <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/dimensiones.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Dimensiones: </b> {{vehicle.FichaTecnica.Tamanio}}
+                      Dimensiones
+                      {{vehicle.FichaTecnica.Tamanio}}
                     </li>
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/asiento.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Asientos: </b> {{vehicle.FichaTecnica.NumeroAsientos}}
+                      Con
+                      {{vehicle.FichaTecnica.NumeroAsientos}} asientos
                     </li>
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/climatizacion.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Climatización: </b>{{vehicle.FichaTecnica.Climatizacion}}
+                      <!-- <b>Climatización:</b> -->
+                      {{vehicle.FichaTecnica.Climatizacion}}
                     </li>
                     <li>
                       <img
-                        :src="require('~/assets/icons/consumo.png')"
+                        :src="require('~/assets/icons/radio.png')"
                         width="19"
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Radio: </b> {{vehicle.FichaTecnica.Radio}}
+                      <!-- <b>Radio:</b> -->
+                      {{vehicle.FichaTecnica.Radio}}
                     </li>
                     <li v-if="vehicle.FichaTecnica.Adicional">
                       <img
@@ -101,7 +115,8 @@
                         height="19"
                         style="margin-right: 7px"
                       />
-                      <b>Otros: </b> {{vehicle.FichaTecnica.Adicional}}
+                      <b>Otros:</b>
+                      {{vehicle.FichaTecnica.Adicional}}
                     </li>
                   </ul>
                 </div>
@@ -109,15 +124,25 @@
             </div>
           </b-card-text>
         </b-tab>
-         <!-- EQUIPAMIENTO -->
+        <!-- EQUIPAMIENTO -->
         <b-tab title="Equipamiento">
           <b-card-text>
-            <div class="">
+            <div class>
               <ul>
                 <li v-for="categoria in categoriasEquipamiento" :key="categoria">
                   <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-4"><b>{{categoria}}</b></div>
-                    <div class="col-md-9 col-sm-9 col-xs-8">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <b>
+                        <img
+                          :src="require('~/assets/icons/' + StringService.snakeize(categoria.toLowerCase()) +'.png')"
+                          :width="!$device.isMobile ? 20 : 22"
+                          :height="!$device.isMobile ? 20 : 22"
+                          style="margin-right: 5px"
+                        />
+                        <span v-if="!$device.isMobile">{{categoria}}</span>
+                      </b>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
                       <div class="row">
                         <div
                           v-for="equip in vehicle.FichaTecnica.EquipamientoItems"
@@ -142,10 +167,10 @@
             </div>
           </b-card-text>
         </b-tab>
-         <!-- EXTRAS -->
+        <!-- EXTRAS -->
         <b-tab title="Extras">
           <b-card-text>
-            <div class="">
+            <div class>
               <div class="col-sm-12 col-xs-12 accordionsTransparent">
                 <div class="accordionSolidTitle">
                   <div class="panel-group" id="accordionExtras">
@@ -157,7 +182,15 @@
                         :href="'#collapseExtra' + item.ExtraID"
                         target="_self"
                       >
-                        <span>{{item.Nombre}}</span>
+                        <span>
+                          <img
+                            :src="require('~/assets/icons/' + StringService.snakeize(item.Nombre.toLowerCase()) +'.png')"
+                            :width="!$device.isMobile ? 20 : 22"
+                            :height="!$device.isMobile ? 20 : 22"
+                            style="margin-right: 5px"
+                          />
+                          {{item.Nombre}}
+                        </span>
                         <i class="indicator fa fa-plus-square pull-right"></i>
                         <span class="pull-right" style="margin-right: 10px">
                           {{item.Precio}} €{{item.Calculo == 'Diario' ? '/día' : ''}}
@@ -165,7 +198,7 @@
                         </span>
                       </a>
                       <div :id="'collapseExtra' + item.ExtraID" class="panel-collapse collapse">
-                        <div class="">
+                        <div class>
                           <div class="media">
                             <div class="media-body">
                               <p>{{item.Descripcion}}</p>
@@ -180,10 +213,10 @@
             </div>
           </b-card-text>
         </b-tab>
-         <!-- CALENDARIO -->
+        <!-- CALENDARIO -->
         <b-tab v-if="!$device.isMobile" title="Calendario">
           <b-card-text>
-            <div class="">
+            <div class>
               <img src="/img/alquileres/calendarioTemporadas.png" width="720" />
               <!-- <div class="form-group">
                   <div class="col-sm-12" style="text-align: center; margin-top: 10px">
@@ -209,10 +242,10 @@
             </div>
           </b-card-text>
         </b-tab>
-         <!-- SEGURO -->
+        <!-- SEGURO -->
         <b-tab title="Seguro">
           <b-card-text>
-            <div class="" style="text-align: justify">
+            <div class style="text-align: justify">
               Todas nuestras reservas cuentan con un seguro a todo riesgo con franquicia, asistencia 24 horas y atención telefónica directa con el personal de Yevana para cualquier duda o circunstancia durante tu viaje por España, Europa o países Ribereños del Mediterráneo.
               <br />
               <br />La franquicia del seguro básico es de 850€ y tendrás que dejarla como depósito al inicio de la reserva.
@@ -283,10 +316,12 @@
 </template>
 
 <script>
+import StringService from "~/services/stringService";
 export default {
   data() {
     return {
-      categoriasEquipamiento: []
+      categoriasEquipamiento: [],
+      StringService
     };
   },
   props: ["vehicle", "extras"],

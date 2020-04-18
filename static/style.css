@@ -8844,3 +8844,21 @@ header {
 .signupLoging .modal-footer .dontHaveAccount p a {
   color: #ff891e;
 }
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animatebottom;
+  animation-duration: 1.5s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-30px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-30px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
