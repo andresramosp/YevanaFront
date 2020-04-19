@@ -165,16 +165,18 @@ export default {
   components: {},
   mounted() {
     $(".fullscreenbanner").revolution({
-      delay: 5000,
+      delay: 4000,
       startwidth: 1170,
       startheight: 745,
       fullWidth: "on",
       fullScreen: "on",
       hideCaptionAtLimit: "",
-      dottedOverlay: "twoxtwo",
-      navigationStyle: "preview4",
+      // dottedOverlay: "twoxtwo",
+      navigationStyle: "none",
       fullScreenOffsetContainer: "",
-      hideTimerBar: "on"
+      hideTimerBar: "on",
+      navigationArrows: 'none',
+      parallax:"on",
     });
   },
   methods: {

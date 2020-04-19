@@ -1,5 +1,5 @@
 <template>
-  <div class="main-wrapper animate-bottom">
+  <div :class="`main-wrapper animate-bottom ${$device.isMobile ? 'mobile' : 'desktop'}`">
     <Menu 
       v-show="State.menuVisible"
       :class="State.menuOpaque ? 'menu-opaque' : ''"

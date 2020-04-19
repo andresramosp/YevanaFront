@@ -131,12 +131,12 @@
               <ul>
                 <li v-for="categoria in categoriasEquipamiento" :key="categoria">
                   <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div :class="`col-md-3 col-sm-3 col-xs-3 ${$device.isMobile ? 'text-center' : '' }`">
                       <b>
                         <img
                           :src="require('~/assets/icons/' + StringService.snakeize(categoria.toLowerCase()) +'.png')"
-                          :width="!$device.isMobile ? 20 : 22"
-                          :height="!$device.isMobile ? 20 : 22"
+                          :width="!$device.isMobile ? 20 : 24"
+                          :height="!$device.isMobile ? 20 : 24"
                           style="margin-right: 5px"
                         />
                         <span v-if="!$device.isMobile">{{categoria}}</span>

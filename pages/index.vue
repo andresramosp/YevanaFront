@@ -1,5 +1,15 @@
 <template>
   <div>
+     <!-- Start of Async Callbell Code -->
+    <script>
+        window.callbellSettings = {
+            token: "vGXXkmEMu5BmGgrb6KvCqG5R"
+        };
+    </script>
+    <script>
+        (function () { var w = window; var ic = w.callbell; if (typeof ic === "function") { ic('reattach_activator'); ic('update', callbellSettings); } else { var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Callbell = i; var l = function () { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://dash.callbell.eu/include/' + window.callbellSettings.token + '.js'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); }; if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })()
+    </script>
+    <!-- End of Async Callbell Code -->
     <MainCarousel />
     <section v-if="!$device.isMobile" class="blackSection">
       <div class="container">
@@ -27,7 +37,7 @@
             <div class="promotionTable">
               <div class="promotionTableInner">
                 <div class="promotionInfo">
-                  <h2>Engineering Van Art</h2>
+                  <h1 style="color: #ffffffb5">Engineering Van Art</h1>
                   <span>La belleza está en los detalles</span>
                   <br />
                   <br />
@@ -39,247 +49,23 @@
         </div>
       </div>
     </section>
-    <section class="whiteSection" style="padding-top: 0px !important">
-      <div
-        style="background-image: url('img/home/conocenos.jpg'); background-repeat: no-repeat; width: 100%; background-position: center; background-size: cover; min-height: 500px "
-      >
-        <div class="row">
-          <div class="col-xs-5" style="padding: 75px 35px 35px 100px; ">
-            <div class="promotionInfo" style="color: white !important">
-              <h2 style="color: white">CONÓCENOS</h2>
-              <span>
-                Síguenos y descubre las experiencias que han vivido nuestros clientes en sus vacaciones sobre ruedas.
-                Además podrás mantenerte al día sobre descuentos, promociones y mucho más.
-                <br />
-                <br />
-              </span>
-              <span style="font-weight: bold">¡Anímate y forma parte de la experiencia Camper!</span>
-              <br />
-              <br />
-              <div class="footerContent" style="margin-top: 10px">
-                <ul class="list-inline">
-                  <li>
-                    <a href="https://www.facebook.com/YevanaCAMPER/">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.instagram.com/yevanacamper/?utm_source=ig_profile_share&igshid=1bduig0tl3rn2"
-                    >
-                      <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="mailto:info@yevana.com">
-                      <i class="fa fa-envelope" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-7">
-            <div
-              style="padding-top: 40px; padding-bottom: 40px; padding-left: 20%"
-              class="fb-page"
-              data-href="https://www.facebook.com/YevanaCAMPER/"
-              data-tabs="timeline"
-              data-small-header="false"
-              data-adapt-container-width="true"
-              data-hide-cover="false"
-              data-show-facepile="true"
-              data-width="500"
-              data-height="420"
-            >
-              <blockquote
-                cite="https://www.facebook.com/YevanaCAMPER/"
-                class="fb-xfbml-parse-ignore"
-              >
-                <a href="https://www.facebook.com/YevanaCAMPER/">Yevana camper</a>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="whiteSection" style="padding-top: 0px !important">
-      <!--promotionWrapper-->
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="sectionTitle" style="margin-bottom: 25px">
-              <h2>
-                <span>Nuestros viajeros</span>
-              </h2>
-              <!--<div style="text-align:left; ">
-                                Ut facilisis facilisis metus quis semper. Proin convallis magna vel libero accumsan sollicitudin. Ut facilisis facilisis metus quis semper.
-                                Vivamus eu mattis nibh. Quisque eget ipsum at odio fringilla consequat vel id erat. Suspendisse non feugiat mi. Integer purus ex, dictum nec elementum eu, tristique vel lectus. Donec rutrum lectus et pharetra egestas.
-              </div>-->
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="col-xs-3 no-padding">
-                    <a href="/img/home/clientes/clientes1.jpg" rel="gallery-2" class="swipebox">
-                      <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes1.jpg"
-                        alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                      />
-                    </a>
-                  </div>
-                  <div class="col-xs-3 no-padding">
-                    <a href="/img/home/clientes/clientes2.jpg" rel="gallery-2" class="swipebox">
-                      <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes2.jpg"
-                        alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                      />
-                    </a>
-                  </div>
-                  <div class="col-xs-3 no-padding">
-                    <a href="/img/home/clientes/clientes3.jpg" rel="gallery-2" class="swipebox">
-                      <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes3.jpg"
-                        alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                      />
-                    </a>
-                  </div>
-                  <div class="col-xs-3 no-padding">
-                    <a href="/img/home/clientes/clientes4.jpg" rel="gallery-2" class="swipebox">
-                      <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes4.jpg"
-                        alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div style="visibility: hidden; display: none">
-                  <a href="/img/home/clientes/clientes5.jpg" rel="gallery-2" class="swipebox">
-                    <img
-                      class="img-responsive img-thumbnail"
-                      src="/img/home/clientes/clientes5.jpg"
-                      alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                    />
-                  </a>
-                  <a href="/img/home/clientes/clientes6.jpg" rel="gallery-2" class="swipebox">
-                    <img
-                      class="img-responsive img-thumbnail"
-                      src="/img/home/clientes/clientes6.jpg"
-                      alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                    />
-                  </a>
-                  <a href="/img/home/clientes/clientes7.jpg" rel="gallery-2" class="swipebox">
-                    <img
-                      class="img-responsive img-thumbnail"
-                      src="/img/home/clientes/clientes7.jpg"
-                      alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                    />
-                  </a>
-                  <a href="/img/home/clientes/clientes8.jpg" rel="gallery-2" class="swipebox">
-                    <img
-                      class="img-responsive img-thumbnail"
-                      src="/img/home/clientes/clientes8.jpg"
-                      alt="Cliente contento tras alquilar una furgoneta de Yevana"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row" style="margin-top:15px">
-          <div class="col-xs-12">
-            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-              <!-- Bottom Carousel Indicators -->
-              <!--<ol class="carousel-indicators">
-                                <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#quote-carousel" data-slide-to="1"></li>
-                                <li data-target="#quote-carousel" data-slide-to="2"></li>
-              </ol>-->
-              <!-- Carousel Slides / Quotes -->
-              <div class="carousel-inner">
-                <!-- Quote 1 -->
-                <div class="item active">
-                  <blockquote>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <!--<img src="/img/home/clientes/comillas1.png" style="display: inline-block; margin-top:-10px" width="30" />-->
-                        <p
-                          style="font-size: 15px !important"
-                        >Experiencia de sobresaliente!! Tanto por la furgo, que está cuidada al detalle aprovechando el espacio al máximo, cómo por el trato y la atención recibida por los propietarios, muy profesionales! Hemos disfrutado de ella durante una semana y puedo decir que es muy confortable y manejera. Está bien aislada, por lo que no hemos tenido sensación de frío o calor en ningún momento. Sin duda repetiremos !!"</p>
-                        <small>Noelia - Enero 2019</small>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <!-- Quote 2 -->
-                <div class="item">
-                  <blockquote>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <p
-                          style="font-size: 15px !important"
-                        >"Fantástica furgoneta, diseñada teniendo en cuenta cada detalle. No pasamos nada de frío ya que está buen aislada y de motor va perfecta.Los dueños muy agradables, atentos y disponibles en todo momento. Repetiremos seguro!"</p>
-                        <small>Noelia - Enero 2019</small>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <!-- Quote 3 -->
-                <div class="item">
-                  <blockquote>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <p
-                          style="font-size: 15px !important"
-                        >"Mi primera escapada en una camper que ha sobrepasado toda expectativa. Un trato muy agradable, cercano, fácil, y en una camper con una estética alucinante y un diseño sobresaliente. Una experiencia que ya estoy deseando repetir. Muchas gracias 😊"</p>
-                        <small>Antonio - Marzo 2019</small>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <!-- Quote 4 -->
-                <div class="item">
-                  <blockquote>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <p
-                          style="font-size: 15px !important"
-                        >"Amazing!! We loved everything and had a wonderful time in Andalousia with Alfonso's van. It's just so cool to do a roadtrip with such a great car, it has everything you need. Also Alfonso is very friendly and was always available for us. Strongly recommended!!"</p>
-                        <small>Grégoire - Octubre 2018</small>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-              </div>
-
-              <!-- Carousel Buttons Next/Prev -->
-              <!--<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-              <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>-->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SocialMedia />
+    <CustomerComments />
   </div>
 </template>
 
 <script>
 import MainCarousel from "~/components/home/MainCarousel.vue";
 import VehiclesGrid from "~/components/home/VehiclesGrid.vue";
-import State from "~/services/state"
+import SocialMedia from "~/components/home/SocialMedia.vue";
+import CustomerComments from "~/components/home/CustomerComments.vue"
+import State from "~/services/state";
 export default {
   components: {
+    CustomerComments,
     MainCarousel,
-    VehiclesGrid
+    VehiclesGrid,
+    SocialMedia
   },
   mounted() {
     State.menuOpaque = false;

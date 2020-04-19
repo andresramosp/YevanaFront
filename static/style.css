@@ -350,7 +350,7 @@ a:focus {
 
 @media (max-width: 767px) {
   .sectionTitle h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -2543,7 +2543,7 @@ header {
   width: 100%;
   display: block;
   background-color: #262a2e;
-  padding: 80px 0;
+  padding: 30px 0;
 }
 
 .footer-logo {
@@ -3980,7 +3980,7 @@ header {
   width: 100%;
   display: block;
   background-color: #262a2e;
-  padding: 80px 0;
+  padding: 30px 0;
 }
 
 .footer-logo {
@@ -8861,4 +8861,8 @@ header {
 @keyframes animatebottom { 
   from{ bottom:-30px; opacity:0 } 
   to{ bottom:0; opacity:1 }
+}
+
+.no-padding {
+  padding: 0px;
 }
