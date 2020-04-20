@@ -153,20 +153,18 @@
                     multiple
                     placeholder="Selecciona tus extras"
                     label="Nombre"
-                    :reduce="extra => { return { ExtraID: extra.ExtraID } }"
+                    :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre } }"
                     :options="extras"
                     v-model="reservaRequestModel.extras"
                     @input="getPreview"
                   >
-                    <template
-                      v-slot:option="option"
-                    >
+                    <template v-slot:option="option">
                       <img
-                          :src="require('~/assets/icons/' + StringService.snakeize(option.Nombre.toLowerCase()) +'.png')"
-                          :width="19"
-                          :height="19"
-                          style="margin-right: 5px"
-                        />
+                        :src="require('~/assets/icons/' + StringService.snakeize(option.Nombre.toLowerCase()) +'.png')"
+                        :width="19"
+                        :height="19"
+                        style="margin-right: 5px"
+                      />
                       {{ option.Nombre + ' (' + option.Precio + '€ ' + (option.Calculo == 'Diario' ? '/ día)' : ')')}}
                     </template>
                   </vSelect>
@@ -362,10 +360,26 @@ export default {
       this.getPreview();
     },
     startBooking() {
-      State.set("reserva", {...this.getReservaRequest(), Desglose: this.desglosePreview}, true);
-      this.$router.push({
-        path: `/formulario/`
-      });
+      const reservaReq = this.getReservaRequest();
+      if (reservaReq) {
+        State.set(
+          "reserva",
+          { ...reservaReq, Vehiculo: this.vehicle, Desglose: this.desglosePreview },
+          true
+        );
+        this.$router.push({
+          path: `/formulario/`
+        });
+      }
+      else {
+        Vue.$toast.open({
+          message: "Debe seleccionar fecha de inicio y de fin",
+          position: "bottom",
+          type: "error",
+          dismissible: true,
+          duration: 5000
+        });
+      }
     },
     async getPreview() {
       const reservaRequest = this.getReservaRequest();
@@ -381,16 +395,9 @@ export default {
           Vehiculo: { VehiculoID: this.vehicle.VehiculoID },
           Desde: StringService.getLocalDate(this.reservaRequestModel.desde),
           Hasta: StringService.getLocalDate(this.reservaRequestModel.hasta),
-          Extras: this.getSelectedExtras(),
+          Extras: this.getSelectedExtras()
         };
       } else {
-        // Vue.$toast.open({
-        //   message: "Debe seleccionar fecha de inicio y de fin",
-        //   position: "bottom",
-        //   type: "warning",
-        //   dismissible: true,
-        //   duration: 5000
-        // });
         return null;
       }
     },
@@ -427,7 +434,7 @@ export default {
       if (this.reservaRequestModel.kmIli) {
         this.infoKilometraje = "Disfruta de infinitos kilómetros!";
       } else {
-        this.infoKilometraje = '';
+        this.infoKilometraje = "";
         this.showInfoKmPorDias();
       }
     }
@@ -445,7 +452,7 @@ export default {
   background-color: #f5f5f5;
   height: 100vh;
   padding: 25px;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 .mobile-fixed-panel .v-select {
   background-color: white;
@@ -482,7 +489,7 @@ export default {
   }
 }
 .mobile-fixed-panel .totalCost {
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 .mobile-booking-button {
   display: flex;

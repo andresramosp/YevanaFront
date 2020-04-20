@@ -12,10 +12,6 @@
                 <h2 style="text-transform: none">Tu reserva</h2>
               </div>
               <div class="bookDetailsInfo">
-                <!-- <img
-              ng-src="{{'img/Vehiculos/YEVANA_' + reserva.Vehiculo.VehiculoID + '.jpg'}}"
-              alt="related image"
-                />-->
                 <img
                   style="display: block; width: 100%; max-width: 400px"
                   :src="require('~/assets/Vehiculos/YEVANA_' + reserva.Vehiculo.VehiculoID + '.jpg')"
@@ -24,15 +20,15 @@
                 />
 
                 <div class="infoArea">
-                  <h3 style="margin-bottom: 10px">{{'reserva.Vehiculo.Nombre'}}</h3>
+                  <h3 style="margin-bottom: 10px">{{reserva.Vehiculo.Nombre}}</h3>
                   <ul class="list-unstyled" style="margin-bottom: 20px">
                     <li style="border-bottom: none; padding-bottom: 2px">
                       <i class="fa fa-calendar" aria-hidden="true"></i>Desde
-                      <span>{{'reserva.Desde.toCustomString()'}}</span>
+                      <span>{{new Date(reserva.Desde).toCustomString()}}</span>
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
                       <i class="fa fa-calendar" aria-hidden="true"></i>Hasta:
-                      <span>{{'reserva.Hasta.toCustomString()'}}</span>
+                      <span>{{new Date(reserva.Hasta).toCustomString()}}</span>
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
                       <i class="fa fa-user" aria-hidden="true"></i>Seguro:
@@ -44,7 +40,7 @@
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
                       <i class="fa fa-user" aria-hidden="true"></i>Extras:
-                      <span>{{'extras'}}</span>
+                      <span>{{getExtrasList()}}</span>
                     </li>
                   </ul>
                   <div class="priceTotal">
@@ -236,6 +232,14 @@ export default {
     return {
       reserva: State.get("reserva")
     };
+  },
+  methods: {
+    getExtrasList() {
+      return this.reserva.Extras
+        .filter(ex => ex.Nombre)
+        .map(ex => ex.Nombre)
+        .join(", ");
+    }
   }
 };
 </script>
