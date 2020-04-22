@@ -38,6 +38,7 @@ export default {
       { src: '/plugins/counter-up/jquery.counterup.min.js' },
       { src: '/plugins/isotope/isotope.min.js' },
       { src: '/plugins/countdown/jquery.syotimer.js' },
+      { src: '/plugins/swipebox/jquery.swipebox.js' },
       { src: '/custom.js' },
     ],
     link: [
@@ -51,6 +52,7 @@ export default {
       { rel: 'stylesheet', href: '/plugins/datepicker/datepicker.css' },
       { rel: 'stylesheet', href: '/plugins/isotope/jquery.fancybox.css' },
       { rel: 'stylesheet', href: '/plugins/isotope/isotope.css' },
+      { rel: 'stylesheet', href: '/plugins/swipebox/swipebox.css' },
       { rel: 'stylesheet', href: '/style.css' },
       { rel: 'stylesheet', href: '/colors/default.css', id: 'option_color' },
     ]

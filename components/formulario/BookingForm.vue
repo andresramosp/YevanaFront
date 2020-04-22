@@ -14,7 +14,7 @@
               <div class="bookDetailsInfo">
                 <img
                   style="display: block; width: 100%; max-width: 400px"
-                  :src="require('~/assets/Vehiculos/YEVANA_' + reserva.Vehiculo.VehiculoID + '.jpg')"
+                  :src="'/img/vehiculos/YEVANA_' + reserva.Vehiculo.VehiculoID + '.jpg'"
                   alt="Furgoneta Yevana para alquilar"
                   @click="null"
                 />
@@ -32,11 +32,11 @@
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
                       <i class="fa fa-user" aria-hidden="true"></i>Seguro:
-                      <span>{{'seguro'}}</span>
+                      <span>{{reserva.Extras.find(ex => ex.GroupID == 'Seguro').Nombre}}</span>
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
                       <i class="fa fa-user" aria-hidden="true"></i>Kilometraje:
-                      <span>{{'kilometraje'}}</span>
+                      <span>{{reserva.Extras.find(ex => ex.GroupID == 'Kilometraje').Nombre}}</span>
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
                       <i class="fa fa-user" aria-hidden="true"></i>Extras:

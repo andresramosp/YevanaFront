@@ -13,7 +13,7 @@
               <div class="relatedItem media-left">
                 <img
                   style="display: block; width: 100%; max-width: 400px"
-                  :src="require('~/assets/Vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg')"
+                  :src="'/img/vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg'"
                   alt="Furgoneta Yevana para alquilar"
                   @click="goToVehicle(vehiculo.VehiculoID)"
                 />

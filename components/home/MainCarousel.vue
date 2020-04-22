@@ -10,7 +10,7 @@
             data-title="Slide 1"
           >
             <img
-              :src="require('~/assets/Vehiculos/Carrusel/furgoneta_yevana_carrusel_1.jpg')"
+              :src="'/img/vehiculos/Carrusel/furgoneta_yevana_carrusel_1.jpg'"
               alt="Furgoneta Yevana en el campo"
               data-bgfit="cover"
               data-bgposition="center center"
@@ -60,7 +60,7 @@
             data-title="Slide 1"
           >
             <img
-              :src="require('~/assets/Vehiculos/Carrusel/furgoneta_yevana_carrusel_2.jpg')"
+              :src="'/img/vehiculos/Carrusel/furgoneta_yevana_carrusel_2.jpg'"
               alt="Detalle del interior de una furgo de Yevana"
               data-bgfit="cover"
               data-bgposition="center center"
@@ -112,7 +112,7 @@
             data-title="Slide 2"
           >
             <img
-              :src="require('~/assets/Vehiculos/Carrusel/furgoneta_yevana_carrusel_3.jpg')"
+              :src="'/img/vehiculos/Carrusel/furgoneta_yevana_carrusel_3.jpg'"
               alt="Detalle del interior de una furgo de Yevana"
               data-bgfit="cover"
               data-bgposition="center center"

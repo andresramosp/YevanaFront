@@ -3,14 +3,10 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <a
-          :href="'/assets/Vehiculos/YEVANA_' + id + '_1.jpg'"
-          rel="gallery-1"
-          class="swipebox"
-        >
+        <a :href="'/img/vehiculos/YEVANA_' + id + '_1.jpg'" rel="gallery-1" class="swipebox">
           <img
             class="img-responsive"
-            :src="require('~/assets/Vehiculos/YEVANA_' + id + '_1.jpg')"
+            :src="'/img/vehiculos/YEVANA_' + id + '_1.jpg'"
             style="width: 100%; height: 100%"
           />
         </a>
@@ -18,13 +14,13 @@
 
       <div v-for="imgNumber in images" :key="imgNumber" class="item">
         <a
-          :href="'/assets/Vehiculos/YEVANA_' + id + '_' + imgNumber + '.jpg'"
+          :href="'/img/vehiculos/YEVANA_' + id + '_' + imgNumber + '.jpg'"
           rel="gallery-1"
           class="swipebox"
         >
           <img
             class="img-responsive"
-            :src="require('~/assets/Vehiculos/YEVANA_' + id + '_' + imgNumber + '.jpg')"
+            :src="'/img/vehiculos/YEVANA_' + id + '_' + imgNumber + '.jpg'"
             style="width: 100%; height: 100%"
           />
         </a>
@@ -43,11 +39,14 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            images: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-        }
-    },
-    props: ["id"]
-}
+  data() {
+    return {
+      images: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    };
+  },
+  mounted() {
+    $(".swipebox").swipebox();
+  },
+  props: ["id"]
+};
 </script>

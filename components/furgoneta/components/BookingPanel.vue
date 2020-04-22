@@ -102,7 +102,7 @@
                         placeholder
                         label="Nombre"
                         :options="recogidaOptions"
-                        :reduce="extra => { return { ExtraID: extra.ExtraID } }"
+                        :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre, GroupID: extra.GroupID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -121,7 +121,7 @@
                         placeholder
                         label="Nombre"
                         :options="devolucionOptions"
-                        :reduce="extra => { return { ExtraID: extra.ExtraID } }"
+                        :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre, GroupID: extra.GroupID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -140,7 +140,7 @@
                         placeholder
                         label="Nombre"
                         :options="seguroOptions"
-                        :reduce="extra => { return { ExtraID: extra.ExtraID } }"
+                        :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre, GroupID: extra.GroupID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -305,15 +305,9 @@ export default {
   },
   mounted() {
     this.getAndfillTemporadas();
-    this.reservaRequestModel.seguro = {
-      ExtraID: this.seguroOptions.find(opt => opt.DefaultEnGrupo).ExtraID
-    };
-    this.reservaRequestModel.recogida = {
-      ExtraID: this.recogidaOptions.find(opt => opt.DefaultEnGrupo).ExtraID
-    };
-    this.reservaRequestModel.devolucion = {
-      ExtraID: this.devolucionOptions.find(opt => opt.DefaultEnGrupo).ExtraID
-    };
+    this.reservaRequestModel.seguro = this.seguroOptions.find(opt => opt.DefaultEnGrupo);
+    this.reservaRequestModel.recogida = this.recogidaOptions.find(opt => opt.DefaultEnGrupo);
+    this.reservaRequestModel.devolucion = this.devolucionOptions.find(opt => opt.DefaultEnGrupo);
   },
   methods: {
     async getAndfillTemporadas() {
@@ -414,8 +408,8 @@ export default {
         this.reservaRequestModel.devolucion,
         this.reservaRequestModel.seguro,
         this.reservaRequestModel.kmIli
-          ? { ExtraID: kmIlimitado.ExtraID }
-          : { ExtraID: kmBasico.ExtraID }
+          ? kmIlimitado
+          : kmBasico
       ];
     },
     showInfoKmPorDias() {

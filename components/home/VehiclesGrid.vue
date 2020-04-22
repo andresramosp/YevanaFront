@@ -20,7 +20,7 @@
           <article>
             <figure>
               <img
-                :src="require('~/assets/Vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg')"
+                :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg'"
                 alt="Furgoneta Emerald para alquilar"
                 style="max-height: 240px"
                 @click="goToVehicle(vehicle.VehiculoID)"
