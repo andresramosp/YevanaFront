@@ -13,7 +13,7 @@ export default {
   loading: false,
   env: {
     baseUrl:
-      process.env.BASE_URL || 'http://api.yevana.com'
+      process.env.BASE_URL || 'http://api.yevana.com' // 'http://localhost:49491'
   },
   mode: 'spa',
   /*

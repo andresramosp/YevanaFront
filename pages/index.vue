@@ -81,5 +81,7 @@ export default {
   padding: 30px 0 30px 0;
   background-color: black;
   display: block;
+  position: relative;
+  z-index: 10;
 }
 </style>

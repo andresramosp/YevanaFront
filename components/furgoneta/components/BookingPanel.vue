@@ -102,7 +102,6 @@
                         placeholder
                         label="Nombre"
                         :options="recogidaOptions"
-                        :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre, GroupID: extra.GroupID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -121,7 +120,6 @@
                         placeholder
                         label="Nombre"
                         :options="devolucionOptions"
-                        :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre, GroupID: extra.GroupID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -140,7 +138,6 @@
                         placeholder
                         label="Nombre"
                         :options="seguroOptions"
-                        :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre, GroupID: extra.GroupID } }"
                       ></vSelect>
                     </div>
                   </div>
@@ -153,7 +150,6 @@
                     multiple
                     placeholder="Selecciona tus extras"
                     label="Nombre"
-                    :reduce="extra => { return { ExtraID: extra.ExtraID, Nombre: extra.Nombre } }"
                     :options="extras"
                     v-model="reservaRequestModel.extras"
                     @input="getPreview"
@@ -389,6 +385,8 @@ export default {
           Vehiculo: { VehiculoID: this.vehicle.VehiculoID },
           Desde: StringService.getLocalDate(this.reservaRequestModel.desde),
           Hasta: StringService.getLocalDate(this.reservaRequestModel.hasta),
+          HoraDesde: this.reservaRequestModel.horaDesde,
+          HoraHasta: this.reservaRequestModel.horaHasta,
           Extras: this.getSelectedExtras()
         };
       } else {
