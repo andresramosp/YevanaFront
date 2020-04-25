@@ -7,14 +7,14 @@ const State = {
 
     set(prop, value, persisted) {
         this[prop] = value;
-        if (persisted) {
+        if (persisted && process.client) {
             localStorage.setItem('State.' + prop, JSON.stringify(value))
         }
     },
     
     get(prop) {
         let result = this[prop];
-        if (!result) {
+        if (!result && process.client) {
             result = localStorage.getItem('State.' + prop);
             result = JSON.parse(result);
         }

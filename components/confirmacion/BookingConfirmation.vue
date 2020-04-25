@@ -1,6 +1,6 @@
 <template>
     
-<div class="main-wrapper">
+<div v-if="reserva" class="main-wrapper">
 
 
     <!-- PAGE TITLE -->

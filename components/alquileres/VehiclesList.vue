@@ -17,11 +17,11 @@
                   alt="Furgoneta Yevana para alquilar"
                   @click="goToVehicle(vehiculo.VehiculoID)"
                 />
-                <div v-if="!$device.isMobile" class="maskingInfo">
+                <div v-show="!$device.isMobile" class="maskingInfo">
                   <h4>{{vehiculo.Nombre}}</h4>
                   <p>{{vehiculo.Familia + ' ' + ( vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' )}}</p>
                   <a
-                    v-if="vehiculo.Disponible"
+                    v-show="vehiculo.Disponible"
                     :href="'/furgoneta/' + vehiculo.VehiculoID"
                     class="btn buttonTransparent"
                   >Ver Más</a>
@@ -32,13 +32,13 @@
                   <h4 class="media-heading" style="margin-bottom: 10px">
                     <a :href="'/furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</a>
                     <span
-                      v-if="$device.isMobile && vehiculo.Disponible"
+                      v-show="$device.isMobile && vehiculo.Disponible"
                       style="font-size: 12px; color: orange; font-weight: bold; float: right"
                     >DESDE {{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>
                   </h4>
 
                   <!--DESCRIPCIÓN-->
-                  <div v-if="!$device.isMobile">
+                  <div v-show="!$device.isMobile">
                     <p>{{vehiculo.DescripcionCorta}}</p>
                     <hr style="margin-top: 6px; margin-bottom: 6px" />
                   </div>
@@ -100,7 +100,7 @@
                       </span>
                     </div>
                   </div>
-                  <div v-if="!$device.isMobile" class="row top-row2">
+                  <div v-show="!$device.isMobile" class="row top-row2">
                      <div class="col-md-6">
                       <span class>
                        <img
@@ -128,16 +128,16 @@
                     </div>
                    
                   </div>
-                  <hr v-if="!$device.isMobile" style="margin-top: 6px; margin-bottom: 6px" />
+                  <hr v-show="!$device.isMobile" style="margin-top: 6px; margin-bottom: 6px" />
                 </div>
-                <div v-if="!$device.isMobile" class="bodyRight">
+                <div v-show="!$device.isMobile" class="bodyRight">
                   <div class="bookingDetails">
                     <p style="margin-bottom: 20px">Desde</p>
                     <h2
                       style="margin-bottom: 40px; font-size: 40px"
                     >{{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</h2>
                     <a
-                      v-if="vehiculo.Disponible"
+                      v-show="vehiculo.Disponible"
                       :href="'/furgoneta/' + vehiculo.VehiculoID"
                       class="btn btn-block buttonTransparent top-row8"
                     >Ver</a>

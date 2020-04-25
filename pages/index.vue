@@ -11,7 +11,7 @@
     </script>
     <!-- End of Async Callbell Code -->
     <MainCarousel />
-    <section v-if="!$device.isMobile" class="blackSection">
+    <section v-show="!$device.isMobile" class="blackSection">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">

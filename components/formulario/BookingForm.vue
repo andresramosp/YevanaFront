@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="reserva">
     <BookingImageBar />
     <div class="container">
       <section class="mainContentSection singlePackage">
