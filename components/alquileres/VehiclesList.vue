@@ -159,18 +159,8 @@ export default {
   components: {
     BookingImageBar
   },
-  data() {
-    return {
-      vehicles: []
-    };
-  },
-  mounted() {
-    this.getVehicles();
-  },
+  props: ['vehicles'],
   methods: {
-    async getVehicles() {
-      this.vehicles = await VehicleService.getAll();
-    },
     goToVehicle(id) {
       this.$router.push({
         path: `/furgoneta/${id}`
@@ -183,9 +173,6 @@ export default {
 .relatedItem {
   margin-bottom: 0px;
 }
-/* .media-body > span {
-  font-weight: bold;
-} */
 .vehicle-prop {
   font-weight: bold;
 }

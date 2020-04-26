@@ -1,13 +1,46 @@
 <template>
   <div>
-     <!-- Start of Async Callbell Code -->
+    <!-- Start of Async Callbell Code -->
     <script>
-        window.callbellSettings = {
-            token: "vGXXkmEMu5BmGgrb6KvCqG5R"
-        };
+  window.callbellSettings = {
+    token: "vGXXkmEMu5BmGgrb6KvCqG5R"
+  };
     </script>
     <script>
-        (function () { var w = window; var ic = w.callbell; if (typeof ic === "function") { ic('reattach_activator'); ic('update', callbellSettings); } else { var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Callbell = i; var l = function () { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://dash.callbell.eu/include/' + window.callbellSettings.token + '.js'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); }; if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })()
+  (function() {
+    var w = window;
+    var ic = w.callbell;
+    if (typeof ic === "function") {
+      ic("reattach_activator");
+      ic("update", callbellSettings);
+    } else {
+      var d = document;
+      var i = function() {
+        i.c(arguments);
+      };
+      i.q = [];
+      i.c = function(args) {
+        i.q.push(args);
+      };
+      w.Callbell = i;
+      var l = function() {
+        var s = d.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src =
+          "https://dash.callbell.eu/include/" +
+          window.callbellSettings.token +
+          ".js";
+        var x = d.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      };
+      if (w.attachEvent) {
+        w.attachEvent("onload", l);
+      } else {
+        w.addEventListener("load", l, false);
+      }
+    }
+  })();
     </script>
     <!-- End of Async Callbell Code -->
     <MainCarousel />
@@ -29,7 +62,7 @@
         </div>
       </div>
     </section>
-    <VehiclesGrid />
+    <VehiclesGrid :vehicles="vehicles ? vehicles : []" />
     <section class="promotionWrapper">
       <div class="container">
         <div class="row">
@@ -58,7 +91,8 @@
 import MainCarousel from "~/components/home/MainCarousel.vue";
 import VehiclesGrid from "~/components/home/VehiclesGrid.vue";
 import SocialMedia from "~/components/home/SocialMedia.vue";
-import CustomerComments from "~/components/home/CustomerComments.vue"
+import CustomerComments from "~/components/home/CustomerComments.vue";
+import VehicleService from "~/services/VehicleService";
 import State from "~/services/state";
 export default {
   components: {
@@ -67,9 +101,27 @@ export default {
     VehiclesGrid,
     SocialMedia
   },
-  mounted() {
+  data() {
+    return {
+      vehicles: []
+    };
+  },
+  async asyncData({ params }) {
+    const vehiclesResult = await VehicleService.getAll();
+    return {
+      vehicles: vehiclesResult
+    };
+  },
+  created() {
     State.menuOpaque = false;
-    State.activePage = 'Inicio';
+    State.activePage = "Inicio";
+    this.$nextTick(async () => {
+      if (process.client) {
+        this.$nuxt.$loading.start();
+        this.vehicles = await VehicleService.getAll();
+        this.$nuxt.$loading.finish();
+      }
+    });
   }
 };
 </script>

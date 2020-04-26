@@ -25,18 +25,18 @@
                 style="max-height: 240px"
                 @click="goToVehicle(vehicle.VehiculoID)"
               />
-              <div v-if="$device.isMobile && vehicle.Disponible" style="text-align: center">
+              <div v-show="$device.isMobile && vehicle.Disponible" style="text-align: center">
                 <a
                   class="mobile-caption"
                 >{{vehicle.Nombre}}</a>
               </div>
-              <div v-else class="overlay">
+              <div v-show="!$device.isMobile || !vehicle.Disponible" class="overlay">
                 <a
                   class="fancybox-pop"
                   :href="vehicle.Disponible ? ('/furgoneta/' + vehicle.VehiculoID) : 'javascript:void(0)'"
                 >
                   <div class="overlayInfo" style="margin-top:20px">
-                    <h5 v-if="vehicle.Disponible">
+                    <h5 v-show="vehicle.Disponible">
                       <span
                         style="font-size: 25px; color: white; font-weight: bold"
                       >{{vehicle.Nombre}}</span>
@@ -47,7 +47,7 @@
                       <br />
                       <span>Ver detalles</span>
                     </h5>
-                    <h5 v-else>
+                    <h5 v-show="!vehicle.Disponible">
                       <span>Próximamente!</span>
                     </h5>
                   </div>
@@ -61,20 +61,9 @@
   </section>
 </template>
 <script>
-import VehicleService from "~/services/VehicleService";
 export default {
-  data() {
-    return {
-      vehicles: []
-    };
-  },
-  mounted() {
-    this.getVehicles();
-  },
+  props: ["vehicles"],
   methods: {
-    async getVehicles() {
-      this.vehicles = await VehicleService.getAll();
-    },
     goToVehicle(id) {
       this.$router.push({
         path: `/furgoneta/${id}`

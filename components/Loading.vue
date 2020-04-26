@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="loading-page" v-if="loading">
-    <p>Loading...</p>
+  <div class="loading-page fade-in" v-if="loading">
+    <img width="250" src="https://media.giphy.com/media/Y3wi040tnpVR0Ygdrj/giphy.gif" />
   </div>
 </template>
 
@@ -22,11 +22,10 @@ export default {
 
 <style scoped>
 .loading-page {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background: rgba(255, 255, 255, 0.8);
   text-align: center;
   padding-top: 200px;

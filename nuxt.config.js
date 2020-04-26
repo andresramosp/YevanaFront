@@ -10,7 +10,7 @@ export default {
       '/furgoneta/BL'
     ]
   },
-  loading: false,
+  loading: '~/components/loading.vue',
   env: {
     baseUrl:
       process.env.BASE_URL || 'http://api.yevana.com' // 'http://localhost:49491'

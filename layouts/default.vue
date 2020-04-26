@@ -5,7 +5,7 @@
       :class="State.menuOpaque ? 'menu-opaque' : ''"
       :opaque="State.menuOpaque" 
       :activePage="State.activePage" />
-    <nuxt />
+    <nuxt class="fade-in" />
     <Footer 
       v-show="State.footerVisible" />
   </div>

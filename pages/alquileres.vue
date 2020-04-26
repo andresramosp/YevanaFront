@@ -1,21 +1,40 @@
 <template>
   <div>
-    <VehiclesList />
+    <VehiclesList v-if="vehicles.length > 0" :vehicles="vehicles" />
   </div>
 </template>
 
 <script>
 import VehiclesList from "~/components/alquileres/VehiclesList.vue";
 import State from "~/services/state";
+import VehicleService from "~/services/VehicleService";
 export default {
   components: {
     VehiclesList
   },
-  mounted() {
-    State.activePage = 'Alquila';
+  data() {
+    return {
+      vehicles: null
+    };
+  },
+  async asyncData({ params }) {
+    const result = await VehicleService.getAll();
+    return {
+      vehicles: result
+    };
+  },
+  created() {
+    State.activePage = "Alquila";
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
+    this.$nextTick(async () => {
+      if (process.client) {
+        this.$nuxt.$loading.start();
+        this.vehicles = await VehicleService.getAll();
+        this.$nuxt.$loading.finish();
+      }
+    });
   }
 };
 </script>
