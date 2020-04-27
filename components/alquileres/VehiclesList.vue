@@ -20,17 +20,17 @@
                 <div v-show="!$device.isMobile" class="maskingInfo">
                   <h4>{{vehiculo.Nombre}}</h4>
                   <p>{{vehiculo.Familia + ' ' + ( vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' )}}</p>
-                  <a
+                  <nuxt-link
                     v-show="vehiculo.Disponible"
-                    :href="'/furgoneta/' + vehiculo.VehiculoID"
+                    :to="'/furgoneta/' + vehiculo.VehiculoID"
                     class="btn buttonTransparent"
-                  >Ver Más</a>
+                  >Ver Más</nuxt-link>
                 </div>
               </div>
               <div class="media-body">
                 <div class="bodyLeft">
                   <h4 class="media-heading" style="margin-bottom: 10px">
-                    <a :href="'/furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</a>
+                    <nuxt-link :to="'/furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</nuxt-link>
                     <span
                       v-show="$device.isMobile && vehiculo.Disponible"
                       style="font-size: 12px; color: orange; font-weight: bold; float: right"
@@ -54,27 +54,25 @@
                           style="margin-right: 5px"
                         />
                         <!-- <span class="vehicle-prop">Furgo:</span> -->
-                        Modelo 
+                        Modelo
                         {{ vehiculo.FichaTecnica.MarcaModelo }}
                       </span>
                     </div>
-                      <div class="col-md-6">
+                    <div class="col-md-6">
                       <span class>
-                       <img
+                        <img
                           :src="require('~/assets/icons/motor.png')"
                           width="19"
                           height="19"
                           style="margin-right: 5px"
                         />
-                        Motor de 
+                        Motor de
                         <!-- <span class="vehicle-prop">Motor:</span> -->
-                         {{vehiculo.FichaTecnica.Motor}}
+                        {{vehiculo.FichaTecnica.Motor}}
                       </span>
                     </div>
-                   
                   </div>
                   <div class="row">
-                  
                     <div class="col-md-6">
                       <span class>
                         <img
@@ -84,49 +82,48 @@
                           style="margin-right: 5px"
                         />
                         <!-- <span class="vehicle-prop">Plazas Viaje:</span> -->
-                         {{vehiculo.FichaTecnica.NumeroAsientos}} plazas de viaje
+                        {{vehiculo.FichaTecnica.NumeroAsientos}} plazas de viaje
                       </span>
                     </div>
-                     <div class="col-md-6">
+                    <div class="col-md-6">
                       <span class>
-                      <img
+                        <img
                           :src="require('~/assets/icons/cama.png')"
                           width="19"
                           height="19"
                           style="margin-right: 5px"
                         />
                         <!-- <span class="vehicle-prop">Plazas dormir:</span> -->
-                         2 + 1 plazas para dormir
+                        2 + 1 plazas para dormir
                       </span>
                     </div>
                   </div>
                   <div v-show="!$device.isMobile" class="row top-row2">
-                     <div class="col-md-6">
+                    <div class="col-md-6">
                       <span class>
-                       <img
+                        <img
                           :src="require('~/assets/icons/dimensiones.png')"
                           width="19"
                           height="19"
                           style="margin-right: 5px"
                         />
                         <!-- <span class="vehicle-prop">Dimensiones:</span> -->
-                         {{ vehiculo.FichaTecnica.Tamanio }}
+                        {{ vehiculo.FichaTecnica.Tamanio }}
                       </span>
                     </div>
                     <div class="col-md-6">
                       <span class>
-                      <img
+                        <img
                           :src="require('~/assets/icons/combustible.png')"
                           width="19"
                           height="19"
                           style="margin-right: 5px"
                         />
                         <!-- <span class="vehicle-prop">Consumo:</span> -->
-                        Consume 
-                         {{vehiculo.FichaTecnica.Consumo}}
+                        Consume
+                        {{vehiculo.FichaTecnica.Consumo}}
                       </span>
                     </div>
-                   
                   </div>
                   <hr v-show="!$device.isMobile" style="margin-top: 6px; margin-bottom: 6px" />
                 </div>
@@ -136,14 +133,13 @@
                     <h2
                       style="margin-bottom: 40px; font-size: 40px"
                     >{{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</h2>
-                    <a
+                    <nuxt-link
                       v-show="vehiculo.Disponible"
-                      :href="'/furgoneta/' + vehiculo.VehiculoID"
+                      :to="'/furgoneta/' + vehiculo.VehiculoID"
                       class="btn btn-block buttonTransparent top-row8"
-                    >Ver</a>
+                    >Ver</nuxt-link>
                   </div>
                 </div>
-               
               </div>
             </div>
           </div>
@@ -153,13 +149,13 @@
   </div>
 </template>
 <script>
-import VehicleService from "~/services/VehicleService";
+import VehicleService from "~/services/vehicleService";
 import BookingImageBar from "~/components/BookingImageBar.vue";
 export default {
   components: {
     BookingImageBar
   },
-  props: ['vehicles'],
+  props: ["vehicles"],
   methods: {
     goToVehicle(id) {
       this.$router.push({

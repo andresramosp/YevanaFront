@@ -1,11 +1,11 @@
 <template>
-  <div :class="`main-wrapper animate-bottom ${$device.isMobile ? 'mobile' : 'desktop'}`">
+  <div :class="`main-wrapper ${$device.isMobile ? 'mobile' : 'desktop'}`">
     <Menu 
       v-show="State.menuVisible"
       :class="State.menuOpaque ? 'menu-opaque' : ''"
       :opaque="State.menuOpaque" 
       :activePage="State.activePage" />
-    <nuxt class="fade-in" />
+    <nuxt />
     <Footer 
       v-show="State.footerVisible" />
   </div>

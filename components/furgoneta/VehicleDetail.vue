@@ -13,7 +13,7 @@
             <div class="col-sm-8 col-xs-12">
               <div class="row">
                 <div class="col-xs-12">
-                  <VehicleCarousel :id="id" />
+                  <VehicleCarousel :id="id" refId="web" />
                   <div class="hotelDescription">
                     <div class="hotelTitle">
                       <h2>Descripción</h2>
@@ -27,7 +27,7 @@
                 </div>
               </div>
             </div>
-            <aside class="col-sm-4 col-xs-12">
+            <aside class="col-sm-4 col-xs-12" style="position: sticky; top: 110px">
               <BookingPanel
                 v-if="allExtras.length > 0 && vehicle"
                 :vehicle="vehicle"
@@ -41,7 +41,7 @@
     <!-- MOBILE -->
     <div class="mobile" v-else>
       <section v-show="!showBookingPanel" class="mainContentSection singlePackage">
-        <VehicleCarousel :id="id" />
+        <VehicleCarousel :id="id" refId="mobile" />
         <div class="mobile-section">
           <h4>Descripción</h4>
           <p style="text-align: justify">{{vehicle.DescripcionCorta}}</p>

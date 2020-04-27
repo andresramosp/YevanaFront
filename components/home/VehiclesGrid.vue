@@ -31,10 +31,14 @@
                 >{{vehicle.Nombre}}</a>
               </div>
               <div v-show="!$device.isMobile || !vehicle.Disponible" class="overlay">
-                <a
+                <!-- <a
                   class="fancybox-pop"
                   :href="vehicle.Disponible ? ('/furgoneta/' + vehicle.VehiculoID) : 'javascript:void(0)'"
-                >
+                > -->
+                   <nuxt-link
+                      :to="vehicle.Disponible ? ('/furgoneta/' + vehicle.VehiculoID) : 'javascript:void(0)'"
+                      class="fancybox-pop"
+                    >
                   <div class="overlayInfo" style="margin-top:20px">
                     <h5 v-show="vehicle.Disponible">
                       <span
@@ -51,7 +55,7 @@
                       <span>Próximamente!</span>
                     </h5>
                   </div>
-                </a>
+                </nuxt-link>
               </div>
             </figure>
           </article>

@@ -51,11 +51,11 @@
             <div style="text-align: center">
               <span style="color: white; font-size: 25px">
                 ALQUILA O COMPRA UNA DE NUESTRAS ROADSUITES Y
-                <a
-                  style="color: #ff891e; font-size: 25px"
-                  href="/alquileres"
-                  class="dropdown-toggle"
-                >ESCÁPATE</a>
+                <nuxt-link
+                  to="/alquileres"
+                >
+                ESCÁPATE
+                </nuxt-link>
               </span>
             </div>
           </div>
@@ -92,7 +92,7 @@ import MainCarousel from "~/components/home/MainCarousel.vue";
 import VehiclesGrid from "~/components/home/VehiclesGrid.vue";
 import SocialMedia from "~/components/home/SocialMedia.vue";
 import CustomerComments from "~/components/home/CustomerComments.vue";
-import VehicleService from "~/services/VehicleService";
+import VehicleService from "~/services/vehicleService";
 import State from "~/services/state";
 export default {
   components: {
@@ -115,14 +115,15 @@ export default {
   created() {
     State.menuOpaque = false;
     State.activePage = "Inicio";
-    this.$nextTick(async () => {
-      if (process.client) {
-        this.$nuxt.$loading.start();
-        this.vehicles = await VehicleService.getAll();
-        this.$nuxt.$loading.finish();
-      }
-    });
-  }
+    // this.$nextTick(async () => {
+    //   if (process.client) {
+    //     this.$nuxt.$loading.start();
+    //     this.vehicles = await VehicleService.getAll();
+    //     this.$nuxt.$loading.finish();
+    //   }
+    // });
+  },
+    transition: "default",
 };
 </script>
 

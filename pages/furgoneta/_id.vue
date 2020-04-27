@@ -1,13 +1,13 @@
 <template>
   <div>
-    <VehicleDetail v-if="vehicle && allExtras" :allExtras="allExtras" :vehicle="vehicle" :id="id" />
+    <VehicleDetail :allExtras="allExtras" :vehicle="vehicle" :id="id" />
   </div>
 </template>
 
 <script>
 import VehicleDetail from "~/components/furgoneta/VehicleDetail.vue";
-import VehicleService from "~/services/VehicleService";
-import ExtrasService from "~/services/ExtrasService";
+import VehicleService from "~/services/vehicleService";
+import ExtrasService from "~/services/extrasService";
 import State from "~/services/state";
 export default {
   components: {
@@ -33,15 +33,16 @@ export default {
   created() {
     State.activePage = "Alquila";
     State.menuOpaque = true;
-    this.$nextTick(async () => {
-      if (process.client) {
-        this.$nuxt.$loading.start();
-        this.allExtras = await ExtrasService.getAll();
-        this.vehicle = await VehicleService.getById(this.$route.params.id);
-        this.$nuxt.$loading.finish();
-      }
-    });
-  }
+    // this.$nextTick(async () => {
+    //   if (process.client) {
+    //     this.$nuxt.$loading.start();
+    //     this.allExtras = await ExtrasService.getAll();
+    //     this.vehicle = await VehicleService.getById(this.$route.params.id);
+    //     this.$nuxt.$loading.finish();
+    //   }
+    // });
+  },
+    transition: "default",
 };
 </script>
 

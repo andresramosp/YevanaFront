@@ -7,7 +7,7 @@
 <script>
 import VehiclesList from "~/components/alquileres/VehiclesList.vue";
 import State from "~/services/state";
-import VehicleService from "~/services/VehicleService";
+import VehicleService from "~/services/vehicleService";
 export default {
   components: {
     VehiclesList
@@ -28,14 +28,15 @@ export default {
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
-    this.$nextTick(async () => {
-      if (process.client) {
-        this.$nuxt.$loading.start();
-        this.vehicles = await VehicleService.getAll();
-        this.$nuxt.$loading.finish();
-      }
-    });
-  }
+    // this.$nextTick(async () => {
+    //   if (process.client) {
+    //     this.$nuxt.$loading.start();
+    //     this.vehicles = await VehicleService.getAll();
+    //     this.$nuxt.$loading.finish();
+    //   }
+    // });
+  },
+  transition: "default",
 };
 </script>
 

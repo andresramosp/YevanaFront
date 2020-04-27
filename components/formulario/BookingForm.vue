@@ -237,7 +237,7 @@ import Vue from "vue";
 import BookingImageBar from "~/components/BookingImageBar.vue";
 import BookingWizard from "~/components/BookingWizard.vue";
 import ReservaService from "~/services/reservaService";
-import UtilidadesService from "~/services/UtilidadesService";
+import UtilidadesService from "~/services/utilidadesService";
 import State from "~/services/state";
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";

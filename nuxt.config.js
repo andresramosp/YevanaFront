@@ -10,7 +10,7 @@ export default {
       '/furgoneta/BL'
     ]
   },
-  loading: '~/components/loading.vue',
+  loading: false, //'~/components/Loading.vue',
   env: {
     baseUrl:
       process.env.BASE_URL || 'http://api.yevana.com' // 'http://localhost:49491'
@@ -64,8 +64,9 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+ css: [
+  '~/assets/main.css'
+],
   /*
   ** Plugins to load before mounting the App
   */

@@ -1,6 +1,9 @@
 <template>
   <header>
-    <nav :class="`navbar navbar-default ${opaque ? 'opaque' : ''} navbar-main navbar-fixed-top`" role="navigation">
+    <nav
+      :class="`navbar navbar-default ${opaque ? 'opaque' : ''} navbar-main navbar-fixed-top`"
+      role="navigation"
+    >
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -26,13 +29,13 @@
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li :class="`dropdown singleDrop ${activePage == 'Inicio' ? 'active' : ''}`">
-                <a href="/">Inicio</a>
+                <nuxt-link :to="'/'">Inicio</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
-                <a href="/alquileres" class="dropdown-toggle">Alquila</a>
+                  <nuxt-link :to="'/alquileres'" class="dropdown-toggle">Alquila</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Contacto' ? 'active' : ''}`">
-                <a href="/contacto" class="dropdown-toggle">Contacto</a>
+                <nuxt-link :to="'/contacto'" class="dropdown-toggle">Contacto</nuxt-link>
               </li>
             </ul>
           </div>
@@ -44,7 +47,7 @@
 <script>
 export default {
   components: {},
-  props: ['opaque', 'activePage'],
+  props: ["opaque", "activePage"],
   mounted() {
     var header = $(".changeHeader .navbar-fixed-top");
     $(window).scroll(function() {

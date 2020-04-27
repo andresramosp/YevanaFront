@@ -108,7 +108,7 @@
                       <!-- <b>Radio:</b> -->
                       {{vehicle.FichaTecnica.Radio}}
                     </li>
-                    <li v-if="vehicle.FichaTecnica.Adicional">
+                    <li v-show="vehicle.FichaTecnica.Adicional">
                       <img
                         :src="require('~/assets/icons/consumo.png')"
                         width="19"
@@ -139,7 +139,7 @@
                           :height="!$device.isMobile ? 20 : 24"
                           style="margin-right: 5px"
                         />
-                        <span v-if="!$device.isMobile">{{categoria}}</span>
+                        <span v-show="!$device.isMobile">{{categoria}}</span>
                       </b>
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-9">
@@ -149,12 +149,10 @@
                           :key="equip.Nombre"
                         >
                           <div
-                            v-if="equip.Categoria == categoria"
+                            v-show="equip.Categoria == categoria"
                             class="col-md-6"
                             style="margin-bottom: 10px; font-size: 13px"
                           >
-                            <!--<img ng-if="imageExists(extra.Nombre)" ng-src="{{'img/icons/' + utilidadesService.cleanString(extra.Nombre) + '.png'}}" width="19" height="19" style="margin-right: 7px" />
-                            <img ng-if="!imageExists(extra.Nombre)" ng-src="{{'img/icons/generic_item.png'}}" width="19" height="19" style="margin-right: 7px" />-->
                             {{equip.Nombre}}
                           </div>
                         </div>
@@ -214,7 +212,7 @@
           </b-card-text>
         </b-tab>
         <!-- CALENDARIO -->
-        <b-tab v-if="!$device.isMobile" title="Calendario">
+        <b-tab v-show="false" title="Calendario">
           <b-card-text>
             <div class>
               <img src="/img/alquileres/calendarioTemporadas.png" width="720" />
@@ -292,7 +290,7 @@
                 </tbody>
               </table>
 
-              <div v-if="!$device.isMobile">
+              <div v-show="!$device.isMobile">
                 El coste del seguro plus va reduciéndose a medida que aumentan los días de tu reserva, a continuación puedes ver un cuadro con el coste diario de añadir Seguro Plus a tu reserva:
                 <br />
                 <br />
