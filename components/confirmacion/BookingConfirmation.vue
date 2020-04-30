@@ -99,7 +99,7 @@ export default {
   },
   created() {
     const reservaObj = State.get("reserva");
-    // State.set("reserva", null, true);
+    State.set("reserva", null, true);
     if (reservaObj) {
       this.reserva = reservaObj;
     } else {

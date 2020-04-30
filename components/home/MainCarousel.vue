@@ -47,11 +47,7 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll" style="margin-right: 20px">
-                  <a
-                    href="/alquileres"
-                    class="btn buttonTransparent"
-                    style="color: white"
-                  >Escapa YA!</a>
+                   <nuxt-link :to="'/alquileres'" class="btn buttonTransparent" style="color: white">Escapa YA!</nuxt-link>
                 </span>
               </div>
             </div>
@@ -102,11 +98,7 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll">
-                  <a
-                    href="/alquileres"
-                    class="btn buttonTransparent"
-                    style="color: white"
-                  >Alquílala</a>
+                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent" style="color: white">Alquílala</nuxt-link>
                 </span>
               </div>
             </div>
@@ -155,11 +147,7 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll">
-                  <a
-                    href="/alquileres"
-                    class="btn buttonTransparent"
-                    style="color: white"
-                  >Escapa YA!</a>
+                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent" style="color: white">Escapa YA!</nuxt-link>
                 </span>
               </div>
             </div>

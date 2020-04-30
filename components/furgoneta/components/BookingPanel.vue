@@ -171,7 +171,7 @@
                   <div layout="row" layout-align="space-between center">
                     <div
                       class="col-sm-12 col-md-12 col-xs-12"
-                      style="text-align: right;"
+                      style="text-align: right; margin-top: 7px;"
                     >
                       <label class="control-label" for="kilometrajeCheckbox">Kilometraje ilimitado</label>
                       <input
@@ -434,6 +434,11 @@ export default {
 };
 </script>
 <style scoped>
+.panel-heading {
+  background-color: #ff891e;
+  color: white;
+  font-weight: 500;
+}
 .singleHotelSidebar .control-label {
   font-size: 13px;
   color: gray;
