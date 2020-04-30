@@ -5793,7 +5793,7 @@ header {
   border-top: 1px solid;
   border-bottom: 1px solid;
   overflow: hidden;
-  padding: 15px 0;
+  padding: 5px 0;
   border-color: #dedede;
 }
 
@@ -5864,7 +5864,7 @@ header {
 .singleHotelSidebar .form-horizontal .buttonTransparent, .singleHotelSidebar .form-horizontal .paginationCenter .pagination li:first-child a, .paginationCenter .pagination li:first-child .singleHotelSidebar .form-horizontal a, .singleHotelSidebar .form-horizontal .paginationCenter .pagination li:last-child a, .paginationCenter .pagination li:last-child .singleHotelSidebar .form-horizontal a, .singleHotelSidebar .form-horizontal .isotopeFilters ul.filter > li a, .isotopeFilters ul.filter > li .singleHotelSidebar .form-horizontal a {
   height: 50px;
   line-height: 50px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .singleHotelSidebar .form-horizontal .buttonTransparent .fa-angle-right, .singleHotelSidebar .form-horizontal .paginationCenter .pagination li:first-child a .fa-angle-right, .paginationCenter .pagination li:first-child .singleHotelSidebar .form-horizontal a .fa-angle-right, .singleHotelSidebar .form-horizontal .paginationCenter .pagination li:last-child a .fa-angle-right, .paginationCenter .pagination li:last-child .singleHotelSidebar .form-horizontal a .fa-angle-right, .singleHotelSidebar .form-horizontal .isotopeFilters ul.filter > li a .fa-angle-right, .isotopeFilters ul.filter > li .singleHotelSidebar .form-horizontal a .fa-angle-right {
@@ -6902,8 +6902,8 @@ header {
 @media (max-width: 767px) {
   .bookingConfirmed .alert {
     line-height: 20px;
-    padding: 15px 65px 0 60px;
-    font-size: 11px;
+    padding: 15px;
+    font-size: 14px;
   }
 }
 

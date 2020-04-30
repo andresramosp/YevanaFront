@@ -212,7 +212,7 @@
           </b-card-text>
         </b-tab>
         <!-- CALENDARIO -->
-        <b-tab v-show="false" title="Calendario">
+        <b-tab v-if="!$device.isMobile" title="Calendario">
           <b-card-text>
             <div class>
               <img src="/img/alquileres/calendarioTemporadas.png" width="720" />

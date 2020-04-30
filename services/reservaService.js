@@ -35,6 +35,13 @@ const ReservaService = {
             method: 'POST',
         })
         .then(data => data.data)
+        .catch(function (error) {
+            if (error.response) {
+              throw error.response.data.error;
+            } else {
+              throw error.message;
+            }
+          });
     },
 
     getCliente(email, password) {

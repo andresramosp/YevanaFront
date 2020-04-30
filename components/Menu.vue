@@ -10,8 +10,8 @@
           <button
             type="button"
             class="navbar-toggle"
-            data-toggle="collapse"
-            data-target=".navbar-ex1-collapse"
+            @click="toggleMenu()"
+           
           >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -25,14 +25,14 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div :class="`collapse navbar-collapse navbar-ex1-collapse ${State.menuOpen ? 'in' : ''}`">
+          <div :class="`collapse navbar-collapse navbar-ex1-collapse ${State.menuOpen ? 'in' : ''}`">
             <ul class="nav navbar-nav navbar-right">
               <li :class="`dropdown singleDrop ${activePage == 'Inicio' ? 'active' : ''}`">
                 <nuxt-link :to="'/'">Inicio</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
-                  <nuxt-link :to="'/alquileres'" class="dropdown-toggle">Alquila</nuxt-link>
+                <nuxt-link :to="'/alquileres'" class="dropdown-toggle">Alquila</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Contacto' ? 'active' : ''}`">
                 <nuxt-link :to="'/contacto'" class="dropdown-toggle">Contacto</nuxt-link>
@@ -45,7 +45,13 @@
   </header>
 </template>
 <script>
+import State from "~/services/state";
 export default {
+  data() {
+    return {
+      State
+    }
+  },
   components: {},
   props: ["opaque", "activePage"],
   mounted() {
@@ -60,6 +66,11 @@ export default {
         header.removeClass("lightHeader");
       }
     });
+  },
+  methods: {
+    toggleMenu() {
+      State.menuOpen = !State.menuOpen;
+    }
   }
 };
 </script>

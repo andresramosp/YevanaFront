@@ -171,7 +171,7 @@
                   <div layout="row" layout-align="space-between center">
                     <div
                       class="col-sm-12 col-md-12 col-xs-12"
-                      style="text-align: right; margin-top: 20px"
+                      style="text-align: right;"
                     >
                       <label class="control-label" for="kilometrajeCheckbox">Kilometraje ilimitado</label>
                       <input

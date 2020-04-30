@@ -30,15 +30,15 @@
                       <span>{{new Date(reserva.Hasta).toCustomString()}}</span>
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
-                      <i class="fa fa-user" aria-hidden="true"></i>Seguro:
+                      <i class="fa fa-shield" aria-hidden="true"></i>Seguro:
                       <span>{{reserva.Extras.find(ex => ex.GroupID == 'Seguro').Nombre}}</span>
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
-                      <i class="fa fa-user" aria-hidden="true"></i>Kilometraje:
+                      <i class="fa fa-tachometer" aria-hidden="true"></i>Kilometraje:
                       <span>{{reserva.Extras.find(ex => ex.GroupID == 'Kilometraje').Nombre}}</span>
                     </li>
                     <li style="border-bottom: none; padding-bottom: 2px">
-                      <i class="fa fa-user" aria-hidden="true"></i>Extras:
+                      <i class="fa fa-plus-square" aria-hidden="true"></i>Extras:
                       <span>{{getExtrasList()}}</span>
                     </li>
                   </ul>
@@ -285,16 +285,20 @@ export default {
     },
     async onSubmit() {
       this.reserva.Cliente = this.form;
+       State.set(
+          "reserva",
+          this.reserva,
+          true
+        );
       try {
-        // const result = await ReservaService.createReserva(this.reserva);
-        // State.set("reserva", null, true);
+        const result = await ReservaService.createReserva({...this.reserva});
         this.$router.push({
           path: `/confirmacion/`
         });
       } catch (err) {
         Vue.$toast.open({
           message:
-            "Se ha producido un error al crear la reserva. Por favor vuelve a intentarlo.",
+            "Error: " + err.message,
           position: "bottom",
           type: "error",
           dismissible: true,

@@ -113,6 +113,7 @@ export default {
     };
   },
   created() {
+    State.menuOpen = false;
     State.menuOpaque = false;
     State.activePage = "Inicio";
     // this.$nextTick(async () => {

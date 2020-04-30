@@ -1,4 +1,5 @@
 const State = {
+    menuOpen: false,
     menuOpaque: true,
     activePage: 'Inicio',
     footerVisible: true,

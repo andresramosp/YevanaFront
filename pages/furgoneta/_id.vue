@@ -31,6 +31,7 @@ export default {
     };
   },
   created() {
+    State.menuOpen = false;
     State.activePage = "Alquila";
     State.menuOpaque = true;
     // this.$nextTick(async () => {
