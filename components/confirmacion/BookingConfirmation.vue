@@ -4,22 +4,7 @@
 
 
     <!-- PAGE TITLE -->
-    <section class="pageTitle" style="background-image:url(/img/alquileres/confirmacion.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="titleTable">
-                        <div class="titleTableInner">
-                            <div class="pageTitleInfo">
-                                <h1>Solicitud enviada</h1>
-                                <div class="under-border"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <TopImageBar image="carretera" />
     <!-- WHITE SECTION FILTER-->
     <section class="mainContentSection">
         <div class="container">
@@ -87,10 +72,11 @@
 
 <script>
 import Vue from "vue";
-
+import TopImageBar from "~/components/TopImageBar.vue";
 import State from "~/services/state";
 export default {
   components: {
+      TopImageBar
   },
   data() {
     return {
@@ -99,7 +85,7 @@ export default {
   },
   created() {
     const reservaObj = State.get("reserva");
-    State.set("reserva", null, true);
+    // State.set("reserva", null, true);
     if (reservaObj) {
       this.reserva = reservaObj;
     } else {

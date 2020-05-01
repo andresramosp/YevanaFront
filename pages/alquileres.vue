@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-      vehicles: null
+      vehicles: []
     };
   },
   async asyncData({ params }) {
@@ -37,7 +37,7 @@ export default {
     //   }
     // });
   },
-  transition: "default",
+  // transition: "default",
 };
 </script>
 

@@ -243,7 +243,7 @@
         <!-- SEGURO -->
         <b-tab title="Seguro">
           <b-card-text>
-            <div class style="text-align: justify">
+            <div class style="text-align: justify; font-size: 13px">
               Todas nuestras reservas cuentan con un seguro a todo riesgo con franquicia, asistencia 24 horas y atención telefónica directa con el personal de Yevana para cualquier duda o circunstancia durante tu viaje por España, Europa o países Ribereños del Mediterráneo.
               <br />
               <br />La franquicia del seguro básico es de 850€ y tendrás que dejarla como depósito al inicio de la reserva.
@@ -308,14 +308,26 @@
             </div>
           </b-card-text>
         </b-tab>
+         <b-tab v-if="!$device.isMobile" title="FAQS">
+          <b-card-text>
+            <div>
+              <BookingFaqs />
+            </div>
+          </b-card-text>
+        </b-tab>
       </b-tabs>
+       
     </b-card>
   </div>
 </template>
 
 <script>
 import StringService from "~/services/stringService";
+import BookingFaqs from "~/components/bookingFaqs/BookingFaqs.vue";
 export default {
+  components: {
+    BookingFaqs
+  },
   data() {
     return {
       categoriasEquipamiento: [],
@@ -350,4 +362,5 @@ export default {
 .accordionsTransparent .media-body p {
   font-size: 12px !important;
 }
+
 </style>

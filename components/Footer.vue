@@ -53,7 +53,7 @@
                   <a href="/politica-privacidad.html">Política de privacidad</a>
                 </li>
                 <li style="margin-bottom: 0px !important">
-                  <a href="/faqs.html">FAQs alquileres</a>
+                    <nuxt-link :to="'/faqs'" class="dropdown-toggle">FAQs alquileres</nuxt-link>
                 </li>
                 <li style="margin-bottom: 0px !important">
                   <a href="/politica-cookies.html">Política de cookies</a>

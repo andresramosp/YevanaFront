@@ -2,7 +2,7 @@
   <!-- PAGE TITLE -->
   <div>
     <!-- PAGE TITLE -->
-    <BookingImageBar />
+    <TopImageBar image="tapiceria" title="Nuestra flota" text="Todas nuestras Camper cuentan con nuevas experiencias de serie" />
     <section class="mainContentSection packagesSection">
       <div class="container">
         <div class="row">
@@ -150,10 +150,10 @@
 </template>
 <script>
 import VehicleService from "~/services/vehicleService";
-import BookingImageBar from "~/components/BookingImageBar.vue";
+import TopImageBar from "~/components/TopImageBar.vue";
 export default {
   components: {
-    BookingImageBar
+    TopImageBar
   },
   props: ["vehicles"],
   methods: {

@@ -7,12 +7,7 @@
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle"
-            @click="toggleMenu()"
-           
-          >
+          <button type="button" class="navbar-toggle" @click="toggleMenu()">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -26,13 +21,18 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div :class="`collapse navbar-collapse navbar-ex1-collapse ${State.menuOpen ? 'in' : ''}`">
-          <div :class="`collapse navbar-collapse navbar-ex1-collapse ${State.menuOpen ? 'in' : ''}`">
+          <div
+            :class="`collapse navbar-collapse navbar-ex1-collapse ${State.menuOpen ? 'in' : ''}`"
+          >
             <ul class="nav navbar-nav navbar-right">
               <li :class="`dropdown singleDrop ${activePage == 'Inicio' ? 'active' : ''}`">
                 <nuxt-link :to="'/'">Inicio</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
                 <nuxt-link :to="'/alquileres'" class="dropdown-toggle">Alquila</nuxt-link>
+              </li>
+              <li :class="`dropdown singleDrop ${activePage == 'Faqs' ? 'active' : ''}`">
+                <nuxt-link :to="'/faqs'" class="dropdown-toggle">Faqs</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Contacto' ? 'active' : ''}`">
                 <nuxt-link :to="'/contacto'" class="dropdown-toggle">Contacto</nuxt-link>
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       State
-    }
+    };
   },
   components: {},
   props: ["opaque", "activePage"],

@@ -1,21 +1,6 @@
 <template>
   <div >
-      <section class="pageTitle" style="background-image:url(/img/contacto/nieve.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="titleTable">
-                        <div class="titleTableInner">
-                            <div class="pageTitleInfo">
-                                <h1>Contacta con el equipo de Yevana</h1>
-                                <div class="under-border"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <TopImageBar image="carretera"  />
     <section class="mainContentSection">
       <div class="container">
         <div class="row">
@@ -140,8 +125,11 @@
 <script>
 import axios from "axios";
 import Vue from "vue";
+import TopImageBar from "~/components/TopImageBar.vue";
 export default {
-  components: {},
+  components: {
+    TopImageBar
+  },
   data() {
     return {
       nombre: "",

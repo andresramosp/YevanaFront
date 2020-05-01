@@ -2,7 +2,7 @@
   <div>
     <!-- DESKTOP -->
     <div v-if="!$device.isMobile">
-      <BookingImageBar />
+      <TopImageBar image="stars" title="Road Suite" text="¿Te gustaría dormir en un hotel de un millón de estrellas?" />
       <div class="container">
         <section class="mainContentSection singlePackage">
           <BookingWizard step="1" />
@@ -62,7 +62,7 @@
 <script>
 import Vue from "vue";
 import BookingWizard from "~/components/BookingWizard.vue";
-import BookingImageBar from "~/components/BookingImageBar.vue";
+import TopImageBar from "~/components/TopImageBar.vue";
 import VehicleCarousel from "./components/VehicleCarousel.vue";
 import VehicleFeatures from "./components/VehicleFeatures.vue";
 import BookingFloatingButton from "./components/BookingFloatingButton.vue";
@@ -71,7 +71,7 @@ import State from "~/services/state";
 export default {
   components: {
     BookingWizard,
-    BookingImageBar,
+    TopImageBar,
     VehicleCarousel,
     VehicleFeatures,
     BookingFloatingButton,

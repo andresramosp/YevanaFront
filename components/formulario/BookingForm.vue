@@ -1,7 +1,7 @@
 <template>
   <div v-if="reserva">
-    <BookingImageBar />
-    <div class="container">
+    <!-- <TopImageBar image="tapiceria" /> -->
+    <div class="container" >
       <section class="mainContentSection singlePackage">
         <BookingWizard v-if="!$device.isMobile" step="2" />
         <div class="row">
@@ -234,7 +234,7 @@
 
 <script>
 import Vue from "vue";
-import BookingImageBar from "~/components/BookingImageBar.vue";
+import TopImageBar from "~/components/TopImageBar.vue";
 import BookingWizard from "~/components/BookingWizard.vue";
 import ReservaService from "~/services/reservaService";
 import UtilidadesService from "~/services/utilidadesService";
@@ -244,7 +244,7 @@ import "vue-select/dist/vue-select.css";
 export default {
   components: {
     BookingWizard,
-    BookingImageBar,
+    TopImageBar,
     vSelect
   },
   data() {
@@ -291,7 +291,7 @@ export default {
           true
         );
       try {
-        const result = await ReservaService.createReserva({...this.reserva});
+        // const result = await ReservaService.createReserva({...this.reserva});
         this.$router.push({
           path: `/confirmacion/`
         });

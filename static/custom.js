@@ -124,17 +124,17 @@ jQuery(document).ready(function () {
   });
 
   //============================== SELECT OPEN ACCORDION ITEM TITLE =========================
-  $(document).ready(function () {
-    $('.accordionWrappar .panel-collapse, .accordionSolidTitle .panel-collapse, .accordionSolidBar .panel-collapse').on('show.bs.collapse', function () {
-      $(this).siblings('.panel-heading').addClass('active');
-      $(this).addClass('active');
-    });
+  // $(document).ready(function () {
+  //   $('.accordionWrappar .panel-collapse, .accordionSolidTitle .panel-collapse, .accordionSolidBar .panel-collapse').on('show.bs.collapse', function () {
+  //     $(this).siblings('.panel-heading').addClass('active');
+  //     $(this).addClass('active');
+  //   });
 
-    $('.accordionWrappar .panel-collapse, .accordionSolidTitle .panel-collapse, .accordionSolidBar .panel-collapse').on('hide.bs.collapse', function () {
-      $(this).siblings('.panel-heading').removeClass('active');
-      $(this).removeClass('active');
-    });
-  });
+  //   $('.accordionWrappar .panel-collapse, .accordionSolidTitle .panel-collapse, .accordionSolidBar .panel-collapse').on('hide.bs.collapse', function () {
+  //     $(this).siblings('.panel-heading').removeClass('active');
+  //     $(this).removeClass('active');
+  //   });
+  // });
 
   //============================== COUNT DOWN =========================
   $('#simple_timer').syotimer({

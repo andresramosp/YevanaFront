@@ -32,7 +32,7 @@
 }
 .mobile .card .nav > li >a {
     padding: 10px 6px 13px 6px;
-
+    font-size: 12px;
 }
 .card .nav > li >a {
     position: relative;
