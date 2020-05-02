@@ -1,48 +1,5 @@
 <template>
   <div>
-    <!-- Start of Async Callbell Code -->
-    <script>
-  window.callbellSettings = {
-    token: "vGXXkmEMu5BmGgrb6KvCqG5R"
-  };
-    </script>
-    <script>
-  (function() {
-    var w = window;
-    var ic = w.callbell;
-    if (typeof ic === "function") {
-      ic("reattach_activator");
-      ic("update", callbellSettings);
-    } else {
-      var d = document;
-      var i = function() {
-        i.c(arguments);
-      };
-      i.q = [];
-      i.c = function(args) {
-        i.q.push(args);
-      };
-      w.Callbell = i;
-      var l = function() {
-        var s = d.createElement("script");
-        s.type = "text/javascript";
-        s.async = true;
-        s.src =
-          "https://dash.callbell.eu/include/" +
-          window.callbellSettings.token +
-          ".js";
-        var x = d.getElementsByTagName("script")[0];
-        x.parentNode.insertBefore(s, x);
-      };
-      if (w.attachEvent) {
-        w.attachEvent("onload", l);
-      } else {
-        w.addEventListener("load", l, false);
-      }
-    }
-  })();
-    </script>
-    <!-- End of Async Callbell Code -->
     <MainCarousel />
     <section v-show="!$device.isMobile" class="blackSection">
       <div class="container">
@@ -51,11 +8,7 @@
             <div style="text-align: center">
               <span style="color: white; font-size: 25px">
                 ALQUILA O COMPRA UNA DE NUESTRAS ROADSUITES Y
-                <nuxt-link
-                  to="/alquileres"
-                >
-                ESCÁPATE
-                </nuxt-link>
+                <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
               </span>
             </div>
           </div>
@@ -82,6 +35,57 @@
         </div>
       </div>
     </section>
+    <section v-show="!$device.isMobile" class="blackSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div style="text-align: center">
+              <span style="color: white; font-size: 25px">
+                VUELVE A DESCUBRIR LA NATURALEZA DESDE TU
+                <nuxt-link to="/alquileres">ROADSUITE</nuxt-link>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class>
+        <video id="myVideo" controls width="100%" allow="autoplay" preload="auto" muted>
+          <source
+            src="https://www.dropbox.com/s/d097rsqc5g5scwp/videoHome.mp4?raw=1"
+            type="video/mp4"
+          />
+        </video>
+        <!-- <iframe
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          width="100%"
+          height="750px"
+          type="text/html"
+          src="https://www.youtube.com/embed/DBXH9jJRaDk?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"
+        >
+        
+        </iframe>-->
+      </div>
+    </section>
+    <section v-show="!$device.isMobile" class="blackSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div style="text-align: center">
+              <span style="color: white; font-size: 25px">
+                ALQUILA O COMPRA UNA DE NUESTRAS ROADSUITES Y
+                <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <SocialMedia />
     <CustomerComments />
   </div>
@@ -112,6 +116,16 @@ export default {
       vehicles: vehiclesResult
     };
   },
+  mounted() {
+    let video = document.querySelector("video");
+    window.addEventListener("scroll", () => {
+      if (this.isScrollIntoView(video, 50)) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  },
   created() {
     State.menuOpen = false;
     State.menuOpaque = false;
@@ -124,7 +138,22 @@ export default {
     //   }
     // });
   },
-    //transition: "default",
+  methods: {
+    isScrollIntoView(el, percentVisible) {
+      let rect = el.getBoundingClientRect(),
+        windowHeight =
+          window.innerHeight || document.documentElement.clientHeight;
+
+      return !(
+        Math.floor(
+          100 - ((rect.top >= 0 ? 0 : rect.top) / +-(rect.height / 1)) * 100
+        ) < percentVisible ||
+        Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) <
+          percentVisible
+      );
+    }
+  }
+  //transition: "default",
 };
 </script>
 
@@ -137,5 +166,16 @@ export default {
   display: block;
   position: relative;
   z-index: 10;
+}
+video {
+  display: block;
+}
+.mobile .container {
+  padding: 0px;
+  width: 90%;
+}
+.mobile .container video {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 </style>

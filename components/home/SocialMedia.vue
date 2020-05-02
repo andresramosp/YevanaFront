@@ -1,5 +1,12 @@
     <template>
   <section class="whiteSection" style="padding-top: 0px !important">
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v6.0"
+    ></script>
     <div
       style="background-image: url('img/home/conocenos.jpg'); background-repeat: no-repeat; width: 100%; background-position: center; background-size: cover; min-height: 500px "
     >
@@ -39,19 +46,17 @@
             </div>
           </div>
         </div>
-        <div
-          class="col-lg-7 col-md-7 col-xs-12 facebook"
-        >
+        <div class="col-lg-7 col-md-7 col-xs-12 facebook">
           <div
             class="fb-page"
             data-href="https://www.facebook.com/YevanaCAMPER/"
             data-tabs="timeline"
+            data-width="340"
+            data-height="420"
             data-small-header="false"
             data-adapt-container-width="true"
             data-hide-cover="false"
             data-show-facepile="true"
-            data-width="500"
-            data-height="420"
           >
             <blockquote cite="https://www.facebook.com/YevanaCAMPER/" class="fb-xfbml-parse-ignore">
               <a href="https://www.facebook.com/YevanaCAMPER/">Yevana camper</a>
@@ -65,6 +70,17 @@
 <script>
 export default {
   components: {},
+  mounted() {
+    (function(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+  },
   methods: {
     getCaptionClass(desktop, mobile) {
       return !this.$device.isMobile ? desktop : mobile;
@@ -77,22 +93,22 @@ export default {
 </script>
 <style scoped>
 .desktop .facebook {
-    padding-left: 150px; 
-    padding-right: 35px; 
-    padding-top: 50px; 
-    padding-bottom: 25px
+  padding-left: 150px;
+  padding-right: 35px;
+  padding-top: 50px;
+  padding-bottom: 25px;
 }
 .desktop .conocenos {
-    padding: 80px;
+  padding: 80px;
 }
 .mobile .facebook {
-    padding-left: 35px; 
-    padding-right: 35px; 
-    /* padding-top: 50px;  */
-    padding-bottom: 25px
+  padding-left: 35px;
+  padding-right: 35px;
+  /* padding-top: 50px;  */
+  padding-bottom: 25px;
 }
 .mobile .conocenos {
-    padding: 35px;
+  padding: 35px;
 }
 </style>
 

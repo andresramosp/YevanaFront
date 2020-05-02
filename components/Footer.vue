@@ -8,7 +8,7 @@
               <a href="index.html" class="footer-logo" style="text-align: center">
                 <img src="/img/logo.png" alt="footer-logo" width="120" />
               </a>
-              <p>
+              <p v-show="!$device.isMobile">
                 Alquiler y venta de furgonetas Camper.
                 Interiores personalizados con
                 el mayor lujo y funcionalidad

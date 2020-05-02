@@ -187,7 +187,7 @@ export default {
 };
 </script>
 <style scoped>
-.desktop .carousel-image {
+/* .desktop .carousel-image {
   animation-name: zoomin;
   animation-duration: 17s;
   animation-fill-mode: forwards;
@@ -203,7 +203,7 @@ export default {
         transform: scale(1.1);
     }
 
-}
+} */
 /* .fullscreenbanner {
   z-index: -1;
 } */
