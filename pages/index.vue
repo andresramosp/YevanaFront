@@ -1,13 +1,17 @@
 <template>
   <div>
     <MainCarousel />
-    <section v-show="!$device.isMobile" class="blackSection">
+    <section class="blackSection">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span style="color: white; font-size: 25px">
+              <span v-show="!$device.isMobile">
                 ALQUILA O COMPRA UNA DE NUESTRAS ROADSUITES Y
+                <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
+              </span>
+              <span v-show="$device.isMobile">
+                ALQUILA YA UNA DE NUESTRAS ROADSUITES Y
                 <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
               </span>
             </div>
@@ -16,7 +20,7 @@
       </div>
     </section>
     <VehiclesGrid :vehicles="vehicles ? vehicles : []" />
-    <section class="promotionWrapper">
+    <section  v-show="!$device.isMobile" class="promotionWrapper">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -35,13 +39,13 @@
         </div>
       </div>
     </section>
-    <section v-show="!$device.isMobile" class="blackSection">
+    <section class="blackSection">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span style="color: white; font-size: 25px">
-                VUELVE A DESCUBRIR LA NATURALEZA DESDE TU
+              <span >
+               RECONQUISTA LA NATURALEZA DESDE TU
                 <nuxt-link to="/alquileres">ROADSUITE</nuxt-link>
               </span>
             </div>
@@ -57,27 +61,15 @@
             type="video/mp4"
           />
         </video>
-        <!-- <iframe
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-          width="100%"
-          height="750px"
-          type="text/html"
-          src="https://www.youtube.com/embed/DBXH9jJRaDk?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"
-        >
-        
-        </iframe>-->
       </div>
     </section>
-    <section v-show="!$device.isMobile" class="blackSection">
+    <section class="blackSection">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span style="color: white; font-size: 25px">
-                ALQUILA O COMPRA UNA DE NUESTRAS ROADSUITES Y
+              <span >
+                ALQUILA YA UNA DE NUESTRAS ROAD SUITES Y
                 <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
               </span>
             </div>
@@ -158,7 +150,6 @@ export default {
 </script>
 
 <style scoped>
-.mainContentSection,
 .blackSection {
   width: 100%;
   padding: 30px 0 30px 0;
@@ -166,6 +157,12 @@ export default {
   display: block;
   position: relative;
   z-index: 10;
+  color: white;
+  font-size: 25px;
+}
+.mobile .blackSection {
+  padding: 10px 0 10px 0;
+  font-size: 11px;
 }
 video {
   display: block;
@@ -178,4 +175,7 @@ video {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+/* .promotionWrapper {
+  height: 200px !important;
+} */
 </style>

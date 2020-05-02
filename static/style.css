@@ -2820,7 +2820,7 @@ header {
 
 .mainContentSection, .whiteSection, .lightSection {
   width: 100%;
-  padding: 50px 0 50px 0;
+  padding: 50px 0 15px 0;
   background-color: #ffffff;
   display: block;
 }

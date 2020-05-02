@@ -51,7 +51,7 @@
             class="fb-page"
             data-href="https://www.facebook.com/YevanaCAMPER/"
             data-tabs="timeline"
-            data-width="340"
+            :data-width="getData(500, 340)"
             data-height="420"
             data-small-header="false"
             data-adapt-container-width="true"
@@ -85,7 +85,7 @@ export default {
     getCaptionClass(desktop, mobile) {
       return !this.$device.isMobile ? desktop : mobile;
     },
-    getDataY(desktop, mobile) {
+    getData(desktop, mobile) {
       return !this.$device.isMobile ? desktop : mobile;
     }
   }
