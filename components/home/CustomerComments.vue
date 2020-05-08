@@ -1,5 +1,5 @@
 <template>
-      <section class="whiteSection" style="padding-top: 0px !important">
+      <section class="whiteSection">
       <!--promotionWrapper-->
       <div class="container">
         <div class="row">
@@ -132,3 +132,8 @@
       </div>
     </section>
 </template>
+<style scoped>
+.mobile .whiteSection {
+  padding-top: 10px;
+}
+</style>

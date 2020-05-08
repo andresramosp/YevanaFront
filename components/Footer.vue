@@ -1,5 +1,14 @@
 <template>
   <footer>
+    <cookie-law theme="dark-lime" buttonText="Acepto!">
+      <div slot="message">
+        Este sitio web utiliza Cookies, tanto propias como de terceros, para su correcto
+funcionamiento, recopilar información estadística sobre su navegación y mostrarle
+publicidad relacionada con sus preferencias, generada a partir de sus pautas de
+navegación. Si continúa navegando acepta su uso. Para más información pulse consulta la  
+        <a href="/docs/Cookies.pdf" target="_blank">política de cookies</a>
+      </div>
+    </cookie-law>
     <div class="footer clearfix" style="font-size: 10px !important">
       <div class="container">
         <div class="row">
@@ -30,7 +39,7 @@
               </p>
               <ul class="list-unstyled">
                 <li>
-                  <i class="fa fa-home" aria-hidden="true"></i>Calle Mar del Norte 8, 28830, Madrid
+                  <i class="fa fa-home" aria-hidden="true"></i>C/ Mar del Norte 8, 28830, Madrid
                 </li>
                 <li>
                   <i class="fa fa-phone" aria-hidden="true"></i>661 713 861 - 616 974 883
@@ -47,19 +56,19 @@
               <h5>Sobre el sitio</h5>
               <ul class="list-unstyled" style="line-height: 26px;">
                 <li style="margin-bottom: 0px !important">
-                  <a href="/terminos-condiciones.html">Términos y condiciones</a>
+                  <nuxt-link :to="'/terminos-condiciones'" class="dropdown-toggle">Términos y condiciones</nuxt-link>
                 </li>
                 <li style="margin-bottom: 0px !important">
-                  <a href="/politica-privacidad.html">Política de privacidad</a>
+                  <nuxt-link :to="'/politica-privacidad'" class="dropdown-toggle">Política de privacidad</nuxt-link>
                 </li>
                 <li style="margin-bottom: 0px !important">
                     <nuxt-link :to="'/faqs'" class="dropdown-toggle">FAQs alquileres</nuxt-link>
                 </li>
                 <li style="margin-bottom: 0px !important">
-                  <a href="/politica-cookies.html">Política de cookies</a>
+                  <a href="/docs/Cookies.pdf">Política de cookies</a>
                 </li>
                 <li style="margin-bottom: 0px !important">
-                  <a href="/aviso-legal.html">Aviso legal</a>
+                  <nuxt-link :to="'/aviso-legal'" class="dropdown-toggle">Aviso legal</nuxt-link>
                 </li>
               </ul>
             </div>
@@ -99,6 +108,12 @@
     </div>
   </footer>
 </template>
+<script>
+  import CookieLaw from 'vue-cookie-law'
+  export default {
+    components: { CookieLaw }
+  }
+</script>
 <style scoped>
 .footer {
   line-height: 21px;

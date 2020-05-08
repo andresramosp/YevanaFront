@@ -55,10 +55,10 @@ export default {
     }
   },
   mounted() {
-    if (this.render()) {
-        $("#" +  this.refId).swipebox();
-      }
-      
+    // if (this.render()) {
+    //     $("#" +  this.refId).swipebox();
+    //   }
+    $(".swipebox").swipebox();
   },
   props: ["id", "refId"]
 };

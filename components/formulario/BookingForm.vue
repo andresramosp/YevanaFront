@@ -196,11 +196,7 @@
                             type="checkbox"
                             required
                           />Declaro que he leído y acepto la
-                          <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="/politica-privacidad.html"
-                          >política de privacidad</a>
+                           <nuxt-link :to="'/politica-privacidad'" target="_blank" class="dropdown-toggle">Política de privacidad</nuxt-link>
                         </label>
                       </div>
                     </div>

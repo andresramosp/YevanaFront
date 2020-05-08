@@ -43,7 +43,7 @@
                       @input="onInputDate"
                       :min-date="new Date()"
                       style="display: inline-block;"
-                      :popover="{ placement: 'bottom-start', positionFixed: true }"
+                      :popover="{ placement: 'bottom-start', positionFixed: true, visibility: 'click' }"
                       :first-day-of-week="2"
                       class="date-picker"
                       :attributes="calendarAttrs"
@@ -71,7 +71,7 @@
                       @input="onInputDate"
                       :min-date="hastaMinDate"
                       style="display: inline-block;"
-                      :popover="{ placement: 'bottom-start', positionFixed: true }"
+                      :popover="{ placement: 'bottom-start', positionFixed: true, visibility: 'click' }"
                       :first-day-of-week="2"
                       class="date-picker"
                       :attributes="calendarAttrs"
@@ -216,11 +216,7 @@
                 >Reservar</div>
 
                 <div v-if="!$device.isMobile" class="col-sm-12">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/terminos-condiciones.html"
-                  >Términos y condiciones del alquiler</a>
+                  <nuxt-link :to="'/terminos-condiciones'" target="_blank">Términos y condiciones del alquiler</nuxt-link>
                 </div>
               </form>
             </div>
