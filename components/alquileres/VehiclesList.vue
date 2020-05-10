@@ -15,7 +15,7 @@
                   style="display: block; width: 100%; max-width: 400px"
                   :src="'/img/vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg'"
                   alt="Furgoneta Yevana para alquilar"
-                  @click="goToVehicle(vehiculo.VehiculoID)"
+                  @click="goToVehicle(vehiculo)"
                 />
                 <div v-show="!$device.isMobile" class="maskingInfo">
                   <h4>{{vehiculo.Nombre}}</h4>
@@ -30,7 +30,7 @@
               <div class="media-body">
                 <div class="bodyLeft">
                   <h4 class="media-heading" style="margin-bottom: 10px">
-                    <nuxt-link :to="'/furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</nuxt-link>
+                    <nuxt-link v-if="vehiculo.Disponible" :to="'/furgoneta/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</nuxt-link>
                     <span
                       v-show="$device.isMobile && vehiculo.Disponible"
                       style="font-size: 12px; color: orange; font-weight: bold; float: right"
@@ -157,10 +157,11 @@ export default {
   },
   props: ["vehicles"],
   methods: {
-    goToVehicle(id) {
+     goToVehicle(vehicle) {
+      if (vehicle.Disponible)
       this.$router.push({
-        path: `/furgoneta/${id}`
-      });
+        path: `/furgoneta/${vehicle.VehiculoID}`
+      })
     }
   }
 };

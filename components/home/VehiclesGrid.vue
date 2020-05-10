@@ -23,7 +23,7 @@
                 :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg'"
                 alt="Furgoneta Emerald para alquilar"
                 style="max-height: 240px"
-                @click="goToVehicle(vehicle.VehiculoID)"
+                @click="goToVehicle(vehicle)"
               />
               <div v-show="$device.isMobile && vehicle.Disponible" style="text-align: center">
                 <a
@@ -31,12 +31,9 @@
                 >{{vehicle.Nombre}}</a>
               </div>
               <div v-show="!$device.isMobile || !vehicle.Disponible" class="overlay">
-                <!-- <a
-                  class="fancybox-pop"
-                  :href="vehicle.Disponible ? ('/furgoneta/' + vehicle.VehiculoID) : 'javascript:void(0)'"
-                > -->
                    <nuxt-link
-                      :to="vehicle.Disponible ? ('/furgoneta/' + vehicle.VehiculoID) : 'javascript:void(0)'"
+                      v-if="vehicle.Disponible"
+                      :to="'/furgoneta/' + vehicle.VehiculoID"
                       class="fancybox-pop"
                     >
                   <div class="overlayInfo" style="margin-top:20px">
@@ -68,9 +65,10 @@
 export default {
   props: ["vehicles"],
   methods: {
-    goToVehicle(id) {
+    goToVehicle(vehicle) {
+      if (vehicle.Disponible)
       this.$router.push({
-        path: `/furgoneta/${id}`
+        path: `/furgoneta/${vehicle.VehiculoID}`
       })
     }
   }
