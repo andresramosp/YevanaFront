@@ -253,42 +253,7 @@
               <br />
               <br />
 
-              <table class="table" style="font-size: 13px">
-                <thead>
-                  <tr>
-                    <th scope="col">Seguros</th>
-                    <th scope="col">Todo riesgo 850€</th>
-                    <th scope="col">Todo riesgo Plus 250€</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Asistencia en carretera</th>
-                    <td>Sí</td>
-                    <td>Sí</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Daños ext/int</th>
-                    <td>850 Eur</td>
-                    <td>250 Eur</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Ventanas/lunas</th>
-                    <td>No</td>
-                    <td>Sí</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Ruedas</th>
-                    <td>No</td>
-                    <td>Sí</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Nº Conductor</th>
-                    <td>1</td>
-                    <td>2</td>
-                  </tr>
-                </tbody>
-              </table>
+              <SeguroTable />
 
               <div v-show="!$device.isMobile">
                 El coste del seguro plus va reduciéndose a medida que aumentan los días de tu reserva, a continuación puedes ver un cuadro con el coste diario de añadir Seguro Plus a tu reserva:
@@ -324,9 +289,11 @@
 <script>
 import StringService from "~/services/stringService";
 import BookingFaqs from "~/components/bookingFaqs/BookingFaqs.vue";
+import SeguroTable from '~/components/furgoneta/components/SeguroTable.vue'
 export default {
   components: {
-    BookingFaqs
+    BookingFaqs,
+    SeguroTable
   },
   data() {
     return {

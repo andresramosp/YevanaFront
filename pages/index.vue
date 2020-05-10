@@ -20,7 +20,7 @@
       </div>
     </section>
     <VehiclesGrid :vehicles="vehicles ? vehicles : []" />
-    <section  v-show="!$device.isMobile" class="promotionWrapper">
+    <section v-show="!$device.isMobile" class="promotionWrapper">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -44,8 +44,8 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span >
-               RECONQUISTA LA NATURALEZA DESDE TU
+              <span>
+                RECONQUISTA LA NATURALEZA DESDE TU
                 <nuxt-link to="/alquileres">ROADSUITE</nuxt-link>
               </span>
             </div>
@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span >
+              <span>
                 ALQUILA YA UNA DE NUESTRAS ROAD SUITES Y
                 <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
               </span>
@@ -109,14 +109,16 @@ export default {
     };
   },
   mounted() {
-    let video = document.querySelector("video");
-    window.addEventListener("scroll", () => {
-      if (this.isScrollIntoView(video, 50)) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
+    if (process.client) {
+      let video = document.querySelector("video");
+      window.addEventListener("scroll", () => {
+        if (this.isScrollIntoView(video, 50)) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    }
   },
   created() {
     State.menuOpen = false;
@@ -144,8 +146,21 @@ export default {
           percentVisible
       );
     }
+  },
+  head() {
+    return {
+      title:
+        "YEVANA | Diseño, fabricación, alquiler y venta de furgonetas camper únicas.",
+      meta: [
+        {
+          hid: "description-home",
+          name: "description",
+          content:
+            "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!"
+        }
+      ]
+    };
   }
-  //transition: "default",
 };
 </script>
 

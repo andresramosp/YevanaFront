@@ -1,8 +1,27 @@
 <template>
   <div>
+    <vue-modaltor
+      v-show="seguroPopupVisible"
+      :visible="true"
+      @hide="seguroPopupVisible = false"
+      :default-width="$device.isMobile ? '100%' : '30%'"
+      :close-scroll="false"
+      :bg-overlay="'#000000a3'"
+      :bg-panel="'white'"
+    >
+      TIPOS DE SEGURO
+      <SeguroTable />
+      <p class="modal-note">
+        <b>Nota importante</b>: La edad mínima del conductor debe ser de al menos 23 años con 2 años de carnet de conducir
+      </p>
+    </vue-modaltor>
     <!-- DESKTOP -->
     <div v-if="!$device.isMobile">
-      <TopImageBar image="stars" title="Road Suite" text="¿Te gustaría dormir en un hotel de un millón de estrellas?" />
+      <TopImageBar
+        image="stars"
+        title="Road Suite"
+        text="¿Te gustaría dormir en un hotel de un millón de estrellas?"
+      />
       <div class="container">
         <section class="mainContentSection singlePackage">
           <BookingWizard step="1" />
@@ -32,6 +51,7 @@
                 v-if="allExtras.length > 0 && vehicle"
                 :vehicle="vehicle"
                 :allExtras="allExtras"
+                @clickSeguro="seguroPopupVisible = true"
               />
             </aside>
           </div>
@@ -54,6 +74,7 @@
         :allExtras="allExtras"
         v-show="showBookingPanel"
         @onClose="showBookingPanel = false"
+        @clickSeguro="seguroPopupVisible = true"
       />
       <BookingFloatingButton v-show="!showBookingPanel" @onClick="showBookingPanel = true" />
     </div>
@@ -67,6 +88,7 @@ import VehicleCarousel from "./components/VehicleCarousel.vue";
 import VehicleFeatures from "./components/VehicleFeatures.vue";
 import BookingFloatingButton from "./components/BookingFloatingButton.vue";
 import BookingPanel from "./components/BookingPanel.vue";
+import SeguroTable from "~/components/furgoneta/components/SeguroTable.vue";
 import State from "~/services/state";
 export default {
   components: {
@@ -75,11 +97,13 @@ export default {
     VehicleCarousel,
     VehicleFeatures,
     BookingFloatingButton,
-    BookingPanel
+    BookingPanel,
+    SeguroTable
   },
   data() {
     return {
-      showBookingPanel: false
+      showBookingPanel: false,
+      seguroPopupVisible: false
     };
   },
   watch: {
@@ -88,7 +112,7 @@ export default {
       State.menuVisible = !this.showBookingPanel;
     }
   },
-  props: ["id", "vehicle", "allExtras"],
+  props: ["id", "vehicle", "allExtras"]
 };
 </script>
 <style scoped>
@@ -106,6 +130,13 @@ export default {
 }
 .mobile-section h4 {
   margin-bottom: 5px;
+}
+.modal-note {
+   font-size: 12px;
+   line-height: normal;
+}
+.modal-note b {
+  color: orange;
 }
 </style>
 

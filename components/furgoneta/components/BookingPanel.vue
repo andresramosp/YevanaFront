@@ -35,7 +35,7 @@
                 </div>
                 <!--Calendarios-->
                 <div class="form-group">
-                  <label class="control-label col-xs-2" for="inputSuccess3">Desde:</label>
+                  <label class="control-label col-xs-2" for="inputSuccess3">Desde</label>
                   <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
                     <v-date-picker
                       v-model="reservaRequestModel.desde"
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="control-label col-xs-2" for="inputSuccess3">Hasta:</label>
+                  <label class="control-label col-xs-2" for="inputSuccess3">Hasta</label>
                   <div class="col-xs-6 datepickerWrap" style="padding-right: 0px">
                     <v-date-picker
                       height="40"
@@ -92,7 +92,7 @@
                 <!--Forma recogida-->
                 <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <label class="control-label col-xs-3" for="inputSuccess3">Recogida:</label>
+                    <label class="control-label col-xs-3" for="inputSuccess3">Recogida</label>
                     <div class="col-xs-9">
                       <vSelect
                         v-model="reservaRequestModel.recogida"
@@ -110,7 +110,7 @@
                 <!--Forma devolución-->
                 <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <label class="control-label col-xs-3" for="inputSuccess3">Devolución:</label>
+                    <label class="control-label col-xs-3" for="inputSuccess3">Devolución</label>
                     <div class="col-xs-9">
                       <vSelect
                         v-model="reservaRequestModel.devolucion"
@@ -128,7 +128,19 @@
                 <!--Seguro-->
                 <div class="form-group">
                   <div layout="row" layout-align="space-between center">
-                    <label class="control-label col-xs-3" for="inputSuccess3">Seguro:</label>
+                    <label 
+                      @click="$emit('clickSeguro')" 
+                      style="display: inline-flex; cursor: pointer" 
+                      class="control-label col-xs-3" 
+                      for="inputSuccess3">
+                     Seguro
+                      <img
+                          :src="require('~/assets/icons/info.png')"
+                          width="15"
+                          height="15"
+                          style="margin-left: 5px; margin-top: 2px"
+                        />
+                    </label>
                     <div class="col-xs-9">
                       <vSelect
                         v-model="reservaRequestModel.seguro"

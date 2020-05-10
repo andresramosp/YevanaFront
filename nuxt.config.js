@@ -24,7 +24,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!" }
     ],
     script: [
       { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' },
@@ -73,6 +73,7 @@ export default {
  plugins: [
   { src: '~/plugins/vue-calendar.js', ssr: false },
   { src: '~/plugins/vue-toast.js', ssr: false },
+  { src: '~/plugins/vue-modal.js', ssr: false },
 ],
   /*
   ** Nuxt.js dev-modules
