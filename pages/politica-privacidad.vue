@@ -14,6 +14,20 @@ export default {
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
+  },
+  head() {
+    return {
+      title:
+        "Política de Privacidad YEVANA CAMPER | MADRID",
+      meta: [
+        {
+          hid: "description-poli",
+          name: "description",
+          content:
+            "Política de privacidad, tratamiento de datos y derechos del cliente | YEVANA"
+        }
+      ]
+    };
   }
 };
 </script>

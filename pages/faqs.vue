@@ -18,6 +18,20 @@ export default {
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
+  },
+  head() {
+    return {
+      title:
+        "Preguntas frecuentes para el servicio de alquiler de campers de YEVANA",
+      meta: [
+        {
+          hid: "description-faqs",
+          name: "description",
+          content:
+            "Resuelve todas tus dudas relativas al alquiler con YEVANA con este FAQ que hemos preparado para ti. Si tienes cualquier duda no dudes en llamarnos."
+        }
+      ]
+    };
   }
 };
 </script>

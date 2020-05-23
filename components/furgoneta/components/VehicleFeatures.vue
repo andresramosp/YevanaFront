@@ -247,7 +247,7 @@
               Todas nuestras reservas cuentan con un seguro a todo riesgo con franquicia, asistencia 24 horas y atención telefónica directa con el personal de Yevana para cualquier duda o circunstancia durante tu viaje por España, Europa o países Ribereños del Mediterráneo.
               <br />
               <br />La franquicia del seguro básico es de 850€ y tendrás que dejarla como depósito al inicio de la reserva.
-              Con el seguro Plus la franquicia y el depósito se reducen a 250€. Además obtendrás cobertura de ruedas y lunas a todo riesgo sin penalización de la franquicia en caso de daños y también podrás añadir un segundo conductor.
+              Con el seguro Plus la franquicia y el depósito se reducen a 150€. Además obtendrás cobertura de ruedas y lunas a todo riesgo sin penalización de la franquicia en caso de daños y también podrás añadir un segundo conductor.
               <br />
               <br />A continuación puedes ver un cuadro comparativo de las coberturas de ambos seguros:
               <br />

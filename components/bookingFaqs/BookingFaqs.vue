@@ -73,7 +73,7 @@
                                                             <tr>
                                                                 <th scope="row">Daños ext/int</th>
                                                                 <td>850 Eur</td>
-                                                                <td>250 Eur</td>
+                                                                <td>150 Eur</td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Ventanas/lunas</th>

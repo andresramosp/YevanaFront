@@ -14,6 +14,20 @@ export default {
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
+  },
+  head() {
+    return {
+      title:
+        "Aviso legal YEVANA CAMPER | MADRID",
+      meta: [
+        {
+          hid: "description-aviso",
+          name: "description",
+          content:
+            "Aviso legal, responsabilidad, propiedad intelectual industrial y protección de datos en YEVANA CAMPER."
+        }
+      ]
+    };
   }
 };
 </script>

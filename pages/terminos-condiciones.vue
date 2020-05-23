@@ -14,6 +14,20 @@ export default {
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
+  },
+  head() {
+    return {
+      title:
+        "Términos y condiciones",
+      meta: [
+        {
+          hid: "description-term",
+          name: "description",
+          content:
+            "Todo lo que necesitas saber si vas a alquilar una camper con YEVANA . Terminos y condiciones aplicables al alquiler de furgonetas camper."
+        }
+      ]
+    };
   }
 };
 </script>

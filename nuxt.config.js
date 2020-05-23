@@ -13,18 +13,29 @@ export default {
   loading: false, //'~/components/Loading.vue',
   env: {
     baseUrl:
-      process.env.BASE_URL || 'http://api.yevana.com' // 'http://localhost:49491'
+      // process.env.BASE_URL || 'https://yevana.com'
+      process.env.BASE_URL || 'http://localhost:49491'
   },
   mode: 'spa',
   /*
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'YEVANA | Diseño, fabricación, alquiler y venta de furgonetas camper únicas.',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!" }
+      { name: 'author', content: 'Yevana' },
+      { name: 'publisher', content: 'Yevana' },
+      { name: 'publisher-email', content: 'info@yevana.com' },
+      { name: 'language', content: 'es' },
+      { name: 'rating', content: 'general' },
+      { name: 'distribution', content: 'global' },
+      { name: 'audience', content: 'all' },
+      { name: 'keywords', content: 'camper, van, alquiler furgonetas, furgonetas, yevana' },
+      { name: 'robots', content: 'noindex' },
+      { name: 'googlebot', content: 'noindex' },
+      // { hid: 'description', name: 'description', content: "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!" }
     ],
     script: [
       { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' },
@@ -42,7 +53,7 @@ export default {
       { src: '/custom.js' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,600,700' },
       { rel: 'stylesheet', href: '/plugins/jquery-ui/jquery-ui.css' },
       { rel: 'stylesheet', href: '/plugins/bootstrap/css/bootstrap.min.css' },

@@ -14,6 +14,20 @@ export default {
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
+  },
+  head() {
+    return {
+      title:
+        "¡Alquila una furgoneta camper PREMIUM desde 60 €! | YEVANA | Madrid",
+      meta: [
+        {
+          hid: "description-formulario",
+          name: "description",
+          content:
+            "Viaja en una furgoneta camper Premium totalmente equipada. Asistencia, seguro a todo riesgo y numerosos extras disponibles para hacer tu escapada inolvidable."
+        }
+      ]
+    };
   }
 };
 </script>

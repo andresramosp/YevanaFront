@@ -287,7 +287,7 @@ export default {
           true
         );
       try {
-        // const result = await ReservaService.createReserva({...this.reserva});
+        const result = await ReservaService.createReserva({...this.reserva});
         this.$router.push({
           path: `/confirmacion/`
         });
