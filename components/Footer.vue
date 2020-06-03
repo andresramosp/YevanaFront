@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <no-ssr>
+    <no-ssr >
       <cookie-law theme="dark-lime" buttonText="Acepto!">
       <div slot="message">
         Este sitio web utiliza Cookies, tanto propias como de terceros, para su correcto
