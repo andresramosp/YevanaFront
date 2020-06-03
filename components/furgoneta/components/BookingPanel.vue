@@ -444,8 +444,8 @@ export default {
 </script>
 <style scoped>
 .panel-heading {
-  background-color: #ff891e;
-  color: white;
+  background-color: #ff891e !important;
+  color: white !important;
   font-weight: 500;
 }
 .singleHotelSidebar .control-label {

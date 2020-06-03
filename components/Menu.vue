@@ -91,7 +91,7 @@ export default {
   }
 }
 .opaque {
-  background-color: black;
+  background-color: black !important;
 }
 .navbar-default .navbar-collapse {
   border-color: black;

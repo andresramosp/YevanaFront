@@ -15,7 +15,7 @@ export default {
     baseUrl:
       process.env.BASE_URL || 'https://yevana.com'
   },
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
