@@ -13,10 +13,9 @@ export default {
   loading: false, //'~/components/Loading.vue',
   env: {
     baseUrl:
-      // process.env.BASE_URL || 'https://yevana.com'
-      process.env.BASE_URL || 'http://localhost:49491'
+      process.env.BASE_URL || 'https://yevana.com'
   },
-  mode: 'spa',
+  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -33,39 +32,39 @@ export default {
       { name: 'distribution', content: 'global' },
       { name: 'audience', content: 'all' },
       { name: 'keywords', content: 'camper, van, alquiler furgonetas, furgonetas, yevana' },
-      { name: 'robots', content: 'noindex' },
-      { name: 'googlebot', content: 'noindex' },
-      // { hid: 'description', name: 'description', content: "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!" }
+      // { name: 'robots', content: 'noindex' },
+      // { name: 'googlebot', content: 'noindex' },
+      { name: 'description', content: "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!" }
     ],
     script: [
-      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' },
-      { src: '/plugins/jquery-ui/jquery-ui.js' },
-      { src: '/plugins/bootstrap/js/bootstrap.min.js' },
-      { src: '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js' },
-      { src: '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js' },
-      { src: '/plugins/selectbox/jquery.selectbox-0.1.3.min.js' },
-      { src: '/plugins/datepicker/bootstrap-datepicker.js' },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js' },
-      { src: '/plugins/counter-up/jquery.counterup.min.js' },
-      { src: '/plugins/isotope/isotope.min.js' },
-      { src: '/plugins/countdown/jquery.syotimer.js' },
-      { src: '/plugins/swipebox/jquery.swipebox.js' },
-      { src: '/custom.js' },
+      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', body: true },
+      { src: '/plugins/jquery-ui/jquery-ui.js', body: true },
+      { src: '/plugins/bootstrap/js/bootstrap.min.js', body: true },
+      { src: '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js', body: true },
+      { src: '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js', body: true },
+      { src: '/plugins/selectbox/jquery.selectbox-0.1.3.min.js', body: true },
+      { src: '/plugins/datepicker/bootstrap-datepicker.js', body: true },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', body: true },
+      { src: '/plugins/counter-up/jquery.counterup.min.js', body: true },
+      { src: '/plugins/isotope/isotope.min.js', body: true },
+      { src: '/plugins/countdown/jquery.syotimer.js', body: true },
+      { src: '/plugins/swipebox/jquery.swipebox.js', body: true },
+      { src: '/custom.js', body: true },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,600,700' },
-      { rel: 'stylesheet', href: '/plugins/jquery-ui/jquery-ui.css' },
-      { rel: 'stylesheet', href: '/plugins/bootstrap/css/bootstrap.min.css' },
-      { rel: 'stylesheet', href: '/plugins/font-awesome/css/font-awesome.min.css' },
-      { rel: 'stylesheet', href: '/plugins/rs-plugin/css/settings.css', media: 'screen' },
-      { rel: 'stylesheet', href: '/plugins/selectbox/select_option1.css' },
-      { rel: 'stylesheet', href: '/plugins/datepicker/datepicker.css' },
-      { rel: 'stylesheet', href: '/plugins/isotope/jquery.fancybox.css' },
-      { rel: 'stylesheet', href: '/plugins/isotope/isotope.css' },
-      { rel: 'stylesheet', href: '/plugins/swipebox/swipebox.css' },
-      { rel: 'stylesheet', href: '/style.css' },
-      { rel: 'stylesheet', href: '/colors/default.css', id: 'option_color' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png', body: true },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,600,700', body: true },
+      { rel: 'stylesheet', href: '/plugins/jquery-ui/jquery-ui.css', body: true },
+      { rel: 'stylesheet', href: '/plugins/bootstrap/css/bootstrap.min.css', body: true },
+      { rel: 'stylesheet', href: '/plugins/font-awesome/css/font-awesome.min.css', body: true },
+      { rel: 'stylesheet', href: '/plugins/rs-plugin/css/settings.css', media: 'screen', body: true },
+      { rel: 'stylesheet', href: '/plugins/selectbox/select_option1.css', body: true },
+      { rel: 'stylesheet', href: '/plugins/datepicker/datepicker.css', body: true },
+      { rel: 'stylesheet', href: '/plugins/isotope/jquery.fancybox.css', body: true },
+      { rel: 'stylesheet', href: '/plugins/isotope/isotope.css', body: true },
+      { rel: 'stylesheet', href: '/plugins/swipebox/swipebox.css', body: true },
+      { rel: 'stylesheet', href: '/style.css', body: true },
+      { rel: 'stylesheet', href: '/colors/default.css', id: 'option_color', body: true },
     ]
   },
   /*

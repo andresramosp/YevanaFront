@@ -216,27 +216,30 @@
           <b-card-text>
             <div class>
               <img src="/img/alquileres/calendarioTemporadas.png" width="720" />
-              <!-- <div class="form-group">
+              <div class="form-group">
                   <div class="col-sm-12" style="text-align: center; margin-top: 10px">
-                    <img
-                      title="{{precioTemporadaBaja}}"
-                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: cornflowerblue"
+                    <div
+                      :title="precioTemporadaBaja"
+                      class="temporada-legend"
+                      style="background-color: cornflowerblue"
                     />
                     <span style="font-size: 11px; margin-left: 3px">Baja - {{precioTemporadaBaja}}€</span>
-                    <img
-                      title="{{precioTemporadaMedia}}"
-                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightgreen; margin-left: 10px"
+                    <div
+                      :title="precioTemporadaMedia"
+                      class="temporada-legend"
+                      style="background-color: lightgreen; margin-left: 10px"
                     />
                     <span
                       style="font-size: 11px; margin-left: 3px"
                     >Media - {{precioTemporadaMedia}}€</span>
-                    <img
-                      title="{{precioTemporadaAlta}}"
-                      style="width: 10px; height: 10px; border: 1px, solid; border-radius: 2px; background-color: lightpink; margin-left: 10px"
+                    <div
+                      :title="precioTemporadaAlta"
+                      class="temporada-legend"
+                      style="background-color: lightpink; margin-left: 10px"
                     />
                     <span style="font-size: 11px; margin-left: 3px">Alta - {{precioTemporadaAlta}}€</span>
                   </div>
-              </div>-->
+              </div>
             </div>
           </b-card-text>
         </b-tab>
@@ -302,6 +305,20 @@ export default {
     };
   },
   props: ["vehicle", "extras"],
+  computed: {
+    precioTemporadaBaja() {
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == "Baja")
+        .Precio;
+    },
+    precioTemporadaAlta() {
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == "Alta")
+        .Precio;
+    },
+    precioTemporadaMedia() {
+      return this.vehicle.PreciosActuales.find(pr => pr.Temporada == "Media")
+        .Precio;
+    }
+  },
   mounted() {
     const categorias = this.vehicle.FichaTecnica.EquipamientoItems.map(
       eq => eq.Categoria
@@ -328,6 +345,13 @@ export default {
 }
 .accordionsTransparent .media-body p {
   font-size: 12px !important;
+}
+.temporada-legend {
+  display: inline-block; 
+  width: 10px; 
+  height: 10px; 
+  border: 1px, solid; 
+  border-radius: 2px; 
 }
 
 </style>

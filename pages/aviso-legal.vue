@@ -14,6 +14,7 @@ export default {
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
+    State.menuOpen = false;
   },
   head() {
     return {

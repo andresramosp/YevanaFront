@@ -213,7 +213,8 @@
                   </div>
                 </div>
 
-                <div class="col-sm-12 infoKm">{{this.infoKilometraje}}</div>
+                <!-- this.infoKilometraje -->
+                <div class="col-sm-12 infoKm"></div> 
 
                 <div v-if="!$device.isMobile" @click="startBooking()" class="col-sm-12">
                   <a :disabled="false" class="btn btn-block buttonTransparent">
@@ -317,36 +318,36 @@ export default {
     async getAndfillTemporadas() {
       this.temporadas = await TemporadasService.getAll();
       this.calendarAttrs = [
-        {
-          highlight: {
-            color: "green",
-            fillMode: "light"
-          },
-          popover: {},
-          dates: await TemporadasService.getDatesTemporada("Media"),
-          excludeDates: null,
-          order: 0
-        },
-        {
-          highlight: {
-            color: "blue",
-            fillMode: "light"
-          },
-          popover: {},
-          dates: await TemporadasService.getDatesTemporada("Baja"),
-          excludeDates: null,
-          order: 0
-        },
-        {
-          highlight: {
-            color: "pink",
-            fillMode: "light"
-          },
-          popover: {},
-          dates: await TemporadasService.getDatesTemporada("Alta"),
-          excludeDates: null,
-          order: 0
-        }
+        // {
+        //   highlight: {
+        //     color: "green",
+        //     fillMode: "light"
+        //   },
+        //   popover: {},
+        //   dates: await TemporadasService.getDatesTemporada("Media"),
+        //   excludeDates: null,
+        //   order: 0
+        // },
+        // {
+        //   highlight: {
+        //     color: "blue",
+        //     fillMode: "light"
+        //   },
+        //   popover: {},
+        //   dates: await TemporadasService.getDatesTemporada("Baja"),
+        //   excludeDates: null,
+        //   order: 0
+        // },
+        // {
+        //   highlight: {
+        //     color: "pink",
+        //     fillMode: "light"
+        //   },
+        //   popover: {},
+        //   dates: await TemporadasService.getDatesTemporada("Alta"),
+        //   excludeDates: null,
+        //   order: 0
+        // }
       ];
     },
     onInputDate() {
