@@ -1,6 +1,7 @@
 <template>
   <footer>
-    <cookie-law theme="dark-lime" buttonText="Acepto!">
+    <no-ssr>
+      <cookie-law theme="dark-lime" buttonText="Acepto!">
       <div slot="message">
         Este sitio web utiliza Cookies, tanto propias como de terceros, para su correcto
 funcionamiento, recopilar información estadística sobre su navegación y mostrarle
@@ -9,6 +10,8 @@ navegación. Si continúa navegando acepta su uso. Para más información pulse 
         <a href="/docs/Cookies.pdf" target="_blank">política de cookies</a>
       </div>
     </cookie-law>
+    </no-ssr>
+    
     <div class="footer clearfix" style="font-size: 10px !important">
       <div class="container">
         <div class="row">
