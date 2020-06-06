@@ -51,7 +51,7 @@
             class="fb-page"
             data-href="https://www.facebook.com/YevanaCAMPER/"
             data-tabs="timeline"
-            :data-width="getData(500, 340)"
+            :data-width="getData(500, 320)"
             data-height="420"
             data-small-header="false"
             data-adapt-container-width="true"
@@ -70,16 +70,16 @@
 <script>
 export default {
   components: {},
-  mounted() {
-    (function(d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
+  created() {
+    // (function(d, s, id) {
+    //   var js,
+    //     fjs = d.getElementsByTagName(s)[0];
+    //   if (d.getElementById(id)) return;
+    //   js = d.createElement(s);
+    //   js.id = id;
+    //   js.src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2";
+    //   fjs.parentNode.insertBefore(js, fjs);
+    // })(document, "script", "facebook-jssdk");
   },
   methods: {
     getCaptionClass(desktop, mobile) {
@@ -102,13 +102,17 @@ export default {
   padding: 80px;
 }
 .mobile .facebook {
-  padding-left: 35px;
-  padding-right: 35px;
+  /* padding-left: 35px;
+  padding-right: 35px; */
   /* padding-top: 50px;  */
   padding-bottom: 25px;
+  text-align: center;
 }
 .mobile .conocenos {
   padding: 35px;
+}
+.mobile .row {
+  margin: 0px !important;
 }
 </style>
 

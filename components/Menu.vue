@@ -13,10 +13,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- <a class="navbar-brand" href="index.html"></a> -->
-          <a href="/">
-            <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
-          </a>
+            <nuxt-link :to="'/'">
+              <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
+             </nuxt-link>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

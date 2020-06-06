@@ -11,7 +11,7 @@
                 <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
               </span>
               <span v-show="$device.isMobile">
-                ALQUILA YA UNA DE NUESTRAS ROADSUITES Y
+                RESERVA UNA DE NUESTRAS ROADSUITES Y
                 <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
               </span>
             </div>
@@ -44,9 +44,9 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span>
-                RECONQUISTA LA NATURALEZA DESDE TU
-                <nuxt-link to="/alquileres">ROADSUITE</nuxt-link>
+                <span>
+                <nuxt-link to="/alquileres">RESERVA</nuxt-link>
+                SIN COMPROMISO TU VAN PARA ESTE VERANO
               </span>
             </div>
           </div>
@@ -68,10 +68,10 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span>
-                ALQUILA YA UNA DE NUESTRAS ROAD SUITES Y
-                <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
-              </span>
+               <span>
+                RECONQUISTA LA NATURALEZA DESDE TU
+                <nuxt-link to="/alquileres">ROADSUITE</nuxt-link>
+             </span>
             </div>
           </div>
         </div>

@@ -14,6 +14,7 @@ export default {
   env: {
     baseUrl:
       process.env.BASE_URL || 'https://yevana.com'
+      // process.env.BASE_URL || 'http://localhost:49491'
   },
   mode: 'spa',
   /*
@@ -31,25 +32,22 @@ export default {
       { name: 'rating', content: 'general' },
       { name: 'distribution', content: 'global' },
       { name: 'audience', content: 'all' },
-      { name: 'keywords', content: 'camper, van, alquiler furgonetas, furgonetas, yevana' },
+      { name: 'keywords', content: 'camper, van, alquiler furgonetas, furgonetas, yevana, madrid' },
       // { name: 'robots', content: 'noindex' },
       // { name: 'googlebot', content: 'noindex' },
-      { name: 'description', content: "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!" }
+      // { name: 'description', content: "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!" }
     ],
     script: [
-      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', body: true },
-      { src: '/plugins/jquery-ui/jquery-ui.js', body: true },
-      { src: '/plugins/bootstrap/js/bootstrap.min.js', body: true },
+      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', body: false },
+      { src: '/plugins/jquery-ui/jquery-ui.js', body: false },
+      { src: '/plugins/bootstrap/js/bootstrap.min.js', body: false },
       { src: '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js', body: true },
       { src: '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js', body: true },
-      { src: '/plugins/selectbox/jquery.selectbox-0.1.3.min.js', body: true },
-      { src: '/plugins/datepicker/bootstrap-datepicker.js', body: true },
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', body: true },
       { src: '/plugins/counter-up/jquery.counterup.min.js', body: true },
       { src: '/plugins/isotope/isotope.min.js', body: true },
       { src: '/plugins/countdown/jquery.syotimer.js', body: true },
       { src: '/plugins/swipebox/jquery.swipebox.js', body: true },
-      { src: '/custom.js', body: true },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png', body: true },
