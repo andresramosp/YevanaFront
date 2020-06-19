@@ -90,6 +90,7 @@ import SocialMedia from "~/components/home/SocialMedia.vue";
 import CustomerComments from "~/components/home/CustomerComments.vue";
 import VehicleService from "~/services/vehicleService";
 import State from "~/services/state";
+import homeMixins from "~/mixins/homeMixin";
 export default {
   components: {
     CustomerComments,
@@ -97,66 +98,28 @@ export default {
     VehiclesGrid,
     SocialMedia
   },
-  data() {
-    return {
-      vehicles: []
-    };
-  },
+  mixins: [homeMixins],
   async asyncData({ params }) {
     const vehiclesResult = await VehicleService.getAll();
     return {
       vehicles: vehiclesResult
     };
   },
-  mounted() {
-    if (process.client) {
-      let video = document.querySelector("video");
-      window.addEventListener("scroll", () => {
-        if (this.isScrollIntoView(video, 50)) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-    }
-  },
   created() {
     State.menuOpen = false;
     State.menuOpaque = false;
     State.activePage = "Inicio";
-    // this.$nextTick(async () => {
-    //   if (process.client) {
-    //     this.$nuxt.$loading.start();
-    //     this.vehicles = await VehicleService.getAll();
-    //     this.$nuxt.$loading.finish();
-    //   }
-    // });
-  },
-  methods: {
-    isScrollIntoView(el, percentVisible) {
-      let rect = el.getBoundingClientRect(),
-        windowHeight =
-          window.innerHeight || document.documentElement.clientHeight;
-
-      return !(
-        Math.floor(
-          100 - ((rect.top >= 0 ? 0 : rect.top) / +-(rect.height / 1)) * 100
-        ) < percentVisible ||
-        Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) <
-          percentVisible
-      );
-    }
   },
   head() {
     return {
       title:
-        "YEVANA | Diseño, fabricación, alquiler y venta de furgonetas camper únicas.",
+        "YEVANA | Diseño, fabricación, alquiler y venta de furgonetas camper únicas | Madrid",
       meta: [
         {
           hid: "description-home",
           name: "description",
           content:
-            "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. ¡Contáctanos!"
+            "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. Estamos en Madrid. ¡Contáctanos!"
         }
       ]
     };

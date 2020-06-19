@@ -28,6 +28,7 @@ navegación. Si continúa navegando acepta su uso. Para más información pulse 
                 con la homologación europea
                 y con los materiales más vanguardistas
                 del mercado. ¿A qué esperas para probarlas?
+                Estamos en Madrid.
               </p>
             </div>
           </div>

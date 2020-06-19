@@ -29,9 +29,17 @@
                 data-start="1000"
                 data-easing="Back.easeInOut"
                 data-endspeed="300"
+                
               >
-                <span style="margin-bottom: 20px">CAMPERVAN HIRE</span>
-                Vive tu experiencia camper
+              <div v-show="$device.isMobile" style="font-size: 18px">
+                <span style="margin-bottom: 20px; font-size: 30px !important">CAMPERVAN HIRE</span>
+                <span>Vive tu experiencia camper</span>
+              </div>
+              <div v-show="!$device.isMobile" >
+                <span style="margin-bottom: 20px;">CAMPERVAN HIRE</span>
+                <span style="color: #ff891e !important; font-size: 30px !important">Vive tu experiencia camper</span>
+              </div>
+                
               </div>
 
               <div
@@ -47,7 +55,11 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll" style="margin-right: 20px">
-                   <nuxt-link :to="'/alquileres'" class="btn buttonTransparent" style="color: white">Escapa YA!</nuxt-link>
+                   <nuxt-link 
+                    :to="'/alquileres'" 
+                    class="btn buttonTransparent btn-carousel">
+                    Escapa YA!
+                  </nuxt-link>
                 </span>
               </div>
             </div>
@@ -98,7 +110,7 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll">
-                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent" style="color: white">Alquílala</nuxt-link>
+                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent btn-carousel">Alquílala</nuxt-link>
                 </span>
               </div>
             </div>
@@ -130,7 +142,7 @@
                 data-easing="Back.easeInOut"
                 data-endspeed="300"
               >
-                Detalles que marcan la diferencia
+                <span style="font-size: 20px !important">Detalles que marcan la diferencia</span>
                 <span style="margin-top: 0px">Quality & Safe</span>
               </div>
 
@@ -138,7 +150,7 @@
                 :class="`tp-caption rs-caption-3 sft ${$device.isMobile ? 'text-center' : 'text-left'}`"
                 data-hoffset="0"
                 data-x="left"
-                :data-y="getDataY(485, 550)"
+                :data-y="getDataY(485, 600)"
                 data-speed="800"
                 data-start="2000"
                 data-easing="Power4.easeOut"
@@ -147,7 +159,7 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll">
-                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent" style="color: white">Escapa YA!</nuxt-link>
+                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent btn-carousel">Escapa YA!</nuxt-link>
                 </span>
               </div>
             </div>
@@ -162,7 +174,7 @@ export default {
   components: {},
   mounted() {
     $(".fullscreenbanner").revolution({
-      delay: 3000,
+      delay: 5000,
       startwidth: 1170,
       startheight: 745,
       fullWidth: "on",
@@ -187,6 +199,11 @@ export default {
 };
 </script>
 <style scoped>
+.btn-carousel {
+  color: white; 
+  background-color: #ff891e !important; 
+  border: none !important
+}
 /* .desktop .carousel-image {
   animation-name: zoomin;
   animation-duration: 17s;

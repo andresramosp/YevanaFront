@@ -35,8 +35,8 @@
                   <VehicleCarousel :id="id" refId="web" />
                   <div class="hotelDescription">
                     <div class="hotelTitle">
-                      <h2>Descripción</h2>
-                      <p style="text-align: justify">{{vehicle.Descripcion}}</p>
+                      <h2 id="vehicle-desc-title">Descripción</h2>
+                      <p id="vehicle-desc">{{vehicle.Descripcion}}</p>
                     </div>
                   </div>
                   <VehicleFeatures
@@ -137,6 +137,15 @@ export default {
 }
 .modal-note b {
   color: orange;
+}
+#vehicle-desc {
+  text-align: justify;
+  font-size: 14.5px;
+  line-height: 22px;
+  color: #777;
+}
+#vehicle-desc-title, #vehicle-desc {
+  text-indent: 30px;
 }
 </style>
 
