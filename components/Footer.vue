@@ -1,15 +1,20 @@
 <template>
   <footer>
-    <cookie-law theme="dark-lime" buttonText="Acepto!">
-      <div slot="message">
-        Este sitio web utiliza Cookies, tanto propias como de terceros, para su correcto
-funcionamiento, recopilar información estadística sobre su navegación y mostrarle
-publicidad relacionada con sus preferencias, generada a partir de sus pautas de
-navegación. Si continúa navegando acepta su uso. Para más información pulse consulta la  
-        <a href="/docs/Cookies.pdf" target="_blank">política de cookies</a>
-      </div>
-    </cookie-law>
-    
+    <no-ssr>
+      <cookie-law theme="dark-lime" buttonText="Acepto!">
+        <div slot="message">
+          Este sitio web utiliza Cookies, tanto propias como de terceros, para su correcto
+          funcionamiento, recopilar información estadística sobre su navegación y mostrarle
+          publicidad relacionada con sus preferencias, generada a partir de sus pautas de
+          navegación. Si continúa navegando acepta su uso. Para más información pulse consulta la
+          <a
+            href="/docs/Cookies.pdf"
+            target="_blank"
+          >política de cookies</a>
+        </div>
+      </cookie-law>
+    </no-ssr>
+
     <div class="footer clearfix" style="font-size: 10px !important">
       <div class="container">
         <div class="row">
@@ -58,13 +63,19 @@ navegación. Si continúa navegando acepta su uso. Para más información pulse 
               <h5>Sobre el sitio</h5>
               <ul class="list-unstyled" style="line-height: 26px;">
                 <li style="margin-bottom: 0px !important">
-                  <nuxt-link :to="'/terminos-condiciones'" class="dropdown-toggle">Términos y condiciones</nuxt-link>
+                  <nuxt-link
+                    :to="'/terminos-condiciones'"
+                    class="dropdown-toggle"
+                  >Términos y condiciones</nuxt-link>
                 </li>
                 <li style="margin-bottom: 0px !important">
-                  <nuxt-link :to="'/politica-privacidad'" class="dropdown-toggle">Política de privacidad</nuxt-link>
+                  <nuxt-link
+                    :to="'/politica-privacidad'"
+                    class="dropdown-toggle"
+                  >Política de privacidad</nuxt-link>
                 </li>
                 <li style="margin-bottom: 0px !important">
-                    <nuxt-link :to="'/faqs'" class="dropdown-toggle">FAQs alquileres</nuxt-link>
+                  <nuxt-link :to="'/faqs'" class="dropdown-toggle">FAQs alquileres</nuxt-link>
                 </li>
                 <li style="margin-bottom: 0px !important">
                   <a href="/docs/Cookies.pdf">Política de cookies</a>
@@ -111,10 +122,10 @@ navegación. Si continúa navegando acepta su uso. Para más información pulse 
   </footer>
 </template>
 <script>
-  import CookieLaw from 'vue-cookie-law'
-  export default {
-    components: { CookieLaw }
-  }
+import CookieLaw from "vue-cookie-law";
+export default {
+  components: { CookieLaw }
+};
 </script>
 <style scoped>
 .footer {
