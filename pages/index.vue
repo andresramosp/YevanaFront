@@ -128,20 +128,7 @@ export default {
 </script>
 
 <style scoped>
-.blackSection {
-  width: 100%;
-  padding: 30px 0 30px 0;
-  background-color: black;
-  display: block;
-  position: relative;
-  z-index: 10;
-  color: white;
-  font-size: 25px;
-}
-.mobile .blackSection {
-  padding: 10px 0 10px 0;
-  font-size: 11px;
-}
+
 video {
   display: block;
 }

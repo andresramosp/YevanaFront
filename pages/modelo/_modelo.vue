@@ -10,6 +10,24 @@
         </video>
       </div>
     </section>
+    <section class="blackSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div style="text-align: center">
+              <span v-show="!$device.isMobile">
+                <nuxt-link to="/contacto">ENCARGA </nuxt-link>
+                TU NUEVA YEVANA DOKKER MODELO MX56-85
+              </span>
+              <span v-show="$device.isMobile">
+                <nuxt-link to="/contacto">ENCARGA YA </nuxt-link>
+                TU NUEVA YEVANA DOKKER
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="previews-wrap">
       <div v-for="(mosaic, index) in mosaicItems" :key="index">
         <div :class="`preview-item ${index % 2 ? 'right-img' : 'false'}`">
@@ -19,15 +37,17 @@
               <span v-html="mosaic.text"></span>
             </p>
             <div class="icon-list">
-               <img
-                v-for="(icon, index) in mosaic.icons" :key="index"
-                :src="require('~/assets/icons/' + icon.toLowerCase() +'.png')"
-                :width="35"
-                :height="35"
-              />
+              <div class="icon-group" v-for="(icon, index) in mosaic.icons" :key="index">
+                <img
+                  :src="require('~/assets/icons/' + icon.id.toLowerCase() +'.png')"
+                  :width="$device.isMobile ? 37 : 50"
+                  :height="$device.isMobile ? 37 : 50"
+                />
+                <span>{{icon.text}}</span>
+              </div>
             </div>
           </div>
-          <img alt="car" :src="`/img/modelos/docker/mosaico_${index + 1}.jpg`" />
+          <img alt="car" :src="`/img/modelos/docker/00${index + 1}.jpg`" />
         </div>
       </div>
     </div>
@@ -47,44 +67,69 @@ export default {
       mosaicItems: [
         {
           title: "ADAPTARSE ES GANAR TERRENO",
-          icons: ['gps', 'cama', 'cartucho_de_gas', 'toalla_grande'],
+          icons: [
+            { id: 'gps', text: 'Portátil 5"'}, 
+            { id: 'cama', text: '50x80 cm'}, 
+            { id: 'cartucho_de_gas', text: '50L'}, 
+            { id: 'toalla_grande', text: '1M'}
+          ],
           text:
-            "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo. Por eso, presentamos nuestro nuevo modelo All-Road: un vehículo que se adapta a todo tipo de viajes"
+            "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo. <br/> <br/> Por eso, presentamos nuestro nuevo modelo All-Road: un vehículo que se adapta a todo tipo de viajes"
         },
         {
           title: "EL DESCANSO DE TUS SUEÑOS",
-          icons: ['asiento', 'cama', 'silla_de_camping'],
+          icons: [
+            { id: 'asiento', text: 'Portátil 5"'}, 
+            { id: 'cama', text: '50x80 cm"'}, 
+            { id: 'silla_de_camping', text: 'Ikea'}, 
+          ],
           text:
-            "Cama doble de 1.95x1.1m, colchoneta estilo japonés ultraﬁna (65mm) confeccionada con 3 capas de diferente densidad, plegable con bisagras de tejido. Tapicería a escoger o deﬁnida según personalización."
+            "Cama doble de 1.95x1.1m, colchoneta estilo japonés ultraﬁna (65mm) confeccionada con 3 capas de diferente densidad, plegable con bisagras de tejido. <br/> <br/>Tapicería a escoger o deﬁnida según personalización."
         },
         {
           title: "ESPACIO PARA TODO TU MUNDO",
-          icons: ['cocina', 'gps'],
-          icons: ['electricidad', 'radio'],
+          icons: [
+            { id: 'electricidad', text: 'Butsir MS 100 PRO'}, 
+            { id: 'radio', text: 'Sony FM'}, 
+          ],
           text:
-            "Armarios, altillos, compartimentos y baúl con capacidad para 50 litros. Brazos neumáticos de asistencia para la apertura de puertas.<br /> Cierres de seguridad Push Lock metálicos."
+            "Armarios, altillos, compartimentos y baúl con capacidad para 50 litros. <br/> <br/>Brazos neumáticos de asistencia para la apertura de puertas.<br /><br /> Cierres de seguridad Push Lock metálicos."
         },
         {
           title: "UNA ILUMINACIÓN PARA DESCONECTAR",
-          icons: ['toldo', 'portabicis', 'segundo_conductor'],
+           icons: [
+            { id: 'toldo', text: '100 x 500'}, 
+            { id: 'portabicis', text: 'Acero'}, 
+            { id: 'segundo_conductor', text: 'C3PO'}, 
+          ],
           text:
             "Iluminación ambiental sectorizada regulable en 3 zonas: Exterior lateral cocina, Exterior zona maletero, interior general (focosDownligth y tira led) Iluminación automática de todos los compartimentos con puertas. <br /> <br /> Foco led de lectura"
         },
         {
           title: "PENSADA PARA VIAJAR, EQUIPADA PARA TODO",
-          icons: ['cocina', 'gps'],
+           icons: [
+            { id: 'electricidad', text: '50V'}, 
+            { id: 'radio', text: 'Sony FM'}, 
+          ],
           text:
-            "Nevera / Congelador Mobicool FR34 a compresor, baja hasta -10ºC. <br />Guías de cajones y tornillería Wurth, tornillería INOX Cocina a Gas de 1 fuego Butsir MS 100 PRO. <br />Compartimento especíﬁco para el gas de la cocina Fregadero INOX, tamaño…  grifo RK Reich STYLE"
+            "Nevera / Congelador Mobicool FR34 a compresor, baja hasta -10ºC. <br /><br />Guías de cajones y tornillería Wurth, tornillería INOX Cocina a Gas de 1 fuego Butsir MS 100 PRO. <br /><br />Compartimento especíﬁco para el gas de la cocina Fregadero INOX, tamaño…  grifo RK Reich STYLE"
         },
         {
           title: "UN LUGAR DONDE RECARGAR ENERGÍAS",
-          icons: ['pack_dormir', 'cocina'],
+           icons: [
+            { id: 'pack_dormir', text: '50V'}, 
+            { id: 'cocina', text: 'Sony FM'}, 
+          ],
           text:
             "Placa solar CARBEST 100W <br />Batería tecnología AGM 120Ah <br />Centralita de control del sistema NASA MARINE <br />Sistema de carga con Booster Votronic de 30A para carga rápida de batería en ruta. <br />Claraboya de climatización Turbovent Premium <br />Cristal 390x390mm con mosquitera integrada y oscurecedor"
         },
         {
           title: "LITERALMENTE, NO HABRÁ OTRA IGUAL",
-          icons: ['cocina', 'gps'],
+           icons: [
+            { id: 'toldo', text: '100 x 500'}, 
+            { id: 'portabicis', text: 'Acero'}, 
+            { id: 'segundo_conductor', text: 'C3PO'}, 
+          ],
           text:
             "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper. <br />Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único. "
         }
@@ -118,7 +163,7 @@ export default {
 </script>
 
 <style>
-.previews-wrap {
+.blackSection {
   margin-top: -6px;
 }
 .preview-item {
@@ -172,11 +217,9 @@ img {
   }
   .preview-item__content {
     width: 100%;
-    height: 375px;
+    /* height: 375px; */
     padding-top: 55px;
     padding-bottom: 55px;
-    /* padding-right: 45px;
-      padding-left: 45px; */
     align-items: flex-start;
     justify-content: flex-start;
   }
@@ -195,6 +238,10 @@ img {
   .preview-item > img {
     width: 100%;
   }
+
+  .icon-group {
+    margin-right: 18px !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -207,10 +254,18 @@ img {
 }
 .icon-list {
   margin-top: 30px;
-  padding-left: 15px;
-  padding-right: 15px;
 }
-.icon-list img {
-  margin-right: 20px
+.icon-group {
+  float: left;
+  text-align: center;
+  margin-right: 28px
+}
+.icon-group span {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  margin-left: 3px;
+  color: black;
+  font-weight: 600;
 }
 </style>
