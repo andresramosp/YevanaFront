@@ -112,7 +112,7 @@ export default {
 
 .animationFromBottom {
   animation-name: textOutFromBottom;
-  animation-duration: 4.0s; 
+  animation-duration: 4.5s; 
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-delay: 0s;
@@ -140,12 +140,13 @@ export default {
 }
 
 .fadeableFromLeft {
-  margin-right: 1000px;
+  margin-right: -300px;
+  opacity: 0.3;
 }
 
 .animationFromLeft {
   animation-name: textOutFromLeft;
-  animation-duration: 2.0s; 
+  animation-duration: 1.0s; 
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-delay: 0s;
@@ -155,20 +156,23 @@ export default {
 }
 @keyframes textOutFromLeft {
 0% {
-  margin-right: 1000px;
+  margin-right: -300px;
+  opacity: 0.3;
 }
 100% {
   margin-right: 0px;
+  opacity: 1;
 }
 }
 
 .fadeableFromRight {
-  margin-left: 1000px;
+  margin-left: -300px;
+  opacity: 0.3;
 }
 
 .animationFromRight {
   animation-name: textOutFromRight;
-  animation-duration: 2.0s; 
+  animation-duration: 1.0s; 
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-delay: 0s;
@@ -178,10 +182,12 @@ export default {
 }
 @keyframes textOutFromRight {
 0% {
-  margin-left: 1000px;
+  margin-left: -300px;
+  opacity: 0.3;
 }
 100% {
   margin-left: 0px;
+  opacity: 1;
 }
 }
 </style>

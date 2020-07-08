@@ -46,7 +46,7 @@
               </div>
             </div>
           </div>
-          <img :class="`${index % 2 ? 'fadeableFromLeft_' : 'fadeableFromRight_'}`" alt="car" :src="`/img/modelos/docker/00${index + 1}.jpg`" />
+          <img :class="`${index % 2 ? 'fadeableFromRight' : 'fadeableFromLeft'}`" alt="car" :src="`/img/modelos/docker/00${index + 1}.jpg`" />
         </div>
 
         <div v-else :class="`preview-item item-background ${index % 2 ? 'right-img' : 'false'}`">
