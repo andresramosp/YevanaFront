@@ -16,7 +16,7 @@
           <div class="col-xs-12">
             <div style="text-align: center">
               <span v-show="!$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA</nuxt-link>TU NUEVA YEVANA DOKKER MODELO MX56-85
+                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER MODELO MX56-85
               </span>
               <span v-show="$device.isMobile">
                 <nuxt-link to="/contacto">ENCARGA YA </nuxt-link>TU NUEVA YEVANA DOKKER
@@ -28,8 +28,9 @@
     </section>
     <div class="previews-wrap">
       <div v-for="(mosaic, index) in mosaicItems" :key="index">
+
         <div v-if="!mosaic.backGround" :class="`preview-item ${index % 2 ? 'right-img' : 'false'}`">
-          <div class="preview-item__content">
+          <div :class="`preview-item__content ${index > 0 || !$device.isMobile ? 'fadeableFromBottom' : ''}`">
             <h3>{{mosaic.title}}</h3>
             <p style="margin-top: 5px;">
               <span v-html="mosaic.text"></span>
@@ -45,18 +46,18 @@
               </div>
             </div>
           </div>
-          <img alt="car" :src="`/img/modelos/docker/00${index + 1}.jpg`" />
+          <img :class="`${index % 2 ? 'fadeableFromLeft_' : 'fadeableFromRight_'}`" alt="car" :src="`/img/modelos/docker/00${index + 1}.jpg`" />
         </div>
 
         <div v-else :class="`preview-item item-background ${index % 2 ? 'right-img' : 'false'}`">
           <div class="white-band">
-            <div class="square col-md-6">
+            <div class="square col-md-6 fadeableFromBottom">
               <h2>{{mosaic.title}}</h2>
               <p style="margin-top: 15px;">
                 <span v-html="mosaic.text"></span>
               </p>
             </div>
-            <div class="square col-md-6">
+            <div class="square col-md-6 fadeableFromBottom">
               <div class="icon-list">
               <div class="icon-group" v-for="(icon, index) in mosaic.icons" :key="index">
                 <img
@@ -72,7 +73,22 @@
         </div>
       </div>
     </div>
-    <section></section>
+     <section class="blackSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div style="text-align: center">
+              <span v-show="!$device.isMobile">
+                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER MODELO MX56-85
+              </span>
+              <span v-show="$device.isMobile">
+                <nuxt-link to="/contacto">ENCARGA YA </nuxt-link>TU NUEVA YEVANA DOKKER
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -215,7 +231,7 @@ export default {
 }
 .item-background p {
   color: black !important;
-  font-size: 15px;
+  font-size: 14px;
 }
 .item-background .icon-group {
   float: none;
@@ -343,4 +359,7 @@ img {
   width: 100%;
   padding-bottom: 50px;
 }
+
+
+
 </style>

@@ -104,6 +104,86 @@ export default {
   padding: 10px 0 10px 0;
   font-size: 11px;
 }
+
+.fadeableFromBottom {
+  opacity: 0.2;
+  margin-top: 300px;
+}
+
+.animationFromBottom {
+  animation-name: textOutFromBottom;
+  animation-duration: 4.0s; 
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-play-state: normal;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes textOutFromBottom {
+0% {
+  margin-top: 300px;
+  opacity: 0.2;
+}
+25% {
+  margin-top: 0px;
+  opacity: 0.7;
+}
+80% {
+  margin-top: 0px;
+  opacity: 0.9;
+}
+100% {
+  opacity: 1;
+  margin-top: 0px;
+}
+}
+
+.fadeableFromLeft {
+  margin-right: 1000px;
+}
+
+.animationFromLeft {
+  animation-name: textOutFromLeft;
+  animation-duration: 2.0s; 
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-play-state: normal;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes textOutFromLeft {
+0% {
+  margin-right: 1000px;
+}
+100% {
+  margin-right: 0px;
+}
+}
+
+.fadeableFromRight {
+  margin-left: 1000px;
+}
+
+.animationFromRight {
+  animation-name: textOutFromRight;
+  animation-duration: 2.0s; 
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-play-state: normal;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes textOutFromRight {
+0% {
+  margin-left: 1000px;
+}
+100% {
+  margin-left: 0px;
+}
+}
 </style>
 
 
