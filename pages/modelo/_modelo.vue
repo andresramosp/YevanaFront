@@ -121,7 +121,7 @@ export default {
             { id: "silla_de_camping", text: "Ikea" }
           ],
           text:
-            "Cama doble de 1.95x1.1m, colchoneta estilo japonés ultraﬁna (65mm) confeccionada con 3 capas de diferente densidad, plegable con bisagras de tejido. <br/> <br/>Tapicería a escoger o deﬁnida según personalización."
+            "<b>Cama</b> doble de 1.95x1.1m, colchoneta estilo japonés ultraﬁna (65mm) confeccionada con 3 capas de diferente densidad, plegable con bisagras de tejido. <br/> <br/>Tapicería a escoger o deﬁnida según personalización."
         },
         {
           title: "ESPACIO PARA TODO TU MUNDO",

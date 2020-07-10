@@ -1,6 +1,13 @@
 <template>
   <div>
-    <MainCarousel />
+    <!-- <MainCarousel /> -->
+
+    <div class="">
+       <video autoplay muted loop id="clipHome">
+          <source :src="`/video/CLIP_WEB_${$device.isMobile ? 'MOVIL' : 'PC'}1.mp4`" type="video/mp4" />
+        </video>
+    </div>
+
     <section class="blackSection">
       <div class="container">
         <div class="row">
@@ -44,9 +51,8 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-                <span>
-                <nuxt-link to="/alquileres">RESERVA</nuxt-link>
-                SIN COMPROMISO TU VAN PARA ESTE VERANO
+              <span>
+                <nuxt-link to="/alquileres">RESERVA </nuxt-link>SIN COMPROMISO TU VAN PARA ESTE VERANO
               </span>
             </div>
           </div>
@@ -68,10 +74,10 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-               <span>
+              <span>
                 RECONQUISTA LA NATURALEZA DESDE TU
                 <nuxt-link to="/alquileres">ROADSUITE</nuxt-link>
-             </span>
+              </span>
             </div>
           </div>
         </div>
@@ -128,6 +134,23 @@ export default {
 </script>
 
 <style scoped>
+
+#clipHome {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+/* .content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+} */
 
 video {
   display: block;
