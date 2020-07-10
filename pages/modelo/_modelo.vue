@@ -2,7 +2,7 @@
   <div>
     <section>
       <div>
-        <video id="myVideo" controls width="100%" allow="autoplay" preload="auto" muted>
+        <video id="myVideo" controls width="100%" allow="autoplay" preload="auto" muted class="autoPlay">
           <source
             src="https://www.dropbox.com/s/7rqsuv14jc5ylf4/videoDockerMobile2.mp4?raw=1"
             type="video/mp4"

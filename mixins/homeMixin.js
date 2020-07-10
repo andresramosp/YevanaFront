@@ -1,16 +1,16 @@
 export default {
     mounted() {
         if (process.client) {
-          let video = document.querySelector("video");
+          let video = document.querySelector(".autoPlay");
           let fadeableFromBottom = document.querySelectorAll(".fadeableFromBottom");
           let fadeableFromLeft = document.querySelectorAll(".fadeableFromLeft");
           let fadeableFromRight = document.querySelectorAll(".fadeableFromRight");
           window.addEventListener("scroll", (e) => {
-            // if (this.isScrollIntoView(video, 50)) {
-            //   video.play();
-            // } else {
-            //   video.pause();
-            // }
+            if (this.isScrollIntoView(video, 50)) {
+              video.play();
+            } else {
+              video.pause();
+            }
             for (var fadEl of fadeableFromBottom) {
               if (this.isScrollIntoView(fadEl, 1)) {
                 fadEl.classList.add('animationFromBottom');

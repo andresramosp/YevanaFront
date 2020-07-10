@@ -3,7 +3,7 @@
     <!-- <MainCarousel /> -->
 
     <div class="">
-       <video autoplay muted loop id="clipHome">
+       <video playsinline autoplay muted loop id="clipHome">
           <source :src="`/video/CLIP_WEB_${$device.isMobile ? 'MOVIL' : 'PC'}1.mp4`" type="video/mp4" />
         </video>
     </div>
@@ -61,7 +61,7 @@
     </section>
     <section>
       <div class>
-        <video id="myVideo" controls width="100%" allow="autoplay" preload="auto" muted>
+        <video id="myVideo" controls width="100%" allow="autoplay" preload="auto" muted class="autoPlay">
           <source
             src="https://www.dropbox.com/s/cd0fik8jbwdip80/videoHome.mp4?raw=1"
             type="video/mp4"
