@@ -6,11 +6,11 @@ export default {
           let fadeableFromLeft = document.querySelectorAll(".fadeableFromLeft");
           let fadeableFromRight = document.querySelectorAll(".fadeableFromRight");
           window.addEventListener("scroll", (e) => {
-            if (this.isScrollIntoView(video, 50)) {
-              video.play();
-            } else {
-              video.pause();
-            }
+            // if (this.isScrollIntoView(video, 50)) {
+            //   video.play();
+            // } else {
+            //   video.pause();
+            // }
             for (var fadEl of fadeableFromBottom) {
               if (this.isScrollIntoView(fadEl, 1)) {
                 fadEl.classList.add('animationFromBottom');
