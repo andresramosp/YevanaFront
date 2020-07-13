@@ -31,13 +31,14 @@
 
         <div v-if="!mosaic.backGround" :class="`preview-item ${index % 2 ? 'right-img' : 'false'}`">
           <div :class="`preview-item__content ${index > 0 || !$device.isMobile ? 'fadeableFromBottom' : ''}`">
-            <h3>{{mosaic.title}}</h3>
+            <h3 v-html="mosaic.title"></h3>
             <p style="margin-top: 5px;">
               <span v-html="mosaic.text"></span>
             </p>
             <div class="icon-list">
               <div class="icon-group" v-for="(icon, index) in mosaic.icons" :key="index">
                 <img
+                  v-if="icon.id != 'NONE'"
                   :src="require('~/assets/icons/' + icon.id.toLowerCase() +'.png')"
                   :width="$device.isMobile ? 37 : 50"
                   :height="$device.isMobile ? 37 : 50"
@@ -52,7 +53,7 @@
         <div v-else :class="`preview-item item-background ${index % 2 ? 'right-img' : 'false'}`">
           <div class="white-band">
             <div class="square col-md-6 fadeableFromBottom">
-              <h2>{{mosaic.title}}</h2>
+              <h2 v-html="mosaic.title"></h2>
               <p style="margin-top: 15px;">
                 <span v-html="mosaic.text"></span>
               </p>
@@ -102,94 +103,97 @@ export default {
     return {
       modelo: params.modelo,
       mosaicItems: [
-        {
-          title: "ADAPTARSE ES GANAR TERRENO",
-          icons: [
-            { id: "gps", text: 'Portátil 5"' },
-            { id: "cama", text: "50x80 cm" },
-            { id: "cartucho_de_gas", text: "50L" },
-            { id: "toalla_grande", text: "1M" }
-          ],
-          text:
-            "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo. <br/> <br/> Por eso, presentamos nuestro nuevo modelo All-Road: un vehículo que se adapta a todo tipo de viajes"
-        },
-        {
-          title: "EL DESCANSO DE TUS SUEÑOS",
-          icons: [
-            { id: "asiento", text: 'Portátil 5"' },
-            { id: "cama", text: '50x80 cm"' },
-            { id: "silla_de_camping", text: "Ikea" }
-          ],
-          text:
-            "<b>Cama</b> doble de 1.95x1.1m, colchoneta estilo japonés ultraﬁna (65mm) confeccionada con 3 capas de diferente densidad, plegable con bisagras de tejido. <br/> <br/>Tapicería a escoger o deﬁnida según personalización."
-        },
-        {
-          title: "ESPACIO PARA TODO TU MUNDO",
-          icons: [
-            { id: "electricidad", text: "Butsir MS 100 PRO" },
-            { id: "radio", text: "Sony FM" }
-          ],
-          text:
-            "Armarios, altillos, compartimentos y baúl con capacidad para 50 litros. <br/> <br/>Brazos neumáticos de asistencia para la apertura de puertas.<br /><br /> Cierres de seguridad Push Lock metálicos."
-        },
-        {
-          title: "UNA ILUMINACIÓN PARA DESCONECTAR",
-          icons: [
-            { id: "toldo", text: "100 x 500" },
-            { id: "portabicis", text: "Acero" },
-            { id: "segundo_conductor", text: "C3PO" }
-          ],
-          text:
-            "Iluminación ambiental sectorizada regulable en 3 zonas: Exterior lateral cocina, Exterior zona maletero, interior general (focosDownligth y tira led) Iluminación automática de todos los compartimentos con puertas. <br /> <br /> Foco led de lectura"
-        },
-        {
-          title: "PENSADA PARA VIAJAR, EQUIPADA PARA TODO",
-          icons: [
-            { id: "electricidad", text: "50V" },
-            { id: "radio", text: "Sony FM" }
-          ],
-          text:
-            "Nevera / Congelador Mobicool FR34 a compresor, baja hasta -10ºC. <br /><br />Guías de cajones y tornillería Wurth, tornillería INOX Cocina a Gas de 1 fuego Butsir MS 100 PRO. <br /><br />Compartimento especíﬁco para el gas de la cocina Fregadero INOX, tamaño…  grifo RK Reich STYLE"
-        },
-        {
-          title: "UN LUGAR DONDE RECARGAR ENERGÍAS",
-          icons: [
-            { id: "pack_dormir", text: "50V" },
-            { id: "cocina", text: "Sony FM" }
-          ],
-          text:
-            "Placa solar CARBEST 100W <br />Batería tecnología AGM 120Ah <br />Centralita de control del sistema NASA MARINE <br />Sistema de carga con Booster Votronic de 30A para carga rápida de batería en ruta. <br />Claraboya de climatización Turbovent Premium <br />Cristal 390x390mm con mosquitera integrada y oscurecedor"
-        },
-        {
-          title: "CONVERTIBLE EN ATAÚD, SEGURO FUNERARIO",
-          icons: [
-            { id: "toldo", text: "100 x 500" },
-            { id: "portabicis", text: "Acero" },
-            { id: "segundo_conductor", text: "C3PO" }
-          ],
-          text:
-            "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper. <br />Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único. "
-        },
-        {
-          title: "LITERALMENTE, NO HABRÁ OTRA IGUAL",
-          backGround: true,
-          icons: [
-            { id: "toldo", text: "<b>TV led</b> de 16 HD con antena TDT integrada" },
-            { id: "portabicis", text: "<b>Calefacción</b> estacionaria de gasoil." },
-            { id: "segundo_conductor", text: "<b>Tapicería</b> premiumPO" },
-            { id: "pack_dormir", text: "<b>Asientos propios</b> en uno o 2 colores (con o sin microperforado)." },
-            { id: "cocina", text: "<b>Acabado bicolor</b> exterior (pintura o vinilado)." }
-          ],
-          text:
-            "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper. <br /><br />Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único. <br/><br/>Iluminación ambiental sectorizada regulable en 3 zonas: Exterior lateral cocina, Exterior zona maletero, interior general (focosDownligth y tira led) Iluminación automática de todos los compartimentos con puertas."
-        }
-      ]
+    {
+      "title": "NUESTRA NATURALEZA ES EL CONFORT",
+      "icons": [
+        { "id": "NONE", "text": "Portátil 5" },
+        { "id": "NONE", "text": "50x80 cm" },
+        { "id": "NONE", "text": "50L" },
+        { "id": "NONE", "text": "1M" }
+      ],
+      "text":
+        "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo.<br/> <br/> En Yevana somos entusiastas del diseño y la calidad, pero no nos basta con ofrecerte unos acabados exquisitos en todo lo que puedes ver y tocar. Lo que realmente nos llena es la excelencia de lo que no se ve, porque como todos sabemos la verdadera belleza se encuentra en el interior.<br/> <br/> Por eso, presentamos nuestro nuevo modelo All-Road: <br/><b>un vehículo que se adapta a todo tipo de viajes.</b>"
+    },
+    {
+      "title": "EL DESCANSO DE TUS SUEÑOS",
+      "icons": [
+        { "id": "cama", "text": "1.95x1.1m" },
+        { "id": "NONE", "text": "70mm" },
+        { "id": "climatizacion", "text": "Firma" },
+        { "id": "NONE", "text": "Planar 5L" },
+      ],
+      "text":
+        "Somier doble de 1.95x1.1m plegable, construido en madera de abedul de 15mm. Bisagras reforzadas de acero inoxidable.<br/> <br/> Colchoneta ultrafina (70mm) de estilo japonés plegable en 3 piezas, construida con 3 capas de distintas densidades. Bisagras de tejido para evitar la separación de las piezas.<br/> <br/ Tapicería de alta calidad a escoger dentro de nuestro catálogo.<br/> <br/>Claraboya bidireccional de climatización Fiamma Turbovent 160CT de 400x400mm. Velocidad regulable, modo extractor/ventilador y termostato. Mosquitera y oscurecedor.<br/> <br/> Calefacción estacionaria a gasoil con depósito de 5L Planar 2d. Programador digital y termostato (opcional)."
+    },
+    {
+      "title": "ESPACIO PARA TODO TU MUNDO",
+      "icons": [
+        { "id": "NONE", "text": "15mm" },
+        { "id": "NONE", "text": "3000k" },
+        { "id": "NONE", "text": "Push Lock" },
+        { "id": "mesa_exterior_camping", "text": "40x65cm" }
+      ],
+      "text":
+        "Mobiliario en madera contrachapada de chopo de 15mm (9capas). Laminado HPL. Acabados en 1 o 2 colores a escoger. Iluminación led 3000k en todos los compartimentos con encendido y apagado automático. <br/> <br/> Perfilería de aluminio. Cantos semiperfilados. Persianas en PVC con cierre magnético. <br/> <br/> Tiradores en acero inoxidable. Cajones Wurth / Grass Soft Close. Cierres de seguridad Push Lock. Tornillería Inox Wurth. <br/> <br/> Brazos neumáticos de asistencia para apertura de puertas de compartimentos.<br/> <br/> Mesa de exterior plegable de 40x65cm con pata plegable de aluminio anodizado."
+    },
+    {
+      "title": "UNA ILUMINACIÓN PARA DESCONECTAR",
+      "icons": [
+        { "id": "NONE", "text": "3000k" },
+      ],
+      "text":
+        "Iluminación sectorizada y regulable en 3 zonas: exterior lateral, exterior trasero e interior.<br /> <br />  Iluminación general con 4 focos Downligth metálicos de bombillas led 9SMD G4 y tiras led 2000-3000K ambas de color blanco cálido.<br /> <br /> Regulador MI-P1 táctil capacitivo de alta sensibilidad.<br /> <br /> Foco de lectura 12 leds SMD5630. 90 lumens de color blanco cálido."
+    },
+    {
+      "title": "PENSADA PARA VIAJAR, EQUIPADA PARA TODO",
+      "icons": [
+        { "id": "cocina", "text": "Butsir MS1000" },
+        { "id": "nevera", "text": "30L" },
+        { "id": "agua", "text": "32L" }
+      ],
+      "text":
+        "Cocina portátil a cartuchos de un fuego integrada en módulo lateral Butsir MS1000 pro. Compartimento específico para el gas con capacidad para 8 cartuchos.<br /> <br /> Nevera de compresor de 31L Mobicool FR 34. Temperatura regulable desde -10 a +10. Alimentación 12V DC/ 220V AC. Luz interior y pantalla de control digital.<br /> <br /> Centralita de control de nivel de agua CBE. Depósito de aguas limpias de 32L. Depósito de aguas grises de 10L (opcional).<br /> <br /> Fregadero Inox 355x260x150mm y grifo de cartucho cerámico RK Reich.<br /> <br /> Ducha exterior RK Reich con toma rápida. Bomba de agua Reich 2.1 bar-25L/min."
+    },
+    {
+      "title": "UN LUGAR DONDE RECARGAR ENERGÍAS",
+      "icons": [
+        { "id": "NONE", "text": "120Ah" },
+        { "id": "NONE", "text": "110w" },
+        { "id": "NONE", "text": "2.1A/12V" }
+      ],
+      "text":
+        "Batería Agm de 120Ah. Sistema de carga rápida desde el alternador con convertidor DC-DC (Booster Votronic made in Germany) de 30A.<br /> <br /> Placa solar monocristalina semiflexible de 110w Carbest sobre bastidor de aluminio y adaptada a la curvatura del techo. Regulador solar de 10A tecnología PWM.<br /> <br /> Centralita de control NASA MARINE BM1, fabricada en UK (voltímetro-amperímetro con indicación de porcentaje de carga e indicación de tiempo de autonomía y tiempo de recarga completa.<br /> <br /> Inversor de corriente de onda rectificada de 600X CZ con toma USB (1200w pico, 600w continuo). 2 tomas dobles USB de 2.1A de encendido táctil. 1 toma 12V propósito general 16A.<br /> <br /> Cargador exterior de baterías de 16A (opcional)."
+    },
+    {
+      "title": "ADAPTARSE ES GANAR TERRENO",
+      "icons": [
+        { "id": "NONE", "text": "100 x 500" },
+        { "id": "NONE", "text": "Acero" },
+        { "id": "NONE", "text": "C3PO" }
+      ],
+      "text":
+        "Aislamiento de techo, puertas y zona de cabina de conducción con espuma elastomérica de célula cerrada de 10-20mm según zona.<br /> <br /> Panelado de techo y puertas con friso de pino montero de 10mm de espesor tratado con fungicida, teñido y barnizado al poliuretano por la cara vista (acabados a escoger).<br /> <br /> Manta de latex de 2mm en la cara no vista de todos los paneles de friso para reducir el ruido de impacto y mejorar el asilamiento global.<br /> <br /> Base de suelo construida en abedul fenólico de 12mm. Aislamiento con espuma elastomérica ignífuga de célula cerrada de 10mm y manta de látex de 2mm. Acabado en loseta de vinilo de 4.2mm con Sistema Click (acabados a escoger)."
+    },
+    {
+      "title": "LITERALMENTE,<br /> NO HABRÁ OTRA IGUAL",
+      "backGround": true,
+      "icons": [
+        { "id": "toldo", "text": "<b>TV led</b> de 16 HD con antena TDT integrada" },
+        { "id": "portabicis", "text": "<b>Calefacción</b> estacionaria de gasoil." },
+        { "id": "segundo_conductor", "text": "<b>Tapicería</b> premiumPO" },
+        { "id": "pack_dormir", "text": "<b>Asientos propios</b> en uno o 2 colores (con o sin microperforado)." },
+        { "id": "cocina", "text": "<b>Acabado bicolor</b> exterior (pintura o vinilado)." }
+      ],
+      "text":
+        "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper.<br /> <br /> Y, además de preparar su interior con instalaciones de luz, agua y habitabilidad, cuenta con la posibilidad de preparación Off-Road: suspensión elevada, neumáticos todoterreno, y protecciones en los bajos.<br /> <br /> Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único."
+    }
+  ]
     };
   },
   mounted() {
     if (process.client) {
-      let video = document.querySelector("video");
-      video.play();
+      // let video = document.querySelector("myVideo");
+      // video.play();
     }
   },
   created() {

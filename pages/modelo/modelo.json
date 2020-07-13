@@ -1,0 +1,83 @@
+[
+    {
+      "title": "ADAPTARSE ES GANAR TERRENO",
+      "icons": [
+        { "id": "gps", "text": "Portátil 5" },
+        { "id": "cama", "text": "50x80 cm" },
+        { "id": "cartucho_de_gas", "text": "50L" },
+        { "id": "toalla_grande", "text": "1M" }
+      ],
+      "text":
+        "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo. <br/> <br/> Por eso, presentamos nuestro nuevo modelo All-Road: un vehículo que se adapta a todo tipo de viajes"
+    },
+    {
+      "title": "EL DESCANSO DE TUS SUEÑOS",
+      "icons": [
+        { "id": "asiento", "text": "Portátil 5" },
+        { "id": "cama", "text": "50x80 cm" },
+        { "id": "silla_de_camping", "text": "Ikea" }
+      ],
+      "text":
+        "<b>Cama</b> doble de 1.95x1.1m, colchoneta estilo japonés ultraﬁna (65mm) confeccionada con 3 capas de diferente densidad, plegable con bisagras de tejido. <br/> <br/>Tapicería a escoger o deﬁnida según personalización."
+    },
+    {
+      "title": "ESPACIO PARA TODO TU MUNDO",
+      "icons": [
+        { "id": "electricidad", "text": "Butsir MS 100 PRO" },
+        { "id": "radio", "text": "Sony FM" }
+      ],
+      "text":
+        "Armarios, altillos, compartimentos y baúl con capacidad para 50 litros. <br/> <br/>Brazos neumáticos de asistencia para la apertura de puertas.<br /><br /> Cierres de seguridad Push Lock metálicos."
+    },
+    {
+      "title": "UNA ILUMINACIÓN PARA DESCONECTAR",
+      "icons": [
+        { "id": "toldo", "text": "100 x 500" },
+        { "id": "portabicis", "text": "Acero" },
+        { "id": "segundo_conductor", "text": "C3PO" }
+      ],
+      "text":
+        "Iluminación ambiental sectorizada regulable en 3 zonas: Exterior lateral cocina, Exterior zona maletero, interior general (focosDownligth y tira led) Iluminación automática de todos los compartimentos con puertas. <br /> <br /> Foco led de lectura"
+    },
+    {
+      "title": "PENSADA PARA VIAJAR, EQUIPADA PARA TODO",
+      "icons": [
+        { "id": "electricidad", "text": "50V" },
+        { "id": "radio", "text": "Sony FM" }
+      ],
+      "text":
+        "Nevera / Congelador Mobicool FR34 a compresor, baja hasta -10ºC. <br /><br />Guías de cajones y tornillería Wurth, tornillería INOX Cocina a Gas de 1 fuego Butsir MS 100 PRO. <br /><br />Compartimento especíﬁco para el gas de la cocina Fregadero INOX, tamaño…  grifo RK Reich STYLE"
+    },
+    {
+      "title": "UN LUGAR DONDE RECARGAR ENERGÍAS",
+      "icons": [
+        { "id": "pack_dormir", "text": "50V" },
+        { "id": "cocina", "text": "Sony FM" }
+      ],
+      "text":
+        "Placa solar CARBEST 100W <br />Batería tecnología AGM 120Ah <br />Centralita de control del sistema NASA MARINE <br />Sistema de carga con Booster Votronic de 30A para carga rápida de batería en ruta. <br />Claraboya de climatización Turbovent Premium <br />Cristal 390x390mm con mosquitera integrada y oscurecedor"
+    },
+    {
+      "title": "CONVERTIBLE EN ATAÚD, SEGURO FUNERARIO",
+      "icons": [
+        { "id": "toldo", "text": "100 x 500" },
+        { "id": "portabicis", "text": "Acero" },
+        { "id": "segundo_conductor", "text": "C3PO" }
+      ],
+      "text":
+        "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper. <br />Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único. "
+    },
+    {
+      "title": "LITERALMENTE, NO HABRÁ OTRA IGUAL",
+      "backGround": true,
+      "icons": [
+        { "id": "toldo", "text": "<b>TV led</b> de 16 HD con antena TDT integrada" },
+        { "id": "portabicis", "text": "<b>Calefacción</b> estacionaria de gasoil." },
+        { "id": "segundo_conductor", "text": "<b>Tapicería</b> premiumPO" },
+        { "id": "pack_dormir", "text": "<b>Asientos propios</b> en uno o 2 colores (con o sin microperforado)." },
+        { "id": "cocina", "text": "<b>Acabado bicolor</b> exterior (pintura o vinilado)." }
+      ],
+      "text":
+        "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper. <br /><br />Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único. <br/><br/>Iluminación ambiental sectorizada regulable en 3 zonas: Exterior lateral cocina, Exterior zona maletero, interior general (focosDownligth y tira led) Iluminación automática de todos los compartimentos con puertas."
+    }
+  ]
