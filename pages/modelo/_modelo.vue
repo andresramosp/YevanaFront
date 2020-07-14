@@ -24,7 +24,7 @@
           <div class="col-xs-12">
             <div style="text-align: center">
               <span v-show="!$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA</nuxt-link>TU NUEVA YEVANA DOKKER MODELO MX56-85
+                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER
               </span>
               <span v-show="$device.isMobile">
                 <nuxt-link to="/contacto">ENCARGA YA</nuxt-link>TU NUEVA YEVANA DOKKER
@@ -59,7 +59,7 @@
           <img
             :class="`${index % 2 ? 'fadeableFromRight' : 'fadeableFromLeft'}`"
             alt="car"
-            :src="`/img/modelos/docker/00${index + 1}.jpg`"
+            :src="`/img/modelos/dokker/00${index + 1}.jpg`"
           />
         </div>
 
@@ -93,10 +93,10 @@
           <div class="col-xs-12">
             <div style="text-align: center">
               <span v-show="!$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA</nuxt-link>TU NUEVA YEVANA DOKKER MODELO MX56-85
+                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER
               </span>
               <span v-show="$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA YA</nuxt-link>TU NUEVA YEVANA DOKKER
+                <nuxt-link to="/contacto">ENCARGA YA </nuxt-link>TU NUEVA YEVANA DOKKER
               </span>
             </div>
           </div>
@@ -119,10 +119,10 @@ export default {
         {
           title: "NUESTRA NATURALEZA ES EL CONFORT",
           icons: [
-            { id: "NONE", text: "Portátil 5" },
-            { id: "NONE", text: "50x80 cm" },
-            { id: "NONE", text: "50L" },
-            { id: "NONE", text: "1M" }
+            // { id: "NONE", text: "Portátil 5" },
+            // { id: "NONE", text: "50x80 cm" },
+            // { id: "NONE", text: "50L" },
+            // { id: "NONE", text: "1M" }
           ],
           text:
             "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo.<br/> <br/> En Yevana somos entusiastas del diseño y la calidad, pero no nos basta con ofrecerte unos acabados exquisitos en todo lo que puedes ver y tocar. Lo que realmente nos llena es la excelencia de lo que no se ve, porque como todos sabemos la verdadera belleza se encuentra en el interior.<br/> <br/> Por eso, presentamos nuestro nuevo modelo All-Road: <br/><b>un vehículo que se adapta a todo tipo de viajes.</b>"
@@ -241,7 +241,7 @@ export default {
         {
           hid: "description-furgo",
           name: "description",
-          content: "Diseño de modelos docker"
+          content: "Diseño de modelos dokker"
         }
       ]
     };

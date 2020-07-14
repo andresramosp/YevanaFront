@@ -31,7 +31,7 @@
                 <nuxt-link :to="'/alquileres'" class="dropdown-toggle">Alquila</nuxt-link>
               </li>
                <li :class="`dropdown singleDrop ${activePage == 'Modelos' ? 'active' : ''}`">
-                <nuxt-link :to="'/modelo/docker'" class="dropdown-toggle">Modelos</nuxt-link>
+                <nuxt-link :to="'/modelo/dokker'" class="dropdown-toggle">Modelos</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Faqs' ? 'active' : ''}`">
                 <nuxt-link :to="'/faqs'" class="dropdown-toggle">Faqs</nuxt-link>
