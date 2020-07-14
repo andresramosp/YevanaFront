@@ -27,7 +27,7 @@
                 <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER
               </span>
               <span v-show="$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA YA</nuxt-link>TU NUEVA YEVANA DOKKER
+                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER
               </span>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default {
           icons: [
             { id: "cama", text: "1.95x1.1m" },
             { id: "medidas", text: "70mm" },
-            { id: "climatizacion", text: "Firma" },
+            { id: "climatizacion", text: "Fiamma" },
             { id: "gas", text: "Planar 5L" }
           ],
           text:
@@ -231,8 +231,10 @@ export default {
   },
   created() {
     State.menuOpen = false;
-    State.activePage = "Modelos";
+    State.activePage = 'Modelos';
     State.menuOpaque = true;
+    State.footerVisible = true;
+    State.menuVisible = true;
   },
   head() {
     return {

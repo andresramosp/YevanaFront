@@ -13,9 +13,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <nuxt-link :to="'/'">
-              <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
-             </nuxt-link>
+          <nuxt-link :to="'/'">
+            <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
+          </nuxt-link>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,8 +30,11 @@
               <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
                 <nuxt-link :to="'/alquileres'" class="dropdown-toggle">Alquila</nuxt-link>
               </li>
-               <li :class="`dropdown singleDrop ${activePage == 'Modelos' ? 'active' : ''}`">
-                <nuxt-link :to="'/modelo/dokker'" class="dropdown-toggle">Modelos</nuxt-link>
+              <li :class="`dropdown singleDrop ${activePage == 'Modelos' ? 'active' : ''}`">
+                <a href="/modelo/dokker" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modelos</a>
+                <ul class="dropdown-menu dropdown-menu-left">
+                  <li class=""><nuxt-link :to="'/modelo/dokker'" class="dropdown-toggle">Dacia Dokker</nuxt-link></li>
+                </ul>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Faqs' ? 'active' : ''}`">
                 <nuxt-link :to="'/faqs'" class="dropdown-toggle">Faqs</nuxt-link>
@@ -68,6 +71,12 @@ export default {
         header.removeClass("lightHeader");
       }
     });
+      $('.dropdown').hover(function() {
+        $(this).addClass('open');
+      },
+      function() {
+        $(this).removeClass('open');
+      });
   },
   methods: {
     toggleMenu() {
@@ -102,6 +111,9 @@ export default {
   border-top: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+.dropdown-menu {
+  background-color: black !important;
 }
 </style>
 
