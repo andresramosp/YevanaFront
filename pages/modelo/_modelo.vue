@@ -225,8 +225,8 @@ export default {
   },
   mounted() {
     if (process.client) {
-      // let video = document.querySelector("myVideo");
-      // video.play();
+      let video = document.querySelector("myVideo");
+      video.play();
     }
   },
   created() {
