@@ -7,7 +7,8 @@ export default {
     routes: [
       '/furgoneta/EM',
       '/furgoneta/RD',
-      '/furgoneta/BL'
+      '/furgoneta/BL',
+      '/modelo/dokker'
     ]
   },
   loading: false, //'~/components/Loading.vue',

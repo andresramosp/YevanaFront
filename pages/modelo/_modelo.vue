@@ -3,7 +3,7 @@
     <section>
       <div>
         <video
-          id="myVideo"
+          id="videoModelo"
           controls
           width="100%"
           allow="autoplay"
@@ -225,7 +225,7 @@ export default {
   },
   mounted() {
     if (process.client) {
-      let video = document.querySelector("myVideo");
+      let video = document.querySelector("#videoModelo");
       video.play();
     }
   },
@@ -238,12 +238,12 @@ export default {
   },
   head() {
     return {
-      title: "¡Echa un ojo a nuestro modelo de serie Docker! | YEVANA | Madrid",
+      title: `Camperizaciones de serie YEVANA en Madrid | Furgonetas camper únicas en calidad y diseño | Modelo Dokker Minicamper`,
       meta: [
         {
           hid: "description-furgo",
           name: "description",
-          content: "Diseño de modelos dokker"
+          content: "YEVANA camper desarrolla modelos de furgonetas camperizadas de serie únicas en el mercado del caravaning. Nuestra filosofía se basa en combinar la precisión de la ingeniería con la delicadeza del trabajo artesano y un cuidado diseño para ofrecerte la motorhome de tus sueños"
         }
       ]
     };

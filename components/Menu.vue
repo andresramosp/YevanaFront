@@ -33,7 +33,7 @@
               <li :class="`dropdown singleDrop ${activePage == 'Modelos' ? 'active' : ''}`">
                 <a href="/modelo/dokker" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modelos</a>
                 <ul class="dropdown-menu dropdown-menu-left">
-                  <li class=""><nuxt-link :to="'/modelo/dokker'" class="dropdown-toggle">Dacia Dokker</nuxt-link></li>
+                  <li class=""><nuxt-link :to="'/modelo/dokker'" class="dropdown-toggle">Yevana Dokker</nuxt-link></li>
                 </ul>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Faqs' ? 'active' : ''}`">
