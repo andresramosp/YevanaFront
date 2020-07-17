@@ -1,7 +1,11 @@
 <template>
   <div>
     <section>
-      <div>
+      <div class="video-responsive">
+
+        <!-- <iframe id="ytplayer" type="text/html"
+          src="http://www.youtube.com/embed/uDYx7KXhqmM?autoplay=1&mute=1&enablejsapi=1&controls=0&modestbranding=1&showinfo=0&fs=0&loop=1"
+          frameborder="0"/> -->
         <video
           id="videoModelo"
           controls
@@ -186,6 +190,13 @@ export default {
             "Aislamiento de techo, puertas y zona de cabina de conducción con espuma elastomérica de célula cerrada de 10-20mm según zona.<br /> <br /> Panelado de techo y puertas con friso de pino montero de 10mm de espesor tratado con fungicida, teñido y barnizado al poliuretano por la cara vista (acabados a escoger).<br /> <br /> Manta de latex de 2mm en la cara no vista de todos los paneles de friso para reducir el ruido de impacto y mejorar el asilamiento global.<br /> <br /> Base de suelo construida en abedul fenólico de 12mm. Aislamiento con espuma elastomérica ignífuga de célula cerrada de 10mm y manta de látex de 2mm. Acabado en loseta de vinilo de 4.2mm con Sistema Click (acabados a escoger)."
         },
         {
+          title: "LA VERSATILIDAD CONVIERTE UNA VERSIÓN EN UN CLÁSICO",
+          icons: [
+          ],
+          text:
+            "En Yevana hemos diseñado hasta 8 opciones de customización para cada uno de nuestros modelos. Incluso para un modelo tan versátil como el All- Road, que se adapta a cualquier viaje."
+        },
+        {
           title: "LITERALMENTE,<br /> NO HABRÁ OTRA IGUAL",
           backGround: true,
           icons: [
@@ -213,7 +224,7 @@ export default {
               text: "<b>Acabado bicolor</b> exterior con pintura o vinilado."
             },
             {
-              id: "llantas",
+              id: "llanta",
               text: "<b>Llantas</b> de aleación ligera en 16 pulgadas."
             }
           ],
@@ -226,7 +237,8 @@ export default {
   mounted() {
     if (process.client) {
       let video = document.querySelector("#videoModelo");
-      video.play();
+      if (video)
+        video.play();
     }
   },
   created() {
@@ -398,4 +410,18 @@ img {
   width: 100%;
   padding-bottom: 50px;
 }
+.video-responsive {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
+    }
+.video-responsive iframe, .video-responsive object, .video-responsive embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    }
 </style>

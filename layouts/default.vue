@@ -140,7 +140,7 @@ export default {
 }
 
 .fadeableFromLeft {
-  margin-right: -300px;
+  margin-right: -500px;
   opacity: 0.3;
 }
 
@@ -156,7 +156,7 @@ export default {
 }
 @keyframes textOutFromLeft {
 0% {
-  margin-right: -300px;
+  margin-right: -500px;
   opacity: 0.3;
 }
 100% {
@@ -166,7 +166,7 @@ export default {
 }
 
 .fadeableFromRight {
-  margin-left: -300px;
+  margin-left: -500px;
   opacity: 0.3;
 }
 
@@ -182,7 +182,7 @@ export default {
 }
 @keyframes textOutFromRight {
 0% {
-  margin-left: -300px;
+  margin-left: -500px;
   opacity: 0.3;
 }
 100% {

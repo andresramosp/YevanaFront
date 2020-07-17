@@ -1,12 +1,12 @@
 <template>
   <div>
-    <!-- <MainCarousel /> -->
+    <MainCarousel />
 
-    <div class="">
+    <!-- <div class="">
        <video playsinline autoplay muted loop id="clipHome">
           <source :src="`/video/CLIP_WEB_${$device.isMobile ? 'MOVIL' : 'PC'}1.mp4`" type="video/mp4" />
         </video>
-    </div>
+    </div> -->
 
     <section class="blackSection">
       <div class="container">
