@@ -14,8 +14,10 @@ export default {
   loading: false, //'~/components/Loading.vue',
   env: {
     baseUrl:
-      process.env.BASE_URL || 'https://yevana.com'
+      process.env.BASE_URL || 'https://yevana.com',
       // process.env.BASE_URL || 'http://localhost:49491'
+    blogId: '8090363088623260794',
+    blogKey: 'AIzaSyA2PyOFhNCSSgn5xHq1pdENClli9Jcw32k',
   },
   mode: 'spa',
   /*

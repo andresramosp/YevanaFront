@@ -39,6 +39,9 @@
               <li :class="`dropdown singleDrop ${activePage == 'Faqs' ? 'active' : ''}`">
                 <nuxt-link :to="'/faqs'" class="dropdown-toggle">Faqs</nuxt-link>
               </li>
+              <li :class="`dropdown singleDrop ${activePage == 'Blog' ? 'active' : ''}`">
+                <nuxt-link :to="'/blog'" class="dropdown-toggle">Blog</nuxt-link>
+              </li>
               <li :class="`dropdown singleDrop ${activePage == 'Contacto' ? 'active' : ''}`">
                 <nuxt-link :to="'/contacto'" class="dropdown-toggle">Contacto</nuxt-link>
               </li>
