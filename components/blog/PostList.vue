@@ -14,7 +14,7 @@
                 <h4><a  href="#" class="blogTitle">{{post.title}}</a></h4>
                 <ul class="list-inline blogInfo">
                   <li><i class="fa fa-user" aria-hidden="true"></i><a href="#">{{post.author.displayName}}</a></li>
-                  <li><i class="fa fa-calendar" aria-hidden="true"></i>{{post.published}}</li>
+                  <li><i class="fa fa-calendar" aria-hidden="true"></i>{{new Date(post.published).toCustomString()}}</li>
                 </ul>
                 <p>{{getPreviewTextFromPost(post)}}</p>
                 <a href="#" class="btn buttonTransparent">Seguir Leyendo</a>
