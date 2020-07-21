@@ -17,12 +17,6 @@
                   <li>
                     <i class="fa fa-calendar" aria-hidden="true"></i>Mar 20, 2016
                   </li>
-                  <li>
-                    <i class="fa fa-tags" aria-hidden="true"></i>Travel
-                  </li>
-                  <li>
-                    <i class="fa fa-envelope" aria-hidden="true"></i>8 com
-                  </li>
                 </ul>
                 <span v-html="post.content" />
               </div>
@@ -76,16 +70,23 @@ export default {
     State.footerVisible = true;
     State.menuVisible = true;
   },
-  methods: {},
+  methods: {
+    getPreviewTextFromPost(post) {
+      const parser = new DOMParser();
+      const html = parser.parseFromString(post.content, "text/html");
+      const img = html.querySelector("span");
+      return img.innerText.substring(0, 300) + "...";
+    },
+  },
   head() {
     return {
-      title: `Camperizaciones de serie YEVANA en Madrid | Furgonetas camper únicas en calidad y diseño | Modelo Dokker Minicamper`,
+      title: `${this.post.title} | Blog de Yevana Camper`,
       meta: [
         {
           hid: "description-furgo",
           name: "description",
           content:
-            "YEVANA camper desarrolla modelos de furgonetas camperizadas de serie únicas en el mercado del caravaning. Nuestra filosofía se basa en combinar la precisión de la ingeniería con la delicadeza del trabajo artesano y un cuidado diseño para ofrecerte la motorhome de tus sueños"
+            this.getPreviewTextFromPost(this.post)
         }
       ]
     };

@@ -16,8 +16,8 @@ export default {
     baseUrl:
       process.env.BASE_URL || 'https://yevana.com',
       // process.env.BASE_URL || 'http://localhost:49491'
-    blogId: '8090363088623260794',
-    blogKey: 'AIzaSyA2PyOFhNCSSgn5xHq1pdENClli9Jcw32k',
+    blogId: '2009247855473385443', //'8090363088623260794',
+    blogKey: ' AIzaSyAeWsSP2dhWi4R2UzbhoXVsh4k6MRdYbew',
   },
   mode: 'spa',
   /*

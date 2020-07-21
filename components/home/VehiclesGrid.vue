@@ -21,7 +21,7 @@
             <figure>
               <img
                 :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg'"
-                alt="Furgoneta Emerald para alquilar"
+                :alt="`Furgoneta ${vehicle.Nombre} para alquilar`"
                 style="max-height: 240px"
                 @click="goToVehicle(vehicle)"
               />
