@@ -8,7 +8,8 @@ export default {
       '/furgoneta/EM',
       '/furgoneta/RD',
       '/furgoneta/BL',
-      '/modelo/dokker'
+      '/modelo/dokker',
+      '/post/4381080862445630100'
     ]
   },
   loading: false, //'~/components/Loading.vue',

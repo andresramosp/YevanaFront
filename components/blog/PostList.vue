@@ -23,7 +23,7 @@
                     {{new Date(post.published).toCustomString()}}
                   </li>
                 </ul>
-                <p>{{getPreviewTextFromPost(post)}}</p>
+                <p style="text-align: justify">{{getPreviewTextFromPost(post)}}</p>
                 <a @click="goToPost(post.id)" class="btn buttonTransparent">Seguir Leyendo</a>
               </div>
             </div>
@@ -63,8 +63,12 @@ export default {
     getPreviewTextFromPost(post) {
       const parser = new DOMParser();
       const html = parser.parseFromString(post.content, "text/html");
-      const img = html.querySelector("span");
-      return img.innerText.substring(0, 300) + "...";
+      const spans = html.querySelectorAll("span");
+      let text = ""
+      for (var span of spans) {
+        text += span.innerText;
+      }
+      return text.substring(0, 300) + "...";
     },
     goToPost(postId) {
       this.$router.push({

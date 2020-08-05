@@ -119,13 +119,13 @@ export default {
   head() {
     return {
       title:
-        "YEVANA | Diseño, fabricación, alquiler y venta de furgonetas camper únicas | Madrid",
+        "YEVANA | Diseño, fabricación, alquiler y venta de furgonetas Camper",
       meta: [
         {
           hid: "description-home",
           name: "description",
           content:
-            "Diseño, fabricación, alquiler y venta de las furgonetas camper más exclusivas del mercado. Vans camperizadas a medida. Nos ajustamos a tu presupuesto. Estamos en Madrid. ¡Contáctanos!"
+            "Diseño, fabricación, venta y alquiler de furgonetas Camper en Madrid. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de serie!"
         }
       ]
     };

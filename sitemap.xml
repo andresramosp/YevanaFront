@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yevana.com</loc>
+    <loc>https://yevana.com/</loc>
   </url>
   <url>
-    <loc>https://yevana.com/alquileres</loc>
+    <loc>https://yevana.com/alquileres/</loc>
   </url>
   <url>
-    <loc>https://yevana.com/furgoneta/RD</loc>
+    <loc>https://yevana.com/furgoneta/RD/</loc>
   </url>
   <url>
-    <loc>https://yevana.com/furgoneta/EM</loc>
+    <loc>https://yevana.com/furgoneta/EM/</loc>
   </url>
   <url>
-    <loc>https://yevana.com/furgoneta/BL</loc>
+    <loc>https://yevana.com/furgoneta/BL/</loc>
   </url>
   <url>
-    <loc>https://yevana.com/faqs</loc>
+    <loc>https://yevana.com/modelo/dokker/</loc>
+  </url>
+  <url>
+    <loc>https://yevana.com/faqs/</loc>
   </url>
    <url>
-    <loc>https://yevana.com/contacto</loc>
+    <loc>https://yevana.com/contacto/</loc>
   </url>
    <url>
-    <loc>https://yevana.com/faqs</loc>
-  </url>
-   <url>
-    <loc>https://yevana.com/terminos-condiciones</loc>
+    <loc>https://yevana.com/terminos-condiciones/</loc>
   </url>
     <url>
-    <loc>https://yevana.com/politica-privacidad</loc>
+    <loc>https://yevana.com/politica-privacidad/</loc>
   </url>
     <url>
-    <loc>https://yevana.com/aviso-legal</loc>
+    <loc>https://yevana.com/aviso-legal/</loc>
   </url>
 </urlset>

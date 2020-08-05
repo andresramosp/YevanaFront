@@ -2,10 +2,6 @@
   {
     title: "NUESTRA NATURALEZA ES EL CONFORT",
     icons: [
-      // { id: "NONE", text: "Portátil 5" },
-      // { id: "NONE", text: "50x80 cm" },
-      // { id: "NONE", text: "50L" },
-      // { id: "NONE", text: "1M" }
     ],
     text:
       "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo.<br/> <br/> En Yevana somos entusiastas del diseño y la calidad, pero no nos basta con ofrecerte unos acabados exquisitos en todo lo que puedes ver y tocar. Lo que realmente nos llena es la excelencia de lo que no se ve, porque como todos sabemos la verdadera belleza se encuentra en el interior.<br/> <br/> Por eso, presentamos nuestro nuevo modelo All-Road: <br/><b>un vehículo que se adapta a todo tipo de viajes.</b>"
@@ -69,6 +65,13 @@
       "Aislamiento de techo, puertas y zona de cabina de conducción con espuma elastomérica de célula cerrada de 10-20mm según zona.<br /> <br /> Panelado de techo y puertas con friso de pino montero de 10mm de espesor tratado con fungicida, teñido y barnizado al poliuretano por la cara vista (acabados a escoger).<br /> <br /> Manta de latex de 2mm en la cara no vista de todos los paneles de friso para reducir el ruido de impacto y mejorar el asilamiento global.<br /> <br /> Base de suelo construida en abedul fenólico de 12mm. Aislamiento con espuma elastomérica ignífuga de célula cerrada de 10mm y manta de látex de 2mm. Acabado en loseta de vinilo de 4.2mm con Sistema Click (acabados a escoger)."
   },
   {
+    title: "LA VERSATILIDAD CONVIERTE UNA VERSIÓN EN UN CLÁSICO",
+    icons: [
+    ],
+    text:
+      "En Yevana hemos diseñado hasta 8 opciones de customización para cada uno de nuestros modelos. Incluso para un modelo tan versátil como el All- Road, que se adapta a cualquier viaje."
+  },
+  {
     title: "LITERALMENTE,<br /> NO HABRÁ OTRA IGUAL",
     backGround: true,
     icons: [
@@ -96,7 +99,7 @@
         text: "<b>Acabado bicolor</b> exterior con pintura o vinilado."
       },
       {
-        id: "llantas",
+        id: "llanta",
         text: "<b>Llantas</b> de aleación ligera en 16 pulgadas."
       }
     ],

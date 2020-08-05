@@ -6,21 +6,20 @@
         <div class="row">
           <div class="col-sm-12 col-xs-12">
             <div class="thumbnail blogSinglePost">
-              <img src="img/blog/blog-single-01.jpg" alt="blog-single-image" />
               <div class="caption">
                 <h2>{{post.title}}</h2>
                 <ul class="list-inline blogInfo">
                   <li>
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <a href="#">Adam Smith</a>
+                    <a href="#">{{post.author.displayName}}</a>
                   </li>
                   <li>
-                    <i class="fa fa-calendar" aria-hidden="true"></i>Mar 20, 2016
+                    <i class="fa fa-calendar" aria-hidden="true"></i>{{new Date(post.published).toCustomString()}}
                   </li>
                 </ul>
                 <span v-html="post.content" />
               </div>
-              <div class="well" style="margin-top: 15px">
+              <!-- <div class="well" style="margin-top: 15px">
                 <span>Share it</span>
                 <ul class="list-inline">
                   <li>
@@ -39,7 +38,7 @@
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -74,8 +73,12 @@ export default {
     getPreviewTextFromPost(post) {
       const parser = new DOMParser();
       const html = parser.parseFromString(post.content, "text/html");
-      const img = html.querySelector("span");
-      return img.innerText.substring(0, 300) + "...";
+      const spans = html.querySelectorAll("span");
+      let text = ""
+      for (var span of spans) {
+        text += span.innerText;
+      }
+      return text.substring(0, 300) + "...";
     },
   },
   head() {

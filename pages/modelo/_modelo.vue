@@ -250,12 +250,12 @@ export default {
   },
   head() {
     return {
-      title: `Camperizaciones de serie YEVANA en Madrid | Furgonetas camper únicas en calidad y diseño | Modelo Dokker Minicamper`,
+      title: `YEVANA | Venta de Furgonetas Camper - Diseños exclusivos | Modelo Dacia Dokker Minicamper`,
       meta: [
         {
           hid: "description-furgo",
           name: "description",
-          content: "YEVANA camper desarrolla modelos de furgonetas camperizadas de serie únicas en el mercado del caravaning. Nuestra filosofía se basa en combinar la precisión de la ingeniería con la delicadeza del trabajo artesano y un cuidado diseño para ofrecerte la motorhome de tus sueños"
+          content: "Descubre nuestros modelos de serie. ✅ Furgonetas camper únicas trabajadas a mano. Especialistas en camperizaciones. Interiores personalizados."
         }
       ]
     };
