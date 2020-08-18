@@ -11,7 +11,7 @@
               </a>
               <div class="media-body">
                 <h4>
-                  <a href="#" class="blogTitle">{{post.title}}</a>
+                  <a href="javascript:void(0)" @click="goToPost(post.id)" class="blogTitle">{{post.title}}</a>
                 </h4>
                 <ul class="list-inline blogInfo">
                   <li>

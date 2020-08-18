@@ -56,7 +56,7 @@
                   :width="$device.isMobile ? 37 : 50"
                   :height="$device.isMobile ? 37 : 50"
                 />
-                <span>{{icon.text}}</span>
+                <span v-html="icon.text"></span>
               </div>
             </div>
           </div>
@@ -120,118 +120,112 @@ export default {
     return {
       modelo: params.modelo,
       mosaicItems: [
-        {
-          title: "NUESTRA NATURALEZA ES EL CONFORT",
-          icons: [
-            // { id: "NONE", text: "Portátil 5" },
-            // { id: "NONE", text: "50x80 cm" },
-            // { id: "NONE", text: "50L" },
-            // { id: "NONE", text: "1M" }
-          ],
-          text:
-            "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo.<br/> <br/> En Yevana somos entusiastas del diseño y la calidad, pero no nos basta con ofrecerte unos acabados exquisitos en todo lo que puedes ver y tocar. Lo que realmente nos llena es la excelencia de lo que no se ve, porque como todos sabemos la verdadera belleza se encuentra en el interior.<br/> <br/> Por eso, presentamos nuestro nuevo modelo All-Road: <br/><b>un vehículo que se adapta a todo tipo de viajes.</b>"
-        },
-        {
-          title: "EL DESCANSO DE TUS SUEÑOS",
-          icons: [
-            { id: "cama", text: "1.95x1.1m" },
-            { id: "medidas", text: "70mm" },
-            { id: "climatizacion", text: "Fiamma" },
-            { id: "gas", text: "Planar 5L" }
-          ],
-          text:
-            "Cama doble plegable de 1.95x1.1m. Somier de madera de abedul de 15mm. Bisagras reforzadas de acero inoxidable.<br/> <br/> Colchoneta ultrafina (70mm) de estilo japonés plegable en 3 piezas, construida con 3 capas de distintas densidades. Bisagras de tejido para evitar la separación de las piezas.<br/> <br/ Tapicería de alta calidad a escoger dentro de nuestro catálogo.<br/> <br/>Claraboya bidireccional de climatización Fiamma Turbovent 160CT de 400x400mm. Velocidad regulable, modo extractor/ventilador y termostato. Mosquitera y oscurecedor.<br/> <br/> Calefacción estacionaria a gasoil con depósito de 5L Planar 2d. Programador digital y termostato (opcional)."
-        },
-        {
-          title: "ESPACIO PARA TODO TU MUNDO",
-          icons: [
-            { id: "medidas", text: "15mm" },
-            { id: "bombilla", text: "3000k" },
-            { id: "pushlock", text: "Push Lock" },
-            { id: "mesa_exterior_camping", text: "40x65cm" }
-          ],
-          text:
-            "Mobiliario en madera contrachapada de chopo de 15mm (9capas). Laminado HPL. Acabados en 1 o 2 colores a escoger. Iluminación led blanco cálido en todos los compartimentos con encendido y apagado automático. <br/> <br/> Perfilería de aluminio. Cantos semiperfilados. Persianas en PVC con cierre magnético. <br/> <br/> Tiradores en acero inoxidable. Cajones Wurth / Grass Soft Close. Cierres de seguridad Push Lock. Tornillería Inox Wurth. <br/> <br/> Brazos neumáticos de asistencia para apertura de puertas de compartimentos.<br/> <br/> Mesa de exterior plegable de 40x65cm con pata plegable de aluminio anodizado."
-        },
-        {
-          title: "UNA ILUMINACIÓN PARA DESCONECTAR",
-          icons: [{ id: "bombilla", text: "3000k" }],
-          text:
-            "Iluminación sectorizada y regulable en 3 zonas: exterior lateral, exterior trasero e interior.<br /> <br />  Iluminación general con 4 focos Downligth metálicos de bombillas led 9SMD G4 y tiras led para iluminación difusa, ambas de color blanco cálido.<br /> <br /> Regulador MI-P1 táctil capacitivo de alta sensibilidad.<br /> <br /> Foco de lectura 12 leds SMD5630. 90 lumens de color blanco cálido."
-        },
-        {
-          title: "PENSADA PARA VIAJAR, EQUIPADA PARA TODO",
-          icons: [
-            { id: "cocina", text: "Butsir MS1000" },
-            { id: "nevera", text: "30L" },
-            { id: "agua", text: "32L" }
-          ],
-          text:
-            "Cocina portátil a cartuchos de un fuego integrada en módulo lateral Butsir MS1000 pro. Compartimento específico para el gas con capacidad para 8 cartuchos.<br /> <br /> Nevera de compresor de 31L Mobicool FR 34. Temperatura regulable desde -10 a +10. Alimentación 12V DC/ 220V AC. Luz interior y pantalla de control digital.<br /> <br /> Centralita de control de nivel de agua CBE. Depósito de aguas limpias de 32L. Depósito de aguas grises de 10L (opcional).<br /> <br /> Fregadero Inox 355x260x150mm y grifo de cartucho cerámico RK Reich.<br /> <br /> Ducha exterior RK Reich con toma rápida. Bomba de agua Reich 2.1 bar-25L/min."
-        },
-        {
-          title: "UN LUGAR DONDE RECARGAR ENERGÍAS",
-          icons: [
-            { id: "bateria", text: "120Ah" },
-            { id: "placasolar", text: "110w" },
-            { id: "inversor", text: "2.1A/12V" }
-          ],
-          text:
-            "Batería Agm de 120Ah. Sistema de carga rápida desde el alternador con convertidor DC-DC (Booster Votronic made in Germany) de 30A.<br /> <br /> Placa solar monocristalina semiflexible de 110w Carbest sobre bastidor de aluminio y adaptada a la curvatura del techo. Regulador solar de 10A tecnología PWM.<br /> <br /> Centralita de control NASA MARINE BM1, fabricada en UK (voltímetro-amperímetro con indicación de porcentaje de carga e indicación de tiempo de autonomía y tiempo de recarga completa.<br /> <br /> Inversor de corriente de onda rectificada de 600X CZ con toma USB (1200w pico, 600w continuo). 2 tomas dobles USB de 2.1A de encendido táctil. 1 toma 12V propósito general 16A.<br /> <br /> Cargador exterior de baterías de 16A (opcional)."
-        },
-        {
-          title: "ADAPTARSE ES GANAR TERRENO",
-          icons: [
-            { id: "medidas", text: "10mm" },
-            { id: "aislante", text: "2mm" },
-            { id: "madera", text: "Abedul" }
-          ],
-          text:
-            "Aislamiento de techo, puertas y zona de cabina de conducción con espuma elastomérica de célula cerrada de 10-20mm según zona.<br /> <br /> Panelado de techo y puertas con friso de pino montero de 10mm de espesor tratado con fungicida, teñido y barnizado al poliuretano por la cara vista (acabados a escoger).<br /> <br /> Manta de latex de 2mm en la cara no vista de todos los paneles de friso para reducir el ruido de impacto y mejorar el asilamiento global.<br /> <br /> Base de suelo construida en abedul fenólico de 12mm. Aislamiento con espuma elastomérica ignífuga de célula cerrada de 10mm y manta de látex de 2mm. Acabado en loseta de vinilo de 4.2mm con Sistema Click (acabados a escoger)."
-        },
-        {
-          title: "LA VERSATILIDAD CONVIERTE UNA VERSIÓN EN UN CLÁSICO",
-          icons: [
-          ],
-          text:
-            "En Yevana hemos diseñado hasta 8 opciones de customización para cada uno de nuestros modelos. Incluso para un modelo tan versátil como el All- Road, que se adapta a cualquier viaje."
-        },
-        {
-          title: "LITERALMENTE,<br /> NO HABRÁ OTRA IGUAL",
-          backGround: true,
-          icons: [
-            {
-              id: "tv",
-              text: "<b>TV led</b> 16 pulgadas HD con o sin antena TDT."
-            },
-            {
-              id: "climatizacion",
-              text:
-                "<b>Calefacción</b> de gasoil 2 KW Planar 2D con programador digital y termostato."
-            },
-            {
-              id: "inversor",
-              text:
-                "<b>Inversor de corriente</b> onda rectificada de 600W CZ, con toma USB."
-            },
-            {
-              id: "asiento",
-              text:
-                "<b>Tapicerias</b> asientos y colchón Premium en 1 o 2 colores."
-            },
-            {
-              id: "furgo",
-              text: "<b>Acabado bicolor</b> exterior con pintura o vinilado."
-            },
-            {
-              id: "llanta",
-              text: "<b>Llantas</b> de aleación ligera en 16 pulgadas."
-            }
-          ],
-          text:
-            "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper.<br /> <br /> Y, además de preparar su interior con instalaciones de luz, agua y habitabilidad, cuenta con la posibilidad de preparación <b>OFF-ROAD: suspensión elevada, neumáticos todoterreno, y protecciones en los bajos.</b><br /> <br /> Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único."
-        }
-      ]
+  {
+    title: "NUESTRA NATURALEZA ES EL CONFORT",
+    icons: [
+      // { id: "NONE", text: "Portátil 5" },
+      // { id: "NONE", text: "50x80 cm" },
+      // { id: "NONE", text: "50L" },
+      // { id: "NONE", text: "1M" }
+    ],
+    text:
+      "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo.<br/> <br/> En Yevana somos entusiastas del diseño y la calidad, pero no nos basta con ofrecerte unos acabados exquisitos en todo lo que puedes ver y tocar. Lo que realmente nos llena es la excelencia de lo que no se ve, porque como todos sabemos la verdadera belleza se encuentra en el interior.<br/> <br/> Por eso, presentamos nuestro nuevo modelo Yevana Dokker: <br/><b>un vehículo versátil que se adapta a tu día a día y a todo tipo de viajes.</b><br/> <br/> <br/> <h3>MOTORIZACIONES DISPONIBLES</h3><br/> Essential N1 1.6 Tce 110CV Gasolina-GLP<br/> Essential M1 Blue DCI 1.5 95CV<br/> Stepway Confort M1 Blue DCI 1.5 95CV<br/> <br/><b>TAMBIÉN PUEDES TRAERNOS TU PROPIA DOKKER A CAMPERIZAR</b>"
+  },
+  {
+    title: "EL DESCANSO DE TUS SUEÑOS",
+    icons: [
+      { id: "cama", text: "Cama<br/> 1.95x1.1m" },
+      { id: "madera", text: "Somier 15mm<br/> Abedul" },
+      { id: "medidas", text: "Colchoneta<br/> 70mm" },
+      { id: "climatizacion", text: "Claraboya<br/> Fiamma" },
+      { id: "gas", text: "Autotherm<br/> 2kW" },
+      { id: "tv", text: 'TV led 16"<br/> (opcional)' }
+    ],
+    text:
+      "Cama doble plegable de 1.95x1.1m. Somier de madera de abedul de 15mm. Bisagras reforzadas de acero inoxidable.<br/> <br/> Colchoneta ultrafina (70mm) de estilo japonés plegable en 3 piezas, construida con 3 capas de distintas densidades. Bisagras de tejido para evitar la separación de las piezas.<br/> <br/ Tapicería de alta calidad a escoger dentro de nuestro catálogo.<br/> <br/>Claraboya bidireccional de climatización Fiamma Turbovent 160CT de 400x400mm. Velocidad regulable, modo extractor/ventilador y termostato. Mosquitera y oscurecedor.<br/> <br/> Calefacción estacionaria (opcional) a gasoil Autotherm 2kW con programador digital y termostato. TV Led 16” (opcional)."
+  },
+  {
+    title: "ESPACIO PARA TODO TU MUNDO",
+    icons: [
+      { id: "madera", text: "Chopo<br/> 15mm" },
+      { id: "pushlock", text: "Cierres<br/> Push Lock" },
+      { id: "bombilla", text: "Led<br/> 3000k" },
+      { id: "mesa_exterior_camping", text: "Mesa exterior<br/> 40x65cm" }
+    ],
+    text:
+      "Mobiliario en madera contrachapada de chopo de 15mm (9capas). Laminado HPL. Acabados en 1 o 2 colores a escoger. Iluminación led blanco cálido en todos los compartimentos con encendido y apagado automático. <br/> <br/> Perfilería de aluminio. Cantos semiperfilados. Persianas en PVC con cierre magnético. <br/> <br/> Tiradores en acero inoxidable. Cajones Wurth / Grass Soft Close. Cierres de seguridad Push Lock. Tornillería Inox Wurth. <br/> <br/> Brazos neumáticos de asistencia para apertura de puertas de compartimentos.<br/> <br/> Mesa de exterior plegable de 40x65cm con pata plegable de aluminio anodizado."
+  },
+  {
+    title: "UNA ILUMINACIÓN PARA DESCONECTAR",
+    icons: [{ id: "bombilla", text: "Led<br/> 9SMD G4" }],
+    text:
+      "Iluminación sectorizada y regulable en 3 zonas: exterior lateral, exterior trasero e interior.<br /> <br />  Iluminación general con 4 focos Downligth metálicos de bombillas led 9SMD G4 y tiras led para iluminación difusa, ambas de color blanco cálido.<br /> <br /> Regulador táctil capacitivo de alta sensibilidad.<br /> <br /> Foco de lectura 12 leds SMD5630. 90 lumens de color blanco cálido."
+  },
+  {
+    title: "PENSADA PARA VIAJAR, EQUIPADA PARA TODO",
+    icons: [
+      { id: "cocina", text: "Butsir<br/> MS1000 PRO" },
+      { id: "nevera", text: "Moobicool<br/> FR34 31L" },
+      { id: "agua", text: "Depósito<br/> 32L" }
+    ],
+    text:
+      "Cocina portátil a cartuchos de un fuego integrada en módulo lateral Butsir MS1000 pro. Compartimento específico para el gas con capacidad para 8 cartuchos.<br /> <br /> Nevera de compresor de 31L Mobicool FR 34. Temperatura regulable desde -10 a +10. Alimentación 12V DC/ 220V AC. Luz interior y pantalla de control digital.<br /> <br /> Centralita de control de nivel de agua CBE. Depósito de aguas limpias de 32L.<br /> <br /> Fregadero Inox 355x260x150mm y grifo de cartucho cerámico RK Reich.<br /> <br /> Ducha exterior RK Reich con toma rápida. Bomba de agua Reich 2.1 bar-25L/min."
+  },
+  {
+    title: "UN LUGAR DONDE RECARGAR ENERGÍAS",
+    icons: [
+      { id: "bateria", text: "Batería AGM<br/> 100Ah" },
+      { id: "placasolar", text: "Placa solar<br/> 110W" },
+      { id: "inversor", text: "Inversor<br/> 600W" }
+    ],
+    text:
+      "Batería AGM de 100Ah. Sistema de carga rápida desde el alternador con convertidor DC-DC (Booster Votronic made in Germany) de 30A.<br /> <br /> Placa solar monocristalina semiflexible de 110W sobre bastidor de aluminio y adaptada a la curvatura del techo. Regulador solar de 10A tecnología PWM.<br /> <br /> Centralita de control NASA MARINE BM1, fabricada en UK (voltímetro-amperímetro con indicación de porcentaje de carga e indicación de tiempo de autonomía y tiempo de recarga completa.<br /> <br /> Inversor de corriente de onda rectificada de 600W CZ con toma USB (1200W pico). 2 tomas dobles USB de 2.1A de encendido táctil. Toma exterior de 230V AC y cargador de baterías de 16A (opcional)."
+  },
+  {
+    title: "ADAPTARSE ES GANAR TERRENO",
+    icons: [
+      { id: "aislante", text: "Manta latex<br /> 2mm" },
+      { id: "medidas", text: "Aislamiento<br /> 10mm" },
+      { id: "madera", text: "Suelo 12mm<br /> Abedul" }
+    ],
+    text:
+      "Aislamiento de techo, puertas y zona de cabina de conducción con espuma elastomérica de célula cerrada de 10-20mm según zona.<br /> <br /> Panelado de techo y puertas con friso de pino montero de 10mm de espesor tratado con fungicida, teñido y barnizado al poliuretano por la cara vista (acabados a escoger).<br /> <br /> Manta de latex de 2mm en la cara no vista de todos los paneles de friso para reducir el ruido de impacto y mejorar el asilamiento global.<br /> <br /> Base de suelo construida en abedul fenólico de 12mm. Aislamiento con espuma elastomérica ignífuga de célula cerrada de 10mm y manta de látex de 2mm. Acabado en loseta de vinilo de 4.2mm con Sistema Click (acabados a escoger).<br /> <br /> Toldo exterior tizona (opcional)"
+  },
+  {
+    title: "LA VERSATILIDAD CONVIERTE UNA VERSIÓN EN UN CLÁSICO",
+    icons: [
+    ],
+    text:
+      "Hemos diseñado hasta 8 opciones de customización para nuestra <b>Yevana Dokker.</b> Porque no solo se adapta a cualquier viaje, también a cualquier gusto.<br /> <br /> Puedes escoger cualquiera de las personalizaciones sin sobrecoste con la tapicería de serie. Si quieres la tapicería Premium a juego de cada versión contará como un extra."
+  },
+  {
+    title: "LITERALMENTE,<br /> NO HABRÁ OTRA IGUAL",
+    backGround: true,
+    icons: [
+      {
+        id: "tv",
+        text: "<b>VARIOS</b><br /> TV led. Pack navegación. Asistencia de aparcamiento Calefacción. Toldo exterior bizona. Lunas laminadas de protección solar. Regulador/ limitador velocidad.Toma exterior 230V AC. Cargador de baterías de 16A. Tapicería Premium."
+      },
+      {
+        id: "furgo",
+        text:
+          "<b>KIT OFF ROAD</b><br /> Suspensión elevada reforzada. Neumáticos Off Road. Protecciones de aluminio. Suspensión elevada reforzada. Protecciones de aluminio."
+      },
+      {
+        id: "furgo",
+        text:
+          "<b>ACABADO BICOLOR</b>"
+      },
+      {
+        id: "llanta",
+        text:
+          "<b>LLANTAS DE ALEACIÓN</b>"
+      }
+    ],
+    text:
+      "Ofrecemos una amplia variedad de extras para que elijas cada detalle de tu camper.<br /> <br /> Y, además de preparar su interior con instalaciones de luz, agua y habitabilidad, cuenta con la posibilidad de preparación <b>OFF-ROAD: suspensión elevada, neumáticos todoterreno, y protecciones en los bajos.</b><br /> <br /> Para que disfrutes de todos tus viajes sabiendo que los realizas en un vehículo realmente único."
+  }
+]
     };
   },
   mounted() {

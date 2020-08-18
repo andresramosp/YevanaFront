@@ -106,7 +106,7 @@ export default {
 }
 
 .fadeableFromBottom {
-  opacity: 0.2;
+  opacity: 0.0;
   margin-top: 300px;
 }
 
@@ -115,7 +115,7 @@ export default {
   animation-duration: 4.5s; 
   animation-timing-function: ease;
   animation-iteration-count: 1;
-  animation-delay: 0s;
+  animation-delay: 0.35s;
   animation-play-state: normal;
   animation-direction: normal;
   animation-fill-mode: forwards;
@@ -123,7 +123,7 @@ export default {
 @keyframes textOutFromBottom {
 0% {
   margin-top: 300px;
-  opacity: 0.2;
+  opacity: 0.0;
 }
 25% {
   margin-top: 0px;

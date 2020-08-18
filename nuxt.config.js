@@ -9,7 +9,8 @@ export default {
       '/furgoneta/RD',
       '/furgoneta/BL',
       '/modelo/dokker',
-      '/post/4381080862445630100'
+      '/post/4381080862445630100',
+      '/post/3519479694605154648'
     ]
   },
   loading: false, //'~/components/Loading.vue',
