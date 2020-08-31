@@ -6,7 +6,7 @@
         <!-- <iframe id="ytplayer" type="text/html"
           src="http://www.youtube.com/embed/uDYx7KXhqmM?autoplay=1&mute=1&enablejsapi=1&controls=0&modestbranding=1&showinfo=0&fs=0&loop=1"
           frameborder="0"/> -->
-        <video
+        <!-- <video
           id="videoModelo"
           controls
           width="100%"
@@ -19,7 +19,16 @@
             src="https://www.dropbox.com/s/s5al2lq54q5r5ww/YEVANA_Dokker.mp4?raw=1"
             type="video/mp4"
           />
-        </video>
+        </video> -->
+        <iframe 
+          src="https://player.vimeo.com/video/451771363?autoplay=1&loop=1&autopause=0&muted=1" 
+          width="640" 
+          height="360" 
+          frameborder="0" 
+          allow="autoplay; fullscreen"
+           allowfullscreen>
+        </iframe>
+
       </div>
     </section>
     <section class="blackSection">
