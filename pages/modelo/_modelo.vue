@@ -2,24 +2,6 @@
   <div>
     <section>
       <div class="video-responsive">
-
-        <!-- <iframe id="ytplayer" type="text/html"
-          src="http://www.youtube.com/embed/uDYx7KXhqmM?autoplay=1&mute=1&enablejsapi=1&controls=0&modestbranding=1&showinfo=0&fs=0&loop=1"
-          frameborder="0"/> -->
-        <!-- <video
-          id="videoModelo"
-          controls
-          width="100%"
-          allow="autoplay"
-          preload="auto"
-          muted
-          class="autoPlay"
-        >
-          <source
-            src="https://www.dropbox.com/s/s5al2lq54q5r5ww/YEVANA_Dokker.mp4?raw=1"
-            type="video/mp4"
-          />
-        </video> -->
         <iframe 
           src="https://player.vimeo.com/video/451771363?autoplay=1&loop=1&autopause=0&muted=1" 
           width="640" 
@@ -28,7 +10,6 @@
           allow="autoplay; fullscreen"
            allowfullscreen>
         </iframe>
-
       </div>
     </section>
     <section class="blackSection">
@@ -100,6 +81,18 @@
         </div>
       </div>
     </div>
+    <section>
+      <div class="video-responsive">
+        <iframe 
+          src="https://player.vimeo.com/video/453398222?autoplay=0&loop=1&autopause=0&muted=1" 
+          width="640" 
+          height="360" 
+          frameborder="0" 
+          allow="autoplay; fullscreen"
+           allowfullscreen>
+        </iframe>
+      </div>
+    </section>
     <section class="blackSection">
       <div class="container">
         <div class="row">
@@ -268,7 +261,7 @@ export default {
 
 <style>
 .blackSection {
-  margin-top: -6px;
+  margin-top: -15px;
 }
 .preview-item {
   display: flex;
@@ -413,18 +406,5 @@ img {
   width: 100%;
   padding-bottom: 50px;
 }
-.video-responsive {
-    height: 0;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    position: relative;
-    }
-.video-responsive iframe, .video-responsive object, .video-responsive embed {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    }
+
 </style>

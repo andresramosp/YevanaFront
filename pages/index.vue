@@ -1,12 +1,35 @@
 <template>
   <div>
-    <MainCarousel />
+    <!-- <MainCarousel /> -->
 
     <!-- <div class="">
        <video playsinline autoplay muted loop id="clipHome">
           <source :src="`/video/CLIP_WEB_${$device.isMobile ? 'MOVIL' : 'PC'}1.mp4`" type="video/mp4" />
         </video>
     </div> -->
+    <div v-if="!$device.isMobile" class="video-responsive">
+          <iframe 
+            :src="`https://player.vimeo.com/video/${'453392136'}?autoplay=1&loop=1&autopause=0&muted=1`" 
+            width="640" height="360" 
+            frameborder="0" 
+            allow="autoplay; fullscreen" 
+            allowfullscreen>
+          </iframe>
+    </div>
+    <div v-else class="video-responsive">
+        <!-- <MainCarousel /> -->
+        
+           <iframe 
+            :src="`https://player.vimeo.com/video/${'453397112'}?autoplay=1&loop=1&autopause=0&muted=1`" 
+            width="640" height="360" 
+            frameborder="0" 
+            allow="autoplay; fullscreen" 
+            allowfullscreen>
+          </iframe>
+        
+
+    </div>
+
 
     <section class="blackSection">
       <div class="container">
@@ -108,12 +131,14 @@ export default {
   async asyncData({ params }) {
     const vehiclesResult = await VehicleService.getAll();
     return {
-      vehicles: vehiclesResult
+      vehicles: vehiclesResult,
+      width: window.outerWidth,
+      height: window.outerHeight,
     };
   },
   created() {
     State.menuOpen = false;
-    State.menuOpaque = false;
+    State.menuOpaque = this.$device.isMobile;
     State.activePage = "Inicio";
   },
   head() {
