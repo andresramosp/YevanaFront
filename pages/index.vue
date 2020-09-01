@@ -1,13 +1,13 @@
 <template>
   <div>
-    <MainCarousel />
+    <!-- <MainCarousel /> -->
 
     <!-- <div class="">
        <video playsinline autoplay muted loop id="clipHome">
           <source :src="`/video/CLIP_WEB_${$device.isMobile ? 'MOVIL' : 'PC'}1.mp4`" type="video/mp4" />
         </video>
     </div> -->
-    <!-- <div v-if="!$device.isMobile" class="video-responsive">
+    <div v-if="!$device.isMobile" class="video-responsive">
           <iframe 
             :src="`https://player.vimeo.com/video/${'453392136'}?autoplay=1&loop=1&autopause=0&muted=1`" 
             width="640" height="360" 
@@ -27,7 +27,7 @@
           </iframe>
         
 
-    </div> -->
+    </div>
 
 
     <section class="blackSection">

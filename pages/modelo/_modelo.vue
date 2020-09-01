@@ -90,7 +90,10 @@
               <b v-else>SI QUIERES VER TODAS LAS ESPECIFICACIONES TÉCNICAS, <br /> DESCARGAR NUESTRO DOSSIER</b>
               <br /><br />
               <div class="col-sm-12">
-                  <a :disabled="false" href="" download="/docs/Dossier.WEB.Dokker.Rv3.pdf" class="btn buttonTransparent btn-dossier">
+                  <a @click="trackDownload()" 
+                    target="_blank"
+                    href="/docs/Dossier.WEB.Dokker.Rv3.pdf" 
+                    class="btn buttonTransparent btn-dossier">
                     DESCARGAR
                   </a>
                 </div>
@@ -271,6 +274,17 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    trackDownload() {
+      debugger
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Downloads',
+        eventAction: 'download',
+        eventLabel: 'Dossier Dokker'
+      });
+    }
   }
 };
 </script>
