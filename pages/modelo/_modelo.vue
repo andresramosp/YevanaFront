@@ -59,13 +59,13 @@
 
         <div v-else :class="`preview-item item-background ${index % 2 ? 'right-img' : 'false'}`">
           <div class="white-band">
-            <div class="square col-md-6 fadeableFromBottom">
+            <div class="square col-md-6 fadeableFromBottom_">
               <h2 v-html="mosaic.title"></h2>
               <p style="margin-top: 15px;">
                 <span v-html="mosaic.text"></span>
               </p>
             </div>
-            <div class="square col-md-6 fadeableFromBottom">
+            <div class="square col-md-6 fadeableFromBottom_">
               <div class="icon-list">
                 <div class="icon-group" v-for="(icon, index) in mosaic.icons" :key="index">
                   <img
@@ -82,7 +82,23 @@
       </div>
     </div>
     <section>
-      <div class="video-responsive">
+      <div class="white-band">
+         <div class="row">
+          <div class="col-xs-12">
+            <div class="dossier-text">
+              <b v-if="!$device.isMobile">SI QUIERES VER TODAS LAS ESPECIFICACIONES TÉCNICAS DETALLADAS, <br /> INCLUSO UN LISTADO DE PRECIOS, PUEDES DESCARGAR EL DOSIER COMPLETO EN PDF</b>
+              <b v-else>SI QUIERES VER TODAS LAS ESPECIFICACIONES TÉCNICAS, <br /> DESCARGAR NUESTRO DOSSIER</b>
+              <br /><br />
+              <div class="col-sm-12">
+                  <a :disabled="false" href="" download="/docs/Dossier.WEB.Dokker.Rv3.pdf" class="btn buttonTransparent btn-dossier">
+                    DESCARGAR
+                  </a>
+                </div>
+            </div>
+          </div>
+         </div>
+      </div>
+      <!-- <div class="video-responsive">
         <iframe 
           src="https://player.vimeo.com/video/453398222?autoplay=0&loop=1&autopause=0&muted=1" 
           width="640" 
@@ -91,7 +107,7 @@
           allow="autoplay; fullscreen"
            allowfullscreen>
         </iframe>
-      </div>
+      </div> -->
     </section>
     <section class="blackSection">
       <div class="container">
@@ -406,5 +422,18 @@ img {
   width: 100%;
   padding-bottom: 50px;
 }
-
+.dossier-text {
+ text-align: center;
+  padding-left: 80px;
+  color: black;
+  padding-bottom: 55px;
+  padding-top: 30px;
+  padding-right: 80px;
+  font-size: 17px;
+}
+.btn-dossier {
+  color: white !important; 
+  background-color: #ff891e !important; 
+  border: none !important
+}
 </style>
