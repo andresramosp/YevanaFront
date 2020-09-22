@@ -56,7 +56,7 @@
               >
                 <span class="page-scroll" style="margin-right: 20px">
                    <nuxt-link 
-                    :to="'/alquileres'" 
+                    :to="'/alquiler-campers'" 
                     class="btn buttonTransparent btn-carousel">
                     Escapa YA!
                   </nuxt-link>
@@ -110,7 +110,7 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll">
-                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent btn-carousel">Alquílala</nuxt-link>
+                  <nuxt-link :to="'/alquiler-campers'" class="btn buttonTransparent btn-carousel">Alquílala</nuxt-link>
                 </span>
               </div>
             </div>
@@ -159,7 +159,7 @@
                 data-captionhidden="off"
               >
                 <span class="page-scroll">
-                  <nuxt-link :to="'/alquileres'" class="btn buttonTransparent btn-carousel">Escapa YA!</nuxt-link>
+                  <nuxt-link :to="'/alquiler-campers'" class="btn buttonTransparent btn-carousel">Escapa YA!</nuxt-link>
                 </span>
               </div>
             </div>

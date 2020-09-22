@@ -9,7 +9,7 @@
     </div> -->
     <div v-if="!$device.isMobile" class="video-responsive">
           <iframe 
-            :src="`https://player.vimeo.com/video/${'453392136'}?autoplay=1&loop=1&autopause=0&muted=1`" 
+            :src="`https://player.vimeo.com/video/${'456655376'}?autoplay=1&loop=1&autopause=0&muted=1`" 
             width="640" height="360" 
             frameborder="0" 
             allow="autoplay; fullscreen" 
@@ -19,7 +19,7 @@
     <div v-else class="video-responsive">
         
            <iframe 
-            :src="`https://player.vimeo.com/video/${'453397112'}?autoplay=1&loop=1&autopause=0&muted=1`" 
+            :src="`https://player.vimeo.com/video/${'456655376'}?autoplay=1&loop=1&autopause=0&muted=1`" 
             width="640" height="360" 
             frameborder="0" 
             allow="autoplay; fullscreen" 
@@ -35,14 +35,11 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span v-show="!$device.isMobile">
-                ALQUILA O COMPRA UNA DE NUESTRAS ROADSUITES Y
-                <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
-              </span>
-              <span v-show="$device.isMobile">
-                RESERVA UNA DE NUESTRAS ROADSUITES Y
-                <nuxt-link to="/alquileres">ESCÁPATE</nuxt-link>
-              </span>
+              <h1>
+                 <nuxt-link to="/alquiler-campers">ALQUILER</nuxt-link>
+                  Y <nuxt-link to="/modelo/dokker">VENTA</nuxt-link> 
+                  DE FURGONETAS CAMPER EN MADRID
+              </h1>
             </div>
           </div>
         </div>
@@ -56,7 +53,7 @@
             <div class="promotionTable">
               <div class="promotionTableInner">
                 <div class="promotionInfo">
-                  <h1 style="color: #ffffffb5">Engineering Van Art</h1>
+                  <h2 style="color: #ffffffb5; margin: 0px">Engineering Van Art</h2>
                   <span>La belleza está en los detalles</span>
                   <br />
                   <br />
@@ -72,11 +69,11 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <div style="text-align: center">
+            <h1 style="text-align: center">
               <span>
-                <nuxt-link to="/alquileres">RESERVA </nuxt-link>SIN COMPROMISO TU VAN PARA ESTE VERANO
+                <nuxt-link to="/alquiler-campers">ALQUILA </nuxt-link>SIN COMPROMISO TU CAMPER PARA ESTE OTOÑO-INVIERNO
               </span>
-            </div>
+            </h1>
           </div>
         </div>
       </div>
@@ -98,7 +95,7 @@
             <div style="text-align: center">
               <span>
                 RECONQUISTA LA NATURALEZA DESDE TU
-                <nuxt-link to="/alquileres">ROADSUITE</nuxt-link>
+                <nuxt-link to="/alquiler-campers">CAMPER VAN</nuxt-link>
               </span>
             </div>
           </div>
@@ -143,13 +140,13 @@ export default {
   head() {
     return {
       title:
-        "YEVANA | Diseño, fabricación, alquiler y venta de furgonetas Camper",
+        "YEVANA | Alquiler y venta de furgonetas camper en Madrid",
       meta: [
         {
           hid: "description-home",
           name: "description",
           content:
-            "Diseño, fabricación, venta y alquiler de furgonetas Camper en Madrid. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de serie!"
+            "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!"
         }
       ]
     };
@@ -158,6 +155,7 @@ export default {
 </script>
 
 <style scoped>
+
 
 #clipHome {
   position: relative;

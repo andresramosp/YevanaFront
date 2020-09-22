@@ -6,8 +6,9 @@
           <div class="col-xs-12">
             <div class="sectionTitle" style="margin-bottom: 25px">
               <h2>
-                <span>Nuestros viajeros</span>
+                <span>QUÉ OPINAN NUESTROS VIAJEROS</span>
               </h2>
+              <div>Texto</div>
             </div>
           </div>
         </div>

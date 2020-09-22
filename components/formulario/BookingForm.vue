@@ -269,7 +269,7 @@ export default {
       this.reserva = reservaObj;
     } else {
       this.$router.push({
-        path: `/alquileres/`
+        path: `/alquiler-campers/`
       });
     }
   },

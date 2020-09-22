@@ -18,9 +18,9 @@ export default {
   },
   head () {
     return {
-      title: 'Blog de Yevana CAMPER | Camperización y alquiler furgonetas Madrid',
+      title: 'Blog de Yevana CAMPER | Noticias y consejos sobre el mundo camper y autocaravaning',
       meta: [
-        { hid: 'description-contact', name: 'description', content: 'Contacta con nosotros a través del 661 71 38 61, info@yevana.com o ven a visitarnos, ¡Estamos en Madrid! ' }
+        { hid: 'description-blog', name: 'description', content: 'Artículos, noticias e información práctica sobre el mundo de las campers, minicampers, caravanas y autocaravanas' }
       ]
     }
   }

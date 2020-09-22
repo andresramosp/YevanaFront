@@ -5,12 +5,13 @@ export default {
   // },
   generate: {
     routes: [
-      '/furgoneta/EM',
-      '/furgoneta/RD',
-      '/furgoneta/BL',
+      '/furgoneta-camper/EM',
+      '/furgoneta-camper/RD',
+      '/furgoneta-camper/BL',
       '/modelo/dokker',
       '/post/4381080862445630100',
-      '/post/3519479694605154648'
+      '/post/3519479694605154648',
+      '/post/7987496031410243081'
     ]
   },
   loading: false, //'~/components/Loading.vue',
@@ -40,7 +41,7 @@ export default {
       { name: 'keywords', content: 'camper, van, alquiler furgonetas, furgonetas, yevana, madrid' },
     ],
     script: [
-      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', body: false },
+      { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', body: true },
       { src: '/plugins/bootstrap/js/bootstrap.min.js', body: true },
       { src: '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js', body: true },
       { src: '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js', body: true },

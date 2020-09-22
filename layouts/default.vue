@@ -126,7 +126,7 @@ export default {
 
 .animationFromBottom {
   animation-name: textOutFromBottom;
-  animation-duration: 4.5s; 
+  animation-duration: 2.5s; 
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-delay: 0.35s;
@@ -160,7 +160,7 @@ export default {
 
 .animationFromLeft {
   animation-name: textOutFromLeft;
-  animation-duration: 1.0s; 
+  animation-duration: 0.6s; 
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-delay: 0s;
@@ -186,7 +186,7 @@ export default {
 
 .animationFromRight {
   animation-name: textOutFromRight;
-  animation-duration: 1.0s; 
+  animation-duration: 0.6s; 
   animation-timing-function: ease;
   animation-iteration-count: 1;
   animation-delay: 0s;

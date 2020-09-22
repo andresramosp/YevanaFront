@@ -2,6 +2,9 @@
   <section class="">
       <div class="">
            <div class="col-sm-12 col-xs-12 accordionsTransparent">
+                <h1 style="color: black; margin-bottom: 30px; font-size: 19px; font-weight: bold">
+                    ACLARA TODAS TUS DUDAS RESPECTO AL ALQUILER Y LA VENTA DE FURGONETAS CAMPER EN MADRID
+                </h1>
                     <div class="accordionSolidTitle">
                         <div class="panel-group" id="accordionWhite">
                             <div class="panel panel-default">

@@ -5,9 +5,11 @@
         <div class="col-xs-12">
           <div class="sectionTitle" style="margin-bottom: 25px">
             <h2>
-              <span>NUESTRA FLOTA</span>
+              <span>PRUEBA NUESTRAS CAMPERS MÁS EXCLUSIVAS</span>
             </h2>
-            <div>Todas nuestras Camper cuentan con nuevas experiencias de serie</div>
+            <div>Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores furgonetas camperizadas de Madrid. Somos especialistas
+              en diseño, fabricación, alquiler y venta de furgonetas camper. Nuestro equipo de ingenieros y artesanos llevan años diseñando
+              las mejores experiencias camper para hacer de tu vida un continuo viaje. Disponemos de modelos camper de serie. <nuxt-link to="/modelo/dokker">¡Descúbrelos!</nuxt-link></div>
           </div>
         </div>
       </div>
@@ -33,7 +35,7 @@
               <div v-show="!$device.isMobile || !vehicle.Disponible" class="overlay">
                    <nuxt-link
                       v-if="vehicle.Disponible"
-                      :to="'/furgoneta/' + vehicle.VehiculoID"
+                      :to="'/furgoneta-camper/' + vehicle.VehiculoID"
                       class="fancybox-pop"
                     >
                   <div class="overlayInfo" style="margin-top:20px">
@@ -68,7 +70,7 @@ export default {
     goToVehicle(vehicle) {
       if (vehicle.Disponible)
       this.$router.push({
-        path: `/furgoneta/${vehicle.VehiculoID}`
+        path: `/furgoneta-camper/${vehicle.VehiculoID}`
       })
     }
   }

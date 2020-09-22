@@ -28,7 +28,7 @@
                 <nuxt-link :to="'/'">Inicio</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
-                <nuxt-link :to="'/alquileres'" class="dropdown-toggle">Alquila</nuxt-link>
+                <nuxt-link :to="'/alquiler-campers'" class="dropdown-toggle">Alquila</nuxt-link>
               </li>
               <li :class="`dropdown singleDrop ${activePage == 'Modelos' ? 'active' : ''}`">
                 <a href="/modelo/dokker" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modelos</a>

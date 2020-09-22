@@ -23,13 +23,13 @@ export default {
   head() {
     return {
       title:
-        "Preguntas frecuentes para el servicio de alquiler de campers de YEVANA",
+        "Resuelve tus dudas sobre el alquiler de furgonetas camper en Madrid",
       meta: [
         {
           hid: "description-faqs",
           name: "description",
           content:
-            "Resuelve todas tus dudas relativas al alquiler con YEVANA con este FAQ que hemos preparado para ti. Si tienes cualquier duda no dudes en llamarnos."
+            "Resueve todas tus dudas relativas al alquiler y venta de campers en Madrid. En Yevana hemos preparado estas FAQs para dar respuesta a todas tus preguntas"
         }
       ]
     };

@@ -19,14 +19,14 @@
     <div v-if="!$device.isMobile">
       <TopImageBar
         image="stars"
-        title="Road Suite"
-        text="¿Te gustaría dormir en un hotel de un millón de estrellas?"
+        title="¿Te gustaría dormir en un hotel de un millón de estrellas?"
+        text="Todas nuestras furgonetas están equipadas con la útima tecnología para que puedas recorrer cada rincón del planeta sintiéndote como en casa."
       />
       <div class="container">
         <section class="mainContentSection singlePackage">
           <BookingWizard step="1" />
           <div class="hotelTitle">
-            <h2>{{vehicle.Nombre}}</h2>
+            <h2>Furgoneta - {{vehicle.Nombre}}</h2>
           </div>
           <div class="row">
             <div class="col-sm-8 col-xs-12">

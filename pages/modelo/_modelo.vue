@@ -17,12 +17,12 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <span v-show="!$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER
-              </span>
-              <span v-show="$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER
-              </span>
+              <h1 v-show="!$device.isMobile">
+                <nuxt-link to="/contacto">COMPRA </nuxt-link>TU NUEVA CAMPER YEVANA DOKKER
+              </h1>
+              <h1 v-show="$device.isMobile">
+                <nuxt-link to="/contacto">COMPRA </nuxt-link>TU NUEVA CAMPER YEVANA DOKKER
+              </h1>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
           <div
             :class="`preview-item__content ${index > 0 || !$device.isMobile ? 'fadeableFromBottom' : ''}`"
           >
-            <h3 v-html="mosaic.title"></h3>
+            <h2 v-html="mosaic.title"></h2>
             <p style="margin-top: 5px;">
               <span v-html="mosaic.text"></span>
             </p>
@@ -86,8 +86,7 @@
          <div class="row">
           <div class="col-xs-12">
             <div class="dossier-text">
-              <b v-if="!$device.isMobile">SI QUIERES VER TODAS LAS ESPECIFICACIONES TÉCNICAS DETALLADAS, <br /> INCLUSO UN LISTADO DE PRECIOS, PUEDES DESCARGAR EL DOSIER COMPLETO EN PDF</b>
-              <b v-else>SI QUIERES VER TODAS LAS ESPECIFICACIONES TÉCNICAS, <br /> DESCARGAR NUESTRO DOSSIER</b>
+              <b>Si quieres ver todas las especificaciones técnicas, <br /> extras disponibles y tarifas, descarga el dossier</b>
               <br /><br />
               <div class="col-sm-12">
                   <a @click="trackDownload()" 
@@ -101,16 +100,16 @@
           </div>
          </div>
       </div>
-      <!-- <div class="video-responsive">
-        <iframe 
-          src="https://player.vimeo.com/video/453398222?autoplay=0&loop=1&autopause=0&muted=1" 
-          width="640" 
-          height="360" 
-          frameborder="0" 
-          allow="autoplay; fullscreen"
-           allowfullscreen>
-        </iframe>
-      </div> -->
+      <section>
+      <div class="video-responsive">
+        <video id="myVideo" controls width="100%" allow="autoplay" preload="auto" muted class="autoPlay">
+          <source
+            src="https://www.dropbox.com/s/t2ibai57afva6st/VIDEO ANIMACION DOKKER WEB COMPRIMIDO.mp4?raw=1"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </section>
     </section>
     <section class="blackSection">
       <div class="container">
@@ -118,10 +117,10 @@
           <div class="col-xs-12">
             <div style="text-align: center">
               <span v-show="!$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU NUEVA YEVANA DOKKER
+                <nuxt-link to="/contacto">ENCARGA YA </nuxt-link>TU MINICAMPER YEVANA DOKKER
               </span>
               <span v-show="$device.isMobile">
-                <nuxt-link to="/contacto">ENCARGA YA </nuxt-link>TU NUEVA YEVANA DOKKER
+                <nuxt-link to="/contacto">ENCARGA </nuxt-link>TU MINICAMPER YEVANA DOKKER
               </span>
             </div>
           </div>
@@ -150,7 +149,7 @@ export default {
       // { id: "NONE", text: "1M" }
     ],
     text:
-      "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo.<br/> <br/> En Yevana somos entusiastas del diseño y la calidad, pero no nos basta con ofrecerte unos acabados exquisitos en todo lo que puedes ver y tocar. Lo que realmente nos llena es la excelencia de lo que no se ve, porque como todos sabemos la verdadera belleza se encuentra en el interior.<br/> <br/> Por eso, presentamos nuestro nuevo modelo Yevana Dokker: <br/><b>un vehículo versátil que se adapta a tu día a día y a todo tipo de viajes.</b><br/> <br/> <br/> <h3>MOTORIZACIONES DISPONIBLES</h3><br/> Essential N1 1.6 Tce 110CV Gasolina-GLP<br/> Essential M1 Blue DCI 1.5 95CV<br/> Stepway Confort M1 Blue DCI 1.5 95CV<br/> <br/><b>TAMBIÉN PUEDES TRAERNOS TU PROPIA DOKKER A CAMPERIZAR</b>"
+      "Un viaje tiene muchos aspectos y sabemos que el auténtico viajero quiere disfrutarlos todos al máximo.<br/> <br/> En Yevana somos entusiastas del diseño y la calidad, pero no nos basta con ofrecerte unos acabados exquisitos en todo lo que puedes ver y tocar. Lo que realmente nos llena es la excelencia de lo que no se ve, porque como todos sabemos la verdadera belleza se encuentra en el interior.<br/> <br/> Por eso, presentamos nuestro nuevo modelo Yevana Dokker: <br/><b>un vehículo versátil que se adapta a tu día a día y a todo tipo de viajes.</b><br/> <br/> <br/> <h3>MOTORIZACIONES DISPONIBLES</h3><br/> Essential N1 1.6 Tce 110CV Gasolina-GLP<br/> Essential M1 Blue DCI 1.5 95CV<br/> Stepway Confort M1 Blue DCI 1.5 95CV<br/> <br/><h3 style='font-size: 17px'>TAMBIÉN PUEDES TRAERNOS TU PROPIA DOKKER A CAMPERIZAR. VISÍTANOS EN NUESTRAS INSTALACIONES DE MADRID Y PREGÚNTANOS LO QUE QUIERAS</h3>"
   },
   {
     title: "EL DESCANSO DE TUS SUEÑOS",
@@ -220,7 +219,7 @@ export default {
       "Hemos diseñado hasta 8 opciones de customización para nuestra <b>Yevana Dokker.</b> Porque no solo se adapta a cualquier viaje, también a cualquier gusto.<br /> <br /> Puedes escoger cualquiera de las personalizaciones sin sobrecoste con la tapicería de serie. Si quieres la tapicería Premium a juego de cada versión contará como un extra."
   },
   {
-    title: "LITERALMENTE,<br /> NO HABRÁ OTRA IGUAL",
+    title: "COMPRA TU CAMPER Y VÍSTELA A TU GUSTO",
     backGround: true,
     icons: [
       {
@@ -265,24 +264,23 @@ export default {
   },
   head() {
     return {
-      title: `YEVANA | Venta de Furgonetas Camper - Diseños exclusivos | Modelo Dacia Dokker Minicamper`,
+      title: `YEVANA | Compra de Furgonetas Camper - Diseños exclusivos | Modelo Dacia Dokker Minicamper`,
       meta: [
         {
           hid: "description-furgo",
           name: "description",
-          content: "Descubre nuestros modelos de serie. ✅ Furgonetas camper únicas trabajadas a mano. Especialistas en camperizaciones. Interiores personalizados."
+          content: "¿Quieres comprar una furgoneta camper nueva o de ocasión? ✅ Furgonetas camper exclusivas trabajadas a mano. Especialistas en camperizaciones. Diseños personalizados. Estamos en Madrid."
         }
       ]
     };
   },
   methods: {
     trackDownload() {
-      debugger
       ga('send', {
         hitType: 'event',
         eventCategory: 'Downloads',
         eventAction: 'download',
-        eventLabel: 'Dossier Dokker'
+        eventLabel: 'Dossier Dokker',
       });
     }
   }
@@ -352,7 +350,7 @@ img {
   padding-right: 0.9375rem;
   color: black;
 }
-.preview-item__content h3 {
+.preview-item__content h2 {
   width: 80%;
   max-width: 100%;
   color: #505d68;
@@ -444,6 +442,7 @@ img {
   padding-top: 30px;
   padding-right: 80px;
   font-size: 17px;
+  text-transform: uppercase;
 }
 .btn-dossier {
   color: white !important; 

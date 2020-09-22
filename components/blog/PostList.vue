@@ -3,6 +3,9 @@
     <TopImageBar image="carretera" />
     <section class="mainContentSection">
       <div class="container">
+        <h1 class="blog-title">
+          NOTICIAS, CONSEJOS E INFORMACIÓN PRÁCTICA SOBRE EL MUNDO CAMPER Y LAS AUTOCARAVANAS
+        </h1>
         <div v-for="post in posts" :key="post.id" class="row">
           <div class="col-xs-12">
             <div class="media blogPostListItem">
@@ -79,5 +82,13 @@ export default {
 };
 </script>
 <style scoped>
+.blog-title {
+  color: black; 
+  margin-bottom: 30px; 
+  font-size: 19px; 
+  font-weight: bold; 
+  margin-left: 0px; 
+  margin-right: 0px
+}
 </style>
 
