@@ -32,7 +32,7 @@
             <div class="col-sm-8 col-xs-12">
               <div class="row">
                 <div class="col-xs-12">
-                  <VehicleCarousel :id="id" refId="web" />
+                  <VehicleCarousel :vehicle="vehicle" refId="web" />
                   <div class="hotelDescription">
                     <div class="hotelTitle">
                       <h2 id="vehicle-desc-title">Descripción</h2>
@@ -61,7 +61,7 @@
     <!-- MOBILE -->
     <div class="mobile" v-else>
       <section v-show="!showBookingPanel" class="mainContentSection singlePackage">
-        <VehicleCarousel :id="id" refId="mobile" />
+        <VehicleCarousel :vehicle="vehicle" refId="mobile" />
         <div class="mobile-section">
           <h4>Descripción</h4>
           <p style="text-align: justify">{{vehicle.DescripcionCorta}}</p>

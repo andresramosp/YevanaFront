@@ -8,7 +8,10 @@
               <h2>
                 <span>QUÉ OPINAN NUESTROS VIAJEROS</span>
               </h2>
-              <div>Texto</div>
+              <div>No queremos contártelo, queremos que seas tú el que lo descubra. 
+                Invierte en experiencias en lugar de en cosas. Deja de soñar y emprende ya tu viaje en autocaravana camper. 
+                Siente la libertad de no tener rumbo fijo y déjate llevar por tu instinto viajero.
+                Aquí te dejamos las opiniones y experiencias de otros viajeros, aunque ya sabes... no es lo mismo vivirlo a que te lo cuenten.</div>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@
             <span class="icon-bar"></span>
           </button>
           <nuxt-link :to="'/'">
-            <img class="logo-menu-home" src="/img/logo.png" style="height: auto" />
+            <img class="logo-menu-home" src="/img/logo.png" style="height: auto" alt="Logo de Yevana" />
           </nuxt-link>
         </div>
 
@@ -24,9 +24,9 @@
             :class="`collapse navbar-collapse navbar-ex1-collapse ${State.menuOpen ? 'in' : ''}`"
           >
             <ul class="nav navbar-nav navbar-right">
-              <li :class="`dropdown singleDrop ${activePage == 'Inicio' ? 'active' : ''}`">
-                <nuxt-link :to="'/'">Inicio</nuxt-link>
-              </li>
+              <!-- <li :class="`dropdown singleDrop ${activePage == 'Inicio' ? 'active' : ''}`">
+                <nuxt-link :to="'/'">Yevana</nuxt-link>
+              </li> -->
               <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
                 <nuxt-link :to="'/alquiler-campers'" class="dropdown-toggle">Alquila</nuxt-link>
               </li>

@@ -21,7 +21,7 @@
           <div class="col-sm-3 col-xs-12">
             <div class="footerContent">
               <a href="index.html" class="footer-logo" style="text-align: center">
-                <img src="/img/logo.png" alt="footer-logo" width="120" />
+                <img src="/img/logo.png" alt="Logo de Yevana" width="120" />
               </a>
               <p v-show="!$device.isMobile">
                 Alquiler y venta de furgonetas Camper.

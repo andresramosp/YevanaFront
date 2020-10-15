@@ -9,7 +9,7 @@
             </h2>
             <div>Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores furgonetas camperizadas de Madrid. Somos especialistas
               en diseño, fabricación, alquiler y venta de furgonetas camper. Nuestro equipo de ingenieros y artesanos llevan años diseñando
-              las mejores experiencias camper para hacer de tu vida un continuo viaje. Disponemos de modelos camper de serie. <nuxt-link to="/modelo/dokker">¡Descúbrelos!</nuxt-link></div>
+              las mejores experiencias camper para hacer de tu vida un continuo viaje. Somos camperizadores profesionales y disponemos de modelos camper de serie. <nuxt-link to="/modelo/dokker">¡Descúbrelos!</nuxt-link></div>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
             <figure>
               <img
                 :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg'"
-                :alt="`Furgoneta ${vehicle.Nombre} para alquilar`"
+                :alt="`Furgoneta Camper ${getModeloName(vehicle)} camperizada por Yevana para alquiler o venta en Madrid`"
                 style="max-height: 240px"
                 @click="goToVehicle(vehicle)"
               />
@@ -72,6 +72,9 @@ export default {
       this.$router.push({
         path: `/furgoneta-camper/${vehicle.VehiculoID}`
       })
+    },
+    getModeloName(vehiculo) {
+      return vehiculo.FichaTecnica.MarcaModelo.replace('MB', 'Mercedez Benz Marco Polo').replace('VW', 'Volkswagen California Ocean');
     }
   }
 };

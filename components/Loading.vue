@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="loading-page fade-in" v-if="loading">
-    <img width="250" src="https://media.giphy.com/media/Y3wi040tnpVR0Ygdrj/giphy.gif" />
+    <img width="250" src="https://media.giphy.com/media/Y3wi040tnpVR0Ygdrj/giphy.gif" alt="Loader de Yevana" />
   </div>
 </template>
 

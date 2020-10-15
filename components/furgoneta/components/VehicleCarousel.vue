@@ -4,27 +4,29 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <a :href="'/img/vehiculos/YEVANA_' + id + '_1.jpg'" 
+          <a :href="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '_1.jpg'" 
             rel="gallery-1" class="swipebox" 
             :id="refId" >
             <img
               class="img-responsive"
-              :src="'/img/vehiculos/YEVANA_' + id + '_1.jpg'"
+              :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '_1.jpg'"
               style="width: 100%; height: 100%"
+              :alt="`Furgoneta Camper ${getModeloName(vehicle)} camperizada por Yevana para alquiler o venta en Madrid`"
             />
           </a>
         </div>
 
         <div v-for="imgNumber in images" :key="imgNumber" class="item">
           <a
-            :href="'/img/vehiculos/YEVANA_' + id + '_' + imgNumber + '.jpg'"
+            :href="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '_' + imgNumber + '.jpg'"
             rel="gallery-1"
             class="swipebox"
           >
             <img
               class="img-responsive"
-              :src="'/img/vehiculos/YEVANA_' + id + '_' + imgNumber + '.jpg'"
+              :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '_' + imgNumber + '.jpg'"
               style="width: 100%; height: 100%"
+              :alt="`Furgoneta Camper ${getModeloName(vehicle)} camperizada por Yevana para alquiler o venta en Madrid - ${imgNumber}`"
             />
           </a>
         </div>
@@ -52,6 +54,9 @@ export default {
     render() {
       return (this.$device.isMobile && this.refId == 'mobile') 
       || (!this.$device.isMobile && this.refId == 'web');
+    },
+    getModeloName(vehiculo) {
+      return vehiculo.FichaTecnica.MarcaModelo.replace('MB', 'Mercedez Benz').replace('VW', 'Volkswagen');
     }
   },
   mounted() {
@@ -60,6 +65,6 @@ export default {
     //   }
     $(".swipebox").swipebox();
   },
-  props: ["id", "refId"]
+  props: ["vehicle", "refId"]
 };
 </script>

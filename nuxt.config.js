@@ -11,7 +11,11 @@ export default {
       '/modelo/dokker',
       '/post/4381080862445630100',
       '/post/3519479694605154648',
-      '/post/7987496031410243081'
+      '/post/7987496031410243081',
+      '/post/7133907318056571291',
+      '/post/1352079496290084635',
+      '/post/8002161982124026134',
+      '/post/9072674918793369935'
     ]
   },
   loading: false, //'~/components/Loading.vue',
@@ -43,17 +47,17 @@ export default {
     script: [
       { src: 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', body: true },
       { src: '/plugins/bootstrap/js/bootstrap.min.js', body: true },
-      { src: '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js', body: true },
-      { src: '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js', body: true },
+      // { src: '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js', body: true },
+      // { src: '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js', body: true },
       { src: '/plugins/isotope/isotope.min.js', body: true },
       { src: '/plugins/swipebox/jquery.swipebox.js', body: true },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png', body: true },
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon_.png' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,600,700', body: true },
       { rel: 'stylesheet', href: '/plugins/bootstrap/css/bootstrap.min.css', body: true },
       { rel: 'stylesheet', href: '/plugins/font-awesome/css/font-awesome.min.css', body: true },
-      { rel: 'stylesheet', href: '/plugins/rs-plugin/css/settings.css', media: 'screen', body: true },
+      // { rel: 'stylesheet', href: '/plugins/rs-plugin/css/settings.css', media: 'screen', body: true },
       { rel: 'stylesheet', href: '/plugins/isotope/jquery.fancybox.css', body: true },
       { rel: 'stylesheet', href: '/plugins/isotope/isotope.css', body: true },
       { rel: 'stylesheet', href: '/plugins/swipebox/swipebox.css', body: true },

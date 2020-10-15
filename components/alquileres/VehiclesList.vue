@@ -12,16 +12,16 @@
         <div class="row">
           <div class="col-xs-12">
             <!--LISTA DE VEHÍCULOS-->
-            <div style="text-align: justify">Nuestra flota cuenta con las mejores furgonetas de alquiler de Madrid. Nuestra gama dispone 
-              de una gran variedad de tamaños, accesorios y extras para configurar todo tipo de experencias. Tanto si te gusta el entorno rural
-              como la naturaleza más salvaje, encontrarás la furgoneta que mejor se adapte a ti.</div> 
+            <div style="text-align: justify; margin-bottom: 25px">Nuestra flota cuenta con las mejores furgonetas camper de alquiler de Madrid. Camperizaciones únicas en diseño, calidad y equipamiento. Todas nuestras furgos cuentan con placa solar, calefacción estacionaria y un equipamiento super completo.
+              Nuestra gama dispone de una gran variedad de tamaños, accesorios y extras para configurar todo tipo de experencias. Tanto si te gusta el entorno rural
+              como la naturaleza más indómita, o eres un fan de los festivales, aquí encontrarás tu motorhome perfecta. Y al regreso, si te has enamorado de nuestra camper, siempre podrás hacerla tuya...</div> 
             <div v-for="vehiculo in vehicles" :key="vehiculo.VehiculoID" class="media packagesList">
               <!--IMAGEN-->
               <div class="relatedItem media-left">
                 <img
                   style="display: block; width: 100%; max-width: 400px"
                   :src="'/img/vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg'"
-                  alt="Furgoneta Yevana para alquilar"
+                  :alt="`Furgoneta Camper ${getModeloName(vehiculo)} camperizada por Yevana para alquiler o venta en Madrid`"
                   @click="goToVehicle(vehiculo)"
                 />
                 <div v-show="!$device.isMobile" class="maskingInfo">
@@ -59,6 +59,7 @@
                           width="19"
                           height="19"
                           style="margin-right: 5px"
+                          alt="Icono Furgoneta"
                         />
                         <!-- <span class="vehicle-prop">Furgo:</span> -->
                         Modelo
@@ -72,6 +73,7 @@
                           width="19"
                           height="19"
                           style="margin-right: 5px"
+                          alt="Icono Motor"
                         />
                         Motor de
                         <!-- <span class="vehicle-prop">Motor:</span> -->
@@ -87,6 +89,7 @@
                           width="19"
                           height="19"
                           style="margin-right: 5px"
+                          alt="Icono Asiento"
                         />
                         <!-- <span class="vehicle-prop">Plazas Viaje:</span> -->
                         {{vehiculo.FichaTecnica.NumeroAsientos}} plazas de viaje
@@ -99,6 +102,7 @@
                           width="19"
                           height="19"
                           style="margin-right: 5px"
+                          alt="Icono Cama"
                         />
                         <!-- <span class="vehicle-prop">Plazas dormir:</span> -->
                         2 + 1 plazas para dormir
@@ -113,6 +117,7 @@
                           width="19"
                           height="19"
                           style="margin-right: 5px"
+                          alt="Icono Tamaño"
                         />
                         <!-- <span class="vehicle-prop">Dimensiones:</span> -->
                         {{ vehiculo.FichaTecnica.Tamanio }}
@@ -125,6 +130,7 @@
                           width="19"
                           height="19"
                           style="margin-right: 5px"
+                          alt="Icono Combustible"
                         />
                         <!-- <span class="vehicle-prop">Consumo:</span> -->
                         Consume
@@ -169,6 +175,9 @@ export default {
       this.$router.push({
         path: `/furgoneta-camper/${vehicle.VehiculoID}`
       })
+    },
+    getModeloName(vehiculo) {
+      return vehiculo.FichaTecnica.MarcaModelo.replace('MB', 'Mercedez Benz').replace('VW', 'Volkswagen California Beach');
     }
   }
 };

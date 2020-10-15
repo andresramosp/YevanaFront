@@ -9,7 +9,7 @@
     </div> -->
     <div v-if="!$device.isMobile" class="video-responsive">
           <iframe 
-            :src="`https://player.vimeo.com/video/${'456655376'}?autoplay=1&loop=1&autopause=0&muted=1`" 
+            :src="`https://player.vimeo.com/video/${'463587846'}?autoplay=1&loop=1&autopause=0&muted=1`" 
             width="640" height="360" 
             frameborder="0" 
             allow="autoplay; fullscreen" 
@@ -19,7 +19,7 @@
     <div v-else class="video-responsive">
         
            <iframe 
-            :src="`https://player.vimeo.com/video/${'456655376'}?autoplay=1&loop=1&autopause=0&muted=1`" 
+            :src="`https://player.vimeo.com/video/${'463587846'}?autoplay=1&loop=1&autopause=0&muted=1`" 
             width="640" height="360" 
             frameborder="0" 
             allow="autoplay; fullscreen" 
@@ -54,7 +54,7 @@
               <div class="promotionTableInner">
                 <div class="promotionInfo">
                   <h2 style="color: #ffffffb5; margin: 0px">Engineering Van Art</h2>
-                  <span>La belleza está en los detalles</span>
+                  <span>Descubre la perfecta aleación de ingeniería y arte plasmada en una furgoneta camper</span>
                   <br />
                   <br />
                   <!--<a href="javscript:void(0)" style="color: white" class="btn buttonTransparent">Personaliza tu VAN</a>-->
@@ -140,13 +140,13 @@ export default {
   head() {
     return {
       title:
-        "YEVANA | Alquiler y venta de furgonetas camper en Madrid",
+        "YEVANA | Alquiler, camperización y venta de furgonetas camper en Madrid",
       meta: [
         {
           hid: "description-home",
           name: "description",
           content:
-            "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!"
+            "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!"
         }
       ]
     };

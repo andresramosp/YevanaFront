@@ -64,6 +64,7 @@ export default {
       return img.src;
     },
     getPreviewTextFromPost(post) {
+      debugger
       const parser = new DOMParser();
       const html = parser.parseFromString(post.content, "text/html");
       const spans = html.querySelectorAll("span");
