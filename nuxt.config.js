@@ -15,7 +15,8 @@ export default {
       '/post/7133907318056571291',
       '/post/1352079496290084635',
       '/post/8002161982124026134',
-      '/post/9072674918793369935'
+      '/post/9072674918793369935',
+      '/post/3774327612395101908'
     ]
   },
   loading: false, //'~/components/Loading.vue',
@@ -31,7 +32,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'YEVANA | Diseño, fabricación, alquiler y venta de furgonetas camper únicas. Estamos en Madrid.',
+    title: 'YEVANA | Alquiler, camperización y venta de furgonetas camper en Madrid.',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

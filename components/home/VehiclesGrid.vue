@@ -28,9 +28,15 @@
                 @click="goToVehicle(vehicle)"
               />
               <div v-show="$device.isMobile && vehicle.Disponible" style="text-align: center">
-                <a
+                <!-- <a
                   class="mobile-caption"
-                >{{vehicle.Nombre}}</a>
+                >{{vehicle.Nombre}}</a> -->
+                <nuxt-link
+                    :to="'/furgoneta-camper/' + vehicle.VehiculoID"
+                    class="mobile-caption"
+                >
+                  {{vehicle.Nombre}}
+                </nuxt-link>
               </div>
               <div v-show="!$device.isMobile || !vehicle.Disponible" class="overlay">
                    <nuxt-link

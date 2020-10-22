@@ -204,6 +204,11 @@ export default {
   opacity: 1;
 }
 }
+
+.mobile .container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 </style>
 
 

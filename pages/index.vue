@@ -103,7 +103,7 @@
       </div>
     </section>
 
-    <SocialMedia />
+    <!-- <SocialMedia /> -->
     <CustomerComments />
   </div>
 </template>
@@ -111,7 +111,7 @@
 <script>
 import MainCarousel from "~/components/home/MainCarousel.vue";
 import VehiclesGrid from "~/components/home/VehiclesGrid.vue";
-import SocialMedia from "~/components/home/SocialMedia.vue";
+// import SocialMedia from "~/components/home/SocialMedia.vue";
 import CustomerComments from "~/components/home/CustomerComments.vue";
 import VehicleService from "~/services/vehicleService";
 import State from "~/services/state";
@@ -121,7 +121,7 @@ export default {
     CustomerComments,
     MainCarousel,
     VehiclesGrid,
-    SocialMedia
+    // SocialMedia
   },
   mixins: [homeMixins],
   async asyncData({ params }) {
