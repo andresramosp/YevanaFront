@@ -55,7 +55,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon_.png' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,600,700', body: true },
+      // { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,600,700', body: true },
       { rel: 'stylesheet', href: '/plugins/bootstrap/css/bootstrap.min.css', body: true },
       { rel: 'stylesheet', href: '/plugins/font-awesome/css/font-awesome.min.css', body: true },
       // { rel: 'stylesheet', href: '/plugins/rs-plugin/css/settings.css', media: 'screen', body: true },
