@@ -1,7 +1,7 @@
 <template>
   <footer>
     <no-ssr>
-      <cookie-law theme="dark-lime" buttonText="Acepto!">
+      <!-- <cookie-law theme="dark-lime" buttonText="Acepto!">
         <div slot="message">
           Este sitio web utiliza Cookies, tanto propias como de terceros, para su correcto
           funcionamiento, recopilar información estadística sobre su navegación y mostrarle
@@ -12,7 +12,7 @@
             target="_blank"
           >política de cookies</a>
         </div>
-      </cookie-law>
+      </cookie-law> -->
     </no-ssr>
 
     <div class="footer clearfix" style="font-size: 10px !important">
@@ -122,9 +122,9 @@
   </footer>
 </template>
 <script>
-import CookieLaw from "vue-cookie-law";
+// import CookieLaw from "vue-cookie-law";
 export default {
-  components: { CookieLaw }
+  components: {  }
 };
 </script>
 <style scoped>
