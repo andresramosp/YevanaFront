@@ -128,8 +128,8 @@ export default {
     const vehiclesResult = []; //await VehicleService.getAll();
     return {
       vehicles: vehiclesResult,
-      width: window.outerWidth,
-      height: window.outerHeight,
+      // width: window.outerWidth,
+      // height: window.outerHeight,
     };
   },
   created() {
