@@ -138,6 +138,6 @@
 </template>
 <style scoped>
 .mobile .whiteSection {
-  padding-top: 10px;
+  padding-top: 25px;
 }
 </style>

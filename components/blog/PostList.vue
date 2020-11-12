@@ -1,33 +1,65 @@
 <template>
   <div>
-    <TopImageBar image="carretera" />
-    <section class="mainContentSection">
+    <TopImageBar image="carretera" v-if="!preview" />
+    <section class="mainContentSection" style="background-color: #f0f9f2">
       <div class="container">
-        <h1 class="blog-title">
-          NOTICIAS, CONSEJOS E INFORMACIÓN PRÁCTICA SOBRE EL MUNDO CAMPER Y LAS AUTOCARAVANAS
+        <h1 v-if="!preview" class="blog-title">
+          NOTICIAS, CONSEJOS E INFORMACIÓN PRÁCTICA SOBRE EL MUNDO CAMPER Y LAS
+          AUTOCARAVANAS
         </h1>
-        <div v-for="post in posts" :key="post.id" class="row">
-          <div class="col-xs-12">
-            <div class="media blogPostListItem">
+        <div v-else class="sectionTitle" style="margin-bottom: 25px">
+          <h2>
+            <span style="background-color: #f0f9f2">BLOG de Yevana</span>
+          </h2>
+          <div>
+            Echa un ojo a los últimos artículos de nuestro
+            <nuxt-link :to="'/blog'" class="dropdown-toggle"
+              >Blog.</nuxt-link
+            >
+            En él encontrarás noticias, consejos e información práctica sobre el mundo
+            de las autocaravanas y las campers. 
+          </div>
+        </div>
+        <div v-for="post in posts" :key="post.id" class="">
+          <div :class="preview ? 'col-md-4 col-xs-12' : 'col-xs-12'">
+            <div
+              :class="`media blogPostListItem ${
+                preview ? 'blogPostListItemPrev' : ''
+              }`"
+            >
               <a class="media-left" href="#">
-                <img class="media-object" :src="getImgUrlFromPost(post)" alt="blog-image" />
+                <img
+                  class="media-object"
+                  style="width: 550px !important; height: 350px !important"
+                  :src="getImgUrlFromPost(post)"
+                  alt="blog-image"
+                />
               </a>
               <div class="media-body">
                 <h4>
-                  <a href="javascript:void(0)" @click="goToPost(post.id)" class="blogTitle">{{post.title}}</a>
+                  <a
+                    href="javascript:void(0)"
+                    @click="goToPost(post.id)"
+                    class="blogTitle"
+                    >{{ post.title }}</a
+                  >
                 </h4>
                 <ul class="list-inline blogInfo">
                   <li>
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <a href="#">{{post.author.displayName}}</a>
+                    <a href="#">{{ post.author.displayName }}</a>
                   </li>
                   <li>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                    {{new Date(post.published).toCustomString()}}
+                    {{ new Date(post.published).toCustomString() }}
                   </li>
                 </ul>
-                <p style="text-align: justify">{{getPreviewTextFromPost(post)}}</p>
-                <a @click="goToPost(post.id)" class="btn buttonTransparent">Seguir Leyendo</a>
+                <p style="text-align: justify">
+                  {{ getPreviewTextFromPost(post) }}
+                </p>
+                <a @click="goToPost(post.id)" class="btn buttonTransparent"
+                  >Seguir Leyendo</a
+                >
               </div>
             </div>
           </div>
@@ -43,19 +75,22 @@ import TopImageBar from "~/components/TopImageBar.vue";
 import BlogService from "~/services/blogService";
 export default {
   components: {
-    TopImageBar
+    TopImageBar,
   },
   data() {
     return {
-      posts: []
+      posts: [],
     };
   },
+  props: ["preview"],
   created() {
     this.getPosts();
   },
   methods: {
     async getPosts() {
-      this.posts = await BlogService.getPosts();
+      let result = await BlogService.getPosts();
+      if (this.preview) result = result.slice(0, 3);
+      this.posts = result;
     },
     getImgUrlFromPost(post) {
       const parser = new DOMParser();
@@ -64,32 +99,31 @@ export default {
       return img.src;
     },
     getPreviewTextFromPost(post) {
-      debugger
       const parser = new DOMParser();
       const html = parser.parseFromString(post.content, "text/html");
       const spans = html.querySelectorAll("span");
-      let text = ""
+      let text = "";
       for (var span of spans) {
         text += span.innerText;
       }
-      return text.substring(0, 300) + "...";
+      return text.substring(0, !this.preview ? 300 : 200) + "...";
     },
     goToPost(postId) {
       this.$router.push({
-        path: `/post/${postId}`
+        path: `/post/${postId}`,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
 .blog-title {
-  color: black; 
-  margin-bottom: 30px; 
-  font-size: 19px; 
-  font-weight: bold; 
-  margin-left: 0px; 
-  margin-right: 0px
+  color: black;
+  margin-bottom: 30px;
+  font-size: 19px;
+  font-weight: bold;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 </style>
 

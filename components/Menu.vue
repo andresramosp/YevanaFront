@@ -95,6 +95,12 @@ export default {
 .logo-menu-home {
   width: 120px;
 }
+.desktop .logo-menu-home-separator {
+  width: 170px;
+}
+.mobile .logo-menu-home-separator {
+  width: 120px;
+}
 @media (max-width: 767px) {
   .logo-menu-home {
     width: 90px;

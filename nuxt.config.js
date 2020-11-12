@@ -17,7 +17,9 @@ export default {
       '/post/8002161982124026134',
       '/post/9072674918793369935',
       '/post/3774327612395101908',
-      '/post/5638534278643358515'
+      '/post/5638534278643358515',
+      '/post/6102359653929218092',
+      '/post/8870621897334720883'
     ]
   },
   loading: false, //'~/components/Loading.vue',
@@ -28,7 +30,7 @@ export default {
     blogId: '2009247855473385443', //'8090363088623260794',
     blogKey: ' AIzaSyAeWsSP2dhWi4R2UzbhoXVsh4k6MRdYbew',
   },
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */

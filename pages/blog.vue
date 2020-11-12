@@ -1,5 +1,5 @@
 <template>
-  <PostList />
+  <PostList :preview="false" />
 </template>
 
 <script>

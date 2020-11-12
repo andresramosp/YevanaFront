@@ -109,7 +109,7 @@ h2, h3, h4 {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 25px;
   color: white;
   font-weight: 100;
   margin: 0px;
@@ -5886,6 +5886,12 @@ header {
   padding-bottom: 50px;
   margin-bottom: 50px;
   border-bottom: 1px solid #e5e5e5;
+}
+
+.blogPostListItemPrev {
+  border-bottom: none !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 15px !important;
 }
 
 .blogPostListItem .media-body {

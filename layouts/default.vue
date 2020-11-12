@@ -114,6 +114,14 @@ export default {
   color: white;
   font-size: 25px;
 }
+.blackSectionGradient {
+background-color: #000000;
+background-image: linear-gradient(187deg, #000000 40%, #7f8c8d 85%);
+}
+.mobile .blackSectionGradient {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
 .mobile .blackSection {
   padding: 10px 0 10px 0;
   font-size: 11px;
