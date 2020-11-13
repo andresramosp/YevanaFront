@@ -59,7 +59,7 @@
         </div>
       </div>
     </section> -->
-    <section v-show="!$device.isMobile" class="promotionWrapper">
+    <section v-show="!$device.isMobile" class="promotionWrapper lazyload" data-bg="/img/home/homeParalax.jpg">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -98,7 +98,7 @@
                 RECONQUISTA LA NATURALEZA DESDE TU
                 <nuxt-link to="/alquiler-campers">CAMPER VAN</nuxt-link>
               </span> -->
-              <img class="logo-menu-home-separator" src="/img/logo.png" style="height: auto" alt="Logo de Yevana" />
+              <img class="lazyload logo-menu-home-separator" data-src="/img/logo.png" style="height: auto" alt="Logo de Yevana" />
             </div>
           </div>
         </div>
@@ -119,6 +119,7 @@ import CustomerComments from "~/components/home/CustomerComments.vue";
 import VehicleService from "~/services/vehicleService";
 import State from "~/services/state";
 import homeMixins from "~/mixins/homeMixin";
+import "lazysizes/plugins/unveilhooks/ls.unveilhooks";
 export default {
   components: {
     CustomerComments,

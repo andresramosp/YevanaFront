@@ -4468,7 +4468,7 @@ header {
 
 /*=== 6.2 PROMOTION ===*/
 .promotionWrapper {
-  background-image: url("/img/home/homeParalax.jpg");
+  /* background-image: url("/img/home/homeParalax.jpg"); */
   background-attachment: fixed;
   width: 100%;
   background-size: cover;
