@@ -22,8 +22,8 @@
                   <div class="col-xs-3 no-padding">
                     <a href="/img/home/clientes/clientes1.jpg" rel="gallery-2" class="swipebox">
                       <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes1.jpg"
+                        class="lazyload img-responsive img-thumbnail"
+                        data-src="/img/home/clientes/clientes1.jpg"
                         alt="Cliente contento tras alquilar una furgoneta de Yevana"
                       />
                     </a>
@@ -31,8 +31,8 @@
                   <div class="col-xs-3 no-padding">
                     <a href="/img/home/clientes/clientes2.jpg" rel="gallery-2" class="swipebox">
                       <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes2.jpg"
+                        class="lazyload img-responsive img-thumbnail"
+                        data-src="/img/home/clientes/clientes2.jpg"
                         alt="Cliente contento tras alquilar una furgoneta de Yevana"
                       />
                     </a>
@@ -40,8 +40,8 @@
                   <div class="col-xs-3 no-padding">
                     <a href="/img/home/clientes/clientes3.jpg" rel="gallery-2" class="swipebox">
                       <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes3.jpg"
+                        class="lazyload img-responsive img-thumbnail"
+                        data-src="/img/home/clientes/clientes3.jpg"
                         alt="Cliente contento tras alquilar una furgoneta de Yevana"
                       />
                     </a>
@@ -49,8 +49,8 @@
                   <div class="col-xs-3 no-padding">
                     <a href="/img/home/clientes/clientes4.jpg" rel="gallery-2" class="swipebox">
                       <img
-                        class="img-responsive img-thumbnail"
-                        src="/img/home/clientes/clientes4.jpg"
+                        class="lazyload img-responsive img-thumbnail"
+                        data-src="/img/home/clientes/clientes4.jpg"
                         alt="Cliente contento tras alquilar una furgoneta de Yevana"
                       />
                     </a>

@@ -20,21 +20,22 @@
         </div>
       </div>
       <!-- Versión Estática -->
-      <!-- <div class="row isotopeContainer">
+      <div class="row isotopeContainer">
         <div class="col-sm-4 isotopeSelector alquila">
           <article>
             <figure>
               <img
-                src="/img/vehiculos/YEVANA_RD.jpg"
+                class="lazyload"
+                data-src="/img/vehiculos/YEVANA_RD.jpg"
                 alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 110 CDI camperizada por Yevana para alquiler o venta en Madrid"
                 style="max-height: 240px"
               />
-              <div style="text-align: center; display: none">
+              <div v-if="$device.isMobile" style="text-align: center">
                 <a href="/furgoneta-camper/RD" class="mobile-caption">
                   Red Devil
                 </a>
               </div>
-              <div class="overlay">
+              <div v-else class="overlay">
                 <a href="/furgoneta-camper/RD" class="fancybox-pop"
                   ><div class="overlayInfo" style="margin-top: 20px">
                     <h5>
@@ -58,16 +59,17 @@
           <article>
             <figure>
               <img
-                src="/img/vehiculos/YEVANA_EM.jpg"
+                class="lazyload"
+                data-src="/img/vehiculos/YEVANA_EM.jpg"
                 alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 116 CDI camperizada por Yevana para alquiler o venta en Madrid"
                 style="max-height: 240px"
               />
-              <div style="text-align: center; display: none">
+              <div v-if="$device.isMobile" style="text-align: center">
                 <a href="/furgoneta-camper/EM" class="mobile-caption">
                   Emerald
                 </a>
               </div>
-              <div class="overlay">
+              <div v-else class="overlay">
                 <a href="/furgoneta-camper/EM" class="fancybox-pop"
                   ><div class="overlayInfo" style="margin-top: 20px">
                     <h5>
@@ -91,16 +93,17 @@
           <article>
             <figure>
               <img
-                src="/img/vehiculos/YEVANA_BL.jpg"
+                class="lazyload"
+                data-src="/img/vehiculos/YEVANA_BL.jpg"
                 alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
                 style="max-height: 240px"
               />
-              <div style="text-align: center; display: none">
+              <div v-if="$device.isMobile" style="text-align: center">
                 <a href="/furgoneta-camper/BL" class="mobile-caption">
                   Black Label
                 </a>
               </div>
-              <div class="overlay">
+              <div v-else class="overlay">
                 <a href="/furgoneta-camper/BL" class="fancybox-pop"
                   ><div class="overlayInfo" style="margin-top: 20px">
                     <h5>
@@ -124,16 +127,17 @@
           <article>
             <figure>
               <img
-                src="/img/vehiculos/YEVANA_BW.jpg"
+                class="lazyload"
+                data-src="/img/vehiculos/YEVANA_BW.jpg"
                 alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
                 style="max-height: 240px"
               />
-              <div style="text-align: center; display: none">
+              <div v-if="$device.isMobile" style="text-align: center">
                 <a href="/furgoneta-camper/BW" class="mobile-caption">
                   Black &amp; White
                 </a>
               </div>
-              <div class="overlay"></div>
+              <div v-else class="overlay"></div>
             </figure>
           </article>
         </div>
@@ -141,39 +145,41 @@
           <article>
             <figure>
               <img
-                src="/img/vehiculos/YEVANA_NE.jpg"
+                class="lazyload"
+                data-src="/img/vehiculos/YEVANA_NE.jpg"
                 alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
                 style="max-height: 240px"
               />
-              <div style="text-align: center; display: none">
+              <div v-if="$device.isMobile" style="text-align: center;">
                 <a href="/furgoneta-camper/NE" class="mobile-caption">
                   Neptune
                 </a>
               </div>
-              <div class="overlay"></div>
+              <div v-else class="overlay"></div>
             </figure>
           </article>
         </div>
         <div class="col-sm-4 isotopeSelector alquila">
           <article>
             <figure>
-              <img
-                src="/img/vehiculos/YEVANA_NG.jpg"
+              <img  
+                class="lazyload"
+                data-src="/img/vehiculos/YEVANA_NG.jpg"
                 alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
                 style="max-height: 240px"
               />
-              <div style="text-align: center; display: none">
+              <div v-if="$device.isMobile" style="text-align: center;">
                 <a href="/furgoneta-camper/NG" class="mobile-caption">
                   New Glory
                 </a>
               </div>
-              <div class="overlay"></div>
+              <div v-else class="overlay"></div>
             </figure>
           </article>
         </div>
-      </div> -->
+      </div>
       <!-- Versión Dinámica -->
-      <div class="row isotopeContainer">
+      <!-- <div class="row isotopeContainer">
         <div
           v-for="vehicle in vehicles"
           :key="vehicles.indexOf(vehicle)"
@@ -222,7 +228,7 @@
             </figure>
           </article>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

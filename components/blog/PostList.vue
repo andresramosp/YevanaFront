@@ -29,8 +29,8 @@
             >
               <a class="media-left" href="#">
                 <img
-                  :class="`media-object ${preview ? 'previewImg' : 'fullImg'}`"
-                  :src="getImgUrlFromPost(post)"
+                  :class="`lazyload media-object ${preview ? 'previewImg' : 'fullImg'}`"
+                  :data-src="getImgUrlFromPost(post)"
                   alt="blog-image"
                 />
               </a>

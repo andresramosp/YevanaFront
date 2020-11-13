@@ -86,6 +86,7 @@ export default {
   { src: '~/plugins/vue-calendar.js', ssr: false },
   { src: '~/plugins/vue-toast.js', ssr: false },
   { src: '~/plugins/vue-modal.js', ssr: false },
+  { src: '~/plugins/lazysizes.client.js', ssr: false },
 ],
   /*
   ** Nuxt.js dev-modules
@@ -119,11 +120,12 @@ export default {
   /*
   ** Build configuration
   */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
+ build: {
+  extend (config, { isDev, isClient, loaders: { vue } }) {
+    if (isClient) {
+      vue.transformAssetUrls.img = ['data-src', 'src']
+      vue.transformAssetUrls.source = ['data-srcset', 'srcset']
     }
   }
+}
 }

@@ -19,6 +19,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "bootstrap-vue": "^2.7.0",
     "intersection-observer": "^0.10.0",
+    "lazysizes": "^5.2.2",
     "nuxt": "^2.0.0",
     "nuxt-polyfill": "^1.0.3",
     "smoothscroll-polyfill": "^0.4.4",
