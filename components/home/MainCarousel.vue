@@ -199,11 +199,7 @@ export default {
 };
 </script>
 <style scoped>
-.btn-carousel {
-  color: white; 
-  background-color: #ff891e !important; 
-  border: none !important
-}
+
 /* .desktop .carousel-image {
   animation-name: zoomin;
   animation-duration: 17s;

@@ -20,7 +20,7 @@
         </div>
       </div>
       <!-- Versión Estática -->
-      <div class="row isotopeContainer">
+      <!-- <div class="row isotopeContainer">
         <div class="col-sm-4 isotopeSelector alquila">
           <article>
             <figure>
@@ -133,7 +133,7 @@
                   Black &amp; White
                 </a>
               </div>
-              <div class="overlay"><!----></div>
+              <div class="overlay"></div>
             </figure>
           </article>
         </div>
@@ -150,7 +150,7 @@
                   Neptune
                 </a>
               </div>
-              <div class="overlay"><!----></div>
+              <div class="overlay"></div>
             </figure>
           </article>
         </div>
@@ -167,13 +167,13 @@
                   New Glory
                 </a>
               </div>
-              <div class="overlay"><!----></div>
+              <div class="overlay"></div>
             </figure>
           </article>
         </div>
-      </div>
+      </div> -->
       <!-- Versión Dinámica -->
-      <!-- <div class="row isotopeContainer">
+      <div class="row isotopeContainer">
         <div
           v-for="vehicle in vehicles"
           :key="vehicles.indexOf(vehicle)"
@@ -222,7 +222,7 @@
             </figure>
           </article>
         </div>
-      </div> -->
+      </div>
     </div>
   </section>
 </template>

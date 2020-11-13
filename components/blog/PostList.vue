@@ -29,8 +29,7 @@
             >
               <a class="media-left" href="#">
                 <img
-                  class="media-object"
-                  style="width: 550px !important; height: 350px !important"
+                  :class="`media-object ${preview ? 'previewImg' : 'fullImg'}`"
                   :src="getImgUrlFromPost(post)"
                   alt="blog-image"
                 />
@@ -57,9 +56,14 @@
                 <p style="text-align: justify">
                   {{ getPreviewTextFromPost(post) }}
                 </p>
-                <a @click="goToPost(post.id)" class="btn buttonTransparent"
+                <!-- <a @click="goToPost(post.id)" class="btn buttonCustomPrimary"
                   >Seguir Leyendo</a
-                >
+                > -->
+                   <nuxt-link 
+                    :to="`/post/${post.id}`" 
+                    class="btn buttonTransparent btn-carousel">
+                    Seguir Leyendo
+                  </nuxt-link>
               </div>
             </div>
           </div>
@@ -106,7 +110,7 @@ export default {
       for (var span of spans) {
         text += span.innerText;
       }
-      return text.substring(0, !this.preview ? 300 : 200) + "...";
+      return text.substring(0, !this.preview ? 350 : 200) + "...";
     },
     goToPost(postId) {
       this.$router.push({
@@ -124,6 +128,13 @@ export default {
   font-weight: bold;
   margin-left: 0px;
   margin-right: 0px;
+}
+.previewImg {
+  height: 220px !important
+}
+.fullImg {
+  width: 500px !important;
+  height: 350px !important
 }
 </style>
 

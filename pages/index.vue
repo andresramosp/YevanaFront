@@ -129,7 +129,7 @@ export default {
   },
   mixins: [homeMixins],
   async asyncData({ params }) {
-    const vehiclesResult = []; //await VehicleService.getAll();
+    const vehiclesResult = await VehicleService.getAll();
     return {
       vehicles: vehiclesResult,
       // width: window.outerWidth,
