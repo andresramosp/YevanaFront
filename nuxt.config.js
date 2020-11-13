@@ -30,7 +30,7 @@ export default {
     blogId: '2009247855473385443', //'8090363088623260794',
     blogKey: ' AIzaSyAeWsSP2dhWi4R2UzbhoXVsh4k6MRdYbew',
   },
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
