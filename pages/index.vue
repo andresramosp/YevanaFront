@@ -142,8 +142,7 @@ export default {
     State.menuOpaque = this.$device.isMobile;
     State.activePage = "Inicio";
   },
-  head() {
-    return {
+  head: {
       title:
         "YEVANA | Alquiler, camperización y venta de furgonetas camper en Madrid",
       meta: [
@@ -154,7 +153,6 @@ export default {
             "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!"
         }
       ]
-    };
   }
 };
 </script>
