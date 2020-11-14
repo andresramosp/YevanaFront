@@ -20,8 +20,8 @@
         <div class="row">
           <div class="col-sm-3 col-xs-12">
             <div class="footerContent">
-              <a href="index.html" class="lazyloadfooter-logo" style="text-align: center">
-                <img class="lazy-load" data-src="/img/logo.png" alt="Logo de Yevana" width="120" />
+              <a href="index.html" class="footer-logo" style="text-align: center">
+                <img class="lazyload" data-src="/img/logo.png" alt="Logo de Yevana" width="120" />
               </a>
               <p v-show="!$device.isMobile">
                 Alquiler y venta de furgonetas Camper.

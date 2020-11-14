@@ -51,9 +51,10 @@
             </div>
           </div>
           <img
-            :class="`${index % 2 ? 'fadeableFromRight' : 'fadeableFromLeft'}`"
+            data-expand="800"
+            :class="`lazyload ${index % 2 ? 'fadeableFromRight' : 'fadeableFromLeft'}`"
             alt="car"
-            :src="`/img/modelos/dokker/00${index + 1}.jpg`"
+            :data-src="`/img/modelos/dokker/00${index + 1}.jpg`"
           />
         </div>
 
