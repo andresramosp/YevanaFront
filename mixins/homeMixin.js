@@ -2,10 +2,16 @@ export default {
     mounted() {
         if (process.client) {
           let video = document.querySelector(".autoPlay");
+          let dynComponents = document.querySelectorAll(".loadWithScroll");
           let fadeableFromBottom = document.querySelectorAll(".fadeableFromBottom");
           let fadeableFromLeft = document.querySelectorAll(".fadeableFromLeft");
           let fadeableFromRight = document.querySelectorAll(".fadeableFromRight");
           window.addEventListener("scroll", (e) => {
+            for (let dynComp of dynComponents) {
+              if (this.isScrollIntoView(dynComp, 50)) {
+                this.dynamicComponents[dynComp.id] = dynComp.id;
+              }
+            }
             if (video) {
               if (this.isScrollIntoView(video, 50)) {
                 video.play();

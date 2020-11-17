@@ -1,12 +1,6 @@
 <template>
   <div>
-    <!-- <MainCarousel /> -->
 
-    <!-- <div class="">
-       <video playsinline autoplay muted loop id="clipHome">
-          <source :src="`/video/CLIP_WEB_${$device.isMobile ? 'MOVIL' : 'PC'}1.mp4`" type="video/mp4" />
-        </video>
-    </div> -->
     <div v-if="!$device.isMobile" class="video-responsive">
           <iframe 
             :src="`https://player.vimeo.com/video/${'463587846'}?autoplay=1&loop=1&autopause=0&muted=1`" 
@@ -46,19 +40,6 @@
       </div>
     </section>
     <VehiclesGrid :vehicles="vehicles ? vehicles : []" />
-      <!-- <section class="blackSection">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1 style="text-align: center">
-              <span>
-                <nuxt-link to="/alquiler-campers">ALQUILA </nuxt-link>SIN COMPROMISO TU CAMPER PARA ESTE OTOÑO-INVIERNO
-              </span>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <section v-show="!$device.isMobile" class="promotionWrapper lazyload" data-bg="/img/home/homeParalax.jpg">
       <div class="container">
         <div class="row">
@@ -70,7 +51,6 @@
                   <span>Descubre la perfecta aleación de ingeniería y arte plasmada en una furgoneta camper</span>
                   <br />
                   <br />
-                  <!--<a href="javscript:void(0)" style="color: white" class="btn buttonTransparent">Personaliza tu VAN</a>-->
                 </div>
               </div>
             </div>
@@ -80,40 +60,26 @@
     </section>
     <section>
       <PostList :preview="true" />
-      <!-- <div class>
-        <video id="myVideo" controls width="100%" allow="autoplay" preload="auto" muted class="autoPlay">
-          <source
-            src="https://www.dropbox.com/s/cd0fik8jbwdip80/videoHome.mp4?raw=1"
-            type="video/mp4"
-          />
-        </video>
-      </div> -->
     </section>
     <section class="blackSection blackSectionGradient">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <!-- <span>
-                RECONQUISTA LA NATURALEZA DESDE TU
-                <nuxt-link to="/alquiler-campers">CAMPER VAN</nuxt-link>
-              </span> -->
               <img class="lazyload logo-menu-home-separator" data-src="/img/logo.png" style="height: auto" alt="Logo de Yevana" />
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- <SocialMedia /> -->
-    <CustomerComments />
+    <div class="loadWithScroll" id="CustomerComments" >
+      <component v-bind:is="dynamicComponents.CustomerComments" />
+    </div>
   </div>
 </template>
 
 <script>
-import MainCarousel from "~/components/home/MainCarousel.vue";
 import VehiclesGrid from "~/components/home/VehiclesGrid.vue";
-// import SocialMedia from "~/components/home/SocialMedia.vue";
 import PostList from "~/components/blog/PostList.vue";
 import CustomerComments from "~/components/home/CustomerComments.vue";
 import VehicleService from "~/services/vehicleService";
@@ -123,7 +89,6 @@ import "lazysizes/plugins/unveilhooks/ls.unveilhooks";
 export default {
   components: {
     CustomerComments,
-    MainCarousel,
     VehiclesGrid,
     PostList,
     // SocialMedia
@@ -133,8 +98,7 @@ export default {
     const vehiclesResult = []; // await VehicleService.getAll();
     return {
       vehicles: vehiclesResult,
-      // width: window.outerWidth,
-      // height: window.outerHeight,
+      dynamicComponents: { CustomerComments: null }
     };
   },
   created() {
