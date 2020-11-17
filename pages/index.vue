@@ -38,7 +38,7 @@
         </div>
       </div>
     </section>
-    <div class="loadWithScroll" id="vehiclesGrid">
+    <div class="loadWithScroll_" id="vehiclesGrid">
       <section class="whiteSection">
         <div class="container">
           <div class="row">
@@ -158,7 +158,7 @@ export default {
   mixins: [homeMixins],
   async asyncData({ params }) {
     return {
-      vehiclesGridVisible: false,
+      vehiclesGridVisible: true,
       customerCommentsVisible: false,
     };
   },
@@ -175,7 +175,7 @@ export default {
         hid: "description-home",
         name: "description",
         content:
-          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!",
+          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más exclusivas y económicas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!",
       },
     ],
   },
