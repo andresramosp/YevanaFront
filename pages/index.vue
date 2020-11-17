@@ -154,7 +154,6 @@ export default {
   components: {
     VehiclesGrid,
     PostList,
-    // SocialMedia
   },
   mixins: [homeMixins],
   async asyncData({ params }) {
