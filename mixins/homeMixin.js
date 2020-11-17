@@ -8,8 +8,8 @@ export default {
           let fadeableFromRight = document.querySelectorAll(".fadeableFromRight");
           window.addEventListener("scroll", (e) => {
             for (let dynComp of dynComponents) {
-              if (this.isScrollIntoView(dynComp, 50)) {
-                this.dynamicComponents[dynComp.id] = dynComp.id;
+              if (this.isScrollIntoView(dynComp, 20)) {
+                this[dynComp.id + 'Visible'] = true;
               }
             }
             if (video) {

@@ -1,241 +1,85 @@
 <template>
-  <section class="whiteSection">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="sectionTitle" style="margin-bottom: 25px">
-            <h2>
-              <span>PRUEBA NUESTRAS CAMPERS MÁS EXCLUSIVAS</span>
-            </h2>
-            <div>
-              Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores
-              furgonetas camperizadas de Madrid. Somos especialistas en diseño,
-              fabricación, alquiler y venta de furgonetas camper. Nuestro equipo
-              de ingenieros y artesanos llevan años diseñando las mejores
-              experiencias camper para hacer de tu vida un continuo viaje. Somos
-              camperizadores profesionales y disponemos de modelos camper de
-              serie. <nuxt-link to="/modelo/dokker">¡Descúbrelos!</nuxt-link>
-            </div>
+  <div class="row isotopeContainer">
+    <div
+      v-for="vehicle in vehicles"
+      :key="vehicles.indexOf(vehicle)"
+      class="col-sm-4 isotopeSelector alquila"
+    >
+      <article>
+        <figure>
+          <img
+            :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg'"
+            :alt="`Furgoneta Camper ${getModeloName(
+              vehicle
+            )} camperizada por Yevana para alquiler o venta en Madrid`"
+            style="max-height: 240px"
+            @click="goToVehicle(vehicle)"
+          />
+          <div
+            v-show="$device.isMobile && vehicle.Disponible"
+            style="text-align: center"
+          >
+            <nuxt-link
+              :to="'/furgoneta-camper/' + vehicle.VehiculoID"
+              class="mobile-caption"
+            >
+              {{ vehicle.Nombre }}
+            </nuxt-link>
           </div>
-        </div>
-      </div>
-      <!-- Versión Estática -->
-      <div class="row isotopeContainer">
-        <div class="col-sm-4 isotopeSelector alquila">
-          <article>
-            <figure>
-              <img
-                class="lazyload"
-                data-src="/img/vehiculos/YEVANA_RD.jpg"
-                alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 110 CDI camperizada por Yevana para alquiler o venta en Madrid"
-                style="max-height: 240px"
-              />
-              <div v-if="$device.isMobile" style="text-align: center">
-                <a href="/furgoneta-camper/RD" class="mobile-caption">
-                  Red Devil
-                </a>
+          <div
+            v-show="!$device.isMobile || !vehicle.Disponible"
+            class="overlay"
+          >
+            <nuxt-link
+              v-if="vehicle.Disponible"
+              :to="'/furgoneta-camper/' + vehicle.VehiculoID"
+              class="fancybox-pop"
+            >
+              <div class="overlayInfo" style="margin-top: 20px">
+                <h5 v-show="vehicle.Disponible">
+                  <span
+                    style="font-size: 25px; color: white; font-weight: bold"
+                    >{{ vehicle.Nombre }}</span
+                  >
+                  <br />
+                  <br />Desde
+                  <span
+                    >{{
+                      vehicle.PreciosActuales.find(
+                        (pr) => pr.Temporada === "Baja"
+                      ).Precio
+                    }}€</span
+                  >
+                  <br />
+                  <br />
+                  <span>Ver detalles</span>
+                </h5>
+                <h5 v-show="!vehicle.Disponible">
+                  <span>Próximamente!</span>
+                </h5>
               </div>
-              <div v-else class="overlay">
-                <a href="/furgoneta-camper/RD" class="fancybox-pop"
-                  ><div class="overlayInfo" style="margin-top: 20px">
-                    <h5>
-                      <span
-                        style="font-size: 25px; color: white; font-weight: bold"
-                        >Red Devil</span
-                      >
-                      <br />
-                      <br />Desde <span>70€</span> <br />
-                      <br />
-                      <span>Ver detalles</span>
-                    </h5>
-                    <h5 style="display: none"><span>Próximamente!</span></h5>
-                  </div></a
-                >
-              </div>
-            </figure>
-          </article>
-        </div>
-        <div class="col-sm-4 isotopeSelector alquila">
-          <article>
-            <figure>
-              <img
-                class="lazyload"
-                data-src="/img/vehiculos/YEVANA_EM.jpg"
-                alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 116 CDI camperizada por Yevana para alquiler o venta en Madrid"
-                style="max-height: 240px"
-              />
-              <div v-if="$device.isMobile" style="text-align: center">
-                <a href="/furgoneta-camper/EM" class="mobile-caption">
-                  Emerald
-                </a>
-              </div>
-              <div v-else class="overlay">
-                <a href="/furgoneta-camper/EM" class="fancybox-pop"
-                  ><div class="overlayInfo" style="margin-top: 20px">
-                    <h5>
-                      <span
-                        style="font-size: 25px; color: white; font-weight: bold"
-                        >Emerald</span
-                      >
-                      <br />
-                      <br />Desde <span>70€</span> <br />
-                      <br />
-                      <span>Ver detalles</span>
-                    </h5>
-                    <h5 style="display: none"><span>Próximamente!</span></h5>
-                  </div></a
-                >
-              </div>
-            </figure>
-          </article>
-        </div>
-        <div class="col-sm-4 isotopeSelector alquila">
-          <article>
-            <figure>
-              <img
-                class="lazyload"
-                data-src="/img/vehiculos/YEVANA_BL.jpg"
-                alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
-                style="max-height: 240px"
-              />
-              <div v-if="$device.isMobile" style="text-align: center">
-                <a href="/furgoneta-camper/BL" class="mobile-caption">
-                  Black Label
-                </a>
-              </div>
-              <div v-else class="overlay">
-                <a href="/furgoneta-camper/BL" class="fancybox-pop"
-                  ><div class="overlayInfo" style="margin-top: 20px">
-                    <h5>
-                      <span
-                        style="font-size: 25px; color: white; font-weight: bold"
-                        >Black Label</span
-                      >
-                      <br />
-                      <br />Desde <span>80€</span> <br />
-                      <br />
-                      <span>Ver detalles</span>
-                    </h5>
-                    <h5 style="display: none"><span>Próximamente!</span></h5>
-                  </div></a
-                >
-              </div>
-            </figure>
-          </article>
-        </div>
-        <div class="col-sm-4 isotopeSelector alquila">
-          <article>
-            <figure>
-              <img
-                class="lazyload"
-                data-src="/img/vehiculos/YEVANA_BW.jpg"
-                alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
-                style="max-height: 240px"
-              />
-              <div v-if="$device.isMobile" style="text-align: center">
-                <a href="/furgoneta-camper/BW" class="mobile-caption">
-                  Black &amp; White
-                </a>
-              </div>
-              <div v-else class="overlay"></div>
-            </figure>
-          </article>
-        </div>
-        <div class="col-sm-4 isotopeSelector alquila">
-          <article>
-            <figure>
-              <img
-                class="lazyload"
-                data-src="/img/vehiculos/YEVANA_NE.jpg"
-                alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
-                style="max-height: 240px"
-              />
-              <div v-if="$device.isMobile" style="text-align: center;">
-                <a href="/furgoneta-camper/NE" class="mobile-caption">
-                  Neptune
-                </a>
-              </div>
-              <div v-else class="overlay"></div>
-            </figure>
-          </article>
-        </div>
-        <div class="col-sm-4 isotopeSelector alquila">
-          <article>
-            <figure>
-              <img  
-                class="lazyload"
-                data-src="/img/vehiculos/YEVANA_NG.jpg"
-                alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
-                style="max-height: 240px"
-              />
-              <div v-if="$device.isMobile" style="text-align: center;">
-                <a href="/furgoneta-camper/NG" class="mobile-caption">
-                  New Glory
-                </a>
-              </div>
-              <div v-else class="overlay"></div>
-            </figure>
-          </article>
-        </div>
-      </div>
-      <!-- Versión Dinámica -->
-      <!-- <div class="row isotopeContainer">
-        <div
-          v-for="vehicle in vehicles"
-          :key="vehicles.indexOf(vehicle)"
-          class="col-sm-4 isotopeSelector alquila"
-        >
-          <article>
-            <figure>
-              <img
-                :src="'/img/vehiculos/YEVANA_' + vehicle.VehiculoID + '.jpg'"
-                :alt="`Furgoneta Camper ${getModeloName(vehicle)} camperizada por Yevana para alquiler o venta en Madrid`"
-                style="max-height: 240px"
-                @click="goToVehicle(vehicle)"
-              />
-              <div v-show="$device.isMobile && vehicle.Disponible" style="text-align: center">
-                <nuxt-link
-                    :to="'/furgoneta-camper/' + vehicle.VehiculoID"
-                    class="mobile-caption"
-                >
-                  {{vehicle.Nombre}}
-                </nuxt-link>
-              </div>
-              <div v-show="!$device.isMobile || !vehicle.Disponible" class="overlay">
-                   <nuxt-link
-                      v-if="vehicle.Disponible"
-                      :to="'/furgoneta-camper/' + vehicle.VehiculoID"
-                      class="fancybox-pop"
-                    >
-                  <div class="overlayInfo" style="margin-top:20px">
-                    <h5 v-show="vehicle.Disponible">
-                      <span
-                        style="font-size: 25px; color: white; font-weight: bold"
-                      >{{vehicle.Nombre}}</span>
-                      <br />
-                      <br />Desde
-                      <span>{{vehicle.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>
-                      <br />
-                      <br />
-                      <span>Ver detalles</span>
-                    </h5>
-                    <h5 v-show="!vehicle.Disponible">
-                      <span>Próximamente!</span>
-                    </h5>
-                  </div>
-                </nuxt-link>
-              </div>
-            </figure>
-          </article>
-        </div>
-      </div> -->
+            </nuxt-link>
+          </div>
+        </figure>
+      </article>
     </div>
-  </section>
+  </div>
 </template>
 <script>
+import VehicleService from "~/services/vehicleService";
 export default {
-  props: ["vehicles"],
+  data() {
+    return {
+      vehicles: [],
+    };
+  },
+  created() {
+    this.getVehicles();
+  },
   methods: {
+    async getVehicles() {
+      this.vehicles = await VehicleService.getAll();
+    },
     goToVehicle(vehicle) {
       if (vehicle.Disponible)
         this.$router.push({

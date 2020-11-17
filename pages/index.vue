@@ -1,28 +1,27 @@
 <template>
   <div>
-
     <div v-if="!$device.isMobile" class="video-responsive">
-          <iframe 
-            :src="`https://player.vimeo.com/video/${'463587846'}?autoplay=1&loop=1&autopause=0&muted=1`" 
-            width="640" height="360" 
-            frameborder="0" 
-            allow="autoplay; fullscreen" 
-            allowfullscreen>
-          </iframe>
+      <iframe
+        :src="`https://player.vimeo.com/video/${'463587846'}?autoplay=1&loop=1&autopause=0&muted=1`"
+        width="640"
+        height="360"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      >
+      </iframe>
     </div>
     <div v-else class="video-responsive">
-        
-           <iframe 
-            :src="`https://player.vimeo.com/video/${'463587846'}?autoplay=1&loop=1&autopause=0&muted=1`" 
-            width="640" height="360" 
-            frameborder="0" 
-            allow="autoplay; fullscreen" 
-            allowfullscreen>
-          </iframe>
-        
-
+      <iframe
+        :src="`https://player.vimeo.com/video/${'463587846'}?autoplay=1&loop=1&autopause=0&muted=1`"
+        width="640"
+        height="360"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      >
+      </iframe>
     </div>
-
 
     <section class="blackSection">
       <div class="container">
@@ -30,25 +29,59 @@
           <div class="col-xs-12">
             <div style="text-align: center">
               <h1>
-                 <nuxt-link to="/alquiler-campers">ALQUILER</nuxt-link>
-                  Y <nuxt-link to="/modelo/dokker">VENTA</nuxt-link> 
-                  DE FURGONETAS CAMPER EN MADRID
+                <nuxt-link to="/alquiler-campers">ALQUILER</nuxt-link>
+                Y <nuxt-link to="/modelo/dokker">VENTA</nuxt-link>
+                DE FURGONETAS CAMPER EN MADRID
               </h1>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <VehiclesGrid :vehicles="vehicles ? vehicles : []" />
-    <section v-show="!$device.isMobile" class="promotionWrapper lazyload" data-bg="/img/home/homeParalax.jpg">
+    <div class="loadWithScroll" id="vehiclesGrid">
+      <section class="whiteSection">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="sectionTitle" style="margin-bottom: 25px">
+                <h2>
+                  <span>PRUEBA NUESTRAS CAMPERS MÁS EXCLUSIVAS</span>
+                </h2>
+                <div>
+                  Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores
+                  furgonetas camperizadas de Madrid. Somos especialistas en
+                  diseño, fabricación, alquiler y venta de furgonetas camper.
+                  Nuestro equipo de ingenieros y artesanos llevan años diseñando
+                  las mejores experiencias camper para hacer de tu vida un
+                  continuo viaje. Somos camperizadores profesionales y
+                  disponemos de modelos camper de serie.
+                  <nuxt-link to="/modelo/dokker">¡Descúbrelos!</nuxt-link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <VehiclesGrid v-if="vehiclesGridVisible" />
+        </div>
+      </section>
+    </div>
+    <section
+      v-show="!$device.isMobile"
+      class="promotionWrapper lazyload"
+      data-bg="/img/home/homeParalax.jpg"
+    >
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
             <div class="promotionTable">
               <div class="promotionTableInner">
                 <div class="promotionInfo">
-                  <h2 style="color: #ffffffb5; margin: 0px">Engineering Van Art</h2>
-                  <span>Descubre la perfecta aleación de ingeniería y arte plasmada en una furgoneta camper</span>
+                  <h2 style="color: #ffffffb5; margin: 0px">
+                    Engineering Van Art
+                  </h2>
+                  <span
+                    >Descubre la perfecta aleación de ingeniería y arte plasmada
+                    en una furgoneta camper</span
+                  >
                   <br />
                   <br />
                 </div>
@@ -66,14 +99,47 @@
         <div class="row">
           <div class="col-xs-12">
             <div style="text-align: center">
-              <img class="lazyload logo-menu-home-separator" data-src="/img/logo.png" style="height: auto" alt="Logo de Yevana" />
+              <img
+                class="lazyload logo-menu-home-separator"
+                data-src="/img/logo.png"
+                style="height: auto"
+                alt="Logo de Yevana"
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
-    <div class="loadWithScroll" id="CustomerComments" >
-      <component v-bind:is="dynamicComponents.CustomerComments" />
+    <div class="loadWithScroll" id="customerComments">
+      <section class="whiteSection">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="sectionTitle" style="margin-bottom: 0px">
+                <h2>
+                  <span>QUÉ OPINAN NUESTROS VIAJEROS</span>
+                </h2>
+                <div>
+                  No queremos contártelo, queremos que seas tú el que lo
+                  descubra. Deja de soñar y emprende ya tu viaje en autocaravana
+                  camper. Aquí te dejamos las opiniones y experiencias de otros
+                  viajeros, aunque ya sabes... no es lo mismo vivirlo a que te
+                  lo cuenten.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-if="customerCommentsVisible">
+            <script
+              src="https://apps.elfsight.com/p/platform.js"
+              defer
+            ></script>
+            <div
+              class="elfsight-app-00c90827-7dcb-4b11-be9c-308448fb88db"
+            ></div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -81,24 +147,20 @@
 <script>
 import VehiclesGrid from "~/components/home/VehiclesGrid.vue";
 import PostList from "~/components/blog/PostList.vue";
-import CustomerComments from "~/components/home/CustomerComments.vue";
-import VehicleService from "~/services/vehicleService";
 import State from "~/services/state";
 import homeMixins from "~/mixins/homeMixin";
 import "lazysizes/plugins/unveilhooks/ls.unveilhooks";
 export default {
   components: {
-    CustomerComments,
     VehiclesGrid,
     PostList,
     // SocialMedia
   },
   mixins: [homeMixins],
   async asyncData({ params }) {
-    const vehiclesResult = []; // await VehicleService.getAll();
     return {
-      vehicles: vehiclesResult,
-      dynamicComponents: { CustomerComments: null }
+      vehiclesGridVisible: false,
+      customerCommentsVisible: false,
     };
   },
   created() {
@@ -107,23 +169,21 @@ export default {
     State.activePage = "Inicio";
   },
   head: {
-      title:
-        "YEVANA | Alquiler, camperización y venta de furgonetas camper en Madrid",
-      meta: [
-        {
-          hid: "description-home",
-          name: "description",
-          content:
-            "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!"
-        }
-      ]
-  }
+    title:
+      "YEVANA | Alquiler, camperización y venta de furgonetas camper en Madrid",
+    meta: [
+      {
+        hid: "description-home",
+        name: "description",
+        content:
+          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más exclusivas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!",
+      },
+    ],
+  },
 };
 </script>
 
 <style scoped>
-
-
 #clipHome {
   position: relative;
   right: 0;
