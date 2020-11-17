@@ -218,7 +218,7 @@ background-image: linear-gradient(187deg, #000000 40%, #7f8c8d 85%);
   padding-right: 0px;
 }
 
-.btn-carousel {
+.btn-orange-solid {
   color: white !important; 
   background-color: #ff891e !important; 
   border: none !important

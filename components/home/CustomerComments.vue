@@ -4,6 +4,20 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
+            <div class="sectionTitle" style="margin-bottom: 0px">
+              <h2>
+                <span>QUÉ OPINAN NUESTROS VIAJEROS</span>
+              </h2>
+              <div>No queremos contártelo, queremos que seas tú el que lo descubra. Deja de soñar y emprende ya tu viaje en autocaravana camper. 
+                Aquí te dejamos las opiniones y experiencias de otros viajeros, aunque ya sabes... no es lo mismo vivirlo a que te lo cuenten.</div>
+            </div>
+          </div>
+        </div>
+
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-00c90827-7dcb-4b11-be9c-308448fb88db"></div>
+        <!-- <div class="row">
+          <div class="col-xs-12">
             <div class="sectionTitle" style="margin-bottom: 25px">
               <h2>
                 <span>QUÉ OPINAN NUESTROS VIAJEROS</span>
@@ -64,20 +78,14 @@
         <div class="row" style="margin-top:15px">
           <div class="col-xs-12">
             <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-              <!-- Bottom Carousel Indicators -->
-              <!--<ol class="carousel-indicators">
-                                <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#quote-carousel" data-slide-to="1"></li>
-                                <li data-target="#quote-carousel" data-slide-to="2"></li>
-              </ol>-->
-              <!-- Carousel Slides / Quotes -->
+
               <div class="carousel-inner">
-                <!-- Quote 1 -->
+
                 <div class="item active">
                   <blockquote>
                     <div class="row">
                       <div class="col-sm-12">
-                        <!--<img src="/img/home/clientes/comillas1.png" style="display: inline-block; margin-top:-10px" width="30" />-->
+                       
                         <p
                           style="font-size: 15px !important"
                         >Experiencia de sobresaliente!! Tanto por la furgo, que está cuidada al detalle aprovechando el espacio al máximo, cómo por el trato y la atención recibida por los propietarios, muy profesionales! Hemos disfrutado de ella durante una semana y puedo decir que es muy confortable y manejera. Está bien aislada, por lo que no hemos tenido sensación de frío o calor en ningún momento. Sin duda repetiremos !!"</p>
@@ -86,7 +94,7 @@
                     </div>
                   </blockquote>
                 </div>
-                <!-- Quote 2 -->
+
                 <div class="item">
                   <blockquote>
                     <div class="row">
@@ -99,7 +107,7 @@
                     </div>
                   </blockquote>
                 </div>
-                <!-- Quote 3 -->
+
                 <div class="item">
                   <blockquote>
                     <div class="row">
@@ -112,7 +120,7 @@
                     </div>
                   </blockquote>
                 </div>
-                <!-- Quote 4 -->
+
                 <div class="item">
                   <blockquote>
                     <div class="row">
@@ -127,12 +135,10 @@
                 </div>
               </div>
 
-              <!-- Carousel Buttons Next/Prev -->
-              <!--<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-              <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>-->
+              
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 </template>

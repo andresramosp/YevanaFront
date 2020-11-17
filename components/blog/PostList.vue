@@ -61,7 +61,7 @@
                 > -->
                    <nuxt-link 
                     :to="`/post/${post.id}`" 
-                    class="btn buttonTransparent btn-carousel">
+                    class="btn buttonTransparent btn-orange-solid">
                     Seguir Leyendo
                   </nuxt-link>
               </div>

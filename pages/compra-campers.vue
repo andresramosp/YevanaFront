@@ -2,12 +2,12 @@
   <div>
     <TopImageBar 
       image="tapiceria" 
-      title="Alquila una de nuestras Campers" 
+      title="Compra una de nuestras Campers" 
       text="Todas nuestras Camper cuentan con nuevas experiencias de serie. <br /> Visítanos en nuestras instalaciones de Madrid." 
     />
-     <VehiclesList 
+    <VehiclesList 
       v-if="vehicles.length > 0" 
-      :mode="'alquiler'"
+      :mode="'compra'"
       :vehicles="vehicles" 
     />
   </div>
@@ -36,28 +36,21 @@ export default {
   },
   created() {
     State.menuOpen = false;
-    State.activePage = "Alquila";
+    State.activePage = "Compra";
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;
-    // this.$nextTick(async () => {
-    //   if (process.client) {
-    //     this.$nuxt.$loading.start();
-    //     this.vehicles = await VehicleService.getAll();
-    //     this.$nuxt.$loading.finish();
-    //   }
-    // });
   },
   head() {
     return {
       title:
-        "YEVANA | Alquiler furgonetas Camper en Madrid",
+        "YEVANA | Venta de furgonetas Camper en Madrid",
       meta: [
         {
           hid: "description-alquileres",
           name: "description",
           content:
-            "Alquiler de furgonetas Camper en Madrid. Vive una experiencia única. ✅ Reserva online tus vacaciones. Seguro a todo riesgo. ¡Asesoramiento en tu escapada!"
+            "Venta de furgonetas Camper en Madrid. Compra una de nuestras furgonetas camperizadas y vive una experiencia única. ✅"
         }
       ]
     };

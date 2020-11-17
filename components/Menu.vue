@@ -30,6 +30,9 @@
               <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
                 <nuxt-link :to="'/alquiler-campers'" class="dropdown-toggle">Alquila</nuxt-link>
               </li>
+              <li :class="`dropdown singleDrop ${activePage == 'Compra' ? 'active' : ''}`">
+                <nuxt-link :to="'/compra-campers'" class="dropdown-toggle">Compra</nuxt-link>
+              </li>
               <li :class="`dropdown singleDrop ${activePage == 'Modelos' ? 'active' : ''}`">
                 <a href="/modelo/dokker" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modelos</a>
                 <ul class="dropdown-menu dropdown-menu-left">

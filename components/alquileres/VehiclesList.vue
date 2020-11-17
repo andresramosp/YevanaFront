@@ -2,11 +2,7 @@
   <!-- PAGE TITLE -->
   <div>
     <!-- PAGE TITLE -->
-    <TopImageBar 
-      image="tapiceria" 
-      title="Alquila una de nuestras Campers" 
-      text="Todas nuestras Camper cuentan con nuevas experiencias de serie. <br /> Visítanos en nuestras instalaciones de Madrid." 
-    />
+ 
     <section class="mainContentSection packagesSection">
       <div class="container">
         <div class="row">
@@ -15,11 +11,11 @@
             <div style="text-align: justify; margin-bottom: 25px">Nuestra flota cuenta con las mejores furgonetas camper de alquiler de Madrid. Camperizaciones únicas en diseño, calidad y equipamiento. Todas nuestras furgos cuentan con placa solar, calefacción estacionaria y un equipamiento super completo.
               Nuestra gama dispone de una gran variedad de tamaños, accesorios y extras para configurar todo tipo de experencias. Tanto si te gusta el entorno rural
               como la naturaleza más indómita, o eres un fan de los festivales, aquí encontrarás tu motorhome perfecta. Y al regreso, si te has enamorado de nuestra camper, siempre podrás hacerla tuya...</div> 
-            <div v-for="vehiculo in vehicles" :key="vehiculo.VehiculoID" class="media packagesList">
+            <div v-for="vehiculo in vehiclesList" :key="vehiculo.VehiculoID" class="media packagesList">
               <!--IMAGEN-->
               <div class="relatedItem media-left">
                 <img
-                  style="display: block; width: 100%; max-width: 400px"
+                  style="display: block; width: 100%; max-width: 400px; min-height: 260px"
                   :src="'/img/vehiculos/YEVANA_' + vehiculo.VehiculoID + '.jpg'"
                   :alt="`Furgoneta Camper ${getModeloName(vehiculo)} camperizada por Yevana para alquiler o venta en Madrid`"
                   @click="goToVehicle(vehiculo)"
@@ -39,7 +35,7 @@
                   <h3 class="media-heading" style="margin-bottom: 10px; font-size: 21px">
                     <nuxt-link v-if="vehiculo.Disponible" :to="'/furgoneta-camper/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</nuxt-link>
                     <span
-                      v-show="$device.isMobile && vehiculo.Disponible"
+                      v-show="$device.isMobile && vehiculo.Disponible && mode != 'compra'"
                       style="font-size: 12px; color: orange; font-weight: bold; float: right"
                     >DESDE {{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>
                   </h3>
@@ -139,18 +135,33 @@
                     </div>
                   </div>
                   <hr v-show="!$device.isMobile" style="margin-top: 6px; margin-bottom: 6px" />
-                </div>
-                <div v-show="!$device.isMobile" class="bodyRight">
-                  <div class="bookingDetails">
-                    <p style="margin-bottom: 20px">Desde</p>
-                    <p
-                      style="margin-bottom: 40px; font-size: 40px"
-                    >{{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</p>
-                    <nuxt-link
-                      v-show="vehiculo.Disponible"
+                  <!-- <div v-if="!$device.isMobile && mode == 'compra'" style="text-align: center; padding-top: 5px">
+                    <nuxt-link 
                       :to="'/furgoneta-camper/' + vehiculo.VehiculoID"
-                      class="btn btn-block buttonTransparent top-row8"
-                    >Ver</nuxt-link>
+                      class="btn buttonTransparent btn-orange-solid" style="float: left">
+                      ver ficha
+                  </nuxt-link>
+                  </div> -->
+                </div>
+                <div v-if="!$device.isMobile" class="bodyRight">
+                  <div class="bookingDetails">
+                    <div v-if="mode == 'alquiler'">
+                       <p style="margin-bottom: 20px">Desde</p>
+                      <p
+                        style="margin-bottom: 40px; font-size: 40px"
+                      >{{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</p>
+                       <nuxt-link
+                        v-show="vehiculo.Disponible"
+                        :to="'/furgoneta-camper/' + vehiculo.VehiculoID"
+                        class="btn btn-block buttonTransparent top-row8"
+                      >Ver</nuxt-link>
+                    </div>
+                    <div v-else style="margin-top: 63px">
+                        <nuxt-link
+                          :to="'/furgoneta-camper/' + vehiculo.VehiculoID"
+                          class="btn btn-block buttonTransparent"
+                      >Ficha</nuxt-link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -163,12 +174,20 @@
 </template>
 <script>
 import VehicleService from "~/services/vehicleService";
-import TopImageBar from "~/components/TopImageBar.vue";
 export default {
   components: {
-    TopImageBar
   },
-  props: ["vehicles"],
+  props: ["vehicles", "mode"],
+  computed: {
+    vehiclesList() {
+      if (this.mode == 'alquiler') {
+        return this.vehicles.filter(v => v.Alquilable);
+      }
+      else {
+        return this.vehicles.filter(v => v.Vendible);
+      }
+    }
+  },
   methods: {
      goToVehicle(vehicle) {
       if (vehicle.Disponible)

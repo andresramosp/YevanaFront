@@ -19,6 +19,7 @@ const VehicleService = {
                 return vehiculos;
             })
             .catch(function (error) {
+                console.log(error)
             })
     },
 
