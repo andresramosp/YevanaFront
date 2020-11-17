@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <VehiclesGrid v-if="vehiclesGridVisible" />
+          <VehiclesGrid :staticData="true" v-if="vehiclesGridVisible" />
         </div>
       </section>
     </div>

@@ -1,5 +1,159 @@
 <template>
-  <div class="row isotopeContainer">
+<div>
+
+  <div v-if="staticData" class="row isotopeContainer">
+    <div class="col-sm-4 isotopeSelector alquila">
+      <article>
+        <figure>
+          <img
+            class="lazyload"
+            data-src="/img/vehiculos/YEVANA_RD.jpg"
+            alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 110 CDI camperizada por Yevana para alquiler o venta en Madrid"
+            style="max-height: 240px"
+          />
+          <div v-if="$device.isMobile" style="text-align: center">
+            <a href="/furgoneta-camper/RD" class="mobile-caption">
+              Red Devil
+            </a>
+          </div>
+          <div v-else class="overlay">
+            <a href="/furgoneta-camper/RD" class="fancybox-pop"
+              ><div class="overlayInfo" style="margin-top: 20px">
+                <h5>
+                  <span style="font-size: 25px; color: white; font-weight: bold"
+                    >Red Devil</span
+                  >
+                  <br />
+                  <br />Desde <span>70€</span> <br />
+                  <br />
+                  <span>Ver detalles</span>
+                </h5>
+                <h5 style="display: none"><span>Próximamente!</span></h5>
+              </div></a
+            >
+          </div>
+        </figure>
+      </article>
+    </div>
+    <div class="col-sm-4 isotopeSelector alquila">
+      <article>
+        <figure>
+          <img
+            class="lazyload"
+            data-src="/img/vehiculos/YEVANA_EM.jpg"
+            alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 116 CDI camperizada por Yevana para alquiler o venta en Madrid"
+            style="max-height: 240px"
+          />
+          <div v-if="$device.isMobile" style="text-align: center">
+            <a href="/furgoneta-camper/EM" class="mobile-caption"> Emerald </a>
+          </div>
+          <div v-else class="overlay">
+            <a href="/furgoneta-camper/EM" class="fancybox-pop"
+              ><div class="overlayInfo" style="margin-top: 20px">
+                <h5>
+                  <span style="font-size: 25px; color: white; font-weight: bold"
+                    >Emerald</span
+                  >
+                  <br />
+                  <br />Desde <span>70€</span> <br />
+                  <br />
+                  <span>Ver detalles</span>
+                </h5>
+                <h5 style="display: none"><span>Próximamente!</span></h5>
+              </div></a
+            >
+          </div>
+        </figure>
+      </article>
+    </div>
+    <div class="col-sm-4 isotopeSelector alquila">
+      <article>
+        <figure>
+          <img
+            class="lazyload"
+            data-src="/img/vehiculos/YEVANA_BL.jpg"
+            alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
+            style="max-height: 240px"
+          />
+          <div v-if="$device.isMobile" style="text-align: center">
+            <a href="/furgoneta-camper/BL" class="mobile-caption">
+              Black Label
+            </a>
+          </div>
+          <div v-else class="overlay">
+            <a href="/furgoneta-camper/BL" class="fancybox-pop"
+              ><div class="overlayInfo" style="margin-top: 20px">
+                <h5>
+                  <span style="font-size: 25px; color: white; font-weight: bold"
+                    >Black Label</span
+                  >
+                  <br />
+                  <br />Desde <span>80€</span> <br />
+                  <br />
+                  <span>Ver detalles</span>
+                </h5>
+                <h5 style="display: none"><span>Próximamente!</span></h5>
+              </div></a
+            >
+          </div>
+        </figure>
+      </article>
+    </div>
+    <div class="col-sm-4 isotopeSelector alquila">
+      <article>
+        <figure>
+          <img
+            class="lazyload"
+            data-src="/img/vehiculos/YEVANA_BW.jpg"
+            alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
+            style="max-height: 240px"
+          />
+          <div v-if="$device.isMobile" style="text-align: center">
+            <a href="/furgoneta-camper/BW" class="mobile-caption">
+              Black &amp; White
+            </a>
+          </div>
+          <div v-else class="overlay"></div>
+        </figure>
+      </article>
+    </div>
+    <div class="col-sm-4 isotopeSelector alquila">
+      <article>
+        <figure>
+          <img
+            class="lazyload"
+            data-src="/img/vehiculos/YEVANA_NE.jpg"
+            alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
+            style="max-height: 240px"
+          />
+          <div v-if="$device.isMobile" style="text-align: center">
+            <a href="/furgoneta-camper/NE" class="mobile-caption"> Neptune </a>
+          </div>
+          <div v-else class="overlay"></div>
+        </figure>
+      </article>
+    </div>
+    <div class="col-sm-4 isotopeSelector alquila">
+      <article>
+        <figure>
+          <img
+            class="lazyload"
+            data-src="/img/vehiculos/YEVANA_NG.jpg"
+            alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
+            style="max-height: 240px"
+          />
+          <div v-if="$device.isMobile" style="text-align: center">
+            <a href="/furgoneta-camper/NG" class="mobile-caption">
+              New Glory
+            </a>
+          </div>
+          <div v-else class="overlay"></div>
+        </figure>
+      </article>
+    </div>
+  </div>
+
+  <div v-else class="row isotopeContainer">
     <div
       v-for="vehicle in vehicles"
       :key="vehicles.indexOf(vehicle)"
@@ -64,6 +218,9 @@
       </article>
     </div>
   </div>
+
+</div>
+
 </template>
 <script>
 import VehicleService from "~/services/vehicleService";
@@ -73,8 +230,10 @@ export default {
       vehicles: [],
     };
   },
+  props: ['staticData'],
   created() {
-    this.getVehicles();
+    if (!this.staticData)
+      this.getVehicles();
   },
   methods: {
     async getVehicles() {

@@ -8,9 +8,9 @@
         <div class="row">
           <div class="col-xs-12">
             <!--LISTA DE VEHÍCULOS-->
-            <div style="text-align: justify; margin-bottom: 25px">Nuestra flota cuenta con las mejores furgonetas camper de alquiler de Madrid. Camperizaciones únicas en diseño, calidad y equipamiento. Todas nuestras furgos cuentan con placa solar, calefacción estacionaria y un equipamiento super completo.
+            <div style="text-align: justify; margin-bottom: 25px">Nuestra flota cuenta con las mejores furgonetas camper de alquiler de Madrid. Camperizaciones únicas en diseño, calidad y equipamiento. Todas nuestras furgos cuentan con placa solar, calefacción estacionaria y ducha.
               Nuestra gama dispone de una gran variedad de tamaños, accesorios y extras para configurar todo tipo de experencias. Tanto si te gusta el entorno rural
-              como la naturaleza más indómita, o eres un fan de los festivales, aquí encontrarás tu motorhome perfecta. Y al regreso, si te has enamorado de nuestra camper, siempre podrás hacerla tuya...</div> 
+              como la naturaleza más indómita, o eres un fan de los festivales, aquí encontrarás tu motorhome perfecta. <span v-show="!$device.isMobile"> Y al regreso, si te has enamorado de nuestra camper, siempre podrás hacerla tuya... </span></div> 
             <div v-for="vehiculo in vehiclesList" :key="vehiculo.VehiculoID" class="media packagesList">
               <!--IMAGEN-->
               <div class="relatedItem media-left">

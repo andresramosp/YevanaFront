@@ -109,10 +109,17 @@ h2, h3, h4 {
 }
 
 h1 {
-  font-size: 25px;
   color: white;
   font-weight: 100;
   margin: 0px;
+}
+
+.desktop h1 {
+  font-size: 25px;
+}
+
+.mobile h1 {
+  font-size: 20px;
 }
 
 h4 {
@@ -373,6 +380,7 @@ a:focus {
   z-index: 5;
   position: relative;
   background-color: #ffffff;
+  font-family: monospace;
 }
 
 .sectionTitle h2 span.lightBg {
@@ -380,7 +388,6 @@ a:focus {
 }
 
 .sectionTitle h2:before {
-  background-color: #e5e5e5;
   content: "";
   display: block;
   height: 1px;
@@ -389,6 +396,10 @@ a:focus {
   width: 100%;
   left: 0;
   z-index: 1;
+}
+
+.desktop .sectionTitle h2:before {
+  background-color: #e5e5e5;
 }
 
 .sectionTitle p {
@@ -2827,7 +2838,7 @@ header {
 
 .mainContentSection, .whiteSection, .lightSection {
   width: 100%;
-  padding: 50px 0 15px 0;
+  padding: 35px 0 15px 0;
   background-color: #ffffff;
   display: block;
 }
@@ -3307,6 +3318,7 @@ header {
 .pageTitle .titleTable .titleTableInner .pageTitleInfo h1 {
   color: #ffffff;
   font-size: 30px;
+  font-family: monospace;
 }
 
 .pageTitle .titleTable .titleTableInner .pageTitleInfo p {
@@ -3370,6 +3382,7 @@ header {
 
 .navbar-nav > li > a {
   text-transform: uppercase;
+  font-family: monospace;
 }
 
 .navbar-nav > li > a:after {
@@ -3430,7 +3443,7 @@ header {
 @media (min-width: 992px) {
   .navbar-nav > li > a {
     margin: 0 8px 29px 8px;
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 
@@ -4506,6 +4519,7 @@ header {
   color: #ffffff;
   margin-bottom: 40px;
   margin: 10px 0 40px 0;
+  font-family: monospace;
 }
 
 .promotionWrapper .promotionTable .promotionTableInner .promotionInfo .rating li {
@@ -5894,8 +5908,14 @@ header {
   margin-bottom: 15px !important;
 }
 
-.blogPostListItem .media-body {
+.desktop .blogPostListItem .media-body {
   padding: 20px;
+}
+
+.mobile .blogPostListItem .media-body {
+  padding: 20px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .blogPostListItem .media-left img {

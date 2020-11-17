@@ -3,7 +3,7 @@
     <TopImageBar 
       image="tapiceria" 
       title="Alquila una de nuestras Campers" 
-      text="Todas nuestras Camper cuentan con nuevas experiencias de serie. <br /> Visítanos en nuestras instalaciones de Madrid." 
+      text="Todas nuestras Camper cuentan con nuevas experiencias de serie. <br /> Visítanos en nuestro taller de Madrid." 
     />
      <VehiclesList 
       v-if="vehicles.length > 0" 
