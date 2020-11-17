@@ -8,7 +8,8 @@ export default {
           let fadeableFromRight = document.querySelectorAll(".fadeableFromRight");
           window.addEventListener("scroll", (e) => {
             for (let dynComp of dynComponents) {
-              if (this.isScrollIntoView(dynComp, -10)) {
+              let percentVisible = parseInt(dynComp.getAttribute('percentVisible'));
+              if (this.isScrollIntoView(dynComp, percentVisible)) {
                 this[dynComp.id + 'Visible'] = true;
               }
             }

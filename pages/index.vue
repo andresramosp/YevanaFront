@@ -110,7 +110,7 @@
         </div>
       </div>
     </section>
-    <div class="loadWithScroll" id="customerComments">
+    <div class="loadWithScroll" percentVisible="-500" id="customerComments">
       <section class="whiteSection">
         <div class="container">
           <div class="row">
