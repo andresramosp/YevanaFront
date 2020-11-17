@@ -38,7 +38,7 @@
         </div>
       </div>
     </section>
-    <div class="loadWithScroll_" id="vehiclesGrid">
+    <div class="loadWithScroll" percentVisible="20" id="vehiclesGrid">
       <section class="whiteSection">
         <div class="container">
           <div class="row">
@@ -158,7 +158,7 @@ export default {
   mixins: [homeMixins],
   async asyncData({ params }) {
     return {
-      vehiclesGridVisible: true,
+      vehiclesGridVisible: false,
       customerCommentsVisible: false,
     };
   },
