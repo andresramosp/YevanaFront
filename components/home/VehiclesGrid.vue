@@ -10,6 +10,7 @@
             data-src="/img/vehiculos/YEVANA_RD.jpg"
             alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 110 CDI camperizada por Yevana para alquiler o venta en Madrid"
             style="max-height: 240px"
+            @click="goToVehicle( { VehiculoID: 'RD', Disponible: true} )"
           />
           <div v-if="$device.isMobile" style="text-align: center">
             <a href="/furgoneta-camper/RD" class="mobile-caption">
@@ -43,6 +44,7 @@
             data-src="/img/vehiculos/YEVANA_EM.jpg"
             alt="Furgoneta Camper Mercedez Benz Marco Polo Vito 116 CDI camperizada por Yevana para alquiler o venta en Madrid"
             style="max-height: 240px"
+            @click="goToVehicle( { VehiculoID: 'EM', Disponible: true} )"
           />
           <div v-if="$device.isMobile" style="text-align: center">
             <a href="/furgoneta-camper/EM" class="mobile-caption"> Emerald </a>
@@ -74,6 +76,7 @@
             data-src="/img/vehiculos/YEVANA_BL.jpg"
             alt="Furgoneta Camper Volkswagen California Ocean T5 L2H2 camperizada por Yevana para alquiler o venta en Madrid"
             style="max-height: 240px"
+            @click="goToVehicle( { VehiculoID: 'BL', Disponible: true} )"
           />
           <div v-if="$device.isMobile" style="text-align: center">
             <a href="/furgoneta-camper/BL" class="mobile-caption">
@@ -152,7 +155,7 @@
       </article>
     </div>
   </div>
-
+  <!-- DINAMICA -->
   <div v-else class="row isotopeContainer">
     <div
       v-for="vehicle in vehicles"
