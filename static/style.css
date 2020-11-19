@@ -343,6 +343,7 @@ a:focus {
 /*=== 2.2 SECTION TITLE ===*/
 .sectionTitle {
   text-align: center;
+  margin-bottom: 25px !important;
 }
 
 @media (max-width: 767px) {
@@ -364,7 +365,7 @@ a:focus {
 
 @media (max-width: 767px) {
   .sectionTitle h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -6453,19 +6454,19 @@ header {
 }
 
 .aboutItem .media .media-left {
-  width: 60px;
-  height: 60px;
-  border-radius: 4px;
-  background-color: #262a2e;
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  background-color: #333;
   padding-right: 0;
   margin-right: 20px;
   text-align: center;
 }
 
 .aboutItem .media .media-left i {
-  font-size: 35px;
-  line-height: 60px;
-  color: #ffffff;
+  font-size: 55px;
+  line-height: 101px;
+  /* color: #ffffff; */
 }
 
 .aboutItem .media .media-body h4 {

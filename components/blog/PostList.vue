@@ -7,7 +7,7 @@
           NOTICIAS, CONSEJOS E INFORMACIÓN PRÁCTICA SOBRE EL MUNDO CAMPER Y LAS
           AUTOCARAVANAS
         </h1>
-        <div v-else class="sectionTitle" style="margin-bottom: 25px">
+        <div v-else class="sectionTitle">
           <h2>
             <span style="background-color: #f0f9f2">BLOG de Yevana</span>
           </h2>

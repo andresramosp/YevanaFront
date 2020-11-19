@@ -265,12 +265,12 @@ export default {
   },
   head() {
     return {
-      title: `YEVANA | Compra de Furgonetas Camper - Diseños exclusivos | Modelo Dacia Dokker Minicamper | Camperizadores en Madrid`,
+      title: `YEVANA | Compra de Furgonetas Camper - Modelo Dacia Dokker Minicamper | Camperizadores en Madrid`,
       meta: [
         {
           hid: "description-furgo",
           name: "description",
-          content: "¿Quieres comprar una furgoneta camper nueva o de ocasión? ✅ Furgonetas camper exclusivas trabajadas a mano. Los mejores camperizadores de Madrid. Especialistas en camperizaciones a medida. Diseños personalizados. Estamos en Madrid."
+          content: "¿Quieres comprar una furgoneta camper nueva o de ocasión? ✅ Furgonetas camper y mini camper trabajadas a mano. Los mejores camperizadores de Madrid. Especialistas en camperizaciones a medida. Diseños personalizados. Estamos en Madrid."
         }
       ]
     };

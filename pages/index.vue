@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
-              <div class="sectionTitle" style="margin-bottom: 25px">
+              <div class="sectionTitle" >
                 <h2>
                   <span>PRUEBA NUESTRAS CAMPERS MÁS EXCLUSIVAS</span>
                 </h2>
@@ -63,9 +63,10 @@
           <VehiclesGrid :staticData="true" v-if="vehiclesGridVisible" />
         </div>
       </section>
+      <ServicesItems />
     </div>
     <section
-      v-show="!$device.isMobile"
+      v-if="!$device.isMobile"
       class="promotionWrapper lazyload"
       data-bg="/img/home/homeParalax.jpg"
     >
@@ -91,25 +92,11 @@
         </div>
       </div>
     </section>
+    <YevanaSeparator v-else />
     <section>
       <PostList :preview="true" />
     </section>
-    <section class="blackSection blackSectionGradient">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div style="text-align: center">
-              <img
-                class="lazyload logo-menu-home-separator"
-                data-src="/img/logo.png"
-                style="height: auto"
-                alt="Logo de Yevana"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <YevanaSeparator />
     <div class="loadWithScroll" percentVisible="-500" id="customerComments">
       <section class="whiteSection">
         <div class="container">
@@ -146,6 +133,8 @@
 
 <script>
 import VehiclesGrid from "~/components/home/VehiclesGrid.vue";
+import ServicesItems from "~/components/home/ServicesItems.vue";
+import YevanaSeparator from "~/components/home/YevanaSeparator.vue";
 import PostList from "~/components/blog/PostList.vue";
 import State from "~/services/state";
 import homeMixins from "~/mixins/homeMixin";
@@ -154,6 +143,8 @@ export default {
   components: {
     VehiclesGrid,
     PostList,
+    ServicesItems,
+    YevanaSeparator
   },
   mixins: [homeMixins],
   async asyncData({ params }) {
@@ -175,7 +166,7 @@ export default {
         hid: "description-home",
         name: "description",
         content:
-          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más exclusivas y económicas del mercado. ¡Descubre nuestros modelos de autocaravanas camper de serie!",
+          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más económicas del mercado. ¡Descubre nuestros modelos de autocaravanas y mini camper de serie!",
       },
     ],
   },
