@@ -12,7 +12,7 @@ export default {
     BookingConfirmation
   },
   mounted() {
-    State.activePage = 'Alquila';
+    State.activePage = 'Alquiler';
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;

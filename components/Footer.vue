@@ -49,7 +49,9 @@
                   <i class="fa fa-home" aria-hidden="true"></i>C/ Mar del Norte 8, 28830, Madrid
                 </li>
                 <li>
-                  <i class="fa fa-phone" aria-hidden="true"></i>661 713 861 - 616 974 883
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                    <a @click="onCall()" href="tel:661 713 861">661 713 861</a> - 
+                    <a @click="onCall()" href="tel:616 974 883">616 974 883</a>
                 </li>
                 <li>
                   <i class="fa fa-envelope-o" aria-hidden="true"></i>
@@ -124,7 +126,12 @@
 <script>
 import CookieLaw from "vue-cookie-law";
 export default {
-  components: { CookieLaw }
+  components: { CookieLaw },
+  methods: {
+    onCall() {
+      gtag('event', 'llamada', { 'event_category': 'contacto' });
+    }
+  }
 };
 </script>
 <style scoped>

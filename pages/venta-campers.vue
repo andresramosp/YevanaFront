@@ -7,7 +7,7 @@
     />
     <VehiclesList 
       v-if="vehicles.length > 0" 
-      :mode="'compra'"
+      :mode="'venta'"
       :vehicles="vehicles" 
     />
   </div>
@@ -36,7 +36,7 @@ export default {
   },
   created() {
     State.menuOpen = false;
-    State.activePage = "Compra";
+    State.activePage = "Venta";
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;

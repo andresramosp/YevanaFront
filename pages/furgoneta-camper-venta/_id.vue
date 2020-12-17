@@ -1,17 +1,17 @@
 <template>
   <div>
-    <VehicleRentDetail :allExtras="allExtras" :vehicle="vehicle" :id="id" />
+    <VehicleSellDetail :allExtras="allExtras" :vehicle="vehicle" :id="id" />
   </div>
 </template>
 
 <script>
-import VehicleRentDetail from "~/components/furgoneta/VehicleRentDetail.vue";
+import VehicleSellDetail from "~/components/furgoneta/VehicleSellDetail.vue";
 import VehicleService from "~/services/vehicleService";
 import ExtrasService from "~/services/extrasService";
 import State from "~/services/state";
 export default {
   components: {
-    VehicleRentDetail
+    VehicleSellDetail
   },
   async asyncData({ params }) {
     const extrasResult = await ExtrasService.getAll();
@@ -25,7 +25,7 @@ export default {
   },
   created() {
     State.menuOpen = false;
-    State.activePage = "Alquiler";
+    State.activePage = "Venta";
     State.menuOpaque = true;
   },
   head() {

@@ -166,7 +166,7 @@
           </b-card-text>
         </b-tab>
         <!-- EXTRAS -->
-        <b-tab title="Extras">
+        <b-tab title="Extras" v-if="state.activePage == 'Alquiler'">
           <b-card-text>
             <div class>
               <div class="col-sm-12 col-xs-12 accordionsTransparent">
@@ -212,7 +212,7 @@
           </b-card-text>
         </b-tab>
         <!-- CALENDARIO -->
-        <b-tab v-if="!$device.isMobile" title="Calendario">
+        <b-tab v-if="!$device.isMobile && state.activePage == 'Alquiler'" title="Calendario" >
           <b-card-text>
             <div class>
               <img src="/img/alquileres/calendarioTemporadas.png" width="720" />
@@ -244,7 +244,7 @@
           </b-card-text>
         </b-tab>
         <!-- SEGURO -->
-        <b-tab title="Seguro">
+        <b-tab title="Seguro" v-if="state.activePage == 'Alquiler'">
           <b-card-text>
             <div class style="text-align: justify; font-size: 13px">
               Todas nuestras reservas cuentan con un seguro a todo riesgo con franquicia, asistencia 24 horas y atención telefónica directa con el personal de Yevana para cualquier duda o circunstancia durante tu viaje por España, Europa o países Ribereños del Mediterráneo.
@@ -276,7 +276,7 @@
             </div>
           </b-card-text>
         </b-tab>
-         <b-tab v-if="!$device.isMobile" title="FAQS">
+         <b-tab v-if="!$device.isMobile && state.activePage == 'Alquiler'" title="FAQS">
           <b-card-text>
             <div>
               <BookingFaqs />
@@ -293,6 +293,7 @@
 import StringService from "~/services/stringService";
 import BookingFaqs from "~/components/bookingFaqs/BookingFaqs.vue";
 import SeguroTable from '~/components/furgoneta/components/SeguroTable.vue'
+import State from "~/services/state";
 export default {
   components: {
     BookingFaqs,
@@ -301,7 +302,8 @@ export default {
   data() {
     return {
       categoriasEquipamiento: [],
-      StringService
+      StringService,
+      state: State
     };
   },
   props: ["vehicle", "extras"],

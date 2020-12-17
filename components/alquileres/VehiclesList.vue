@@ -25,7 +25,7 @@
                   <p>{{vehiculo.Familia + ' ' + ( vehiculo.Familia == 'Mercedes' ? 'Vito' : 'Transporter' )}}</p>
                   <nuxt-link
                     v-show="vehiculo.Disponible"
-                    :to="'/furgoneta-camper/' + vehiculo.VehiculoID"
+                    :to="`${mode == 'venta' ? '/furgoneta-camper-venta/' : '/furgoneta-camper/'}` + vehiculo.VehiculoID"
                     class="btn buttonTransparent"
                   >Ver Más</nuxt-link>
                 </div>
@@ -33,9 +33,12 @@
               <div class="media-body">
                 <div class="bodyLeft">
                   <h3 class="media-heading" style="margin-bottom: 10px; font-size: 21px">
-                    <nuxt-link v-if="vehiculo.Disponible" :to="'/furgoneta-camper/' + vehiculo.VehiculoID">{{vehiculo.Nombre}}</nuxt-link>
+                    <nuxt-link 
+                      v-if="vehiculo.Disponible" 
+                      :to="`${mode == 'venta' ? '/furgoneta-camper-venta/' : '/furgoneta-camper/'}` + vehiculo.VehiculoID">
+                    </nuxt-link>
                     <span
-                      v-show="$device.isMobile && vehiculo.Disponible && mode != 'compra'"
+                      v-show="$device.isMobile && vehiculo.Disponible && mode != 'venta'"
                       style="font-size: 12px; color: orange; font-weight: bold; float: right"
                     >DESDE {{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</span>
                   </h3>
@@ -152,13 +155,13 @@
                       >{{vehiculo.PreciosActuales.find(pr => pr.Temporada === 'Baja').Precio}}€</p>
                        <nuxt-link
                         v-show="vehiculo.Disponible"
-                        :to="'/furgoneta-camper/' + vehiculo.VehiculoID"
+                        :to="`${mode == 'venta' ? '/furgoneta-camper-venta/' : '/furgoneta-camper/'}` + vehiculo.VehiculoID"
                         class="btn btn-block buttonTransparent top-row8"
                       >Ver</nuxt-link>
                     </div>
                     <div v-else style="margin-top: 63px">
                         <nuxt-link
-                          :to="'/furgoneta-camper/' + vehiculo.VehiculoID"
+                          :to="`${mode == 'venta' ? '/furgoneta-camper-venta/' : '/furgoneta-camper/'}` + vehiculo.VehiculoID"
                           class="btn btn-block buttonTransparent"
                       >Ficha</nuxt-link>
                     </div>
@@ -190,10 +193,15 @@ export default {
   },
   methods: {
      goToVehicle(vehicle) {
-      if (vehicle.Disponible)
-      this.$router.push({
-        path: `/furgoneta-camper/${vehicle.VehiculoID}`
-      })
+       if (this.mode == 'alquiler') {
+        if (vehicle.Disponible) {
+          this.$router.push({path: `/furgoneta-camper/${vehicle.VehiculoID}`})
+        }
+       }
+       else {
+         this.$router.push({path: `/furgoneta-camper-venta/${vehicle.VehiculoID}`})
+       }
+
     },
     getModeloName(vehiculo) {
       return vehiculo.FichaTecnica.MarcaModelo.replace('MB', 'Mercedez Benz').replace('VW', 'Volkswagen California Beach');

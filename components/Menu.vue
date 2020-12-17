@@ -27,11 +27,11 @@
               <!-- <li :class="`dropdown singleDrop ${activePage == 'Inicio' ? 'active' : ''}`">
                 <nuxt-link :to="'/'">Yevana</nuxt-link>
               </li> -->
-              <li :class="`dropdown singleDrop ${activePage == 'Alquila' ? 'active' : ''}`">
-                <nuxt-link :to="'/alquiler-campers'" class="dropdown-toggle">Alquila</nuxt-link>
+              <li :class="`dropdown singleDrop ${activePage == 'Alquiler' ? 'active' : ''}`">
+                <nuxt-link :to="'/alquiler-campers'" class="dropdown-toggle">Alquiler</nuxt-link>
               </li>
-              <!-- <li :class="`dropdown singleDrop ${activePage == 'Compra' ? 'active' : ''}`">
-                <nuxt-link :to="'/compra-campers'" class="dropdown-toggle">Compra</nuxt-link>
+              <!-- <li :class="`dropdown singleDrop ${activePage == 'Venta' ? 'active' : ''}`">
+                <nuxt-link :to="'/venta-campers'" class="dropdown-toggle">Venta</nuxt-link>
               </li> -->
               <li :class="`dropdown singleDrop ${activePage == 'Modelos' ? 'active' : ''}`">
                 <a href="/modelo/dokker" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modelos</a>
@@ -83,6 +83,11 @@ export default {
       function() {
         $(this).removeClass('open');
       });
+  },
+  watch: {
+    activePage() {
+      console.log(this.activePage);
+    }
   },
   methods: {
     toggleMenu() {

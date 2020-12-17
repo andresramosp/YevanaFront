@@ -36,7 +36,7 @@ export default {
   },
   created() {
     State.menuOpen = false;
-    State.activePage = "Alquila";
+    State.activePage = "Alquiler";
     State.menuOpaque = true;
     State.footerVisible = true;
     State.menuVisible = true;

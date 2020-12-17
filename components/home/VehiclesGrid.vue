@@ -241,9 +241,10 @@ export default {
   methods: {
     async getVehicles() {
       this.vehicles = await VehicleService.getAll();
+      this.vehicles = this.vehicles.filter(v => !v.Vendible && v.Alquilable);
     },
     goToVehicle(vehicle) {
-      if (vehicle.Disponible)
+      if (vehicle.Disponible && !vehicle.Vendible)
         this.$router.push({
           path: `/furgoneta-camper/${vehicle.VehiculoID}`,
         });

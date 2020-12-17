@@ -28,8 +28,8 @@
                 <div class="media-body">
                   <h4 class="media-heading">Teléfono</h4>
                   <p>
-                    661 713 861
-                    <br />616 974 883
+                     <a @click="onCall()" href="tel:661 713 861">661 713 861</a>
+                    <br /><a @click="onCall()" href="tel:616 974 883">616 974 883</a>
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                 <div class="form-group">
                   <textarea required class="form-control" v-model="mensaje" placeholder="Mensaje"></textarea>
                 </div>
-                <button type="submit" class="btn buttonCustomPrimary">enviar mensaje</button>
+                <button type="submit" :disabled="sending" class="btn buttonCustomPrimary">{{!sending? 'enviar mensaje' : 'enviando...'}}</button>
               </form>
             </div>
           </div>
@@ -135,11 +135,13 @@ export default {
       nombre: "",
       email: "",
       telefono: "",
-      mensaje: ""
+      mensaje: "",
+      sending: false,
     };
   },
   methods: {
     onSend() {
+      this.sending = true;
       return axios({
         url: process.env.baseUrl + "/api/emailContacto",
         method: "post",
@@ -151,6 +153,7 @@ export default {
         }
       })
         .then(data => {
+          gtag('event', 'envio_formulario', { 'event_category': 'contacto' });
           Vue.$toast.open({
             message: "Gracias por tu mensaje! Pronto nos pondremos en contacto contigo.",
             position: "bottom",
@@ -158,6 +161,7 @@ export default {
             dismissible: true,
             duration: 5000
           });
+          this.sending = false;
         })
         .catch(err => {
              Vue.$toast.open({
@@ -167,7 +171,11 @@ export default {
             dismissible: true,
             duration: 5000
           });
+          this.sending = false;
         });
+    },
+    onCall() {
+      gtag('event', 'llamada', { 'event_category': 'contacto' });
     }
   }
 };

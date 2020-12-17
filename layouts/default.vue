@@ -114,6 +114,9 @@ export default {
   color: white;
   font-size: 25px;
 }
+.blackSection span {
+  color: #ff891e;
+}
 .blackSectionGradient {
 background-color: #000000;
 background-image: linear-gradient(187deg, #000000 40%, #7f8c8d 85%);

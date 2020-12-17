@@ -19,14 +19,15 @@ export default {
       '/post/3774327612395101908',
       '/post/5638534278643358515',
       '/post/6102359653929218092',
-      '/post/8870621897334720883'
+      '/post/8870621897334720883',
+      '/post/7631244907980995900'
     ]
   },
   loading: false, //'~/components/Loading.vue',
   env: {
     baseUrl:
       process.env.BASE_URL || 'https://yevana.com',
-      // process.env.BASE_URL || 'http://localhost:49491'
+      // process.env.BASE_URL || 'http://localhost:49491',
     blogId: '2009247855473385443', //'8090363088623260794',
     blogKey: ' AIzaSyAeWsSP2dhWi4R2UzbhoXVsh4k6MRdYbew',
   },

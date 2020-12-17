@@ -29,9 +29,7 @@
           <div class="col-xs-12">
             <div style="text-align: center">
               <h1>
-                <nuxt-link to="/alquiler-campers">ALQUILER</nuxt-link>
-                Y <nuxt-link to="/modelo/dokker">VENTA</nuxt-link>
-                DE FURGONETAS CAMPER EN MADRID
+                YEVANA CAMPER: <span>ALQUILER Y VENTA</span>
               </h1>
             </div>
           </div>
@@ -45,25 +43,19 @@
             <div class="col-xs-12">
               <div class="sectionTitle" >
                 <h2>
-                  <span>PRUEBA NUESTRAS CAMPERS MÁS EXCLUSIVAS</span>
+                  <span>PRUEBA NUESTRAS FURGONETAS CAMPERS MÁS EXCLUSIVAS</span>
                 </h2>
                 <div>
-                  Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores
-                  furgonetas camperizadas de Madrid. Somos especialistas en
-                  diseño, fabricación, alquiler y venta de furgonetas camper.
-                  Nuestro equipo de ingenieros y artesanos llevan años diseñando
-                  las mejores experiencias camper para hacer de tu vida un
-                  continuo viaje. Somos camperizadores profesionales y
-                  disponemos de modelos camper de serie.
+                  Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores furgonetas camper de Madrid. Somos especialistas en diseño, fabricación, camperización, alquiler y venta de furgonetas camper. Nuestro equipo de ingenieros y artesanos llevan años diseñando las mejores experiencias camper para hacer de tu vida un continuo viaje. Somos camperizadores profesionales y disponemos de modelos camper de serie.
                   <nuxt-link to="/modelo/dokker">¡Descúbrelos!</nuxt-link>
                 </div>
               </div>
             </div>
           </div>
-          <VehiclesGrid :staticData="true" v-if="vehiclesGridVisible" />
+          <VehiclesGrid :staticData="false" v-if="vehiclesGridVisible" />
         </div>
       </section>
-      <ServicesItems />
+      <!-- <ServicesItems /> -->
     </div>
     <section
       v-if="!$device.isMobile"
@@ -160,13 +152,13 @@ export default {
   },
   head: {
     title:
-      "YEVANA | Alquiler, camperización y venta de furgonetas camper en Madrid",
+      "YEVANA CAMPER | Alquiler, camperización y venta.",
     meta: [
       {
         hid: "description-home",
         name: "description",
         content:
-          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las camperizaciones más económicas del mercado. ¡Descubre nuestros modelos de autocaravanas y mini camper de serie!",
+          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las furgonetas camperizadas más económicas del mercado.",
       },
     ],
   },
