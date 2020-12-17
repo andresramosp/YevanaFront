@@ -15,8 +15,10 @@
           <div class="media text-center">
             <a href="#"
               ><img
+                class="lazyload"
                 width="120"
-                :src="require('~/assets/home/services/energia-verde.png')"
+                alt="energia verde"
+                :data-src="require('~/assets/home/services/energia-verde.png')"
               />
             </a>
             <div class="media-body">
@@ -32,13 +34,16 @@
         <div class="col-sm-3 col-xs-12">
           <div class="media text-center">
             <img
-                width="120"
-                :src="require('~/assets/home/services/atencion.png')"
-              />
+              class="lazyload"
+              width="120"
+              alt="atencion 24h"
+              :data-src="require('~/assets/home/services/atencion.png')"
+            />
             <div class="media-body">
               <h4 class="media-heading">Atención 24 horas</h4>
               <p>
-                Atención 24 horas: Alquila tu furgoneta camper y viaja con total tranquilidad. Trato personalizado las 24 horas al día.
+                Atención 24 horas: Alquila tu furgoneta camper y viaja con total
+                tranquilidad. Trato personalizado las 24 horas al día.
               </p>
             </div>
           </div>
@@ -47,14 +52,17 @@
           <div class="media text-center">
             <a href="#"
               ><img
+                class="lazyload"
                 width="120"
-                :src="require('~/assets/home/services/mascotas.png')"
+                alt="mascotas permitidas"
+                :data-src="require('~/assets/home/services/mascotas.png')"
               />
             </a>
             <div class="media-body text-center">
               <h4 class="media-heading">Pet Friendly</h4>
               <p>
-                ¿Perro, gato, rana? Sí.. tu mascota también puede viajar en la camper contigo, y totalmente GRATIS.
+                ¿Perro o gato? Sí... tu mascota también puede viajar en la
+                camper contigo, y totalmente GRATIS.
               </p>
             </div>
           </div>
@@ -63,14 +71,17 @@
           <div class="media text-center">
             <a href="#"
               ><img
+                class="lazyload"
                 width="120"
-                :src="require('~/assets/home/services/limpieza.png')"
+                alt="limpieza ozono"
+                :data-src="require('~/assets/home/services/limpieza.png')"
               />
             </a>
             <div class="media-body">
               <h4 class="media-heading">Limpieza con Ozono</h4>
               <p>
-                Todas nuestras furgonetas son desinfectadas con ozono. Elimina malos olores, bacterías, virus y hongos.
+                Todas nuestras furgonetas son desinfectadas con ozono. Elimina
+                malos olores, bacterías, virus y hongos.
               </p>
             </div>
           </div>
@@ -81,14 +92,17 @@
           <div class="media text-center">
             <a href="#"
               ><img
+                class="lazyload"
                 width="120"
-                :src="require('~/assets/home/services/camper-van.png')"
+                alt="ventajas"
+                :data-src="require('~/assets/home/services/camper-van.png')"
               />
             </a>
             <div class="media-body">
               <h4 class="media-heading">Ventajas</h4>
               <p>
-                Prueba tu camper alquilando con nosotros y te descontamos el importe de tu alquiler del precio de venta.
+                Prueba tu camper alquilando con nosotros y te descontamos el
+                importe de tu alquiler del precio de venta.
               </p>
             </div>
           </div>
@@ -97,14 +111,17 @@
           <div class="media text-center">
             <a href="#"
               ><img
+                class="lazyload"
                 width="120"
-                :src="require('~/assets/home/services/prototipo.png')"
+                alt="diseño e ingenieria"
+                :data-src="require('~/assets/home/services/prototipo.png')"
               />
             </a>
             <div class="media-body">
               <h4 class="media-heading">Engineering Van Art</h4>
               <p>
-                Fusionamos ingeniería y arte para ofrecerte las mejores camper del mercado. Echas a mano con los materiales más vanguardistas.
+                Fusionamos ingeniería y arte para ofrecerte las mejores camper
+                del mercado. Echas a mano con los materiales más vanguardistas.
               </p>
             </div>
           </div>
@@ -114,13 +131,18 @@
             <a href="#"
               ><img
                 width="120"
-                :src="require('~/assets/home/services/control-de-calidad.png')"
+                class="lazyload"
+                alt="garantía de yevana"
+                :data-src="
+                  require('~/assets/home/services/control-de-calidad.png')
+                "
               />
             </a>
             <div class="media-body">
               <h4 class="media-heading">Garantía Yevana</h4>
               <p>
-                Furgonetas totalmente equipadas con materiales de calidad. Además ofrecemos garantía post venta de 1 año.
+                Furgonetas totalmente equipadas con materiales de calidad.
+                Además ofrecemos garantía post venta de 1 año.
               </p>
             </div>
           </div>
@@ -130,13 +152,16 @@
             <a href="#"
               ><img
                 width="120"
-                :src="require('~/assets/home/services/recomendacion.png')"
+                class="lazyload"
+                alt="tratamiento personalizado"
+                :data-src="require('~/assets/home/services/recomendacion.png')"
               />
             </a>
             <div class="media-body">
               <h4 class="media-heading">Tratamiento Personalizado</h4>
               <p>
-                Estudiamos el modelo que mejor se adapta a tus necesidades, te asesoramos y te acompañamos durante todo el proceso.
+                Estudiamos el modelo que mejor se adapta a tus necesidades, te
+                asesoramos y te acompañamos durante todo el proceso.
               </p>
             </div>
           </div>
