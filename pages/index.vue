@@ -55,7 +55,7 @@
           <VehiclesGrid :staticData="false" v-if="vehiclesGridVisible" />
         </div>
       </section>
-      <!-- <ServicesItems /> -->
+      <ServicesItems />
     </div>
     <section
       v-if="!$device.isMobile"

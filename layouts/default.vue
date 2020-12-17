@@ -7,7 +7,7 @@
       :activePage="State.activePage"
     />
     <nuxt />
-    <Footer v-show="State.footerVisible" />
+    <!-- <Footer v-show="State.footerVisible" /> -->
   </div>
 </template>
 <script>

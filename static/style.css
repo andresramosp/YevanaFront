@@ -2839,7 +2839,7 @@ header {
 
 .mainContentSection, .whiteSection, .lightSection {
   width: 100%;
-  padding: 35px 0 15px 0;
+  padding: 35px 0 25px 0;
   background-color: #ffffff;
   display: block;
 }
@@ -6450,14 +6450,14 @@ header {
 }
 
 .aboutItem .media {
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 .aboutItem .media .media-left {
   width: 100px;
   height: 100px;
   border-radius: 20px;
-  background-color: #333;
+  /* background-color: #333; */
   padding-right: 0;
   margin-right: 20px;
   text-align: center;
@@ -6470,14 +6470,14 @@ header {
 }
 
 .aboutItem .media .media-body h4 {
-  text-align: left;
+  text-align: center;
   color: #222222;
   margin-bottom: 13px;
   text-transform: capitalize;
 }
 
 .aboutItem .media .media-body p {
-  text-align: left;
+  text-align: center;
 }
 
 /*=== 11.2 ABOUT COMMENTS ===*/

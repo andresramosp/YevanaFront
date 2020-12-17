@@ -11,88 +11,132 @@
         </div>
       </div>
       <div class="row aboutItem" style="margin-top: 15px">
-        <div class="col-sm-4 col-xs-12">
-          <div class="media">
-            <a class="media-left" href="#"
-              ><i class="fa fa-bell" aria-hidden="true"></i
-            ></a>
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <a href="#"
+              ><img
+                width="120"
+                :src="require('~/assets/home/services/energia-verde.png')"
+              />
+            </a>
             <div class="media-body">
-              <h4 class="media-heading">Donec Vel Libero</h4>
+              <h4 class="media-heading">Vehículos Sostenibles</h4>
               <p>
-                Vestibulum ut lacus non lorem pharetra efficitur. Nunc nibh
-                elit, consectetur quis dapibu.
+                Vehículos sostenibles: Alimentados por energía verde mediante
+                placa solar. Autónomos. Usamos tapicería de cuero sintético “sin
+                sufrimiento animal”
               </p>
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-xs-12">
-          <div class="media">
-            <a class="media-left" href="#"
-              ><i class="fa fa-briefcase" style="color: deepskyblue" aria-hidden="true"></i
-            ></a>
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <img
+                width="120"
+                :src="require('~/assets/home/services/atencion.png')"
+              />
             <div class="media-body">
-              <h4 class="media-heading">Vivamus Laoreet</h4>
+              <h4 class="media-heading">Atención 24 horas</h4>
               <p>
-                Aenean dictum dui quis interdum volutpat. Integer in magna sit
-                amet efficitur nec.
+                Atención 24 horas: Alquila tu furgoneta camper y viaja con total tranquilidad. Trato personalizado las 24 horas al día.
               </p>
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-xs-12">
-          <div class="media">
-            <a class="media-left" href="#"
-              ><i class="fa fa-cab" style="color: green" aria-hidden="true"></i
-            ></a>
-            <div class="media-body">
-              <h4 class="media-heading">Ullamcorper Congue</h4>
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <a href="#"
+              ><img
+                width="120"
+                :src="require('~/assets/home/services/mascotas.png')"
+              />
+            </a>
+            <div class="media-body text-center">
+              <h4 class="media-heading">Pet Friendly</h4>
               <p>
-                Etiam posuere lorem ac pharetra laoreet. Nam magna mi, eleifend
-                ac vulputate ac.
+                ¿Perro, gato, rana? Sí.. tu mascota también puede viajar en la camper contigo, y totalmente GRATIS.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <a href="#"
+              ><img
+                width="120"
+                :src="require('~/assets/home/services/limpieza.png')"
+              />
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Limpieza con Ozono</h4>
+              <p>
+                Todas nuestras furgonetas son desinfectadas con ozono. Elimina malos olores, bacterías, virus y hongos.
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="row aboutItem" >
-        <div class="col-sm-4 col-xs-12">
-          <div class="media">
-            <a class="media-left" href="#"
-              ><i class="fa fa-camera" style="color: yellow" aria-hidden="true"></i
-            ></a>
+      <div class="row aboutItem">
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <a href="#"
+              ><img
+                width="120"
+                :src="require('~/assets/home/services/camper-van.png')"
+              />
+            </a>
             <div class="media-body">
-              <h4 class="media-heading">Proin Libero Erat</h4>
+              <h4 class="media-heading">Ventajas</h4>
               <p>
-                Nunc eget sem ac lectus auctor viverra. Praesent sollicitudin
-                leo velit sed, semper diam.
+                Prueba tu camper alquilando con nosotros y te descontamos el importe de tu alquiler del precio de venta.
               </p>
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-xs-12">
-          <div class="media">
-            <a class="media-left" href="#"
-              ><i class="fa fa-cloud" style="color: pink" aria-hidden="true"></i
-            ></a>
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <a href="#"
+              ><img
+                width="120"
+                :src="require('~/assets/home/services/prototipo.png')"
+              />
+            </a>
             <div class="media-body">
-              <h4 class="media-heading">Amaiging Tour</h4>
+              <h4 class="media-heading">Engineering Van Art</h4>
               <p>
-                Nulla molestie leo vitae convallis sollicitudin. Nulla volutpat
-                dapibus at pellentesque sem.
+                Fusionamos ingeniería y arte para ofrecerte las mejores camper del mercado. Echas a mano con los materiales más vanguardistas.
               </p>
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-xs-12">
-          <div class="media">
-            <a class="media-left" href="#"
-              ><i class="fa fa-cutlery" aria-hidden="true"></i
-            ></a>
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <a href="#"
+              ><img
+                width="120"
+                :src="require('~/assets/home/services/control-de-calidad.png')"
+              />
+            </a>
             <div class="media-body">
-              <h4 class="media-heading">Cras Vestibulum</h4>
+              <h4 class="media-heading">Garantía Yevana</h4>
               <p>
-                Aenean gravida, nisl et volutpat dapibus, nisl odio accumsan
-                pretium lacus libero a lacus.
+                Furgonetas totalmente equipadas con materiales de calidad. Además ofrecemos garantía post venta de 1 año.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+          <div class="media text-center">
+            <a href="#"
+              ><img
+                width="120"
+                :src="require('~/assets/home/services/recomendacion.png')"
+              />
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Tratamiento Personalizado</h4>
+              <p>
+                Estudiamos el modelo que mejor se adapta a tus necesidades, te asesoramos y te acompañamos durante todo el proceso.
               </p>
             </div>
           </div>
@@ -104,3 +148,8 @@
 <script>
 export default {};
 </script>
+<style scoped>
+.media-body {
+  padding-top: 15px;
+}
+</style>
