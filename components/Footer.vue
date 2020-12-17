@@ -15,7 +15,7 @@
       </cookie-law>
     </no-ssr>
 
-    <div class="footer clearfix" style="font-size: 10px !important">
+    <div class="footer clearfix" style="font-size: 12px !important">
       <div class="container">
         <div class="row">
           <div class="col-sm-3 col-xs-12">
