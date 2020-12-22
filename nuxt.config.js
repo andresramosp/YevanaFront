@@ -36,7 +36,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'YEVANA | Alquiler, camperización y venta de furgonetas camper en Madrid.',
+    title: 'YEVANA CAMPER | Alquiler, camperización y venta.',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

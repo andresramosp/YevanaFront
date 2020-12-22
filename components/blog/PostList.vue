@@ -14,7 +14,7 @@
           <div>
             Echa un ojo a los últimos artículos de nuestro
             <nuxt-link :to="'/blog'" class="dropdown-toggle"
-              >Blog.</nuxt-link
+              >Blog de Furgonetas Camper.</nuxt-link
             >
             En él encontrarás noticias, consejos e información práctica sobre el mundo
             de las autocaravanas y las campers. 

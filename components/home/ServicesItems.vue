@@ -5,7 +5,7 @@
         <div class="col-xs-12">
           <div class="sectionTitle">
             <h2>
-              <span style="background-color: #f0f9f2">Lo que te ofrecemos</span>
+              <span style="background-color: #f0f9f2">TU CENTRO INTEGRAL DE CAMPERS EN MADRID</span>
             </h2>
           </div>
         </div>
@@ -22,11 +22,9 @@
               />
             </a>
             <div class="media-body">
-              <h4 class="media-heading">Vehículos Sostenibles</h4>
+              <h4 class="media-heading">Campers Sostenibles</h4>
               <p>
-                Vehículos sostenibles: Alimentados por energía verde mediante
-                placa solar. Autónomos. Usamos tapicería de cuero sintético “sin
-                sufrimiento animal”
+                Alimentadas por energía verde mediante placa solar. Autónomas. Usamos tapicería de cuero sintético “sin sufrimiento animal”
               </p>
             </div>
           </div>
@@ -87,7 +85,7 @@
           </div>
         </div>
       </div>
-      <div class="row aboutItem">
+      <div class="row aboutItem" :style="`margin-top: ${!$device.isMobile ? 15 : 0}px`">
         <div class="col-sm-3 col-xs-12">
           <div class="media text-center">
             <a href="#"
@@ -141,8 +139,7 @@
             <div class="media-body">
               <h4 class="media-heading">Garantía Yevana</h4>
               <p>
-                Furgonetas totalmente equipadas con materiales de calidad.
-                Además ofrecemos garantía post venta de 1 año.
+                Furgonetas camper totalmente equipadas con materiales de calidad. Además ofrecemos garantía post venta de 1 año.
               </p>
             </div>
           </div>
@@ -160,8 +157,7 @@
             <div class="media-body">
               <h4 class="media-heading">Tratamiento Personalizado</h4>
               <p>
-                Estudiamos el modelo que mejor se adapta a tus necesidades, te
-                asesoramos y te acompañamos durante todo el proceso.
+                Estudiamos la camper que mejor se adapta a tus necesidades, te asesoramos y te acompañamos durante todo el proceso.
               </p>
             </div>
           </div>

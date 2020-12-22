@@ -46,8 +46,8 @@
                   <span>PRUEBA NUESTRAS FURGONETAS CAMPERS MÁS EXCLUSIVAS</span>
                 </h2>
                 <div>
-                  Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores furgonetas camper de Madrid. Somos especialistas en diseño, fabricación, camperización, alquiler y venta de furgonetas camper. Nuestro equipo de ingenieros y artesanos llevan años diseñando las mejores experiencias camper para hacer de tu vida un continuo viaje. Somos camperizadores profesionales y disponemos de modelos camper de serie.
-                  <nuxt-link to="/modelo/dokker">¡Descúbrelos!</nuxt-link>
+                  Bienvenido a Yevana Camper. Aquí podrás descubrir las mejores furgonetas camper de Madrid. Somos especialistas en diseño, fabricación, camperización, alquiler y venta de furgonetas camper. Nuestro equipo de ingenieros lleva años diseñando las mejores experiencias camper para hacer de tu vida un continuo viaje. Somos camperizadores profesionales y disponemos de modelos camper de serie.
+                  <nuxt-link to="/modelo/dokker">Descubre nuestra camper Dacia Dokker</nuxt-link>
                 </div>
               </div>
             </div>
@@ -69,11 +69,11 @@
               <div class="promotionTableInner">
                 <div class="promotionInfo">
                   <h2 style="color: #ffffffb5; margin: 0px">
-                    Engineering Van Art
+                    Engineering CamperVan Art
                   </h2>
                   <span
                     >Descubre la perfecta aleación de ingeniería y arte plasmada
-                    en una furgoneta camper</span
+                    en una CamperVan</span
                   >
                   <br />
                   <br />

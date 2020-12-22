@@ -95,7 +95,7 @@ ul li {
 
 p {
   font-size: 14px;
-  color: #969696;
+  color: #777;
   font-weight: 400;
   line-height: 20px;
 }
@@ -6449,8 +6449,12 @@ header {
   text-align: center;
 }
 
-.aboutItem .media {
+.desktop .aboutItem .media {
   margin-bottom: 0px;
+}
+
+.mobile .aboutItem .media {
+  margin-bottom: 20px;
 }
 
 .aboutItem .media .media-left {
@@ -6472,8 +6476,15 @@ header {
 .aboutItem .media .media-body h4 {
   text-align: center;
   color: #222222;
-  margin-bottom: 13px;
   text-transform: capitalize;
+}
+
+.desktop .aboutItem .media .media-body h4 {
+  margin-bottom: 13px;
+}
+
+.mobile .aboutItem .media .media-body h4 {
+  margin-bottom: 5px;
 }
 
 .aboutItem .media .media-body p {

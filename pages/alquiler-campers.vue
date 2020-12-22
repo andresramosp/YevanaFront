@@ -2,8 +2,8 @@
   <div>
     <TopImageBar 
       image="tapiceria" 
-      title="Alquila una de nuestras Campers" 
-      text="Todas nuestras Camper cuentan con nuevas experiencias de serie. <br /> Visítanos en nuestro taller de Madrid." 
+      title="ALQUILER DE FURGONETAS CAMPER EN MADRID" 
+      text="TODAS NUESTRAS CAMPER CUENTAN CON NUEVAS EXPERIENCIAS DE SERIE. <br /> VISÍTANOS EN NUETRAS INSTALACIONES DE MADRID." 
     />
      <VehiclesList 
       v-if="vehicles.length > 0" 
@@ -51,13 +51,13 @@ export default {
   head() {
     return {
       title:
-        "YEVANA | Alquiler furgonetas Camper en Madrid",
+        "Alquiler de furgonetas camper en Madrid | YEVANA",
       meta: [
         {
           hid: "description-alquileres",
           name: "description",
           content:
-            "Alquiler de furgonetas Camper en Madrid. Vive una experiencia única. ✅ Reserva online tus vacaciones. Seguro a todo riesgo. ¡Asesoramiento en tu escapada!"
+            "Alquiler de furgonetas camper en Madrid ✅ Mejores Precios desde 70€ ✅ Reserva online tu campervan ✅ Seguro a todo riesgo. ¡Alquila tu furgoneta camperizada!"
         }
       ]
     };
