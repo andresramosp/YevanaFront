@@ -119,7 +119,7 @@
               <h4 class="media-heading">Engineering Van Art</h4>
               <p>
                 Fusionamos ingeniería y arte para ofrecerte las mejores camper
-                del mercado. Echas a mano con los materiales más vanguardistas.
+                del mercado. Hechas a mano con los materiales más vanguardistas.
               </p>
             </div>
           </div>

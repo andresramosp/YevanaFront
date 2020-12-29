@@ -38,7 +38,7 @@
                 <h4>
                   <a
                     href="javascript:void(0)"
-                    @click="goToPost(post.id)"
+                    @click="goToPost(BlogService.getPathFromPost(post))"
                     class="blogTitle"
                     >{{ post.title }}</a
                   >
@@ -60,7 +60,7 @@
                   >Seguir Leyendo</a
                 > -->
                    <nuxt-link 
-                    :to="`/post/${post.id}`" 
+                    :to="`/post/${BlogService.getPathFromPost(post)}`" 
                     class="btn buttonTransparent btn-orange-solid">
                     Seguir Leyendo
                   </nuxt-link>
@@ -84,6 +84,7 @@ export default {
   data() {
     return {
       posts: [],
+      BlogService
     };
   },
   props: ["preview"],

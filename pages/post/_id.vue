@@ -59,7 +59,7 @@ export default {
   },
   async asyncData({ params }) {
     return {
-      post: await BlogService.getPost(params.id)
+      post: await BlogService.getPostByPath(params.id) || await BlogService.getPostById(params.id)
     };
   },
   created() {
