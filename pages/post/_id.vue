@@ -1,5 +1,6 @@
 <template>
   <div>
+    <script src="https://apps.elfsight.com/p/platform.js"></script>
     <TopImageBar image="carretera" />
     <section class="mainContentSection blogSidebar">
       <div class="container">
