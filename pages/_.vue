@@ -18,13 +18,12 @@ export default {
   components: {
     TopImageBar,
   },
-  data() {
+  async asyncData() {
     return {
-      landing: null,
+      landing: await BlogService.getLandingPostByCurrentPath($nuxt.$route.path),
     };
   },
   created() {
-    this.getLanding();
     State.menuOpen = false;
     State.activePage = null;
     State.menuOpaque = true;
@@ -32,28 +31,29 @@ export default {
     State.menuVisible = true;
   },
   methods: {
-    async getLanding() {
-      let parts = $nuxt.$route.path
-        .split("/")
-        .filter((part) => part.length > 0);
-      let path = parts[parts.length - 1];
-      if (path != "")
-        this.landing = await BlogService.getLandingPostByPartialPath(path);
+    getSnippetFromLanding(landing) {
+      const parser = new DOMParser();
+      const html = parser.parseFromString(landing.content, "text/html");
+      const descEle = html.querySelector("#meta-desc");
+      const titleEle = html.querySelector("#meta-title");
+      return {
+        desc: descEle ? descEle.value : 'YEVANA CAMPER | Alquiler, camperización y venta.',
+        title: titleEle ? titleEle.value : 'YEVANA CAMPER | Alquiler, camperización y venta.',
+      };
     },
   },
-  // head() {
-  //   return {
-  //     title: `${this.post.title} | Blog de Yevana Camper`,
-  //     meta: [
-  //       {
-  //         hid: "description-furgo",
-  //         name: "description",
-  //         content:
-  //           this.getPreviewTextFromPost(this.post)
-  //       }
-  //     ]
-  //   };
-  // }
+  head() {
+    return {
+      title: `${this.getSnippetFromLanding(this.landing).title}`,
+      meta: [
+        {
+          hid: "description-landing",
+          name: "description",
+          content: this.getSnippetFromLanding(this.landing).desc,
+        },
+      ],
+    };
+  },
 };
 </script>
 

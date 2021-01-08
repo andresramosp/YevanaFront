@@ -6,11 +6,11 @@ const BlogService = {
             url: `https://www.googleapis.com/blogger/v3/blogs/${process.env.blogId}/posts/?key=${process.env.blogKey}&maxResults=500`,
             method: 'GET',
         })
-        .then((data) => {
-            return data.data.items;
-        })
-        .catch(function (error) {
-        })
+            .then((data) => {
+                return data.data.items;
+            })
+            .catch(function (error) {
+            })
     },
 
     getPostById(postId) {
@@ -18,11 +18,11 @@ const BlogService = {
             url: `https://www.googleapis.com/blogger/v3/blogs/${process.env.blogId}/posts/${postId}?key=${process.env.blogKey}`,
             method: 'GET',
         })
-        .then((data) => {
-            return data.data;
-        })
-        .catch(function (error) {
-        })
+            .then((data) => {
+                return data.data;
+            })
+            .catch(function (error) {
+            })
     },
 
     getPostByPath(fullPath) {
@@ -35,38 +35,41 @@ const BlogService = {
             url: `https://www.googleapis.com/blogger/v3/blogs/${process.env.blogId}/posts/bypath?path=${path}&key=${process.env.blogKey}`,
             method: 'GET',
         })
-        .then((data) => {
-            return data.data;
-        })
-        .catch(function (error) {
-            return null;
-        })
+            .then((data) => {
+                return data.data;
+            })
+            .catch(function (error) {
+                return null;
+            })
     },
 
-    getLandingPostByPartialPath(partialPath) {
+    getLandingPostByCurrentPath(currentPath) {
+        let parts = currentPath
+            .split("/")
+            .filter((part) => part.length > 0);
+        let partialPath = parts[parts.length - 1];
         return axios({
             url: `https://www.googleapis.com/blogger/v3/blogs/${process.env.landingBlogId}/posts/?key=${process.env.blogKey}&maxResults=500`,
             method: 'GET',
         })
-        .then((data) => {
-            debugger
-            return data.data.items.find(post => post.url.indexOf(partialPath) != -1);
-        })
-        .catch(function (error) {
-            return null;
-        })
+            .then((data) => {
+                return data.data.items.find(post => post.url.indexOf(partialPath) != -1);
+            })
+            .catch(function (error) {
+                return null;
+            })
     },
 
     getPathFromPost(post) {
         return post.url.replace('http://yevanacamper.blogspot.com/', '')
-        .replaceAll('/', '-')
-        .replace('.html', '');
-      }, 
+            .replaceAll('/', '-')
+            .replace('.html', '');
+    },
 
     getPathFromLandingPost(post) {
         let parts = post.url.split('/');
-        return parts[parts.length -1].replace('.html', '');
-      }, 
+        return parts[parts.length - 1].replace('.html', '');
+    },
 }
 
 
