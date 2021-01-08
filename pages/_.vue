@@ -1,10 +1,10 @@
 <template>
   <div>
-     <section class="mainContentSection blogSidebar">
+    <section class="mainContentSection blogSidebar">
       <div class="container">
-         <span v-if="landing" v-html="landing.content" />
+        <span v-if="landing" v-html="landing.content" />
       </div>
-     </section>
+    </section>
   </div>
 </template>
 
@@ -16,11 +16,11 @@ import TopImageBar from "~/components/TopImageBar.vue";
 import BlogService from "~/services/blogService";
 export default {
   components: {
-    TopImageBar
+    TopImageBar,
   },
   data() {
     return {
-      landing: null
+      landing: null,
     };
   },
   created() {
@@ -33,10 +33,13 @@ export default {
   },
   methods: {
     async getLanding() {
-      let parts = $nuxt.$route.path.split('/');
+      let parts = $nuxt.$route.path
+        .split("/")
+        .filter((part) => part.length > 0);
       let path = parts[parts.length - 1];
-      this.landing = await BlogService.getLandingPostByPartialPath(path);
-    }
+      if (path != "")
+        this.landing = await BlogService.getLandingPostByPartialPath(path);
+    },
   },
   // head() {
   //   return {
