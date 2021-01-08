@@ -4,6 +4,7 @@ import BlogService from "./services/blogService";
 import axios from 'axios'
 
 let blogId = '2009247855473385443';
+let landingBlogId = '5489189156333297988';
 let blogKey = ' AIzaSyAeWsSP2dhWi4R2UzbhoXVsh4k6MRdYbew';
 
 String.prototype.replaceAll = function (search, replacement) {
@@ -16,7 +17,7 @@ export default {
   //   mode: 'hash'
   // },
   generate: {
-    routes() {
+    async routes() {
       let webRoutes = [
         '/furgoneta-camper/EM',
         '/furgoneta-camper/RD',
@@ -33,42 +34,31 @@ export default {
         '/post/5638534278643358515',
         '/post/6102359653929218092',
         '/post/8870621897334720883',
-        '/post/7631244907980995900'
+        '/post/7631244907980995900',
       ]
-      return axios.get(`https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts/?key=${blogKey}`)
-      .then(res => {
-        let blogRoutes = res.data.items.map(post => {
-          return '/post/' + BlogService.getPathFromPost(post)
-        });
-      return webRoutes.concat(blogRoutes);
-      })
+      // Rutas del blog
+      let resBlog = await axios.get(`https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts/?key=${blogKey}&maxResults=500`);
+      let blogRoutes = resBlog.data.items.map(post => {
+        return '/post/' + BlogService.getPathFromPost(post)
+      });
+      webRoutes = webRoutes.concat(blogRoutes);
+      // Rutas de las landing page
+      let resLanding = await axios.get(`https://www.googleapis.com/blogger/v3/blogs/${landingBlogId}/posts/?key=${blogKey}&maxResults=500`);
+      let landingRoutes = resLanding.data.items.map(post => {
+        return post.labels[0] + '/' + BlogService.getPathFromLandingPost(post)
+      });
+      webRoutes = webRoutes.concat(landingRoutes);
+      return webRoutes;
     },
-    // routes: [
-    //   '/furgoneta-camper/EM',
-    //   '/furgoneta-camper/RD',
-    //   '/furgoneta-camper/BL',
-    //   '/modelo/dokker',
-    //   '/post/4381080862445630100',
-    //   '/post/3519479694605154648',
-    //   '/post/7987496031410243081',
-    //   '/post/7133907318056571291',
-    //   '/post/1352079496290084635',
-    //   '/post/8002161982124026134',
-    //   '/post/9072674918793369935',
-    //   '/post/3774327612395101908',
-    //   '/post/5638534278643358515',
-    //   '/post/6102359653929218092',
-    //   '/post/8870621897334720883',
-    //   '/post/7631244907980995900'
-    // ]
   },
   loading: false, //'~/components/Loading.vue',
   env: {
     baseUrl:
       process.env.BASE_URL || 'https://yevana.com',
     // process.env.BASE_URL || 'http://localhost:49491',
-    blogId: blogId, //'8090363088623260794',
+    blogId: blogId,
     blogKey: blogKey,
+    landingBlogId: landingBlogId,
   },
   mode: 'spa',
   /*

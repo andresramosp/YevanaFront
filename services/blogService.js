@@ -3,7 +3,7 @@ import axios from 'axios'
 const BlogService = {
     getPosts() {
         return axios({
-            url: `https://www.googleapis.com/blogger/v3/blogs/${process.env.blogId}/posts/?key=${process.env.blogKey}`,
+            url: `https://www.googleapis.com/blogger/v3/blogs/${process.env.blogId}/posts/?key=${process.env.blogKey}&maxResults=500`,
             method: 'GET',
         })
         .then((data) => {
@@ -39,7 +39,20 @@ const BlogService = {
             return data.data;
         })
         .catch(function (error) {
+            return null;
+        })
+    },
+
+    getLandingPostByPartialPath(partialPath) {
+        return axios({
+            url: `https://www.googleapis.com/blogger/v3/blogs/${process.env.landingBlogId}/posts/?key=${process.env.blogKey}&maxResults=500`,
+            method: 'GET',
+        })
+        .then((data) => {
             debugger
+            return data.data.items.find(post => post.url.indexOf(partialPath) != -1);
+        })
+        .catch(function (error) {
             return null;
         })
     },
@@ -48,6 +61,11 @@ const BlogService = {
         return post.url.replace('http://yevanacamper.blogspot.com/', '')
         .replaceAll('/', '-')
         .replace('.html', '');
+      }, 
+
+    getPathFromLandingPost(post) {
+        let parts = post.url.split('/');
+        return parts[parts.length -1];
       }, 
 }
 
