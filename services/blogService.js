@@ -65,7 +65,7 @@ const BlogService = {
 
     getPathFromLandingPost(post) {
         let parts = post.url.split('/');
-        return parts[parts.length -1];
+        return parts[parts.length -1].replace('.html', '');
       }, 
 }
 

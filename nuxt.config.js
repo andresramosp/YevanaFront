@@ -45,7 +45,7 @@ export default {
       // Rutas de las landing page
       let resLanding = await axios.get(`https://www.googleapis.com/blogger/v3/blogs/${landingBlogId}/posts/?key=${blogKey}&maxResults=500`);
       let landingRoutes = resLanding.data.items.map(post => {
-        return post.labels[0] + '/' + BlogService.getPathFromLandingPost(post)
+        return (post.labels ? post.labels[0] : '') + '/' + BlogService.getPathFromLandingPost(post)
       });
       webRoutes = webRoutes.concat(landingRoutes);
       return webRoutes;
