@@ -1,5 +1,6 @@
 <template>
   <div>
+    <script src="https://apps.elfsight.com/p/platform.js"></script>
     <section class="mainContentSection blogSidebar">
       <div class="container">
         <span v-if="landing" v-html="landing.content" />
