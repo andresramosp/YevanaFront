@@ -31,7 +31,7 @@ export default {
   head() {
     return {
       title:
-        "YEVANA | Alquiler furgonetas Camper en Madrid",
+        `Furgoneta camper de alquiler | ${this.vehicle.Nombre}`,
       meta: [
         {
           hid: "description-furgo",

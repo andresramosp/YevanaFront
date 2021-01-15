@@ -158,7 +158,7 @@ export default {
         hid: "description-home",
         name: "description",
         content:
-          "Diseño, camperización, alquiler y venta de furgonetas camper en Madrid. Camperizadores profesionales. Las furgonetas camperizadas más económicas del mercado.",
+          "Furgonetas campers exclusivas en Madrid ✅ Diseño y camperización ✅ Las furgonetas camperizadas más económicas ✅ Mejores Precios ✅ Campervan ✅",
       },
     ],
   },
