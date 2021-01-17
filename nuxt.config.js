@@ -97,7 +97,7 @@ export default {
       { rel: 'stylesheet', href: '/colors/default.css', id: 'option_color', body: true },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Abel&family=Lato:wght@100&family=Rajdhani:wght@500&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap'
       }
     ]
   },
