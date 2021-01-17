@@ -95,6 +95,10 @@ export default {
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.4/css/swipebox.min.css', body: true },
       { rel: 'stylesheet', href: '/style.css', body: true },
       { rel: 'stylesheet', href: '/colors/default.css', id: 'option_color', body: true },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Abel&family=Lato:wght@100&family=Rajdhani:wght@500&display=swap'
+      }
     ]
   },
   /*

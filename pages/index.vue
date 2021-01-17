@@ -84,11 +84,11 @@
         </div>
       </div>
     </section>
-    <YevanaSeparator v-else />
+    <!-- <YevanaSeparator v-else /> -->
     <section>
       <PostList :preview="true" />
     </section>
-    <YevanaSeparator />
+    <!-- <YevanaSeparator /> -->
     <div class="loadWithScroll" percentVisible="-500" id="customerComments">
       <section class="whiteSection">
         <div class="container">

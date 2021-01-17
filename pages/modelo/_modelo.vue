@@ -344,7 +344,7 @@ img {
 .preview-item__content p {
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 22px;
   width: 80%;
   max-width: 100%;
@@ -391,7 +391,7 @@ img {
   }
 
   .preview-item__content p {
-    font-size: 13px;
+    font-size: 15px;
     width: 100%;
     line-height: 20px;
   }

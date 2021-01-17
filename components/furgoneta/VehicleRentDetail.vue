@@ -140,7 +140,7 @@ export default {
 }
 #vehicle-desc {
   text-align: justify;
-  font-size: 14.5px;
+  font-size: 15px;
   line-height: 22px;
   color: #777;
 }
