@@ -71,8 +71,13 @@
                 como en casa!
               </li>
               <br />
-              <div style="text-align: center; margin: 15px" :class="`${$device.isMobile ? 'video-responsive': ''}`">
+              <div 
+              class="loadWithScroll" 
+              percentVisible="5" id="videoYoutube"
+              style="text-align: center; margin: 15px" 
+              :class="`${$device.isMobile ? 'video-responsive': ''}`">
                 <iframe
+                  v-if="videoYoutubeVisible"
                   width="560"
                   height="315"
                   src="https://www.youtube.com/embed/AKyTV9y1Wug"
@@ -166,11 +171,13 @@ import VehiclesList from "~/components/alquileres/VehiclesList.vue";
 import TopImageBar from "~/components/TopImageBar.vue";
 import State from "~/services/state";
 import VehicleService from "~/services/vehicleService";
+import homeMixins from "~/mixins/homeMixin";
 export default {
   components: {
     VehiclesList,
     TopImageBar,
   },
+   mixins: [homeMixins],
   data() {
     return {
       vehicles: [],
@@ -180,6 +187,7 @@ export default {
     const result = await VehicleService.getAll();
     return {
       vehicles: result,
+      videoYoutubeVisible: false,
     };
   },
   created() {
