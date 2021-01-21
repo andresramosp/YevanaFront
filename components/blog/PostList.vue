@@ -36,12 +36,11 @@
               </a>
               <div class="media-body">
                 <h4>
-                  <a
-                    href="javascript:void(0)"
-                    @click="goToPost(BlogService.getPathFromPost(post))"
-                    class="blogTitle"
-                    >{{ post.title }}</a
-                  >
+                    <nuxt-link 
+                    :to="`/post/${BlogService.getPathFromPost(post)}`" 
+                    class="blogTitle">
+                    {{ post.title }}
+                  </nuxt-link>
                 </h4>
                 <ul class="list-inline blogInfo">
                   <li>
